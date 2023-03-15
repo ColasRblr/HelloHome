@@ -2,10 +2,10 @@
     "name": "utilisateur/brief7_immo",
     "autoload": {
         "psr-4": {
-            "Utilisateur\\Brief7Immo\\": "src/"
+            "MonProjet\\": "C:/MAMP/htdocs/POO_Immo"
         }
     },
-     "authors": [
+    "authors": [
         {
             "name": "Aude SEGUIN",
             "email": "seguin.aude08@gmail.com"
@@ -15,6 +15,6 @@
         "vlucas/phpdotenv": "^5.5"
     },
     "require-dev": {
-        "phpunit/phpunit": "^10.0"
+        "phpunit/phpunit": "^9.6"
     }
 }
