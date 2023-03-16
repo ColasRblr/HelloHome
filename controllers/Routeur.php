@@ -20,7 +20,6 @@ class Routeur
 
     public function routerRequete()
     {
-        echo 'salut';
         try {
             if (isset($_GET['action'])) {
                 if ($_GET['action'] == 'getOneProperty') {

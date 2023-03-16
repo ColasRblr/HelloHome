@@ -14,7 +14,6 @@ class PropertyController
 
     public function home()
     {
-        echo "je suis dans le property controller";
         // $properties = $this->property->getAllProperty();
         $properties = "hello";
         $view = new View("Home");
