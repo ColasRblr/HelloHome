@@ -78,3 +78,8 @@ CREATE TABLE apartment(
     PRIMARY KEY (id),
     FOREIGN KEY (id_property) REFERENCES property(id) ON DELETE CASCADE
 );
+
+INSERT INTO user (firstname, lastname, email, pwd, isAdmin) VALUES
+('Laurent', 'Dupont', 'l.dupont@yahoo.fr', '', true),
+('Simon', 'Berger', 's.berger@yahoo.fr', '', true),
+('Yasmine', 'Radouani', 'y.radouani@yahoo.fr', '', true);

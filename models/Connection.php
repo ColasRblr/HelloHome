@@ -9,7 +9,7 @@ $dotenv->load();
 // $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
 // $dotenv->load();
 
-class ConnectionModel
+class Connection
 {
 
     private $bdd;
