@@ -1,6 +1,6 @@
 <?php
 
-class Vue
+class View
 {
     private $fichier;
     private $titre;
