@@ -4,7 +4,102 @@
 <div id="landingPage">
     <div id="researchForm">
         <form action="../index.php" method="post">
-            <div>Contenu formulaire</div>
+
+        <!-- Buttons that trigger -->
+            <div id="rentOrSale">
+                <button id="rental">Louer</button>
+                <button id="sale">Acheter</button>
+            </div>
+            <!-- Property search form : general attributes for both sales and rentals, flats and houses -->
+            <div id="location">
+                <label for="location">Ville:</label>
+                <select name="location" id="location-select">
+                    <option value="nice">Nice</option>
+                    <option value="saint-jean">Saint-Jean-Cap-Ferrat</option>
+                    <option value="cagnes">Cagnes-sur-Mer</option>
+                </select>
+            </div>
+            <div id="property">
+                <label for="property">Type de bien </label>
+                <select name="location" id="location-select">
+                    <option value="flat">Appartement</option>
+                    <option value="house">Maison</option>
+                </select>
+            </div>
+            <div id="rooms">
+                <label for="rooms">Nombre de pièces:</label>
+                <input type="number" id="rooms" name="rooms"></input>
+            </div>
+            <div id="price">
+                <label for="area">Superficie (en m2)</label>
+                <input type="number" id="area" name="area"></input>
+            </div>
+
+            <button id="moreFilters">Plus de critères</button>
+            <!-- More detailed filters which will appear if user clicks on the upper button -->
+            <section id="generalFilters">
+                <div id="seaDistance">
+                    <label for="seaDistance">Distance de la mer (en km)</label>
+                    <input type="number" id="seaDistance" name="seaDistance"></input>
+                </div>
+                <div id="pool">
+                    <label for="pool">Piscine</label>
+                    <input type="checkbox" name="pool">
+                </div>
+                <div id="seaView">
+                    <label for="seaView">Vue sur mer</label>
+                    <input type="checkbox" name="seaView">
+                </div>
+            </section>
+
+            <!-- Two specific attributes if it's a rental-->
+            <section id="rentalFilters">
+                <div id="furnished">
+                    <label for="furnished">Meublé</label>
+                    <input type="checkbox" name="furnished">
+                </div>
+                <div id="rent">
+                    <label for="rent">Budget pour un loyer mensuel</label>
+                    <input type="number" id="rent" name="rent"></input>
+                </div>
+            </section>
+
+            <!-- One specific attribute if it's a sale-->
+            <section id="saleFilters">
+                <div>
+                    <label for="price">Budget</label>
+                    <input type="number" id="price" name="price"></input>
+                </div>
+            </section>
+
+            <!-- Specific attribute if it's a flat-->
+            <section id="flatFilters">
+                <div id="parking">
+                    <label for="parking">Parking</label>
+                    <input type="checkbox" name="parking">
+                </div>
+                <div id="elevator">
+                    <label for="elevator">Ascenseur</label>
+                    <input type="checkbox" name="elevator">
+                </div>
+                <div id="caretaking">
+                    <label for="caretaking">Gardiennage</label>
+                    <input type="checkbox" name="caretaking">
+                </div>
+                <div id="balcony">
+                    <label for="balcony">Balcon</label>
+                    <input type="checkbox" name="balcony">
+                </div>
+            </section>
+
+            <!-- Specific attribute if it's a house-->
+            <section id="houseFilters">
+                <div id="garden">
+                    <label for="garden">Jardin</label>
+                    <input type="checkbox" name="garden">
+                </div>
+            </section>
+
         </form>
 
     </div>
