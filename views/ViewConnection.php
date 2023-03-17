@@ -5,4 +5,14 @@
 <body>
     <header>
     </header>
-    <h1>Bienvenue !</h1>
+    <div id="connection_container">
+        <div id="connection">
+            <img src="././asset/img/logo.png" alt="logo">
+            <h1>Connexion au Dashboard</h1>
+            <form action="<?= "?action=validConnection" ?>" method="post">
+                <input type="email" name="email" id="email" placeholder="Email *">
+                <input type="password" name="password" id="username" placeholder="Mot de passe *">
+                <input type="submit" value="Connexion">
+            </form>
+        </div>
+    </div>
