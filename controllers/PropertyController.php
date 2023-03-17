@@ -1,6 +1,6 @@
 <?php
 // require __DIR__ . '/../models/Property.php';
-require './views/View.php';
+require_once './views/View.php';
 
 class PropertyController
 {
