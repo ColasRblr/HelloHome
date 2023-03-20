@@ -4,9 +4,19 @@ require_once 'models/Connection.php';
 
 class Property extends Connection
 {
-    public function getAllProperty()
+    private $attribute;
+
+    public function __construct()
     {
-        $sql = "SELECT * FROM property;";
-        $this->executerRequete($sql);
+        // $this->attribute = $attribute;
+    }
+
+    public function getAllPropertyOfOneAdmin($id)
+    {
+        $sql = "SELECT * FROM property WHERE id_user = ?;";
+        $stmt = $this->executerRequete($sql, array($id));
+        $properties = $stmt->fetchAll();
+
+        return $properties;
     }
 }
