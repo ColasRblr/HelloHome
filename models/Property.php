@@ -6,14 +6,17 @@ class Property extends Connection
 {
     private $attribute;
 
-    public function __construct($attribute)
+    public function __construct()
     {
-        $this->attribute = $attribute;
+        // $this->attribute = $attribute;
     }
 
-    public function getAllProperty()
+    public function getAllPropertyOfOneAdmin($id)
     {
-        $sql = "SELECT * FROM property;";
-        $this->executerRequete($sql);
+        $sql = "SELECT * FROM property WHERE id_user = ?;";
+        $stmt = $this->executerRequete($sql, array($id));
+        $properties = $stmt->fetchAll();
+
+        return $properties;
     }
 }
