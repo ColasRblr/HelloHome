@@ -1,6 +1,11 @@
 <?php $titre = "Accueil"; ?>
 
 <!-- Landing page with picture in background and research form -->
+<button>
+    <a href="?action=dashboardConnection">
+        Dashboard
+    </a>
+</button>
 <div id="landingPage">
     <div id="researchForm">
         <form action="../index.php" method="post" id="researchFormContent">

@@ -124,3 +124,15 @@ INSERT INTO house (id_property, garden, bonus) VALUES (LAST_INSERT_ID(), true, "
 INSERT INTO property (property_name, property_description, property_location, property_area, property_numberOfPieces, property_distanceFromSea, property_swimmingpool, property_seaView, id_user) 
 VALUES ("Villa La Belle Vie", "Cette villa de style Art Déco est située dans un quartier exclusif, à quelques pas de la plage. La villa dispose de cinq chambres spacieuses, toutes avec leur propre salle de bain privée et un balcon privé offrant une vue sur la mer. Les intérieurs sont élégants et sophistiqués, avec des touches de décoration Art Déco. La terrasse extérieure dispose d'une grande piscine à débordement et d'un coin salon, parfait pour se détendre et profiter du soleil.", "Cagnes-sur-Mer", 130, 8, 950, true, false, 1);
 INSERT INTO house (id_property, garden, bonus) VALUES (LAST_INSERT_ID(), true, "Terrain de basket-ball, spa");
+
+INSERT INTO picture (id_property, picture_description, picture_url) VALUES (1, "Villa Perle de l'Océan", "house1.jpg"),
+(2, "Villa Bella Vista", "house2.jpg"),
+(3, "Villa Les Trois Palmiers", "house3.jpg"),
+(4, "Villa de la Mer", "house4.jpg"),
+(5, "Villa La Belle Epoque", "house5.jpg"),
+(6, "Villa La Dolce Vita", "house6.jpg"),
+(7, "Villa La Vie en Rose", "house7.jpg"),
+(8, "Villa La Casa Blanca", "house8.jpg"),
+(9, "Villa Le Refuge", "house9.jpg"),
+(10, "Villa La Belle Vie", "house10.jpg");
+
