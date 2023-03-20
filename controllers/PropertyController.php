@@ -20,7 +20,12 @@ class PropertyController
         $view->generer(array('properties' => $properties));
     }
 
-    // public function getOneProperty()
-    // {
-    // }
+    public function getOneProperty()
+    {
+        $idProperty = $_GET['id'];
+
+        $properties = "hello";
+        $view = new View("Property");
+        $view->generer(array('properties' => $properties));
+    }
 }
