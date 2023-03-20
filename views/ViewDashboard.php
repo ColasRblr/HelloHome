@@ -1,11 +1,13 @@
 <?php $titre = "Tableau de bord";
-var_dump($allProperties);
+// var_dump($allProperties);
 ?>
 
 <link rel="stylesheet" href="./../style/dashboardHomePage.css">
+
 </head>
 
 <body>
+
 
     <div id="containerHomePageDashboard">
         <div id="positionElementsHomePageDashboard">
@@ -21,6 +23,7 @@ var_dump($allProperties);
                         <option value="">Choisi son type</option>
                         <option value="apartment">Appartement</option>
                         <option value="apartment">Maison</option>
+
                     </select>
                     <label for="propertyStatut"> </label>
                     <select name="filterPropertyStatut" id="dashaboardPropertyStatut" class="btnFilterSelectDashboard">
@@ -28,6 +31,7 @@ var_dump($allProperties);
                         <option value="sale">A vendre</option>
                         <option value="rent">A louer</option>
                     </select>
+
                     <div>
                         <label for="locationOfProperty" class="formElement"></label>
                         <select name="locationOfProperty" id="locationProperty" class="btnFilterSelectDashboard">
@@ -37,30 +41,13 @@ var_dump($allProperties);
                             <option value="Nice">Cagnes-sur-Mer</option>
                         </select>
                     </div>
-                    <a href="">
+
+                    <a href="?action=addProperty">
                         <button type="button" id="btnAddProperty"> Ajouter un bien</button>
                     </a>
                 </div>
-                <div id="listOfProperties">
-                    <table>
-                        <tbody>
-                            <?php
-                            while ($allProperties = $sql->fetch()) {
-                                echo "toto";
-                            ?>
-                                <tr>
-                                    <td><?= $allProperties['property_name'] ?></td>
-                                    <td><?= $allProperties['property_location'] ?></td>
-
-                                <?php };
-                                ?>
-                                </tr>
-                        </tbody>
-                    </table>
-                    </a>
-                </div>
-
             </div>
+            <div id="listOfProperties"></div>
 
             <div id="statistiquesDashboard">
                 <h1>Statistiques</h1>
@@ -76,6 +63,7 @@ var_dump($allProperties);
                         <input type="number" id="inputNumberPropertiesSale" class="inputStatistiques">
                     </div>
                 </div>
+
                 <div id="numberOfPropertiesToRent">
                     <p class="statistiques">Nombre de biens à louer</p>
                     <div class="numberStatistique">
