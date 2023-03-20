@@ -1,0 +1,37 @@
+#containerDashboardAddProperty {
+  text-align: center;
+  height: 100vh;
+}
+
+#addPropertyDetails {
+  flex-direction: column;
+  columns: 2;
+}
+.btnSelectAddDetails {
+  font-size: 15px;
+  height: 35px;
+  background-color: #094351;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 4px;
+  width: 20vw;
+  margin: 3%;
+  font-size: 20px;
+}
+input {
+  width: 20vw;
+  height: 35px;
+  border-radius: 10px;
+  margin-bottom: 2vh;
+}
+textarea {
+  width: 20vw;
+
+  border-radius: 10px;
+  margin-bottom: 2vh;
+}
+#btnRadio {
+  display: flex;
+  margin: 0px;
+}
