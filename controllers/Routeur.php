@@ -24,6 +24,10 @@ class Routeur
             if (isset($_GET['action'])) {
                 if ($_GET['action'] == 'getOneProperty') {
                     // $this->propertyCtrl->getOneProperty();
+                } else if ($_GET['action'] == 'dashboardConnection') {
+                    $this->userCtrl->connection();
+                } else if ($_GET['action'] == 'dashboard') {
+                    $this->userCtrl->getDashboard();
                 }
             } else {
                 $this->propertyCtrl->home();  // action par défaut

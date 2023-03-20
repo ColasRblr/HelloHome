@@ -1,21 +1,28 @@
 <?php
 // require __DIR__ . '/../models/User.php';
-// require __DIR__ . '/../views/View.php';
+require_once './views/View.php';
 
 class UserController
 {
-    // private $property;
-    // private $ctrlAccueil;
+    private $property;
+    private $ctrlAccueil;
 
     // public function __construct()
     // {
     //     $this->property = new Property();
     // }
 
-    // public function home()
-    // {
-    //     $properties = $this->property->getAllProperty();
-    //     $view = new View("Home");
-    //     $view->generer(array('properties' => $properties));
-    // }
+    public function connection()
+    {
+        $properties = "hello";
+        $view = new View("Connection");
+        $view->generer(array('properties' => $properties));
+    }
+
+    public function getDashboard()
+    {
+        $properties = "hello";
+        $view = new View("Dashboard");
+        $view->generer(array('properties' => $properties));
+    }
 }
