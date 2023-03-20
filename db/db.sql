@@ -80,11 +80,13 @@ CREATE TABLE apartment(
     FOREIGN KEY (id_property) REFERENCES property(id) ON DELETE CASCADE
 );
 
+-- USERS (real estate agents)
 INSERT INTO user (firstname, lastname, email, pwd, isAdmin) VALUES
 ('Laurent', 'Dupont', 'l.dupont@yahoo.fr', '$2y$10$3IMmvGPvWq5FSHD6YtZCUOJAI8IV2h.ea0MbKeUbGE9fgtUsDyxPi', true),
 ('Simon', 'Berger', 's.berger@yahoo.fr', '$2y$10$w3gKCKic8J2UwL7FKgJraupobs5RIMpE3uK7Km3UCmS3MDBbZsD46', true),
 ('Yasmine', 'Radouani', 'y.radouani@yahoo.fr', '$2y$10$yS/CGYalG92hFgjtrWNiO.rN/cwRIrspRzRmrCD9ba7mu7B.36WpS', true);
 
+-- HOUSES
 INSERT INTO property (property_name, property_description, property_location, property_area, property_numberOfPieces, property_distanceFromSea, property_swimmingpool, property_seaView, id_user) 
 VALUES ("Villa Perle de l'Océan", "Cette magnifique villa de style contemporain est située au bord de l'océan, offrant une vue imprenable sur la mer. La villa dispose de cinq chambres spacieuses, chacune avec sa propre salle de bain et un balcon privé. La piscine à débordement et le jacuzzi sur la terrasse sont parfaits pour se détendre et profiter de la vue.", "Nice", 125, 6, 150, true, true, 1);
 INSERT INTO house (id_property, garden, bonus) VALUES (LAST_INSERT_ID(), true, "Terrain de golf, spa");
@@ -124,3 +126,46 @@ INSERT INTO house (id_property, garden, bonus) VALUES (LAST_INSERT_ID(), true, "
 INSERT INTO property (property_name, property_description, property_location, property_area, property_numberOfPieces, property_distanceFromSea, property_swimmingpool, property_seaView, id_user) 
 VALUES ("Villa La Belle Vie", "Cette villa de style Art Déco est située dans un quartier exclusif, à quelques pas de la plage. La villa dispose de cinq chambres spacieuses, toutes avec leur propre salle de bain privée et un balcon privé offrant une vue sur la mer. Les intérieurs sont élégants et sophistiqués, avec des touches de décoration Art Déco. La terrasse extérieure dispose d'une grande piscine à débordement et d'un coin salon, parfait pour se détendre et profiter du soleil.", "Cagnes-sur-Mer", 130, 8, 950, true, false, 1);
 INSERT INTO house (id_property, garden, bonus) VALUES (LAST_INSERT_ID(), true, "Terrain de basket-ball, spa");
+
+-- APPARTMENTS
+INSERT INTO property (property_name, property_description, property_location, property_area, property_numberOfPieces, property_distanceFromSea, property_swimmingpool, property_seaView, id_user) 
+VALUES ("Azure Retreat", "Appartement de 3 chambres avec vue panoramique sur la mer depuis toutes les pièces. Décoré avec des matériaux haut de gamme, l'appartement dispose également d'une grande terrasse pour profiter de la vue.", "Nice", 200, 6, 150, false, true, 2);
+INSERT INTO apartment (id_property, parking, floor, elevator, caretaking, balcony) VALUES (LAST_INSERT_ID(), true, 7, true, false, true);
+
+INSERT INTO property (property_name, property_description, property_location, property_area, property_numberOfPieces, property_distanceFromSea, property_swimmingpool, property_seaView, id_user) 
+VALUES ("Oceanview Oasis", " Penthouse de luxe avec terrasse offrant une vue imprenable sur l'océan. 4 chambres spacieuses et équipées de toutes les commodités modernes.", "Cagnes-sur-Mer", 350, 10, 250, true, true, 1);
+INSERT INTO apartment (id_property, parking, floor, elevator, caretaking, balcony) VALUES (LAST_INSERT_ID(), false, 2, false, true, false);
+
+INSERT INTO property (property_name, property_description, property_location, property_area, property_numberOfPieces, property_distanceFromSea, property_swimmingpool, property_seaView, id_user) 
+VALUES ("Coastal Elegance", "Appartement de 2 chambres, récemment rénové avec des finitions haut de gamme et une vue spectaculaire sur la mer. La cuisine est équipée d'appareils haut de gamme pour les clients les plus exigeants.", "Saint-Jean-Cap-Ferrat", 100, 5, 400, false, true, 3);
+INSERT INTO apartment (id_property, parking, floor, elevator, caretaking, balcony) VALUES (LAST_INSERT_ID(), true, 5, true, true, true);
+
+INSERT INTO property (property_name, property_description, property_location, property_area, property_numberOfPieces, property_distanceFromSea, property_swimmingpool, property_seaView, id_user) 
+VALUES ("Seaside Serenity", "Appartement de 1 chambre avec vue imprenable sur l'océan, situé dans un complexe de luxe en bord de mer avec piscine. La terrasse privée est parfaite pour se détendre tout en admirant la vue sur la mer.", "Nice", 90, 3, 300, true, true, 3);
+INSERT INTO apartment (id_property, parking, floor, elevator, caretaking, balcony) VALUES (LAST_INSERT_ID(), false, 0, false, true, true);
+
+INSERT INTO property (property_name, property_description, property_location, property_area, property_numberOfPieces, property_distanceFromSea, property_swimmingpool, property_seaView, id_user) 
+VALUES ("Beachfront Bliss", "Spacieux appartement de 4 chambres avec accès direct à la plage et une vue panoramique sur l'océan. La décoration élégante et moderne s'harmonise parfaitement avec les meubles confortables.", "Cagnes-sur-Mer", 270, 9, 80, false, true, 2);
+INSERT INTO apartment (id_property, parking, floor, elevator, caretaking, balcony) VALUES (LAST_INSERT_ID(), true, 3, true, true, false);
+
+INSERT INTO property (property_name, property_description, property_location, property_area, property_numberOfPieces, property_distanceFromSea, property_swimmingpool, property_seaView, id_user) 
+VALUES ("Ocean Breeze", "Appartement de 3 chambres avec vue sur la mer depuis chaque pièce. Les espaces de vie sont spacieux et lumineux, offrant une vue imprenable sur l'océan depuis la terrasse.", "Nice", 170, 6, 80, false, true, 2);
+INSERT INTO apartment (id_property, parking, floor, elevator, caretaking, balcony) VALUES (LAST_INSERT_ID(), false, 1, false, false, true);
+
+INSERT INTO property (property_name, property_description, property_location, property_area, property_numberOfPieces, property_distanceFromSea, property_swimmingpool, property_seaView, id_user) 
+VALUES ("Waveside Wonder", "Appartement de 2 chambres récemment rénové, décoré avec goût et offrant une vue imprenable sur la plage et l'océan. La cuisine est entièrement équipée avec des appareils haut de gamme.", "Saint-Jean-Cap-Ferrat", 110, 4, 120, false, true, 1);
+INSERT INTO apartment (id_property, parking, floor, elevator, caretaking, balcony) VALUES (LAST_INSERT_ID(), true, 6, true, false, true);
+
+INSERT INTO property (property_name, property_description, property_location, property_area, property_numberOfPieces, property_distanceFromSea, property_swimmingpool, property_seaView, id_user) 
+VALUES ("Skyline Splendor", "Penthouse de 3 chambres avec une vue magnifique sur l'océan depuis la terrasse privée équipée d'une piscine. Les intérieurs modernes sont équipés de toutes les commodités pour un séjour confortable.", "Nice", 240, 7, 320, true, true, 1);
+INSERT INTO apartment (id_property, parking, floor, elevator, caretaking, balcony) VALUES (LAST_INSERT_ID(), true, 0, false, true, true);
+
+INSERT INTO property (property_name, property_description, property_location, property_area, property_numberOfPieces, property_distanceFromSea, property_swimmingpool, property_seaView, id_user) 
+VALUES ("Seashell Suite", "Appartement de 1 chambre situé dans une résidence de luxe en bord de mer offrant une vue imprenable sur l'océan. La décoration élégante et les équipements modernes rendent cet appartement parfait pour un séjour romantique.", "Nice", 70, 3, 250, true, true, 1);
+INSERT INTO apartment (id_property, parking, floor, elevator, caretaking, balcony) VALUES (LAST_INSERT_ID(), true, 0, false, true, true);
+
+INSERT INTO property (property_name, property_description, property_location, property_area, property_numberOfPieces, property_distanceFromSea, property_swimmingpool, property_seaView, id_user) 
+VALUES ("Shoreline Haven", "Appartement de 2 chambres dans une résidence de luxe en bord de mer avec accès direct à la plage. Les chambres sont spacieuses et lumineuses, offrant une vue magnifique sur l'océan. La terrasse privée est équipée d'un barbecue pour des soirées en plein air.", "Cagnes-sur-Mer", 210, 7, 100, false, true, 3);
+INSERT INTO apartment (id_property, parking, floor, elevator, caretaking, balcony) VALUES (LAST_INSERT_ID(), true, 9, true, true, true);
+
+
