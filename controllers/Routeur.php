@@ -28,6 +28,10 @@ class Routeur
                     $this->userCtrl->connection();
                 } else if ($_GET['action'] == 'validConnection') {
                     $this->userCtrl->validConnection();
+                } else if ($_GET['action'] == 'addProperty') {
+                    $this->propertyCtrl->addProperty();
+                } else if ($_GET['action'] == 'validAddProperty') {
+                    $this->propertyCtrl->validAddProperty();
                 }
             } else {
                 $this->propertyCtrl->home();  // action par défaut
