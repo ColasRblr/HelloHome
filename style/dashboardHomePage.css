@@ -1,0 +1,105 @@
+#positionElementsHomePageDashboard {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  text-align: -webkit-center;
+}
+.titlePageDashboard {
+  background-color: #448a96;
+  width: 50vw;
+  color: white;
+}
+/* ...........................................Gestion des biens */
+#managementProperty {
+  margin-left: 2vw;
+  text-align: start;
+  height: 5vh;
+  width: 50vw;
+}
+
+#inputSearchDashboard {
+  border-radius: 20px;
+  height: 35px;
+  margin-right: 1vw;
+}
+.btnFilterSelectDashboard {
+  margin-right: 1vw;
+  font-size: 15px;
+  height: 35px;
+  background-color: #094351;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 4px;
+  width: 10vw;
+}
+
+#btnAddProperty {
+  font-size: 15px;
+  width: 10vw;
+  height: 35px;
+  background-color: #c58b03;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 4px;
+}
+
+/* .....................................Statistiques */
+#statistiquesDashboard {
+  background-color: #094351;
+  padding: 1%;
+  height: 50vh;
+  margin-right: 5vw;
+  border-radius: 20px;
+}
+.numberStatistique {
+  background-color: #c58b03;
+  border-radius: 20px;
+  height: 5vh;
+  width: 20vw;
+}
+.inputStatistiques {
+  background-color: #c58b03;
+  border: none;
+  height: 5vh;
+}
+
+/* ..................................Parameters */
+#parametersDashboard {
+  margin-left: 2vw;
+  position: relative;
+}
+
+#titleParameters {
+  display: flex;
+  align-items: center;
+}
+
+#titleChangeContact {
+  margin-right: 1vw;
+}
+.btnUpdateParameters {
+  margin-right: 1vw;
+  font-size: 15px;
+  height: 25px;
+  background-color: #094351;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 4px;
+  width: 8vw;
+}
+#contactDetails {
+  display: flex;
+}
+label {
+  font-size: 15px;
+}
+.inputUpdateAgencyDetails {
+  margin-right: 2vw;
+  margin-left: 1vw;
+  margin-top: 1vh;
+  border-radius: 10px;
+  font-size: 15px;
+}
