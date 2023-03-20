@@ -1,4 +1,6 @@
-<?php $titre = "Tableau de bord"; ?>
+<?php $titre = "Tableau de bord";
+var_dump($allProperties);
+?>
 
 <link rel="stylesheet" href="./../style/dashboardHomePage.css">
 
@@ -92,4 +94,3 @@
         </div>
     </div>
 </div>
-
