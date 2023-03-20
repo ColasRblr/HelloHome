@@ -80,6 +80,6 @@ CREATE TABLE apartment(
 );
 
 INSERT INTO user (firstname, lastname, email, pwd, isAdmin) VALUES
-('Laurent', 'Dupont', 'l.dupont@yahoo.fr', '', true),
-('Simon', 'Berger', 's.berger@yahoo.fr', '', true),
-('Yasmine', 'Radouani', 'y.radouani@yahoo.fr', '', true);
+('Laurent', 'Dupont', 'l.dupont@yahoo.fr', '$2y$10$3IMmvGPvWq5FSHD6YtZCUOJAI8IV2h.ea0MbKeUbGE9fgtUsDyxPi', true),
+('Simon', 'Berger', 's.berger@yahoo.fr', '$2y$10$w3gKCKic8J2UwL7FKgJraupobs5RIMpE3uK7Km3UCmS3MDBbZsD46', true),
+('Yasmine', 'Radouani', 'y.radouani@yahoo.fr', '$2y$10$yS/CGYalG92hFgjtrWNiO.rN/cwRIrspRzRmrCD9ba7mu7B.36WpS', true);
