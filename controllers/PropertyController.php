@@ -22,7 +22,7 @@ class PropertyController
 
     public function getOneProperty()
     {
-        $idProperty = $_GET['id'];
+        // $idProperty = $_GET['id'];
 
         $properties = "hello";
         $view = new View("Property");
