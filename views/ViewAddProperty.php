@@ -1,6 +1,6 @@
 <?php $titre = "Ajouter un bien"; ?>
 
-
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="./../style/dashboardAddProperty.css">
 
 <div id="containerDashboardAddProperty">
@@ -10,10 +10,14 @@
     <form id="addPropertyForm" method="post" action="">
         <div id="addPropertyDetails">
             <div>
+                <input type="text" name="nameOfProperty" id="propertyName" placeholder="Nom de du bien*">
+            </div>
+            <div>
                 <label for="addTypeOfProperty" class="formElement"></label>
                 <select name="addTypeOfProperty" id="addTypeProperty" class="btnSelectAddDetails">
-                    <option value="house">Maison</option>
-                    <option value="Apartment">Appartement</option>
+                    <option value="">Choisi son type</option>
+                    <option value="house" id="btnSelectHouse">Maison</option>
+                    <option value="apartment">Appartement</option>
                 </select>
             </div>
             <div>
@@ -21,7 +25,7 @@
                 <select name="addStatutProperty" id="addStatut" class="btnSelectAddDetails">
                     <option value="">Choisi son statut</option>
                     <option value="sale">A vendre</option>
-                    <option value="rent">A louer</option>
+                    <option value="rent" id="btnSelectRent">A louer</option>
                 </select>
             </div>
             <div>
@@ -33,8 +37,14 @@
                     <option value="Nice">Cagnes-sur-Mer</option>
                 </select>
             </div>
-
-            <div>
+            <div class="specificationToRent">
+                <label for="furnishedProperty" class="formElement"></label>
+                <select name="furnishedProperty" id="furnished" class="btnSelectAddDetails">
+                    <option value="furnished">Meublé</option>
+                    <option value="noFurnished">Non meublé</option>
+                </select>
+            </div>
+            <div id="price">
                 <label for="addPriceProperty" class="formElement"></label>
                 <input type="number" name="addPriceHouse" value="" class="formElement input" placeholder="Prix*">
             </div>
@@ -42,7 +52,10 @@
                 <label for="addPriceProperty" class="formElement"></label>
                 <input type="number" name="addPriceApartment" value="" class="formElement input" placeholder="Prix par mois*">
             </div>
-
+            <div class="specificationToRent">
+                <label for="chargesForRent" class="formElement"></label>
+                <input type="number" name="chargesForRent" value="" class="formElement input" placeholder="Charges par mois*">
+            </div>
             <div>
                 <label for="area" class="formElement"></label>
                 <input type="number" name="area" value="" class="formElement input" placeholder="Surface en m2*">
@@ -56,23 +69,34 @@
                 <input type="number" name="distanceFromTheSea" value="" class="formElement input" placeholder="Distance de la mer en mètre*">
             </div>
 
-            <div class="specificationToRent">
-                <label for="chargesForRent" class="formElement"></label>
-                <input type="number" name="chargesForRent" value="" class="formElement input" placeholder="Charges par mois*">
-            </div>
-            <div class="specificationToRent">
-                <label for="furnishedProperty" class="formElement"></label>
-                <select name="furnishedProperty" id="furnished" class="btnSelectAddDetails">
-                    <option value="furnished">Meublé</option>
-                    <option value="noFurnished">Non meublé</option>
-                </select>
-            </div>
         </div>
         <div id="btnCheckbox">
             <label for="swimmingpool" class="formElement">Piscine</label>
             <input type="checkbox" id="swimmingpool" class="btnCheckboxBonus" name="bonus" value="">
             <label for="seaView" class="formElement">Vue sur mer</label>
             <input type="checkbox" id="seaView" class="btnCheckboxBonus" name="bonus" value="">
+            <div id="houseProperty">
+                <label for="garden" class="formElement">Jardin</label>
+                <input type="checkbox" id="garden" class="btnCheckboxBonus" name="bonus" value="">
+                <label for="spa" class="formElement">Spa</label>
+                <input type="checkbox" id="spa" class="btnCheckboxBonus" name="bonus" value="">
+                <label for="tennisCourt" class="formElement">Terrain de tennis</label>
+                <input type="checkbox" id="tennisCourt" class="btnCheckboxBonus" name="bonus" value="">
+                <label for="golfCourt" class="formElement">Terrain de golf</label>
+                <input type="checkbox" id="golfCourt" class="btnCheckboxBonus" name="bonus" value="">
+
+            </div>
+            <div id="propertyApartment">
+                <label for="parking" class="formElement">Parking</label>
+                <input type="checkbox" id="parking" class="btnCheckboxBonus" name="bonus" value="">
+                <label for="lift" class="formElement">Ascenseur</label>
+                <input type="checkbox" id="lift" class="btnCheckboxBonus" name="bonus" value="">
+                <label for="daycareService" class="formElement">Gardiennage</label>
+                <input type="checkbox" id="daycareService" class="btnCheckboxBonus" name="bonus" value="">
+                <label for="balcony" class="formElement">Balcon</label>
+                <input type="checkbox" id="balcony" class="btnCheckboxBonus" name="bonus" value="">
+            </div>
+
         </div>
 
         <div id="textarea">
@@ -86,3 +110,5 @@
         </div>
     </form>
 </div>
+
+<script src="./../js/dashboard.js"></script>

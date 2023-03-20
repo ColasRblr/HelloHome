@@ -37,7 +37,20 @@
                 </a>
             </div>
         </div>
-        <div id="listOfProperties"></div>
+        <div id="listOfProperties">
+            <a href="./../controllers/PropertyController.php?action=getOneProperty">
+                <table>
+                    <tr>
+                        <th>Liste des biens</th>
+                    </tr>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </a>
+        </div>
 
         <div id="statistiquesDashboard">
             <h1>Statistiques</h1>
@@ -92,4 +105,3 @@
         </div>
     </div>
 </div>
-

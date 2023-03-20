@@ -24,14 +24,14 @@
 }
 .btnFilterSelectDashboard {
   margin-right: 1vw;
-  font-size: 10px;
+  font-size: 15px;
   height: 35px;
   background-color: #155109;
   color: white;
   border: none;
   border-radius: 10px;
   padding: 4px;
-  width: 13vw;
+  width: 10vw;
 }
 
 #btnAddProperty {
