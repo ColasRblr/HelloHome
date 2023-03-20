@@ -3,7 +3,7 @@
 <!-- Landing page with picture in background and research form -->
 <div id="landingPage">
     <div id="researchForm">
-        <form action="../index.php" method="post" id="researchFormContent">
+        <form action="/getProperties" method="post" id="researchFormContent">
 
             <!-- Buttons that trigger rental or sale filters -->
             <div id="rentOrSaleBtns">
@@ -44,7 +44,7 @@
             <!-- More detailed filters which will appear if user clicks on the upper button -->
             <section id="generalFilters">
                 <div id="seaDistance">
-                    <label for="seaDistance">Distance de la mer (km)</label>
+                    <label for="seaDistance">Distance de la mer (m)</label>
                     <input type="number" id="seaDistanceInput" name="seaDistance"></input>
                 </div>
                 <div id="pool">
