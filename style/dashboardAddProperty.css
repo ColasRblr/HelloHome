@@ -1,0 +1,78 @@
+#containerDashboardAddProperty {
+  text-align: center;
+  height: 100vh;
+}
+h1 {
+  color: #c58b03;
+}
+#addPropertyDetails {
+  flex-direction: column;
+  columns: 2;
+}
+.btnSelectAddDetails {
+  font-size: 15px;
+  height: 35px;
+  background-color: #094351;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 4px;
+  width: 20vw;
+  margin: 3%;
+  font-size: 15px;
+}
+input {
+  width: 20vw;
+  height: 35px;
+  border-radius: 10px;
+  margin-bottom: 2vh;
+  border-color: #094351;
+}
+textarea {
+  border-radius: 10px;
+  width: 50vw;
+  height: 15vh;
+}
+#textarea {
+  width: 100vw;
+  height: 20vh;
+  border-color: #094351;
+}
+#btnCheckbox {
+  text-align: center;
+  font-size: 20px;
+  border-color: #094351;
+}
+.btnCheckboxBonus {
+  width: 15px;
+  height: 15px;
+  margin-right: 2vw;
+}
+
+#addImage {
+  margin-bottom: 4vh;
+  font-size: 15px;
+  height: 25px;
+  background-color: #094351;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 4px;
+  width: 15vw;
+  cursor: pointer;
+}
+
+.propertySubmitBtn {
+  font-size: 15px;
+  height: 25px;
+  background-color: #924f0b;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 4px;
+  width: 10vw;
+  cursor: pointer;
+}
+.specificationToRent {
+  display: none;
+}
