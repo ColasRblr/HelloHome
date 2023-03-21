@@ -13,8 +13,12 @@
             <label for="addTypeOfProperty" class="formElement"></label>
             <select name="addTypeOfProperty" id="addTypeProperty" class="btnSelectAddDetails">
                 <option value="house">Maison</option>
-                <option value="Apartment">Appartement</option>
+                <option value="apartment">Appartement</option>
             </select>
+        </div>
+        <div>
+            <label for="nameProperty">Nom du bien</label>
+            <input type="text" name="nameProperty" id="nameProperty">
         </div>
         <div>
             <label for="addStatutProperty" class="formElement"></label>
@@ -70,9 +74,9 @@
 </div>
 <div id="btnCheckbox">
     <label for="swimmingpool" class="formElement">Piscine</label>
-    <input type="checkbox" id="swimmingpool" class="btnCheckboxBonus" name="bonus" value="piscine">
+    <input type="checkbox" id="swimmingpool" class="btnCheckboxBonus" name="swimmingpool" value="swimmingpool">
     <label for="seaView" class="formElement">Vue sur mer</label>
-    <input type="checkbox" id="seaView" class="btnCheckboxBonus" name="bonus" value="vue_sur_mer">
+    <input type="checkbox" id="seaView" class="btnCheckboxBonus" name="seaView" value="seaView">
 </div>
 
 <div id="textarea">
