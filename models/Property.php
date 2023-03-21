@@ -9,4 +9,10 @@ class Property extends Connection
         $sql = "SELECT * FROM property;";
         $this->executerRequete($sql);
     }
+
+
+
+
+
+    
 }
