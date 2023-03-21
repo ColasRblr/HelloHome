@@ -2,7 +2,8 @@
 // var_dump($allProperties);
 ?>
 
-<link rel="stylesheet" href="./style/dashboardAddProperty.css">
+<link rel="stylesheet" href="./../style/dashboardHomePage.css">
+
 </head>
 
 <body>
@@ -22,6 +23,7 @@
                         <option value="">Choisi son type</option>
                         <option value="apartment">Appartement</option>
                         <option value="apartment">Maison</option>
+
                     </select>
                     <label for="propertyStatut"> </label>
                     <select name="filterPropertyStatut" id="dashaboardPropertyStatut" class="btnFilterSelectDashboard">
@@ -29,6 +31,7 @@
                         <option value="sale">A vendre</option>
                         <option value="rent">A louer</option>
                     </select>
+
                     <div>
                         <label for="locationOfProperty" class="formElement"></label>
                         <select name="locationOfProperty" id="locationProperty" class="btnFilterSelectDashboard">
@@ -38,6 +41,7 @@
                             <option value="Nice">Cagnes-sur-Mer</option>
                         </select>
                     </div>
+
                     <a href="?action=addProperty">
                         <button type="button" id="btnAddProperty"> Ajouter un bien</button>
                     </a>
@@ -59,6 +63,7 @@
                         <input type="number" id="inputNumberPropertiesSale" class="inputStatistiques">
                     </div>
                 </div>
+
                 <div id="numberOfPropertiesToRent">
                     <p class="statistiques">Nombre de biens à louer</p>
                     <div class="numberStatistique">
