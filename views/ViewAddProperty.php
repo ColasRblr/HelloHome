@@ -6,10 +6,10 @@
         <h1 class="titlePageDashboard">Ajouter un bien</h1>
     </div>
 
-    <form id="addPropertyForm" method="post" action="">
+    <form id="addPropertyForm" method="post" action="?action=validAddProperty" enctype="multipart/form-data">
         <div id="addPropertyDetails">
             <div>
-                <input type="text" name="nameOfProperty" id="propertyName" placeholder="Nom de du bien*">
+                <input type="text" name="nameProperty" id="propertyName" placeholder="Nom du bien*">
             </div>
             <div>
                 <label for="addTypeOfProperty" class="formElement"></label>
@@ -45,11 +45,11 @@
             </div>
             <div id="price">
                 <label for="addPriceProperty" class="formElement"></label>
-                <input type="number" name="addPriceHouse" value="" class="formElement input" placeholder="Prix*">
+                <input type="number" name="salePrice" value="" class="formElement input" placeholder="Prix de vente*">
             </div>
             <div class="specificationToRent">
                 <label for="addPriceProperty" class="formElement"></label>
-                <input type="number" name="addPriceApartment" value="" class="formElement input" placeholder="Prix par mois*">
+                <input type="number" name="rent" value="" class="formElement input" placeholder="Prix par mois*">
             </div>
             <div class="specificationToRent">
                 <label for="chargesForRent" class="formElement"></label>
@@ -70,120 +70,39 @@
 
         </div>
         <div id="btnCheckbox">
-           <label for="swimmingpool" class="formElement">Piscine</label>
-    <input type="checkbox" id="swimmingpool" class="btnCheckboxBonus" name="bonus" value="piscine">
-    <label for="seaView" class="formElement">Vue sur mer</label>
-    <input type="checkbox" id="seaView" class="btnCheckboxBonus" name="bonus" value="vue_sur_mer">
+            <label for="swimmingpool" class="formElement">Piscine</label>
+            <input type="checkbox" id="swimmingpool" class="btnCheckboxBonus" name="swimmingpool" value="swimmingpool">
+            <label for="seaView" class="formElement">Vue sur mer</label>
+            <input type="checkbox" id="seaView" class="btnCheckboxBonus" name="seaView" value="seaView">
             <div id="houseProperty">
                 <label for="garden" class="formElement">Jardin</label>
-                <input type="checkbox" id="garden" class="btnCheckboxBonus" name="bonus" value="">
-                <label for="spa" class="formElement">Spa</label>
-                <input type="checkbox" id="spa" class="btnCheckboxBonus" name="bonus" value="">
-                <label for="tennisCourt" class="formElement">Terrain de tennis</label>
-                <input type="checkbox" id="tennisCourt" class="btnCheckboxBonus" name="bonus" value="">
-                <label for="golfCourt" class="formElement">Terrain de golf</label>
-                <input type="checkbox" id="golfCourt" class="btnCheckboxBonus" name="bonus" value="">
-
+                <input type="checkbox" id="garden" class="btnCheckboxBonus" name="garden" value="garden">
+                <input type="text" name="bonus" id="bonus" placeholder="Bonus">
             </div>
             <div id="propertyApartment">
                 <label for="parking" class="formElement">Parking</label>
-                <input type="checkbox" id="parking" class="btnCheckboxBonus" name="bonus" value="">
+                <input type="checkbox" id="parking" class="btnCheckboxBonus" name="parking" value="parking">
                 <label for="lift" class="formElement">Ascenseur</label>
-                <input type="checkbox" id="lift" class="btnCheckboxBonus" name="bonus" value="">
+                <input type="checkbox" id="lift" class="btnCheckboxBonus" name="elevator" value="elevator">
                 <label for="daycareService" class="formElement">Gardiennage</label>
-                <input type="checkbox" id="daycareService" class="btnCheckboxBonus" name="bonus" value="">
+                <input type="checkbox" id="daycareService" class="btnCheckboxBonus" name="caretaking" value="caretaking">
                 <label for="balcony" class="formElement">Balcon</label>
-                <input type="checkbox" id="balcony" class="btnCheckboxBonus" name="bonus" value="">
+                <input type="checkbox" id="balcony" class="btnCheckboxBonus" name="balcony" value="balcony">
+
+                <input type="text" id="floor" name="floor" class="" value="floor">
             </div>
 
-    <form id="addPropertyForm" method="post" action="?action=validAddProperty" enctype="multipart/form-data>
-        <div id=" addPropertyDetails">
-        <div>
-            <label for="addTypeOfProperty" class="formElement"></label>
-            <select name="addTypeOfProperty" id="addTypeProperty" class="btnSelectAddDetails">
-                <option value="house">Maison</option>
-                <option value="apartment">Appartement</option>
-            </select>
-        </div>
-        <div>
-            <label for="nameProperty">Nom du bien</label>
-            <input type="text" name="nameProperty" id="nameProperty">
-        </div>
-        <div>
-            <label for="addStatutProperty" class="formElement"></label>
-            <select name="addStatutProperty" id="addStatut" class="btnSelectAddDetails">
-                <option value="">Choisi son statut</option>
-                <option value="sale">A vendre</option>
-                <option value="rent">A louer</option>
-            </select>
-        </div>
-        <div>
-            <label for="locationOfProperty" class="formElement"></label>
-            <select name="locationOfProperty" id="locationProperty" class="btnSelectAddDetails">
-                <option value="">Choisi une ville</option>
-                <option value="Nice">Nice</option>
-                <option value="Saint-Jean-Cap-Ferrat">Saint-Jean-Cap-Ferrat</option>
-                <option value="Cagnes-sur-Mer">Cagnes-sur-Mer</option>
-            </select>
-        </div>
-
-        <div>
-            <label for="addPriceProperty" class="formElement"></label>
-            <input type="number" name="addPriceHouse" class="formElement input" placeholder="Prix*">
-        </div>
-        <div class="specificationToRent">
-            <label for="addPriceProperty" class="formElement"></label>
-            <input type="number" name="addPriceApartment" value="" class="formElement input" placeholder="Prix par mois*">
-        </div>
-
-        <div>
-            <label for="area" class="formElement"></label>
-            <input type="number" name="area" class="formElement input" placeholder="Surface en m2*">
-        </div>
-        <div>
-            <label for="numberOfPieces" class="formElement"></label>
-            <input type="number" name="numberOfPieces" value="" class="formElement input" placeholder="Nombre de pièce*">
-        </div>
-        <div>
-            <label for="distanceFromTheSea" class="formElement"></label>
-            <input type="number" name="distanceFromTheSea" value="" class="formElement input" placeholder="Distance de la mer en mètre*">
-
-        </div>
-
-        <div class="specificationToRent">
-            <label for="chargesForRent" class="formElement"></label>
-            <input type="number" name="chargesForRent" value="" class="formElement input" placeholder="Charges par mois*">
-        </div>
-        <div class="specificationToRent">
-            <label for="furnishedProperty" class="formElement"></label>
-            <select name="furnishedProperty" id="furnished" class="btnSelectAddDetails">
-                <option value="furnished">Meublé</option>
-                <option value="noFurnished">Non meublé</option>
-            </select>
-        </div>
-
+            <div id="textarea">
+                <label for="descriptionProperty" class="formElement"></label>
+                <textarea id="descritionOfTheProperty" name="descriptionProperty" placeholder="Description*" value=""></textarea>
+            </div>
+            <label for="picture">Ajouter des images</label>
+            <input type="file" name="picture" id="picture">
+            <!-- <button type="button" id="addImage">Ajouter des images</button> -->
+            <div class="bottomForm">
+                <button type="submit" class="propertySubmitBtn"> Valider </button>
+                <button type="reset" class="propertySubmitBtn"> Annuler </button>
+            </div>
     </form>
 </div>
-
-<div id="btnCheckbox">
-    <label for="swimmingpool" class="formElement">Piscine</label>
-    <input type="checkbox" id="swimmingpool" class="btnCheckboxBonus" name="swimmingpool" value="swimmingpool">
-    <label for="seaView" class="formElement">Vue sur mer</label>
-    <input type="checkbox" id="seaView" class="btnCheckboxBonus" name="seaView" value="seaView">
-
-</div>
-
-<div id="textarea">
-    <label for="descriptionProperty" class="formElement"></label>
-    <textarea id="descritionOfTheProperty" name="descriptionProperty" placeholder="Description*" value=""></textarea>
-</div>
-<input type="file" name="picture" id="">Ajouter des images
-<!-- <button type="button" id="addImage">Ajouter des images</button> -->
-<div class="bottomForm">
-    <button type="submit" class="propertySubmitBtn"> Valider </button>
-    <button type="reset" class="propertySubmitBtn"> Annuler </button>
-</div>
-</form>
-</div>
-<script src="./../js/dashboard.js"></script>
-
+<script src="./js/dashboard.js"></script>
