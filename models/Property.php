@@ -19,4 +19,14 @@ class Property extends Connection
 
         return $properties;
     }
+
+    // public function getFilterCityPropertyDashboard($id)
+    // {
+    //     $sql = "SELECT property_location FROM `property` WHERE property.id_user = ?;";
+    //     $stmt = $this->executerRequete($sql, array($id));
+    //     $properties = $stmt->fetchAll();
+
+    //     return $properties;
+    // }
+
 }

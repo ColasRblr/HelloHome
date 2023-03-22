@@ -47,4 +47,20 @@ class UserController
             }
         }
     }
+
+
+    public function displayPropertyByCityDashboard()
+    {
+        $properties = "hello";
+        $view = new View("Dashboard");
+        $view->generer(array('properties' => $properties));
+    }
+
+    // public function displayNumberPropertyToSaleStatistique()
+    // {
+    //     $properties = "hello";
+    //     $view = new View("Dashboard");
+    //     $view->generer(array('properties' => $properties));
+    // }
+
 }
