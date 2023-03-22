@@ -1,12 +1,41 @@
 console.log("toto");
 
 $(document).ready(function () {
-  let property = [];
-  let listOfProperty;
+  // get list of properties thanks to filter
+  $("#locationProperty").change(function () {
+    var selectedValue = $(this).val();
 
-  listOfProperty = property.filter((element) => element == "Nice");
+    if (selectedValue) {
+      var filteredElements = $("#contenuOfTable td.listOfPropertyByUser").filter(function () {
+        return $(this).text().indexOf(selectedValue) !== -1;
+      });
 
-  $("#locationProperty").click(listOfProperty);
+      $("#contenuOfTable tr").hide();
+      filteredElements.closest("tr").show();
+    } else {
+      $("#contenuOfTable tr").show();
+    }
+  });
+
+  $("#dashaboardTypeProperty").change(function () {
+    var selectedValue = $(this).val();
+
+    if (selectedValue) {
+      var filteredElements = $("#contenuOfTable td.listOfPropertyByUser").filter(function () {
+        return $(this).text().indexOf(selectedValue) !== -1;
+      });
+
+      $("#contenuOfTable tr").hide();
+      filteredElements.closest("tr").show();
+    } else {
+      $("#contenuOfTable tr").show();
+    }
+  });
+
+  // get contact information since home page
+  $("#updateAddress").text("#homePageTitles");
+  $("#inputUpdatePhoneNumber").text("#phoneNumber");
+  $("#updateAgencyPresentation").text("#address");
 
   // add page dashboard
   $("#houseProperty").hide();
@@ -21,7 +50,7 @@ $(document).ready(function () {
     }
   });
 
-  $("#addTypeProperty").change(function () {
+  $("#locationProperty").change(function () {
     if ($(this).val() == "apartment") {
       $("#propertyApartment").show();
     } else {
@@ -38,11 +67,6 @@ $(document).ready(function () {
       $("#price").show();
     }
   });
-
-  // get contact information since home page
-  $("#updateAddress").text("#homePageTitles");
-  $("#updatePhoneNumber").text("#phoneNumber");
-  $("#updateAgencyPresentation").text("#address");
 });
 
 // const fileInput = document.querySelector('input[type=file]');
