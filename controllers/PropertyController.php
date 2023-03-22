@@ -3,6 +3,7 @@
 require_once './views/View.php';
 require_once './models/House.php';
 require_once './models/Apartment.php';
+require_once './models/Picture.php';
 require_once './controllers/TransactionController.php';
 
 class PropertyController
@@ -11,6 +12,7 @@ class PropertyController
     private $house;
     private $apartment;
     private $transactionCtrl;
+    private $picture;
 
     public function __construct()
     {
@@ -18,6 +20,7 @@ class PropertyController
         $this->house = new House();
         $this->apartment = new Apartment();
         $this->transactionCtrl = new TransactionController();
+        $this->picture = new Picture();
     }
 
     public function home()
@@ -158,23 +161,31 @@ class PropertyController
 
         if (isset($_POST['nameProperty']) && $_POST['nameProperty'] != "") {
             $property_name = $_POST['nameProperty'];
-            $propertyInfo['property_name'] = $_POST['nameProperty'];
+            $propertyInfo['property_name'] = $property_name;
         }
         if (isset($_POST['descriptionProperty']) && $_POST['descriptionProperty'] != "") {
             $property_description = $_POST['descriptionProperty'];
             $propertyInfo['property_description'] = $_POST['descriptionProperty'];
         }
-        if (isset($_POST['picture']) && $_POST['picture'] != "") {
-            $picture = $_POST['picture'];
-            $propertyInfo['picture'] = $_POST['picture'];
-        }
+        if (isset($_FILES['picture']) && $_FILES['picture'] != "") {
+            $picture_name = $_FILES['picture']['name'];
+            $picture_tmp = $_FILES['picture']['tmp_name'];
 
+            $destination_folder = './asset/img/';
+
+            try {
+                move_uploaded_file($picture_tmp, $destination_folder . $picture_name);
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
+        }
         // var_dump($propertyInfo);
         // foreach ($propertyInfo as $key => $value) {
         //     echo $key . " : " . $value . "<br/>";
         // }
         session_start();
         $id_property = $this->property->addProperty($property_name, $property_description, $property_location, $property_area, $property_numberOfPieces, $property_distanceFromSea, $property_swimmingpool, $property_seaView, $_SESSION['user_id']);
+        $this->picture->addPicture($id_property, $property_name, $picture_name);
         $id_transaction = $this->transactionCtrl->addTransaction($id_property, $statutProperty);
         if ($typeOfProperty == "house") {
             $this->house->addHouse($id_property, $garden, $bonus);
@@ -187,8 +198,8 @@ class PropertyController
             $this->transactionCtrl->addRental($id_transaction, $rent, $charges, $furnished);
         }
 
-        $properties = "hello";
-        $view = new View("AddProperty");
-        $view->generer(array('properties' => $properties));
+        $adminInfo = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
+        $view = new View("Dashboard");
+        $view->generer(array('properties' => $adminInfo));
     }
 }
