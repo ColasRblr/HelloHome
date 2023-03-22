@@ -1,9 +1,16 @@
 <?php
 
-require_once 'models/Connection.php';
+require_once 'models/Transaction.php';
 
-class Sale extends Connection
+class Sale extends Transaction
 {
+    public function addSale($id_transaction, $selling_price)
+    {
+        $sql = "INSERT INTO sale (id_transaction, selling_price) VALUES (?, ?);";
+        $this->executerRequete($sql, array($id_transaction, $selling_price));
+
+    }  
+    
     public function getAllSales()
     {
         $sql = "SELECT * FROM sale ";
@@ -18,5 +25,5 @@ class Sale extends Connection
         $result = $this->executerRequete($sql, array($id_transaction));
         $sale = $result->fetch();
         return $sale;
-    }
+     }
 }

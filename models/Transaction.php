@@ -1,12 +1,25 @@
 <?php
 
 require_once 'models/Connection.php';
+
 require_once 'models/Sale.php';
 require_once 'models/Rental.php';
 
 class Transaction extends Connection
 {
+ private $attribute;
 
+    // public function __construct($attribute)
+    // {
+    //     $this->attribute = $attribute;
+    // }
+    public function addNewTransaction($transaction_onlineDate, $transaction_status, $id_property)
+    {
+        $sql = "INSERT INTO transaction_type (transaction_onlineDate, transaction_status, id_property) VALUES (?, ?, ?);";
+        $this->executerRequete($sql, array($transaction_onlineDate, $transaction_status, $id_property));
+
+        return $this->getBdd()->lastInsertId();
+    }
     private $sale;
     private $rental;
 
@@ -39,5 +52,6 @@ class Transaction extends Connection
             $rentalResult = [$transaction, $this->rental->getOneRental($transaction['id'])];
             return $rentalResult;
         }
-    }
+
+   
 }

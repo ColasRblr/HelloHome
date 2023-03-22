@@ -1,65 +1,97 @@
-<?php $titre = "Tableau de bord"; ?>
+<?php $titre = "Tableau de bord";
+// var_dump($allRental);
+?>
 
-<link rel="stylesheet" href="./../style/dashboardHomePage.css">
+<link rel="stylesheet" href="./style/dashboardHome.css">
 
-<div id="containerHomePageDashboard">
-    <div id="positionElementsHomePageDashboard">
+</head>
 
-        <div id="managementProperty">
-            <h1 class="titlePageDashboard">Gestion des biens</h1>
-            <div id="dashboardManagementFilters">
-                <label id="dashboardSearch">
-                    <input type="text" id="inputSearchDashboard" name="inputSearchDashboard" placeholder="Recherche">
-                </label>
-                <label for="typeOfProperty"> </label>
-                <select name="filterTypeOfProperty" id="dashaboardTypeProperty" class="btnFilterSelectDashboard">
-                    <option value="">Choisi son type</option>
-                    <option value="apartment">Appartement</option>
-                    <option value="apartment">Maison</option>
-                </select>
-                <label for="propertyStatut"> </label>
-                <select name="filterPropertyStatut" id="dashaboardPropertyStatut" class="btnFilterSelectDashboard">
-                    <option value="">Choisi son statut</option>
-                    <option value="sale">A vendre</option>
-                    <option value="rent">A louer</option>
-                </select>
-                <div>
-                    <label for="locationOfProperty" class="formElement"></label>
-                    <select name="locationOfProperty" id="locationProperty" class="btnFilterSelectDashboard">
-                        <option value="">Choisi une ville</option>
-                        <option value="Nice">Nice</option>
-                        <option value="Nice">Saint-Jean-Cap-Ferrat</option>
-                        <option value="Nice">Cagnes-sur-Mer</option>
-                    </select>
-                </div>
-                <a href="">
+<body>
+    <header>
+        <img src="././asset/img/logo_white.png" alt="logo">
+        <div id="icon_container">
+            <i class="bi bi-person-fill"></i>
+            <i class="bi bi-x-circle-fill"></i>
+        </div>
+    </header>
+
+    <div id="containerHomePageDashboard">
+        <div id="positionElementsHomePageDashboard">
+            <div id="managementProperty">
+                <h1 class="titlePageDashboard">Gestion des biens</h1>
+                <form method="post" action="">
+                    <div id="dashboardManagementFilters">
+                        <label for="typeOfProperty"> </label>
+                        <select name="filterTypeOfProperty" id="dashaboardTypeProperty" class="btnFilterSelectDashboard">
+                            <option value="">Choisi son type</option>
+                            <option value="house">Appartement</option>
+                            <option value="apartment">Maison</option>
+
+                        </select>
+                        <label for="propertyStatut"> </label>
+                        <select name="filterPropertyStatut" id="dashaboardPropertyStatut" class="btnFilterSelectDashboard">
+                            <option value="">Choisi son statut</option>
+                            <option value="sale">A vendre</option>
+                            <option value="rent">A louer</option>
+                        </select>
+
+                        <label for="locationOfProperty" class="formElement"></label>
+                        <select name="locationOfProperty" id="locationProperty" class="btnFilterSelectDashboard">
+                            <option value="">Choisi une ville</option>
+                            <option value="Nice">Nice</option>
+                            <option value="Saint-Jean-Cap-Ferrat">Saint-Jean-Cap-Ferrat</option>
+                            <option value="Cagnes-sur-Mer">Cagnes-sur-Mer</option>
+                        </select>
+
+                </form>
+                <a href="?action=addProperty">
                     <button type="button" id="btnAddProperty"> Ajouter un bien</button>
                 </a>
             </div>
-        </div>
-        <div id="listOfProperties"></div>
 
+            <div id="listOfProperties">
+                <table>
+                    <tbody id="contenuOfTable">
+                        <?php
+                        foreach ($allProperties as $property) {
+                        ?>
+                            <tr>
+                                <td class="listOfPropertyByUser"><a href=""><?= $property['property_name'] ?></a> <?= $property['property_location'] ?> </td>
+                            <?php
+                        }
+                            ?>
+                            </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
         <div id="statistiquesDashboard">
             <h1>Statistiques</h1>
-            <div id="numberOfPropertiesAvailable">
-                <p class="statistiques">Nombre de biens disponibles</p>
-                <div class="numberStatistique">
-                    <input type="number" id="inputNumberPropertiesAvailable" class="inputStatistiques">
-                </div>
+            <div id="numberOfPropertiesAvailable" class="numberStatistique">
+                <h3 class="statistiques">Nombre de biens total</h3>
+                <p id="numberPropertyAvailable">
+                    <?php
+                    echo count($allProperties);
+                    ?>
+                </p>
             </div>
-            <div id="numberOfPropertiesToSale">
-                <p class="statistiques">Nombre de biens à vendre</p>
-                <div class="numberStatistique">
-                    <input type="number" id="inputNumberPropertiesSale" class="inputStatistiques">
-                </div>
+            <div id="numberOfPropertiesToSale" class="numberStatistique">
+                <h3 class="statistiques">Nombre de biens à vendre</h3>
+                <p id="numberPropertySale">
+                    <?php
+                    echo count($allHouses);
+                    ?>
+                </p>
             </div>
-            <div id="numberOfPropertiesToRent">
-                <p class="statistiques">Nombre de biens à louer</p>
-                <div class="numberStatistique">
-                    <input type="number" id="inputNumberPropertiesRent" class="inputStatistiques">
-                </div>
+
+            <div id="numberOfPropertiesToRent" class="numberStatistique">
+                <h3 class="statistiques">Nombre de biens à louer</h3>
+                <p id="numberPropertyRent">
+                    <?php
+                    echo count($allRental);
+                    ?>
+                </p>
             </div>
-            <canvas id="myChart"></canvas>
         </div>
     </div>
 
@@ -69,27 +101,28 @@
             <div id="titleParameters">
                 <h2 id="titleChangeContact">Changer les coordonnées</h2>
                 <button type="button" id="updateParameters" class="btnUpdateParameters">
-                    <!-- <i class="bi bi-pencil-fill"></i> -->
                     Modifier
                 </button>
                 <button type="submit" id="buttonValidateUpdateParameters" class="btnUpdateParameters">Valider</button>
             </div>
             <div id="contactDetails">
                 <div id="updateAdress">
-                    <label for="adress">Adresse</label>
-                    <input type="text" name="adressDashboard" class="inputUpdateAgencyDetails">
+                    <label for="updateAddress">Adresse</label>
+                    <input type="text" name="adressDashboard" id="updateAddress" class="inputUpdateAgencyDetails">
                 </div>
                 <div id="updatePhoneNumber">
-                    <label for="phoneNumber">Téléphone</label>
-                    <input type="text" name="phoneNumbersDashboard" class="inputUpdateAgencyDetails">
+                    <label for="updatePhoneNumber">Téléphone</label>
+                    <input type="text" name="phoneNumbersDashboard" id="inputUpdatePhoneNumber" class="inputUpdateAgencyDetails">
                 </div>
 
                 <div id="agencyDescription">
-                    <label for="updateAgencyPresentation">Présentation de l'agence</label>
-                    <input type="text" name="agencyDescriptionDashboard" class="inputUpdateAgencyDetails">
+                    <label for="updateAgencyPresentation">HelloHome</label>
+                    <input type="text" name="agencyDescriptionDashboard" id="updateAgencyPresentation" class="inputUpdateAgencyDetails">
                 </div>
             </div>
         </div>
     </div>
-</div>
-
+    </div>
+    <footer>
+        <p>HelloHome © 2023</p>
+    </footer>

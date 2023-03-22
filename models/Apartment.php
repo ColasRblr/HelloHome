@@ -1,14 +1,28 @@
 <?php
 
-require_once 'models/Connection.php';
+require_once 'models/Property.php';
 
-class Apartment extends Connection
+class Apartment extends Property
 {
-    public function getAllApartments()
+    private $apartmentAttribute;
+
+    // public function __construct($attribute, $apartmentAttribute)
+    // {
+    //     parent::__construct($attribute);
+    //     $this->apartmentAttribute = $apartmentAttribute;
+    // }
+    
+public function getAllApartments()
     {
         $sql = "SELECT * FROM apartment";
         $results = $this->executerRequete($sql);
         $apartments = $results->fetchAll();
         return $apartments;
+     }
+    public function addApartment($id_property, $parking, $floor, $elevator, $caretaking, $balcony)
+    {
+        $sql = "INSERT INTO apartment (id_property, parking, floor, elevator, caretaking, balcony) VALUES (?, ?, ?, ?, ?, ?);";
+        $this->executerRequete($sql, array($id_property, $parking, $floor, $elevator, $caretaking, $balcony));
+
     }
 }
