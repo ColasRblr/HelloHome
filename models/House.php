@@ -23,12 +23,12 @@ class House extends Property
         $this->executerRequete($sql, array($id_property, $garden, $bonus));
     }
 
-    // public function getAllHouses($id)
-    // {
-    //     $sql = "SELECT house.id FROM house INNER JOIN property on property.id = house.id WHERE id_user = ?;";
-    //     $stmt = $this->executerRequete($sql, array($id));
-    //     $properties = $stmt->fetchAll();
+    public function getAllHouses($id)
+    {
+        $sql = "SELECT house.id FROM house INNER JOIN property on property.id = house.id WHERE id_user = ?;";
+        $stmt = $this->executerRequete($sql, array($id));
+        $properties = $stmt->fetchAll();
 
-    //     return $properties;
-    // }
+        return $properties;
+    }
 }
