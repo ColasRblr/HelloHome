@@ -2,13 +2,17 @@
   text-align: center;
   height: 100vh;
 }
+
 h1 {
   color: #c58b03;
+  margin: 35px auto;
 }
+
 #addPropertyDetails {
   flex-direction: column;
   columns: 2;
 }
+
 .btnSelectAddDetails {
   font-size: 15px;
   height: 35px;
@@ -21,6 +25,7 @@ h1 {
   margin: 3%;
   font-size: 15px;
 }
+
 input {
   width: 20vw;
   height: 35px;
@@ -28,21 +33,25 @@ input {
   margin-bottom: 2vh;
   border-color: #094351;
 }
+
 textarea {
   border-radius: 10px;
   width: 50vw;
   height: 15vh;
 }
+
 #textarea {
   width: 100vw;
   height: 20vh;
   border-color: #094351;
 }
+
 #btnCheckbox {
   text-align: center;
   font-size: 20px;
   border-color: #094351;
 }
+
 .btnCheckboxBonus {
   width: 15px;
   height: 15px;
@@ -73,6 +82,48 @@ textarea {
   width: 10vw;
   cursor: pointer;
 }
+
 .specificationToRent {
   display: none;
+}
+
+header {
+  height: 130px;
+  background-color: #094351;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#icon_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30px;
+}
+
+header img {
+  overflow: hidden;
+  height: 85%;
+  margin-left: 15px;
+}
+
+header i {
+  font-weight: bold;
+  font-size: 30px;
+  color: rgb(255, 255, 255);
+  margin: auto 15px;
+  cursor: pointer;
+}
+
+footer {
+  background-color: #094351;
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer p {
+  margin: 20px auto;
 }

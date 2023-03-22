@@ -7,7 +7,13 @@
 </head>
 
 <body>
-
+    <header>
+        <img src="././asset/img/logo_white.png" alt="logo">
+        <div id="icon_container">
+            <i class="bi bi-person-fill"></i>
+            <i class="bi bi-x-circle-fill"></i>
+        </div>
+    </header>
 
     <div id="containerHomePageDashboard">
         <div id="positionElementsHomePageDashboard">
@@ -131,3 +137,6 @@
             </div>
         </div>
     </div>
+    <footer>
+        <p>HelloHome © 2023</p>
+    </footer>
