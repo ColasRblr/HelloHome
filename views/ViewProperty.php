@@ -1,3 +1,4 @@
+
 <?php $titre = "Votre bien";?>
 
 <!DOCTYPE html>
@@ -136,4 +137,8 @@ Située rue des Alpes, elle vous invite à faire votre vie sur la commune de Le 
 
 
 
+
+<?php $titre = "Votre bien"; ?>
+
+<h1>Property</h1>
 

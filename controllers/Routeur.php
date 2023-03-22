@@ -23,7 +23,15 @@ class Routeur
         try {
             if (isset($_GET['action'])) {
                 if ($_GET['action'] == 'getOneProperty') {
-                    // $this->propertyCtrl->getOneProperty();
+                    $this->propertyCtrl->getOneProperty();
+                } else if ($_GET['action'] == 'dashboardConnection') {
+                    $this->userCtrl->connection();
+                } else if ($_GET['action'] == 'validConnection') {
+                    $this->userCtrl->validConnection();
+                } else if ($_GET['action'] == 'addProperty') {
+                    $this->propertyCtrl->addProperty();
+                } else if ($_GET['action'] == 'validAddProperty') {
+                    $this->propertyCtrl->validAddProperty();
                 }
             } else {
                 $this->propertyCtrl->home();  // action par défaut

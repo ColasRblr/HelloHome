@@ -1,67 +1,133 @@
-<?php $titre = "Tableau de bord"; ?>
+<?php $titre = "Tableau de bord";
+// var_dump($allProperties);
+?>
 
-<div id="containerHomePageDashboard">
-    <div id="statistiquesDashboard">
-        <h1>Statistiques</h1>
-        <div id="numberOfPropertiesAvailable">
-            <p class="statistiques">Nombre de biens disponibles</p>
-        </div>
-        <div id="numberOfPropertiesToSale">
-            <p class="statistiques">Nombre de biens à vendre</p>
-        </div>
-        <div id="numberOfPropertiesToRent">
-            <p class="statistiques">Nombre de biens à louer</p>
-        </div>
-        <canvas id="myChart"></canvas>
-    </div>
-    <div id="managementProperty">
-        <h1>Gestion des biens</h1>
-        <div id="dashboardManagementFilters">
-            <label id="dashboardSearch">
-                <input type="text" id="inputSearchDashboard" name="inputSearchDashboard" placeholder="Recherche">
-            </label>
-            <label for="typeOfProperty"> </label>
-            <select name="filterTypeOfProperty" id="dashaboardTypeProperty">
-                <option value="apartment">Appartement</option>
-                <option value="apartment">Maison</option>
-            </select>
-            <label for="propertyStatut"> </label>
-            <select name="filterPropertyStatut" id="dashaboardPropertyStatut">
-                <option value="sale">A vendre</option>
-                <option value="rent">A louer</option>
-            </select>
-            <button type="button" id="btnAddProperty">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                </svg>
-            </button>
-        </div>
-    </div>
-    <div id="listOfProperties"></div>
+<link rel="stylesheet" href="./style/dashboardHomePage.css">
 
-    <div id="parametersDashboard">
-        <div id="titleParameters">
-            <h1>Paramètres</h1>
-            <button type="button">
-                <i class="bi bi-pencil-fill"></i>
-            </button>
-            <button type="submit" class="buttonValidateUpdateParameters">Valider</button>
-        </div>
-        <div id="contactDetails">
-            <h2>Changer les coordonnées</h2>
-            <div id="updateAdress">
-                <label for="adress">Adresse</label>
-                <input type="text" name="adressDashboard" class="inputUpdateAgencyDetails">
+</head>
+
+<body>
+
+
+    <div id="containerHomePageDashboard">
+        <div id="positionElementsHomePageDashboard">
+            <div id="managementProperty">
+                <h1 class="titlePageDashboard">Gestion des biens</h1>
+                <form method="post" action="">
+                    <div id="dashboardManagementFilters">
+                        <label id="dashboardSearch">
+                            <input type="text" id="inputSearchDashboard" name="inputSearchDashboard" placeholder="Recherche">
+                        </label>
+                        <label for="typeOfProperty"> </label>
+                        <select name="filterTypeOfProperty" id="dashaboardTypeProperty" class="btnFilterSelectDashboard">
+                            <option value="">Choisi son type</option>
+                            <option value="apartment">Appartement</option>
+                            <option value="apartment">Maison</option>
+
+                        </select>
+                        <label for="propertyStatut"> </label>
+                        <select name="filterPropertyStatut" id="dashaboardPropertyStatut" class="btnFilterSelectDashboard">
+                            <option value="">Choisi son statut</option>
+                            <option value="sale">A vendre</option>
+                            <option value="rent">A louer</option>
+                        </select>
+
+                        <label for="locationOfProperty" class="formElement"></label>
+                        <select name="locationOfProperty" id="locationProperty" class="btnFilterSelectDashboard">
+                            <option value="">Choisi une ville</option>
+                            <option value="Nice">Nice</option>
+                            <option value="Nice">Saint-Jean-Cap-Ferrat</option>
+                            <option value="Nice">Cagnes-sur-Mer</option>
+                        </select>
+
+                        <!-- <button type="submit" id="filterProperty"> Valider </button> -->
+
+                    </div>
+                </form>
+                <a href="?action=addProperty">
+                    <button type="button" id="btnAddProperty"> Ajouter un bien</button>
+                </a>
+
+
+                <div id="listOfProperties">
+                    <table>
+                        <tbody>
+                            <?php
+                            foreach ($allProperties as $property) {
+                            ?>
+                                <tr>
+                                    <td class="listOfPropertyByUser"><a href=""><?= $property['property_name'] ?></a></td>
+
+                                    <td class="listOfPropertyByUser"><?= $property['property_location'] ?></td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div id="updatePhoneNumber">
-                <label for="phoneNumber">Téléphone</label>
-                <input type="text" name="phoneNumbersDashboard" class="inputUpdateAgencyDetails">
+            <div id="statistiquesDashboard">
+                <h1>Statistiques</h1>
+                <div id="numberOfPropertiesAvailable" class="numberStatistique">
+                    <h3 class="statistiques">Nombre de biens total</h3>
+                    <p id="numberPropertyAvailable">
+                        <?php
+                        echo count($allProperties);
+                        ?>
+                    </p>
+                </div>
+                <div id="numberOfPropertiesToSale" class="numberStatistique">
+                    <h3 class="statistiques">Nombre de biens à vendre</h3>
+                    <p id="numberPropertySale">
+                        <?php
+                        foreach ($allProperties as $property) {
+                            // print_r($property);
+
+                        }
+                        ?>
+                    </p>
+                </div>
+
+                <div id="numberOfPropertiesToRent" class="numberStatistique">
+                    <h3 class="statistiques">Nombre de biens à louer</h3>
+                    <p id="numberPropertyRent">
+                        <?php
+                        // foreach ($allProperties as $property) {
+                        // print_r($property);
+
+
+                        ?>
+                    </p>
+                </div>
             </div>
         </div>
-        <div id="agencyDescription">
-            <label for="updateAgencyPresentation">Présentation de l'agence</label>
-            <input type="text" name="agencyDescriptionDashboard" class="inputUpdateAgencyDetails">
+
+        <div id="parametersDashboard">
+            <h1 class="titlePageDashboard">Paramètres</h1>
+            <div>
+                <div id="titleParameters">
+                    <h2 id="titleChangeContact">Changer les coordonnées</h2>
+                    <button type="button" id="updateParameters" class="btnUpdateParameters">
+                        Modifier
+                    </button>
+                    <button type="submit" id="buttonValidateUpdateParameters" class="btnUpdateParameters">Valider</button>
+                </div>
+                <div id="contactDetails">
+                    <div id="updateAdress">
+                        <label for="updateAddress">Adresse</label>
+                        <input type="text" name="adressDashboard" id="updateAddress" class="inputUpdateAgencyDetails">
+                    </div>
+                    <div id="updatePhoneNumber">
+                        <label for="updatePhoneNumber">Téléphone</label>
+                        <input type="text" name="phoneNumbersDashboard" id="updatePhoneNumber" class="inputUpdateAgencyDetails">
+                    </div>
+
+                    <div id="agencyDescription">
+                        <label for="updateAgencyPresentation">Présentation de l'agence</label>
+                        <input type="text" name="agencyDescriptionDashboard" id="updateAgencyPresentation" class="inputUpdateAgencyDetails">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
