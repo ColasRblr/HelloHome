@@ -3,6 +3,7 @@
   justify-content: space-between;
   text-align: center;
   text-align: -webkit-center;
+  height: 450px;
 }
 
 .titlePageDashboard {
@@ -11,18 +12,26 @@
   color: white;
 }
 
+h3 {
+  font-size: 15px;
+}
+
 /* ...........................................Gestion des biens */
 #managementProperty {
   margin-left: 2vw;
   text-align: start;
-  height: 5vh;
+  height: 45vh;
   width: 50vw;
 }
-
+#dashboardManagementFilters {
+  display: flex;
+  align-items: center;
+}
 #inputSearchDashboard {
   border-radius: 20px;
-  height: 35px;
-  margin-right: 1vw;
+  height: 30px;
+  /* margin-right: 1vw; */
+  width: 12vw;
 }
 
 .btnFilterSelectDashboard {
@@ -48,13 +57,19 @@
   padding: 4px;
 }
 
+#listOfProperties {
+  overflow-y: auto;
+  height: 150px;
+}
+
 /* .....................................Statistiques */
 #statistiquesDashboard {
   background-color: #094351;
   padding: 1%;
   height: 50vh;
   margin-right: 5vw;
-  border-radius: 20px;
+  border-radius: 10px;
+  width: 30vw;
 }
 
 .numberStatistique {
@@ -67,7 +82,11 @@
 .inputStatistiques {
   background-color: #c58b03;
   border: none;
-  height: 5vh;
+  height: 7vh;
+  width: 22vw;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 3px;
 }
 
 /* ..................................Parameters */
