@@ -1,5 +1,14 @@
+console.log("toto");
 
 $(document).ready(function () {
+  let property = [];
+  let listOfProperty;
+
+  listOfProperty = property.filter((element) => element == "Nice");
+
+  $("#locationProperty").click(listOfProperty);
+
+  // add page dashboard
   $("#houseProperty").hide();
   $("#propertyApartment").hide();
   $(".specificationToRent").hide();
@@ -29,6 +38,11 @@ $(document).ready(function () {
       $("#price").show();
     }
   });
+
+  // get contact information since home page
+  $("#updateAddress").text("#homePageTitles");
+  $("#updatePhoneNumber").text("#phoneNumber");
+  $("#updateAgencyPresentation").text("#address");
 });
 
 // const fileInput = document.querySelector('input[type=file]');
@@ -41,4 +55,3 @@ $(document).ready(function () {
 // formData.append('photo', file);
 
 // xhr.send(formData);
-
