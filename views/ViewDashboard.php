@@ -1,8 +1,8 @@
 <?php $titre = "Tableau de bord";
-// var_dump($allProperties);
+var_dump($allRental);
 ?>
 
-<link rel="stylesheet" href="./style/dashboardHomePage.css">
+<link rel="stylesheet" href="./style/dashboardHome.css">
 
 </head>
 
@@ -21,7 +21,7 @@
                         <label for="typeOfProperty"> </label>
                         <select name="filterTypeOfProperty" id="dashaboardTypeProperty" class="btnFilterSelectDashboard">
                             <option value="">Choisi son type</option>
-                            <option value="apartment">Appartement</option>
+                            <option value="house">Appartement</option>
                             <option value="apartment">Maison</option>
 
                         </select>
@@ -36,12 +36,9 @@
                         <select name="locationOfProperty" id="locationProperty" class="btnFilterSelectDashboard">
                             <option value="">Choisi une ville</option>
                             <option value="Nice">Nice</option>
-                            <option value="Nice">Saint-Jean-Cap-Ferrat</option>
-                            <option value="Nice">Cagnes-sur-Mer</option>
+                            <option value="Saint-Jean-Cap-Ferrat">Saint-Jean-Cap-Ferrat</option>
+                            <option value="Cagnes-sur-Mer">Cagnes-sur-Mer</option>
                         </select>
-
-                        <!-- <button type="submit" id="filterProperty"> Valider </button> -->
-
                     </div>
                 </form>
                 <a href="?action=addProperty">
@@ -51,18 +48,16 @@
 
                 <div id="listOfProperties">
                     <table>
-                        <tbody>
+                        <tbody id="contenuOfTable">
                             <?php
                             foreach ($allProperties as $property) {
                             ?>
                                 <tr>
-                                    <td class="listOfPropertyByUser"><a href=""><?= $property['property_name'] ?></a></td>
-
-                                    <td class="listOfPropertyByUser"><?= $property['property_location'] ?></td>
-                                </tr>
-                            <?php
+                                    <td class="listOfPropertyByUser"><a href=""><?= $property['property_name'] ?></a> <?= $property['property_location'] ?> </td>
+                                <?php
                             }
-                            ?>
+                                ?>
+                                </tr>
                         </tbody>
                     </table>
                 </div>
@@ -81,10 +76,7 @@
                     <h3 class="statistiques">Nombre de biens à vendre</h3>
                     <p id="numberPropertySale">
                         <?php
-                        foreach ($allProperties as $property) {
-                            // print_r($property);
-
-                        }
+                        echo count($allHouses);
                         ?>
                     </p>
                 </div>
@@ -93,10 +85,7 @@
                     <h3 class="statistiques">Nombre de biens à louer</h3>
                     <p id="numberPropertyRent">
                         <?php
-                        // foreach ($allProperties as $property) {
-                        // print_r($property);
-
-
+                        echo count($allRental);
                         ?>
                     </p>
                 </div>
@@ -120,11 +109,11 @@
                     </div>
                     <div id="updatePhoneNumber">
                         <label for="updatePhoneNumber">Téléphone</label>
-                        <input type="text" name="phoneNumbersDashboard" id="updatePhoneNumber" class="inputUpdateAgencyDetails">
+                        <input type="text" name="phoneNumbersDashboard" id="inputUpdatePhoneNumber" class="inputUpdateAgencyDetails">
                     </div>
 
                     <div id="agencyDescription">
-                        <label for="updateAgencyPresentation">Présentation de l'agence</label>
+                        <label for="updateAgencyPresentation">HelloHome</label>
                         <input type="text" name="agencyDescriptionDashboard" id="updateAgencyPresentation" class="inputUpdateAgencyDetails">
                     </div>
                 </div>

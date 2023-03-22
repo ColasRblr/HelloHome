@@ -3,16 +3,25 @@
   justify-content: space-between;
   text-align: center;
   text-align: -webkit-center;
-  height: 450px;
+  height: 60vh;
+  margin-bottom: 4vh;
 }
 .titlePageDashboard {
-  background-color: #448a96;
+  background-color: #094351;
   width: 50vw;
+}
+h1 {
+  font-size: 30px;
   color: white;
 }
 h3 {
   font-size: 15px;
 }
+td {
+  border: solid 1px;
+  width: 100vw;
+}
+
 /* ...........................................Gestion des biens */
 #managementProperty {
   margin-left: 2vw;
@@ -44,8 +53,9 @@ h3 {
 
 #btnAddProperty {
   font-size: 15px;
-  width: 10vw;
+  width: 15vw;
   height: 35px;
+  margin-bottom: 5px;
   background-color: #c58b03;
   color: white;
   border: none;
@@ -55,14 +65,13 @@ h3 {
 
 #listOfProperties {
   overflow-y: auto;
-  height: 150px;
+  height: 170px;
 }
 
 /* .....................................Statistiques */
 #statistiquesDashboard {
   background-color: #094351;
   padding: 1%;
-  height: 50vh;
   margin-right: 5vw;
   border-radius: 10px;
   width: 30vw;
@@ -70,7 +79,7 @@ h3 {
 .numberStatistique {
   background-color: #c58b03;
   border-radius: 20px;
-  height: 7vh;
+  height: 10vh;
   width: 22vw;
   margin-top: 40px;
   margin-bottom: 40px;
@@ -80,7 +89,7 @@ h3 {
 /* ..................................Parameters */
 #parametersDashboard {
   margin-left: 2vw;
-  position: relative;
+  /* position: relative; */
 }
 
 #titleParameters {
@@ -104,6 +113,7 @@ h3 {
 }
 #contactDetails {
   display: flex;
+  margin-left: 10vw;
 }
 label {
   font-size: 15px;
