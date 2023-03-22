@@ -1,7 +1,5 @@
 <?php
 
-require_once 'models/Property.php';
-
 class House extends Property
 {
     private $houseAttribute;
@@ -16,7 +14,13 @@ class House extends Property
     {
         $this->property = new Property;
     }
-
+   public function getAllHouses()
+    {
+        $sql = "SELECT * FROM house ";
+        $results = $this->executerRequete($sql);
+        $houses = $results->fetchAll();
+        return $houses;
+        }
     public function addHouse($id_property, $garden, $bonus)
     {
         $sql = "INSERT INTO house (id_property, garden, bonus) VALUES (?, ?, ?);";
