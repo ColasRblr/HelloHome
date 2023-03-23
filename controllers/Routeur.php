@@ -32,6 +32,8 @@ class Routeur
                     $this->propertyCtrl->addProperty();
                 } else if ($_GET['action'] == 'validAddProperty') {
                     $this->propertyCtrl->validAddProperty();
+                } else if ($_GET['action'] == 'updateProperty') {
+                    $this->propertyCtrl->validUpdateProperty();
                 }
             } else {
                 $this->propertyCtrl->home();  // action par défaut

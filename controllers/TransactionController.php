@@ -34,8 +34,4 @@ class TransactionController
     {
         $this->rental->addRental($id_transaction, $rent, $charges, $furnished);
     }
-
-    // public function typeOfTransaction(){
-
-    // }
 }

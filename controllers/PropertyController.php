@@ -266,9 +266,13 @@ class PropertyController
         } else if ($statutProperty == "rent") {
             $this->transactionCtrl->addRental($id_transaction, $rent, $charges, $furnished);
         }
-
         $adminInfo = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
         $view = new View("Dashboard");
-        $view->generer(array('properties' => $adminInfo));
+        $view->generer(array('allProperties' => $adminInfo));
+    }
+
+
+    public function validUpdateProperty()
+    {
     }
 }

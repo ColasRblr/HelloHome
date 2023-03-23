@@ -141,6 +141,7 @@ die;
                     </div>
                 </form>
             </div>
+
             <div id="contactDetails">
                 <div id="containerMap">
                     <h5>Nos coordonnées</h5>

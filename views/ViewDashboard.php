@@ -1,5 +1,5 @@
 <?php $titre = "Tableau de bord";
-// var_dump($allRental);
+// var_dump($allProperties);
 ?>
 
 <link rel="stylesheet" href="./style/dashboardHome.css">
@@ -10,6 +10,9 @@
     <header>
         <img src="././asset/img/logo_white.png" alt="logo">
         <div id="icon_container">
+            <a href="./views/ViewHome.php">
+                <i class="bi bi-window-fullscreen"></i>
+            </a>
             <i class="bi bi-person-fill"></i>
             <i class="bi bi-x-circle-fill"></i>
         </div>
@@ -21,21 +24,20 @@
                 <h1 class="titlePageDashboard">Gestion des biens</h1>
                 <form method="post" action="">
                     <div id="dashboardManagementFilters">
-                        <label for="typeOfProperty"> </label>
+
                         <select name="filterTypeOfProperty" id="dashaboardTypeProperty" class="btnFilterSelectDashboard">
                             <option value="">Choisi son type</option>
                             <option value="house">Appartement</option>
                             <option value="apartment">Maison</option>
-
                         </select>
-                        <label for="propertyStatut"> </label>
+
                         <select name="filterPropertyStatut" id="dashaboardPropertyStatut" class="btnFilterSelectDashboard">
                             <option value="">Choisi son statut</option>
                             <option value="sale">A vendre</option>
                             <option value="rent">A louer</option>
                         </select>
 
-                        <label for="locationOfProperty" class="formElement"></label>
+
                         <select name="locationOfProperty" id="locationProperty" class="btnFilterSelectDashboard">
                             <option value="">Choisi une ville</option>
                             <option value="Nice">Nice</option>
@@ -56,7 +58,7 @@
                         foreach ($allProperties as $property) {
                         ?>
                             <tr>
-                                <td class="listOfPropertyByUser"><a href=""><?= $property['property_name'] ?></a> <?= $property['property_location'] ?> </td>
+                                <td class="listOfPropertyByUser"><a href="?action=updateProperty"><?= $property['property_name'] ?></a> <?= $property['property_location'] ?> </td>
                             <?php
                         }
                             ?>
@@ -79,7 +81,7 @@
                 <h3 class="statistiques">Nombre de biens à vendre</h3>
                 <p id="numberPropertySale">
                     <?php
-                    echo count($allHouses);
+                    // echo count($allHouses);
                     ?>
                 </p>
             </div>
@@ -88,7 +90,7 @@
                 <h3 class="statistiques">Nombre de biens à louer</h3>
                 <p id="numberPropertyRent">
                     <?php
-                    echo count($allRental);
+                    // echo count($allRental);
                     ?>
                 </p>
             </div>
