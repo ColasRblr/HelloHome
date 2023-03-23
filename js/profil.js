@@ -30,13 +30,15 @@ changeProfilBtn.addEventListener("click", () => {
     } else {
         let input = document.querySelectorAll('.input-infos-content');
         let inputValue = [];
-        // changeProfilBtn.removeAttribute("data-bs-toggle");
-        // changeProfilBtn.removeAttribute("data-bs-target");
+        changeProfilBtn.removeAttribute("data-bs-toggle");
+        changeProfilBtn.removeAttribute("data-bs-target");
         for (let i = 0; i < input.length; i++) {
             inputValue.push(input[i].value);
         }
         console.log(inputValue);
         submitInfoModalBtn.addEventListener("click", () => {
+            changeProfilBtn.removeAttribute("data-bs-toggle");
+            changeProfilBtn.removeAttribute("data-bs-target");
             fetch('../POO_Immo/?action=updateUser', {
                 method: 'POST',
                 body: JSON.stringify({ info: inputValue }),
