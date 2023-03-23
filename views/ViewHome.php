@@ -196,7 +196,7 @@
             <div id="containerAddress">
                 <div id="address">
                     <h6>Adresse</h6>
-                    <p>20 avenue Notre-Dame </br>
+                    <p id="needToUpdateAdress">20 avenue Notre-Dame </br>
                         06000 Nice</p>
                 </div>
                 <div id="phoneNumber"></div>
