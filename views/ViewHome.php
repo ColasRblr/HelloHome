@@ -1,6 +1,6 @@
 <?php $titre = "Accueil";
 
-
+// var_dump($displayLastProperties);die;
 ?>
 
 <link rel="stylesheet" href="./style/homepage.css">
@@ -143,7 +143,7 @@
     </div>
 
     <!-- Last/spotlight properties  -->
- <div class="homePageTitles">Nos biens à la une</div>
+    <div class="homePageTitles">Nos biens à la une</div>
     <div id="lastProperties">
         <?php for ($i = 0; $i < count($displayLastProperties); $i++) {
             for ($j = 0; $j < count($displayLastProperties[$i]); $j++) {
@@ -158,22 +158,23 @@
                 } else {
                     $transaction = "achat";
                     $transactionPrice = "selling_price";
-                }
-                echo '<div class="propertyCard">
-        <img class="propertyPic" src="./asset/img/' . $displayLastProperties[$i][$j]["picture_url"] . '" alt="'.$displayLastProperties[$i][$j]["picture_description"].'">
+                } ?>
+                <div class="propertyCard">
+                    <div class="containerPic">
+                        <img class="propertyPic" src="./asset/img/<?=$displayLastProperties[$i][$j]["picture_url"]?>" alt="<?= $displayLastProperties[$i][$j]["picture_description"] ?>">
+            </div>
             <div class="propertyPreview">
-                <div id="name">' . $displayLastProperties[$i][$j]["property_name"] . '</div>
-                <div id="type">' . $type . '</div>
-                <div id="location">' . $displayLastProperties[$i][$j]["property_location"] . '</div>
-                <div id="area">' . $displayLastProperties[$i][$j]["property_area"] . ' m2</div>
-                <div id="numberOfPiecces">' . $displayLastProperties[$i][$j]["property_numberOfPieces"] . ' pièces </div>
-                <div id="transaction">' . $transaction . '</div>
-                <div id="price">' . $displayLastProperties[$i][$j]["$transactionPrice"] . ' €</div>
-                <a href="?action=visitProperty&id=' . $displayLastProperties[$i][$j]["id_property"] . ' " <button id="visit"> Je visite </button></a>
+                <div id="name"> <?= $displayLastProperties[$i][$j]["property_name"] ?> </div>
+                <div id="type"><?= $type ?></div>
+                <div id="location"><?= $displayLastProperties[$i][$j]["property_location"] ?></div>
+                <div id="area"><?= $displayLastProperties[$i][$j]["property_area"] ?> m2</div>
+                <div id="numberOfPiecces"><?= $displayLastProperties[$i][$j]["property_numberOfPieces"] ?> pièces </div>
+                <div id="transaction"><?= $transaction ?></div>
+                <div id="price"><?= $displayLastProperties[$i][$j]["$transactionPrice"] ?> €</div>
+                <a href="?action=visitProperty&id=<?= $displayLastProperties[$i][$j]["id_property"] ?>"> <button id="visit"> Je visite </button></a>
             </div>
         </div>
-    </div>';
-            }
+           <?php }
         } ?>
     </div>
 

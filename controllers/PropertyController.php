@@ -36,10 +36,10 @@ class PropertyController
 
     public function home()
     {
+        // $displayLastProperties = $this->displayLastProperties();
         $displayLastProperties = $this->displayLastProperties();
-        // var_dump($displayLastProperties);die;
         $view = new View("Home");
-        $view->generer(array('displayLastProperties' => $displayLastProperties));
+        $view->generer(array('displayLastProperties'=> $displayLastProperties));
     }
 
     public function getOneProperty()
@@ -50,64 +50,38 @@ class PropertyController
         $view->generer(array('properties' => $properties));
     }
 
-    public function getTransactionType()
+    // Gives an array with property_id, property_type(appt or house) and transaction_type(rental or sale)
+    public function getTypesByPropertyId($id_property)
     {
-        // Looking for 3 last properties and transactions related to them
-        $lastProperties = $this->property->getLastProperties();
-        for ($i = 0; $i < count($lastProperties); $i++) {
-            // Looping on lastproperties array to put into another array both property_id and transaction_id
-            $lastTransactions[] = $this->transaction->getOneTransaction($lastProperties[$i]["id"]);
-
-            if ($this->sale->getOneSale($lastTransactions[$i]["id"])) {
-                // if transaction_id exists in sale table : we add previous ids plus sale datas into a new array
-                $transactionType[$lastTransactions[$i]["id_property"]] = "sale";
-            } elseif ($this->rental->getOneRental($lastTransactions[$i]["id"])) {
-                // same with rental table : we then have an array (transactionType) which contains our 3 last properties with transactions(rental/sale) datas
-                $transactionType[$lastTransactions[$i]["id_property"]] = "rental";
+        if ($this->apartment->getOneApartment($id_property)) {
+            $propertyType = "apartment";
+            $transactionId = $this->transaction->getOneTransaction($id_property);
+            if ($this->sale->getOneSale($transactionId["id"])) {
+                $transactionType = "sale";
+            } else if ($this->rental->getOneRental($transactionId["id"])) {
+                $transactionType = "rental";
+            }
+        } elseif ($this->house->getOneHouse($id_property)) {
+            $propertyType = "house";
+            $transactionId = $this->transaction->getOneTransaction($id_property)["id"];
+            if ($this->sale->getOneSale($transactionId["id"])) {
+                $transactionType = "sale";
+            } else if ($this->rental->getOneRental($transactionId["id"])) {
+                $transactionType = "rental";
             }
         }
-        // var_dump($transactionType);
-        return $transactionType;
-    }
-
-    public function getPropertyType()
-    {
-        $lastProperties = $this->property->getLastProperties();
-        for ($i = 0; $i < count($lastProperties); $i++) {
-            // echo ($lastProperties[$i]["id"]);
-            // Putting into an array ($propertyType) the id_property and type of property with string)
-            if ($this->apartment->getOneApartment($lastProperties[$i]["id"])) {
-                $propertyType[$lastProperties[$i]["id"]] = "apartment";
-            } elseif ($this->house->getOneHouse($lastProperties[$i]["id"])) {
-                $propertyType[$lastProperties[$i]["id"]] = "house";
-            }
-        }
-        // var_dump($propertyType);
-        return ($propertyType);
+        $result = ['id' => $id_property, 'type' => $propertyType, 'transaction' => $transactionType];
+        return ($result);
     }
 
     public function displayLastProperties()
     {
-
-        $transactionType = $this->getTransactionType();
-        $propertyType = $this->getPropertyType();
         $lastProperties = $this->property->getLastProperties();
-
-        // Creating a new array with 3 last type of property added (appt or house)
-        foreach ($propertyType as $key => $value) {
-            $property_type[] = $value;
-        }
-
-        // Creating a new array with 3 last type of transaction added (rental or sale)
-        foreach ($transactionType as $key => $value) {
-            $property_transaction[] =  $value;
-        }
-
         //Looping on 3 last properties : execute queries to select all datas we need to display 3 last properties
         for ($i = 0; $i < count($lastProperties); $i++) {
-            $request[$i] = $this->property->getDetailsLastProperties($property_type[$i], $property_transaction[$i], $lastProperties[$i]["id"]);
+            $getTypes[$i] = $this->getTypesByPropertyId($lastProperties[$i]["id"]);
+            $request[$i] = $this->property->getDetailsLastProperties($getTypes[$i]['id'], $getTypes[$i]['type'], $getTypes[$i]['transaction']);
         }
-      
         return $request;
     }
 
@@ -276,7 +250,8 @@ class PropertyController
         $view->generer(array('properties' => $adminInfo));
     }
 
-    public function visitProperty(){
+    public function visitProperty()
+    {
         echo "coucou";
     }
 }
