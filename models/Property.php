@@ -1,7 +1,6 @@
 <?php
 
 require_once 'models/Connection.php';
-
 class Property extends Connection
 {
     private $attribute;
@@ -19,10 +18,4 @@ class Property extends Connection
 
         return $properties;
     }
-
-
-
-
-
-    
 }

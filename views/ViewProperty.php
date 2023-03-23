@@ -1,13 +1,5 @@
-<?php $titre = "Votre bien"; ?>?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./POO_Immo/style/pageAnnonce.css">
-    <title>Page annonce</title>
+<?php $titre = "Votre bien"; ?>
+<link rel="stylesheet" href="./style/pageAnnonce.css">
 </head>
 <body>
 <header>
@@ -123,17 +115,11 @@ Située rue des Alpes, elle vous invite à faire votre vie sur la commune de Le 
       <h4 class="s">S'abonner</h4>
     </div>
     </div>
-  <footer>
-    <h1 class="footer">
-      Mentions légales | 2023
-    </h1>
-    <div></div>
-  </footer>
+
+
     
-  </body>
-        </html>
+  
+   
 
-
-
-
+    
 

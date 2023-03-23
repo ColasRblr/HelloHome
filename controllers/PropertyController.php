@@ -7,10 +7,10 @@ class PropertyController
     private $property;
     private $ctrlAccueil;
 
-    // public function __construct()
-    // {
-    //     $this->property = new Property();
-    // }
+     public function __construct()
+     {
+        $this->property = new Property();
+     }
 
     public function home()
     {

@@ -6,8 +6,10 @@ use Dotenv\Dotenv;
 
 $dotenv = Dotenv::createImmutable(dirname(dirname(__DIR__)) . '/POO_Immo');
 $dotenv->load();
-// $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
-// $dotenv->load();
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+
+ //$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+ //$dotenv->load();
 
 class Connection
 {
@@ -37,7 +39,7 @@ class Connection
                 // 'root',
                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
             );
-            // echo "connexion réusssi !";
+             echo "connexion réusssi !";
         }
         return $this->bdd;
     }
