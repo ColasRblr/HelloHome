@@ -5,10 +5,16 @@
 
 <body>
     <header>
-        <img src="././asset/img/logo_white.png" alt="logo">
+        <a href="?action=displayDashboard">
+            <img src="././asset/img/logo_white.png" alt="logo">
+        </a>
         <div id="icon_container">
-            <i class="bi bi-person-fill"></i>
-            <i class="bi bi-x-circle-fill"></i>
+            <a href="?action=profil">
+                <i class="bi bi-person-fill"></i>
+            </a>
+            <a href="?action=deconnection">
+                <i class="bi bi-x-circle-fill"></i>
+            </a>
         </div>
     </header>
     <div id="containerDashboardAddProperty">
@@ -43,15 +49,16 @@
                         <option value="Cagnes-sur-Mer">Cagnes-sur-Mer</option>
                     </select>
                 </div>
-                <div>
-                    <input type="text" name="nameProperty" id="propertyName" placeholder="Nom du bien*">
-                </div>
+
                 <div class="specificationToRent">
                     <label for="furnishedProperty" class="formElement"></label>
                     <select name="furnishedProperty" id="furnished" class="btnSelectAddDetails">
                         <option value="furnished">Meublé</option>
                         <option value="noFurnished">Non meublé</option>
                     </select>
+                </div>
+                <div>
+                    <input type="text" name="nameProperty" id="propertyName" placeholder="Nom du bien*">
                 </div>
                 <div id="price">
                     <label for="addPriceProperty" class="formElement"></label>
@@ -106,8 +113,8 @@
                     <label for="descriptionProperty" class="formElement"></label>
                     <textarea id="descritionOfTheProperty" name="descriptionProperty" placeholder="Description*" value=""></textarea>
                 </div>
-                <label for="picture">Ajouter des images</label>
-                <input type="file" name="picture" id="picture">
+                <label for="picture" id="add_picture">Ajouter une image</label>
+                <input type="file" name="picture" id="picture" class="inputfile">
                 <!-- <button type="button" id="addImage">Ajouter des images</button> -->
                 <div class="bottomForm">
                     <button type="submit" class="propertySubmitBtn"> Valider </button>

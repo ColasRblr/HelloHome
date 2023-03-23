@@ -221,7 +221,7 @@ class PropertyController
         if (isset($_POST['swimmingpool']) && $_POST['swimmingpool'] != "") {
             $property_swimmingpool = true;
         } else {
-            $property_swimmingpool = false;
+            $property_swimmingpool = 0;
         }
         $propertyInfo['property_swimmingpool'] = $property_swimmingpool;
 
@@ -270,6 +270,16 @@ class PropertyController
         } else if ($statutProperty == "rent") {
             $this->transactionCtrl->addRental($id_transaction, $rent, $charges, $furnished);
         }
+
+        try {
+            $allProperties = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
+            // var_dump($allProperties);
+            $view = new View("Dashboard");
+            $view->generer(array('allProperties' => $allProperties));
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+
         $adminInfo = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
         $view = new View("Dashboard");
         $view->generer(array('allProperties' => $adminInfo));

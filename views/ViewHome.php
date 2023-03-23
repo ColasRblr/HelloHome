@@ -1,3 +1,19 @@
+
+<?php $titre = "Accueil"; ?>
+<link rel="stylesheet" href="./style/homepage.css">
+</head>
+
+<body>
+    <!-- Landing page with picture in background and research form -->
+    <button>
+        <a href="?action=dashboardConnection">
+            Dashboard
+        </a>
+    </button>
+    <div id="landingPage">
+        <div id="researchForm">
+            <form action="/getProperties" method="post" id="researchFormContent">
+
 <?php $titre = "Accueil";
 
 
@@ -146,6 +162,16 @@
 
     <div id="lastProperties">
         <div class="homePageTitles">Nos biens à la une</div>
+        <div class="cardProperty">
+            <div id="bgPicture">
+                <div id="preview">
+                    <div id="type"></div>
+                    <div id="content"></div>
+                    <div id="price"></div>
+                    <button id="visit"></button>
+                </div>
+            </div>
+        </div>
         <?php for ($i = 0; $i < count($displayLastProperties); $i++) {
             for ($j = 0; $j < count($displayLastProperties[$i]); $j++) {
                 if (isset($displayLastProperties[$i][$j])) {
@@ -177,6 +203,7 @@
     </div>';
             }
         } ?>
+
     </div>
 
     <!--  HELLOHOME presentation text-->

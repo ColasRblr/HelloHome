@@ -8,8 +8,16 @@
 
 <body>
     <header>
-        <img src="././asset/img/logo_white.png" alt="logo">
+        <a href="?action=displayDashboard">
+            <img src="././asset/img/logo_white.png" alt="logo">
+        </a>
         <div id="icon_container">
+            <a href="?action=profil">
+                <i class="bi bi-person-fill"></i>
+            </a>
+            <a href="?action=deconnection">
+                <i class="bi bi-x-circle-fill"></i>
+            </a>
             <a href="./views/ViewHome.php">
                 <i class="bi bi-window-fullscreen"></i>
             </a>
