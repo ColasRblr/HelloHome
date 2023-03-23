@@ -2,7 +2,7 @@
     "name": "utilisateur/brief7_immo",
     "autoload": {
         "psr-4": {
-            "MonProjet\\": "/Users/colas-r/Documents/sites/Brief08/POO_Immo/"
+            "MonProjet": "/Users/colas-r/Documents/sites/Brief08/POO_Immo/"
         }
     },
     "authors": [
