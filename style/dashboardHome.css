@@ -3,15 +3,15 @@
   justify-content: space-between;
   text-align: center;
   text-align: -webkit-center;
-  height: 450px;
 }
-
 .titlePageDashboard {
-  background-color: #448a96;
-  width: 50vw;
-  color: white;
+  background-color: #094351;
+  width: 60vw;
 }
-
+h1 {
+  color: white;
+  font-size: 30px;
+}
 h3 {
   font-size: 15px;
 }
@@ -41,108 +41,25 @@ h3 {
   font-size: 15px;
   height: 35px;
   background-color: #155109;
+}
+
+p {
   color: white;
-  border: none;
-  border-radius: 10px;
-  padding: 4px;
-  width: 10vw;
+  font-size: 20px;
 }
-
-#btnAddProperty {
-  font-size: 15px;
-  width: 10vw;
-  height: 35px;
-  background-color: #c58b03;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  padding: 4px;
+td {
+  border: solid 1px;
+  width: 100vw;
 }
-
-#listOfProperties {
-  overflow-y: auto;
-  height: 150px;
-}
-
-/* .....................................Statistiques */
-#statistiquesDashboard {
-  background-color: #094351;
-  padding: 1%;
-  height: 50vh;
-  margin-right: 5vw;
-  border-radius: 10px;
-  width: 30vw;
-}
-
-.numberStatistique {
-  background-color: #c58b03;
-  border-radius: 20px;
-  height: 5vh;
-  width: 20vw;
-}
-
-.inputStatistiques {
-  background-color: #c58b03;
-  border: none;
-  height: 7vh;
-  width: 22vw;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  padding: 3px;
-}
-
-/* ..................................Parameters */
-#parametersDashboard {
-  margin-left: 2vw;
-  position: relative;
-}
-
-#titleParameters {
-  display: flex;
-  align-items: center;
-}
-
-#titleChangeContact {
-  margin-right: 1vw;
-}
-
-.btnUpdateParameters {
-  margin-right: 1vw;
-  font-size: 15px;
-  height: 25px;
-  background-color: #094351;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  padding: 4px;
-  width: 8vw;
-}
-
-#contactDetails {
-  display: flex;
-}
-
-label {
-  font-size: 15px;
-}
-
-.inputUpdateAgencyDetails {
-  margin-right: 2vw;
-  margin-left: 1vw;
-  margin-top: 1vh;
-  border-radius: 10px;
-  font-size: 15px;
-}
-
-/*-------------Header and Footer---------------*/
+/* .......................................Header */
 header {
   height: 130px;
   background-color: #094351;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 3vh;
 }
-
 #icon_container {
   display: flex;
   align-items: center;
@@ -167,6 +84,102 @@ header i {
   margin: auto 15px;
   cursor: pointer;
 }
+/* ...........................................Gestion des biens */
+#managementProperty {
+  margin-left: 1vw;
+  text-align: start;
+  width: 55vw;
+}
+#dashboardManagementFilters {
+  display: flex;
+}
+
+.btnFilterSelectDashboard {
+  font-size: 15px;
+  height: 35px;
+  background-color: #155109;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 4px;
+  width: 15vw;
+  margin-right: 1vw;
+}
+
+#btnAddProperty {
+  font-size: 15px;
+  width: 15vw;
+  height: 35px;
+  background-color: #c58b03;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 4px;
+}
+
+#listOfProperties {
+  overflow-y: auto;
+  height: 30vh;
+  margin-top: 3vh;
+}
+
+/* .....................................Statistiques */
+#statistiquesDashboard {
+  background-color: #094351;
+  padding: 1%;
+  margin-right: 5vw;
+  border-radius: 10px;
+  width: 30vw;
+}
+.numberStatistique {
+  background-color: #c58b03;
+  border-radius: 20px;
+  height: 10vh;
+  width: 22vw;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 3px;
+}
+
+/* ..................................Parameters */
+#parametersDashboard {
+  margin-left: 1vw;
+  /* position: relative; */
+}
+
+#titleParameters {
+  display: flex;
+  align-items: center;
+}
+
+#titleChangeContact {
+  margin-right: 1vw;
+}
+.btnUpdateParameters {
+  margin-right: 1vw;
+  font-size: 15px;
+  height: 25px;
+  background-color: #094351;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 4px;
+  width: 8vw;
+}
+#contactDetails {
+  display: flex;
+  /* margin-left: 10vw; */
+}
+label {
+  font-size: 15px;
+}
+.inputUpdateAgencyDetails {
+  margin-right: 2vw;
+  margin-left: 1vw;
+  margin-top: 1vh;
+  border-radius: 10px;
+  font-size: 15px;
+}
 
 footer {
   background-color: #094351;
@@ -174,6 +187,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 2vh;
 }
 
 footer p {
