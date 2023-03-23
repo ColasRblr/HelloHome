@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Connection.php';
+require_once 'models/Connection.php';
 
 class User extends Connection
 {

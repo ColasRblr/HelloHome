@@ -1,12 +1,12 @@
 <?php $titre = "Accueil";
 
-for ($i = 0; $i < count($displayLastProperties); $i++) {
-    for ($j = 0; $j < count($displayLastProperties[$i]); $j++) {
-        echo $displayLastProperties[$i][$j]["property_name"];
-    }
-}
-// var_dump(count($displayLastProperties));
-die;
+// for ($i = 0; $i < count($displayLastProperties); $i++) {
+//     for ($j = 0; $j < count($displayLastProperties[$i]); $j++) {
+//         echo $displayLastProperties[$i][$j]["property_name"];
+//     }
+// }
+// // var_dump(count($displayLastProperties));
+// die;
 ?>
 
 <link rel="stylesheet" href="./style/homepage.css">

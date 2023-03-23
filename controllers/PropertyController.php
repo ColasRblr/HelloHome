@@ -36,9 +36,9 @@ class PropertyController
 
     public function home()
     {
-        $displayLastProperties = $this->displayLastProperties();
+        // $displayLastProperties = $this->displayLastProperties();
         $view = new View("Home");
-        $view->generer(array('displayLastProperties' => $displayLastProperties));
+        $view->generer(array());
     }
 
     public function getOneProperty()
@@ -72,6 +72,8 @@ class PropertyController
     public function getPropertyType()
     {
         $lastProperties = $this->property->getLastProperties();
+        echo "tata";
+        var_dump($lastProperties);
         for ($i = 0; $i < count($lastProperties); $i++) {
             echo ($lastProperties[$i]["id"]);
             // Putting into an array ($propertyType) the id_property and type of property with string)
@@ -81,7 +83,7 @@ class PropertyController
                 $propertyType[$lastProperties[$i]["id"]] = "house";
             }
         }
-        // var_dump($propertyType);
+
         return ($propertyType);
     }
 
@@ -91,7 +93,9 @@ class PropertyController
         $transactionType = $this->getTransactionType();
         $propertyType = $this->getPropertyType();
         $lastProperties = $this->property->getLastProperties();
-
+        echo "toto";
+        var_dump($propertyType);
+        echo "toto";
         // Creating a new array with 3 last type of property added (appt or house)
         foreach ($propertyType as $key => $value) {
             $property_type[] = $value;
@@ -274,5 +278,14 @@ class PropertyController
 
     public function validUpdateProperty()
     {
+
+        if (!empty($_POST)) {
+
+
+
+            $properties = "hello";
+            $view = new View("UpdateProperty");
+            $view->generer(array('properties' => $properties));
+        }
     }
 }
