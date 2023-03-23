@@ -1,8 +1,8 @@
 <?php
 
-// require_once 'models/Connection.php';
+require_once 'Connection.php';
 
-class UserModel extends Connection
+class User extends Connection
 {
     public function isEmailUnique($email)
     {
@@ -13,8 +13,8 @@ class UserModel extends Connection
     public function logIn($email, $password)
     {
         $sql = "SELECT * FROM user WHERE email = ?";
-        $user = $this->executerRequete($sql, array($email));
-
+        $stmt = $this->executerRequete($sql, array($email));
+        $user = $stmt->fetch();
         if ($user) {
             if (password_verify($password, $user['pwd'])) {
                 return $user;
@@ -38,5 +38,13 @@ class UserModel extends Connection
         SET firstname=?, lastname=?, email=?, pwd=? 
         WHERE id=?";
         $this->executerRequete($sql, array($firstname, $lastname, $email, $pwd, $id));
+    }
+
+    public function getClientInfo($id)
+    {
+        $sql = "SELECT * FROM clients 
+        WHERE id=?";
+        $userInfo = $this->executerRequete($sql, array($id));
+        return $userInfo;
     }
 }

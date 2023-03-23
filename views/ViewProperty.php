@@ -1,4 +1,4 @@
-<?php $titre = "Votre bien";?>
+<?php $titre = "Votre bien"; ?>?>
 
 <!DOCTYPE html>
 <html lang="en">
