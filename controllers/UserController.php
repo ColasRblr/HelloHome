@@ -4,15 +4,22 @@ require_once './views/View.php';
 require_once './models/User.php';
 require_once './models/Property.php';
 
+if (isset($_GET['action']) && $_GET['action'] == 'updateUser') {
+    $userController = new UserController();
+    $userController->updateAdminInfo();
+}
+if (isset($_GET['action']) && $_GET['action'] == 'updatePassword') {
+    $userController = new UserController();
+    $userController->updatePassword();
+}
+
 class UserController
 {
     private $property;
     private $user;
-    private $ctrlAccueil;
 
     public function __construct()
     {
-        // $this->property = new Property();
         $this->user = new User();
         $this->property = new Property();
     }
@@ -49,11 +56,33 @@ class UserController
     }
 
 
-    public function displayPropertyByCityDashboard()
+    public function displayDashboard()
     {
-        $properties = "hello";
-        $view = new View("Dashboard");
-        $view->generer(array('properties' => $properties));
+        session_start();
+        try {
+            $allProperties = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
+            $view = new View("Dashboard");
+            $view->generer(array('allProperties' => $allProperties));
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function updateAdminInfo()
+    {
+        $json_data = file_get_contents('php://input');
+        $data = json_decode($json_data, true);
+        session_start();
+        if (isset($data['info'])) {
+            $firstname = $data['info'][0];
+            $lastname = $data['info'][1];
+            $email = $data['info'][2];
+            try {
+                $this->user->updateAdminInfo($firstname, $lastname, $email, $_SESSION['user_id']);
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
+        }
     }
 
     // public function displayNumberPropertyToSaleStatistique()
@@ -62,5 +91,54 @@ class UserController
     //     $view = new View("Dashboard");
     //     $view->generer(array('properties' => $properties));
     // }
+    public function deconnection()
+    {
+        if (isset($_SESSION)) {
+            session_destroy();
+        }
+        try {
+            $allProperties = "hello";
+            $view = new View("Connection");
+            $view->generer(array('allProperties' => $allProperties));
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
 
+    public function getProfilAdmin()
+    {
+        session_start();
+        try {
+            $allProperties = $this->user->getAdminInfo($_SESSION['user_id']);
+            $view = new View("AdminProfil");
+            $view->generer(array('allProperties' => $allProperties));
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function updatePassword()
+    {
+        $json_data = file_get_contents('php://input');
+        $data = json_decode($json_data, true);
+        session_start();
+        if (isset($data['info'])) {
+            $oldpassword = $data['info'][0];
+            $newpassword = $data['info'][1];
+            $idAdmin = $_SESSION['user_id'];
+            try {
+                // echo password_hash("1122aaAA", PASSWORD_DEFAULT);
+                $adminInfo = $this->user->getAdminInfo($idAdmin);
+                if (isset($adminInfo)) {
+                    if (password_verify($oldpassword, $adminInfo['pwd'])) {
+                        $this->user->changePassword($newpassword, $idAdmin);
+                    } else {
+                        echo "Le mot de passe ne correspond pas";
+                    }
+                }
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
+        }
+    }
 }

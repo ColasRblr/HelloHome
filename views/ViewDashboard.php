@@ -8,10 +8,16 @@
 
 <body>
     <header>
-        <img src="././asset/img/logo_white.png" alt="logo">
+        <a href="?action=displayDashboard">
+            <img src="././asset/img/logo_white.png" alt="logo">
+        </a>
         <div id="icon_container">
-            <i class="bi bi-person-fill"></i>
-            <i class="bi bi-x-circle-fill"></i>
+            <a href="?action=profil">
+                <i class="bi bi-person-fill"></i>
+            </a>
+            <a href="?action=deconnection">
+                <i class="bi bi-x-circle-fill"></i>
+            </a>
         </div>
     </header>
 

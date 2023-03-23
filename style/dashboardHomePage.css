@@ -23,10 +23,12 @@ h3 {
   height: 45vh;
   width: 50vw;
 }
+
 #dashboardManagementFilters {
   display: flex;
   align-items: center;
 }
+
 #inputSearchDashboard {
   border-radius: 20px;
   height: 30px;
@@ -150,8 +152,12 @@ header {
 
 header img {
   overflow: hidden;
-  height: 85%;
+  height: 100%;
   margin-left: 15px;
+}
+
+header a {
+  height: 85%;
 }
 
 header i {
