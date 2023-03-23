@@ -1,12 +1,6 @@
 <?php $titre = "Accueil";
 
-for ($i = 0; $i < count($displayLastProperties); $i++) {
-    for ($j = 0; $j < count($displayLastProperties[$i]); $j++) {
-        echo $displayLastProperties[$i][$j]["property_name"];
-    }
-}
-// var_dump(count($displayLastProperties));
-die;
+
 ?>
 
 <link rel="stylesheet" href="./style/homepage.css">
@@ -65,8 +59,69 @@ die;
                     <div id="seaDistance">
                         <label for="seaDistance">Distance de la mer (m)</label>
                         <input type="number" id="seaDistanceInput" name="seaDistance"></input>
+                    </div>
+                    <div id="pool">
+                        <label for="pool">Piscine</label>
+                        <input type="checkbox" name="pool">
+                    </div>
+                    <div id="seaView">
+                        <label for="seaView">Vue sur mer</label>
+                        <input type="checkbox" name="seaView">
+                    </div>
+                </section>
+
+                <!-- Specific attribute if it's a flat (triggered by -->
+                <section id="flatFilters">
+                    <div id="parking">
+                        <label for="parking">Parking</label>
+                        <input type="checkbox" name="parking">
+                    </div>
+                    <div id="elevator">
+                        <label for="elevator">Ascenseur</label>
+                        <input type="checkbox" name="elevator">
+                    </div>
+                    <div id="caretaking">
+                        <label for="caretaking">Gardiennage</label>
+                        <input type="checkbox" name="caretaking">
+                    </div>
+                    <div id="balcony">
+                        <label for="balcony">Balcon</label>
+                        <input type="checkbox" name="balcony">
+                    </div>
+                </section>
+
+                <!-- Specific attribute if it's a house-->
+                <section id="houseFilters">
+                    <div id="garden">
+                        <label for="garden">Jardin</label>
+                        <input type="checkbox" name="garden">
+                    </div>
+                </section>
+                <!-- Two specific attributes if it's a rental-->
+                <section id="rentalFilters">
+                    <div id="furnished">
+                        <label for="furnished">Meublé </label>
+                        <input type="checkbox" name="furnished">
 
                     </div>
+                    <div id="rent">
+                        <label for="rent">Loyer</label>
+                        <input type="number" id="rentInput" name="rent"></input>
+                    </div>
+                </section>
+
+                <!-- One specific attribute if it's a sale-->
+                <section id="saleFilters">
+                    <div id="price">
+                        <label for="price">Budget</label>
+                        <input type="number" id="priceInput" name="price"></input>
+                    </div>
+                </section>
+
+                <!-- Search button -->
+                <div id="searchBtn">
+                    <button type="submit" id="searchFormBtn">Rechercher</button>
+                </div>
             </form>
 
         </div>
@@ -91,16 +146,37 @@ die;
 
     <div id="lastProperties">
         <div class="homePageTitles">Nos biens à la une</div>
-        <div class="cardProperty">
-            <div id="bgPicture">
-                <div id="preview">
-                    <div id="type"></div>
-                    <div id="content"></div>
-                    <div id="price"></div>
-                    <button id="visit"></button>
-                </div>
+        <?php for ($i = 0; $i < count($displayLastProperties); $i++) {
+            for ($j = 0; $j < count($displayLastProperties[$i]); $j++) {
+                if (isset($displayLastProperties[$i][$j])) {
+                    $type = "appartement";
+                } else {
+                    $type = "maison";
+                }
+                if (isset($displayLastProperties[$i][$j]["rent"])) {
+                    $transaction = "location";
+                    $transactionPrice = "rent";
+                } else {
+                    $transaction = "achat";
+                    $transactionPrice = "selling_price";
+                }
+                echo '<div class="cardProperty">
+        <div id="bgPicture" >
+        <img src="./asset/img/' . $displayLastProperties[$i][$j]["picture_url"] . '" width="300px">
+            <div id="preview">
+                <div id="name">' . $displayLastProperties[$i][$j]["property_name"] . '</div>
+                <div id="type">' . $type . '</div>
+                <div id="location">' . $displayLastProperties[$i][$j]["property_location"] . '</div>
+                <div id="area">' . $displayLastProperties[$i][$j]["property_area"] . ' m2</div>
+                <div id="numberOfPiecces">' . $displayLastProperties[$i][$j]["property_numberOfPieces"] . ' pièces </div>
+                <div id="transaction">' . $transaction . '</div>
+                <div id="price">' . $displayLastProperties[$i][$j]["$transactionPrice"] . ' €</div>
+                <a href="?action=visitProperty&id=' . $displayLastProperties[$i][$j]["id_property"] . ' " <button id="visit"> Je visite </button></a>
             </div>
         </div>
+    </div>';
+            }
+        } ?>
     </div>
 
     <!--  HELLOHOME presentation text-->

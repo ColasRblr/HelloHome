@@ -37,6 +37,7 @@ class PropertyController
     public function home()
     {
         $displayLastProperties = $this->displayLastProperties();
+        // var_dump($displayLastProperties);die;
         $view = new View("Home");
         $view->generer(array('displayLastProperties' => $displayLastProperties));
     }
@@ -73,7 +74,7 @@ class PropertyController
     {
         $lastProperties = $this->property->getLastProperties();
         for ($i = 0; $i < count($lastProperties); $i++) {
-            echo ($lastProperties[$i]["id"]);
+            // echo ($lastProperties[$i]["id"]);
             // Putting into an array ($propertyType) the id_property and type of property with string)
             if ($this->apartment->getOneApartment($lastProperties[$i]["id"])) {
                 $propertyType[$lastProperties[$i]["id"]] = "apartment";
@@ -96,14 +97,17 @@ class PropertyController
         foreach ($propertyType as $key => $value) {
             $property_type[] = $value;
         }
+
         // Creating a new array with 3 last type of transaction added (rental or sale)
         foreach ($transactionType as $key => $value) {
             $property_transaction[] =  $value;
         }
+
         //Looping on 3 last properties : execute queries to select all datas we need to display 3 last properties
         for ($i = 0; $i < count($lastProperties); $i++) {
             $request[$i] = $this->property->getDetailsLastProperties($property_type[$i], $property_transaction[$i], $lastProperties[$i]["id"]);
         }
+      
         return $request;
     }
 
@@ -274,5 +278,9 @@ class PropertyController
 
     public function validUpdateProperty()
     {
+    }
+
+    public function visitProperty(){
+        echo "coucou";
     }
 }

@@ -33,6 +33,7 @@ class UserController
         if (isset($_POST)) {
             $email = $_POST['email'];
             $pwd = $_POST['password'];
+           
 
             $result = $this->user->logIn($email, $pwd);
             if ($result) {
