@@ -1,7 +1,5 @@
 <?php
 
-require_once 'models/Property.php';
-
 class House extends Property
 {
     private $houseAttribute;
@@ -30,5 +28,13 @@ class House extends Property
         $properties = $stmt->fetchAll();
 
         return $properties;
+    }
+
+    public function getOneHouse($id_property)
+    {
+        $sql = "SELECT id, id_property FROM house WHERE id_property=? ";
+        $result = $this->executerRequete($sql, array($id_property));
+        $house = $result->fetch();
+        return $house;
     }
 }

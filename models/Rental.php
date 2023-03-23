@@ -19,7 +19,21 @@ class Rental extends Transaction
         $sql = "SELECT rental.id FROM rental INNER JOIN property on property.id = rental.id INNER JOIN transaction_type on transaction_type.id = rental.id WHERE id_user = ?;";
         $stmt = $this->executerRequete($sql, array($id));
         $properties = $stmt->fetchAll();
-
         return $properties;
+    }
+    public function getAllRentals()
+    {
+        $sql = "SELECT * FROM rental ";
+        $results = $this->executerRequete($sql);
+        $rentals = $results->fetchAll();
+        return $rentals;
+    }
+
+    public function getOneRental($id_transaction)
+    {
+        $sql = "SELECT id_transaction, id FROM rental WHERE id_transaction = ?";
+        $result = $this->executerRequete($sql, $id_transaction);
+        $rental = $result->fetch();
+        return $rental;
     }
 }
