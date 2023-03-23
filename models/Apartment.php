@@ -19,6 +19,15 @@ public function getAllApartments()
         $apartments = $results->fetchAll();
         return $apartments;
      }
+    
+public function getOneApartment($id_property)
+    {
+        $sql = "SELECT id, id_property FROM apartment WHERE id_property=? ";
+        $result = $this->executerRequete($sql, $id_property);
+        $apartment= $result->fetch();
+        return $apartment;
+     }
+
     public function addApartment($id_property, $parking, $floor, $elevator, $caretaking, $balcony)
     {
         $sql = "INSERT INTO apartment (id_property, parking, floor, elevator, caretaking, balcony) VALUES (?, ?, ?, ?, ?, ?);";

@@ -20,7 +20,7 @@ class Rental extends Transaction
         $stmt = $this->executerRequete($sql, array($id));
         $properties = $stmt->fetchAll();
         return $properties;
-    }  
+    }
     public function getAllRentals()
     {
         $sql = "SELECT * FROM rental ";
@@ -31,8 +31,8 @@ class Rental extends Transaction
 
     public function getOneRental($id_transaction)
     {
-        $sql = "SELECT * FROM rental WHERE id_transaction = ?";
-        $result = $this->executerRequete($sql, array($id_transaction));
+        $sql = "SELECT id_transaction, id FROM rental WHERE id_transaction = ?";
+        $result = $this->executerRequete($sql, $id_transaction);
         $rental = $result->fetch();
         return $rental;
     }

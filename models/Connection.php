@@ -29,13 +29,13 @@ class Connection
 
         if ($this->bdd == null) {
             $this->bdd = new PDO(
-                $_ENV['DATABASE_URL'] . '; dbname=' . $_ENV['DB_NAME'] . '; charset=utf8',
-                $_ENV['PASSWORD'],
-                $_ENV['USER'],
+                // $_ENV['DATABASE_URL'] . '; dbname=' . $_ENV['DB_NAME'] . '; charset=utf8',
+                // $_ENV['PASSWORD'],
+                // $_ENV['USER'],
 
-                // 'mysql:host=localhost;dbname=poo_immo;charset=utf8',
-                // 'root',
-                // 'root',
+                'mysql:host=localhost;dbname=poo_immo;charset=utf8',
+                'root',
+                'root',
 
                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
             );
