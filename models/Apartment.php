@@ -23,7 +23,7 @@ public function getAllApartments()
 public function getOneApartment($id_property)
     {
         $sql = "SELECT id, id_property FROM apartment WHERE id_property=? ";
-        $result = $this->executerRequete($sql, $id_property);
+        $result = $this->executerRequete($sql, array($id_property));
         $apartment= $result->fetch();
         return $apartment;
      }

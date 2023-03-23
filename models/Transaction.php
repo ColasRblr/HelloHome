@@ -30,7 +30,7 @@ class Transaction extends Property
     public function getOneTransaction($id_property)
     {
         $sql = "SELECT id, id_property FROM transaction_type WHERE id_property=? ";
-        $result = $this->executerRequete($sql, $id_property);
+        $result = $this->executerRequete($sql, array($id_property));
         $transaction = $result->fetch();
         return $transaction;
     }
