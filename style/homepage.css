@@ -97,6 +97,32 @@ label, #location-select, #type-select, #roomsInput, #areaInput, #rentInput, #sea
    
 }
 
+/*  SPOTLIGHT 3 LAST PROPERTIES */
+
+#lastProperties{
+    display : flex;
+    justify-content: space-around;
+    margin-bottom: 1em;
+}
+
+.propertyCard{
+    width: 30%;
+    display:flex;
+    justify-content: center;
+    position:relative;
+}
+
+.propertyPic{
+    width:100%;
+    /* width: 400px;
+    height: 300px; */
+}
+
+.propertyPreview{
+    position: absolute;
+    background-color: #fff;
+    top : 200px;
+}
 
 /* GENERAL */
 

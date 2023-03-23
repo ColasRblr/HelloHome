@@ -143,9 +143,8 @@
     </div>
 
     <!-- Last/spotlight properties  -->
-
+ <div class="homePageTitles">Nos biens à la une</div>
     <div id="lastProperties">
-        <div class="homePageTitles">Nos biens à la une</div>
         <?php for ($i = 0; $i < count($displayLastProperties); $i++) {
             for ($j = 0; $j < count($displayLastProperties[$i]); $j++) {
                 if (isset($displayLastProperties[$i][$j])) {
@@ -160,10 +159,9 @@
                     $transaction = "achat";
                     $transactionPrice = "selling_price";
                 }
-                echo '<div class="cardProperty">
-        <div id="bgPicture" >
-        <img src="./asset/img/' . $displayLastProperties[$i][$j]["picture_url"] . '" width="300px">
-            <div id="preview">
+                echo '<div class="propertyCard">
+        <img class="propertyPic" src="./asset/img/' . $displayLastProperties[$i][$j]["picture_url"] . '" alt="'.$displayLastProperties[$i][$j]["picture_description"].'">
+            <div class="propertyPreview">
                 <div id="name">' . $displayLastProperties[$i][$j]["property_name"] . '</div>
                 <div id="type">' . $type . '</div>
                 <div id="location">' . $displayLastProperties[$i][$j]["property_location"] . '</div>
