@@ -17,7 +17,7 @@ $(document).ready(function () {
     }
   });
 
-  $("#dashaboardTypeProperty").change(function () {
+  $("#dashaboardPropertyStatut").change(function () {
     var selectedValue = $(this).val();
 
     if (selectedValue) {
@@ -31,11 +31,6 @@ $(document).ready(function () {
       $("#contenuOfTable tr").show();
     }
   });
-
-  // get contact information since home page
-  $("#updateAddress").text("#homePageTitles");
-  $("#inputUpdatePhoneNumber").text("#phoneNumber");
-  $("#updateAgencyPresentation").text("#address");
 
   // add page dashboard
   $("#houseProperty").hide();

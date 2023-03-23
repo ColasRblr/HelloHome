@@ -1,3 +1,19 @@
+
+<?php $titre = "Accueil"; ?>
+<link rel="stylesheet" href="./style/homepage.css">
+</head>
+
+<body>
+    <!-- Landing page with picture in background and research form -->
+    <button>
+        <a href="?action=dashboardConnection">
+            Dashboard
+        </a>
+    </button>
+    <div id="landingPage">
+        <div id="researchForm">
+            <form action="/getProperties" method="post" id="researchFormContent">
+
 <?php $titre = "Accueil";
 
 // var_dump($displayLastProperties);die;
@@ -176,6 +192,7 @@
         </div>
            <?php }
         } ?>
+
     </div>
 
     <!--  HELLOHOME presentation text-->
@@ -216,6 +233,7 @@
                     </div>
                 </form>
             </div>
+
             <div id="contactDetails">
                 <div id="containerMap">
                     <h5>Nos coordonnées</h5>

@@ -30,8 +30,13 @@ public function getOneApartment($id_property)
 
     public function addApartment($id_property, $parking, $floor, $elevator, $caretaking, $balcony)
     {
+        try{
+            $sql = "INSERT INTO apartment (id_property, parking, floor, elevator, caretaking, balcony) VALUES (?, ?, ?, ?, ?, ?);";
+            $this->executerRequete($sql, array($id_property, $parking, $floor, $elevator, $caretaking, $balcony));
+        }catch(Exception $e){
+            echo $e->getMessage();
+        }
         $sql = "INSERT INTO apartment (id_property, parking, floor, elevator, caretaking, balcony) VALUES (?, ?, ?, ?, ?, ?);";
         $this->executerRequete($sql, array($id_property, $parking, $floor, $elevator, $caretaking, $balcony));
-
     }
 }

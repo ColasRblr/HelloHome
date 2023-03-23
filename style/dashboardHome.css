@@ -3,11 +3,10 @@
   justify-content: space-between;
   text-align: center;
   text-align: -webkit-center;
-  height: 60vh;
 }
 .titlePageDashboard {
   background-color: #094351;
-  width: 55vw;
+  width: 60vw;
 }
 h1 {
   color: white;
@@ -15,6 +14,38 @@ h1 {
 }
 h3 {
   font-size: 15px;
+}
+
+/* ...........................................Gestion des biens */
+#managementProperty {
+  margin-left: 2vw;
+  text-align: start;
+  height: 45vh;
+  width: 50vw;
+}
+
+#dashboardManagementFilters {
+  display: flex;
+  align-items: center;
+}
+
+#inputSearchDashboard {
+  border-radius: 20px;
+  height: 30px;
+  /* margin-right: 1vw; */
+  width: 12vw;
+}
+
+.btnFilterSelectDashboard {
+  margin-right: 1vw;
+  font-size: 15px;
+  height: 35px;
+  background-color: #155109;
+}
+
+p {
+  color: white;
+  font-size: 20px;
 }
 td {
   border: solid 1px;
@@ -38,8 +69,12 @@ header {
 
 header img {
   overflow: hidden;
-  height: 85%;
+  height: 100%;
   margin-left: 15px;
+}
+
+header a {
+  height: 85%;
 }
 
 header i {
@@ -53,12 +88,10 @@ header i {
 #managementProperty {
   margin-left: 1vw;
   text-align: start;
-  height: 45vh;
   width: 55vw;
 }
 #dashboardManagementFilters {
   display: flex;
-  /* align-items: center; */
 }
 
 .btnFilterSelectDashboard {
@@ -69,12 +102,13 @@ header i {
   border: none;
   border-radius: 10px;
   padding: 4px;
-  width: 10vw;
+  width: 15vw;
+  margin-right: 1vw;
 }
 
 #btnAddProperty {
   font-size: 15px;
-  width: 10vw;
+  width: 15vw;
   height: 35px;
   background-color: #c58b03;
   color: white;
@@ -93,7 +127,6 @@ header i {
 #statistiquesDashboard {
   background-color: #094351;
   padding: 1%;
-  height: 60vh;
   margin-right: 5vw;
   border-radius: 10px;
   width: 30vw;
@@ -135,7 +168,7 @@ header i {
 }
 #contactDetails {
   display: flex;
-  margin-left: 3vw;
+  /* margin-left: 10vw; */
 }
 label {
   font-size: 15px;
