@@ -1,7 +1,11 @@
-
 <?php $titre = "Accueil";
 
-// var_dump($transaction);
+for ($i = 0; $i < count($displayLastProperties); $i++) {
+    for ($j = 0; $j < count($displayLastProperties[$i]); $j++) {
+        echo $displayLastProperties[$i][$j]["property_name"];
+    }
+}
+// var_dump(count($displayLastProperties));
 die;
 ?>
 
@@ -10,59 +14,59 @@ die;
 
 <body>
 
-<!-- Landing page with picture in background and research form -->
-<button>
-    <a href="?action=dashboardConnection">
-        Dashboard
-    </a>
-</button>
-<div id="landingPage">
-    <div id="researchForm">
-        <form action="/getProperties" method="post" id="researchFormContent">
+    <!-- Landing page with picture in background and research form -->
+    <button>
+        <a href="?action=dashboardConnection">
+            Dashboard
+        </a>
+    </button>
+    <div id="landingPage">
+        <div id="researchForm">
+            <form action="/getProperties" method="post" id="researchFormContent">
 
-            <!-- Buttons that trigger rental or sale filters -->
-            <div id="rentOrSaleBtns">
-                <button id="rentalBtn" type="button" value="rental">Louer</button>
-                <button id="saleBtn" type="button" value="sale">Acheter</button>
-            </div>
-
-            <!-- Property search form : general attributes for both sales and rentals, flats and houses -->
-            <div id="location">
-                <label for="location">Ville:</label>
-                <select name="location" id="location-select">
-                    <option value="nice">Nice</option>
-                    <option value="saint-jean">Saint-Jean-Cap-Ferrat</option>
-                    <option value="cagnes">Cagnes-sur-Mer</option>
-                </select>
-            </div>
-            <div id="property">
-                <label for="property">Type de bien </label>
-                <select name="location" id="type-select">
-                    <option value="house" id="houseSelected">Maison</option>
-                    <option value="flat" id="flatSelected">Appartement</option>
-                </select>
-            </div>
-            <div id="rooms">
-                <label for="rooms">Nombre de pièces:</label>
-                <input type="number" id="roomsInput" name="rooms"></input>
-            </div>
-            <div id="area">
-                <label for="area">Superficie (m2)</label>
-                <input type="number" id="areaInput" name="area"></input>
-            </div>
-
-            <!-- button that trigger more filters (common to sales, rentals, flats and houses) -->
-            <div id="filterBtn">
-                <button id="moreFiltersBtn" type="button">Plus de critères</button>
-            </div>
-
-            <!-- More detailed filters which will appear if user clicks on the upper button -->
-            <section id="generalFilters">
-                <div id="seaDistance">
-                    <label for="seaDistance">Distance de la mer (m)</label>
-                    <input type="number" id="seaDistanceInput" name="seaDistance"></input>
-
+                <!-- Buttons that trigger rental or sale filters -->
+                <div id="rentOrSaleBtns">
+                    <button id="rentalBtn" type="button" value="rental">Louer</button>
+                    <button id="saleBtn" type="button" value="sale">Acheter</button>
                 </div>
+
+                <!-- Property search form : general attributes for both sales and rentals, flats and houses -->
+                <div id="location">
+                    <label for="location">Ville:</label>
+                    <select name="location" id="location-select">
+                        <option value="nice">Nice</option>
+                        <option value="saint-jean">Saint-Jean-Cap-Ferrat</option>
+                        <option value="cagnes">Cagnes-sur-Mer</option>
+                    </select>
+                </div>
+                <div id="property">
+                    <label for="property">Type de bien </label>
+                    <select name="location" id="type-select">
+                        <option value="house" id="houseSelected">Maison</option>
+                        <option value="flat" id="flatSelected">Appartement</option>
+                    </select>
+                </div>
+                <div id="rooms">
+                    <label for="rooms">Nombre de pièces:</label>
+                    <input type="number" id="roomsInput" name="rooms"></input>
+                </div>
+                <div id="area">
+                    <label for="area">Superficie (m2)</label>
+                    <input type="number" id="areaInput" name="area"></input>
+                </div>
+
+                <!-- button that trigger more filters (common to sales, rentals, flats and houses) -->
+                <div id="filterBtn">
+                    <button id="moreFiltersBtn" type="button">Plus de critères</button>
+                </div>
+
+                <!-- More detailed filters which will appear if user clicks on the upper button -->
+                <section id="generalFilters">
+                    <div id="seaDistance">
+                        <label for="seaDistance">Distance de la mer (m)</label>
+                        <input type="number" id="seaDistanceInput" name="seaDistance"></input>
+
+                    </div>
             </form>
 
         </div>

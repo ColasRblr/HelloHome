@@ -14,13 +14,7 @@ class House extends Property
     {
         $this->property = new Property;
     }
-   public function getAllHouses()
-    {
-        $sql = "SELECT * FROM house ";
-        $results = $this->executerRequete($sql);
-        $houses = $results->fetchAll();
-        return $houses;
-        }
+
     public function addHouse($id_property, $garden, $bonus)
     {
         $sql = "INSERT INTO house (id_property, garden, bonus) VALUES (?, ?, ?);";
@@ -34,5 +28,13 @@ class House extends Property
         $properties = $stmt->fetchAll();
 
         return $properties;
+    }
+
+    public function getOneHouse($id_property)
+    {
+        $sql = "SELECT id, id_property FROM house WHERE id_property=? ";
+        $result = $this->executerRequete($sql, array($id_property));
+        $house = $result->fetch();
+        return $house;
     }
 }
