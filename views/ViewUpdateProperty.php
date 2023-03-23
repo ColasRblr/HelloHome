@@ -5,24 +5,18 @@
 
 <body>
     <header>
-        <a href="?action=displayDashboard">
-            <img src="././asset/img/logo_white.png" alt="logo">
-        </a>
+        <img src="././asset/img/logo_white.png" alt="logo">
         <div id="icon_container">
-            <a href="?action=profil">
-                <i class="bi bi-person-fill"></i>
-            </a>
-            <a href="?action=deconnection">
-                <i class="bi bi-x-circle-fill"></i>
-            </a>
+            <i class="bi bi-person-fill"></i>
+            <i class="bi bi-x-circle-fill"></i>
         </div>
     </header>
     <div id="containerDashboardAddProperty">
         <div id="titleAddProperty">
-            <h1 class="titlePageDashboard">Ajouter un bien</h1>
+            <h1 class="titlePageDashboard">Modifier le bien</h1>
         </div>
 
-        <form id="addPropertyForm" method="post" action="?action=validAddProperty" enctype="multipart/form-data">
+        <form id="addPropertyForm" method="post" action="?action=validUpdateProperty" enctype="multipart/form-data">
             <div id="addPropertyDetails">
                 <div>
                     <label for="addTypeOfProperty" class="formElement"></label>
@@ -49,16 +43,15 @@
                         <option value="Cagnes-sur-Mer">Cagnes-sur-Mer</option>
                     </select>
                 </div>
-
+                <div>
+                    <input type="text" name="nameProperty" id="propertyName" placeholder="Nom du bien*">
+                </div>
                 <div class="specificationToRent">
                     <label for="furnishedProperty" class="formElement"></label>
                     <select name="furnishedProperty" id="furnished" class="btnSelectAddDetails">
                         <option value="furnished">Meublé</option>
                         <option value="noFurnished">Non meublé</option>
                     </select>
-                </div>
-                <div>
-                    <input type="text" name="nameProperty" id="propertyName" placeholder="Nom du bien*">
                 </div>
                 <div id="price">
                     <label for="addPriceProperty" class="formElement"></label>
@@ -113,8 +106,8 @@
                     <label for="descriptionProperty" class="formElement"></label>
                     <textarea id="descritionOfTheProperty" name="descriptionProperty" placeholder="Description*" value=""></textarea>
                 </div>
-                <label for="picture" id="add_picture">Ajouter une image</label>
-                <input type="file" name="picture" id="picture" class="inputfile">
+                <label for="picture">Ajouter des images</label>
+                <input type="file" name="picture" id="picture">
                 <!-- <button type="button" id="addImage">Ajouter des images</button> -->
                 <div class="bottomForm">
                     <button type="submit" class="propertySubmitBtn"> Valider </button>

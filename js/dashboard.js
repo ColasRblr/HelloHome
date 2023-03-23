@@ -1,5 +1,38 @@
+console.log("toto");
 
 $(document).ready(function () {
+  // get list of properties thanks to filter
+  $("#locationProperty").change(function () {
+    var selectedValue = $(this).val();
+
+    if (selectedValue) {
+      var filteredElements = $("#contenuOfTable td.listOfPropertyByUser").filter(function () {
+        return $(this).text().indexOf(selectedValue) !== -1;
+      });
+
+      $("#contenuOfTable tr").hide();
+      filteredElements.closest("tr").show();
+    } else {
+      $("#contenuOfTable tr").show();
+    }
+  });
+
+  $("#dashaboardPropertyStatut").change(function () {
+    var selectedValue = $(this).val();
+
+    if (selectedValue) {
+      var filteredElements = $("#contenuOfTable td.listOfPropertyByUser").filter(function () {
+        return $(this).text().indexOf(selectedValue) !== -1;
+      });
+
+      $("#contenuOfTable tr").hide();
+      filteredElements.closest("tr").show();
+    } else {
+      $("#contenuOfTable tr").show();
+    }
+  });
+
+  // add page dashboard
   $("#houseProperty").hide();
   $("#propertyApartment").hide();
   $(".specificationToRent").hide();
@@ -12,7 +45,7 @@ $(document).ready(function () {
     }
   });
 
-  $("#addTypeProperty").change(function () {
+  $("#locationProperty").change(function () {
     if ($(this).val() == "apartment") {
       $("#propertyApartment").show();
     } else {
@@ -41,4 +74,3 @@ $(document).ready(function () {
 // formData.append('photo', file);
 
 // xhr.send(formData);
-
