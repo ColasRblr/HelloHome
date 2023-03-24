@@ -1,19 +1,3 @@
-
-<?php $titre = "Accueil"; ?>
-<link rel="stylesheet" href="./style/homepage.css">
-</head>
-
-<body>
-    <!-- Landing page with picture in background and research form -->
-    <button>
-        <a href="?action=dashboardConnection">
-            Dashboard
-        </a>
-    </button>
-    <div id="landingPage">
-        <div id="researchForm">
-            <form action="/getProperties" method="post" id="researchFormContent">
-
 <?php $titre = "Accueil";
 
 
@@ -31,13 +15,22 @@
 </head>
 
 <body>
-
+<header>
+  <div id="logoAnnonce">
+    <img src="./images/HelloHome-logo.png" alt="">
+  </div>
+  <nav class="navbar">
+    <ul>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#">L'agence</a></li>
+    <li><a href="#">Recherche</a></li>
+    <li><a href="#">Nos biens à la une</a></li>
+      <li><a href="#">Accueil</a></li>
+    </ul>
+  </nav>
+</header>
     <!-- Landing page with picture in background and research form -->
-    <button>
-        <a href="?action=dashboardConnection">
-            Dashboard
-        </a>
-    </button>
+   
     <div id="landingPage">
         <div id="researchForm">
             <form action="/getProperties" method="post" id="researchFormContent">
@@ -200,7 +193,6 @@
         </div>
            <?php }
         } ?>
-
     </div>
 
     <!--  HELLOHOME presentation text-->
@@ -218,9 +210,7 @@
     </div>
 
     <!-- Contact form and informations -->
-
-    <div id="contactSection">
-        <div class="homePageTitles">Nous contacter</div>
+<div class="homePageTitles">Nous contacter</div>   
         <div id="contactContent">
             <div id="contactForm">
                 <h5>Formulaire de contact</h5>
@@ -241,7 +231,6 @@
                     </div>
                 </form>
             </div>
-
             <div id="contactDetails">
                 <div id="containerMap">
                     <h5>Nos coordonnées</h5>
@@ -258,5 +247,15 @@
                     <p>04-32-16-32-16</p>
                 </div>
             </div>
-        </div>
     </div>
+
+    <footer>
+    <button>
+        <a href="?action=dashboardConnection">
+            Dashboard
+        </a>
+    </button>
+    <h1 class="footer">
+      Mentions légales | 2023
+    </h1>
+  </footer>
