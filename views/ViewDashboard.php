@@ -1,5 +1,7 @@
 <?php $titre = "Tableau de bord";
+// echo '<pre>';
 // var_dump($allProperties);
+// echo '</pre>';
 ?>
 
 <link rel="stylesheet" href="./style/dashboardHome.css">
@@ -63,14 +65,20 @@
                 <table>
                     <tbody id="contenuOfTable">
                         <?php
-                        foreach ($allProperties as $property) {
+
+                        for ($i = 0; $i < count($allProperties); $i++) {
+                            // foreach ($allProperties as $property) {
+                            // var_dump($allProperties);
                         ?>
                             <tr>
-                                <td class="listOfPropertyByUser"><a href="?action=updateProperty"><?= $property['property_name'] ?></a> <?= $property['property_location'] ?> </td>
-                            <?php
-                        }
-                            ?>
+                                <td class="listOfPropertyByUser"><a href="?action=updateProperty"><?= $allProperties[$i]['property_name'] ?></a> <?= $allProperties[$i]['property_location'] ?> <? $allProperties[$i]['homeType'] ?></td>
                             </tr>
+                        <?php
+                        }
+                        ?>
+                        <td></td>
+
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -89,7 +97,7 @@
                 <h3 class="statistiques">Nombre de biens à vendre</h3>
                 <p id="numberPropertySale">
                     <?php
-                    // echo count($allHouses);
+                    echo count($allHouses);
                     ?>
                 </p>
             </div>
@@ -98,7 +106,7 @@
                 <h3 class="statistiques">Nombre de biens à louer</h3>
                 <p id="numberPropertyRent">
                     <?php
-                    // echo count($allRental);
+                    echo count($allRental);
                     ?>
                 </p>
             </div>

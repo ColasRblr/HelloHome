@@ -6,9 +6,11 @@ class Transaction extends Property
 {
     // private $attribute;
 
-    // public function __construct($attribute)
+
+    // public function __construct()
     // {
-    //     $this->attribute = $attribute;
+    //     // $this->attribute = $attribute;
+    //    
     // }
 
     public function addNewTransaction($transaction_onlineDate, $transaction_status, $id_property)
