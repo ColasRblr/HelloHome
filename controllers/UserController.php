@@ -46,7 +46,7 @@ class UserController
         if (isset($_POST)) {
             $email = $_POST['email'];
             $pwd = $_POST['password'];
-           
+
 
             $result = $this->user->logIn($email, $pwd);
             if ($result) {
@@ -67,9 +67,9 @@ class UserController
                 $allHouses = $this->house->getOneHouse($_SESSION['user_id']);
                 $allRental = $this->rental->getAllPropertyToRent($_SESSION['user_id']);
                 $oneTransaction = $this->transaction->getOneTransaction($_SESSION['user_id']);
-                $getTransaction = $this->propertyCtrl->getTransaction();
+                // $getTransaction = $this->propertyCtrl->getTransaction();
                 $view = new View("Dashboard");
-                $view->generer(array('allProperties' => $allProperties, 'allHouses' => $allHouses, 'allRental' => $allRental, 'oneTransaction' => $oneTransaction, 'getTransaction' => $getTransaction));
+                $view->generer(array('allProperties' => $allProperties, 'allHouses' => $allHouses, 'allRental' => $allRental, 'oneTransaction' => $oneTransaction));
             } else {
                 echo "email ou mpd invalide";
             }

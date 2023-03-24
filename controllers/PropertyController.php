@@ -37,11 +37,9 @@ class PropertyController
     public function home()
     {
         // $displayLastProperties = $this->displayLastProperties();
-
         $displayLastProperties = $this->displayLastProperties();
         $view = new View("Home");
-        $view->generer(array('displayLastProperties'=> $displayLastProperties));
-
+        $view->generer(array('displayLastProperties' => $displayLastProperties));
     }
 
     public function getOneProperty()
@@ -52,10 +50,8 @@ class PropertyController
         $view->generer(array('properties' => $properties));
     }
 
-
     // Gives an array with property_id, property_type(appt or house) and transaction_type(rental or sale)
     public function getTypesByPropertyId($id_property)
-
     {
         if ($this->apartment->getOneApartment($id_property)) {
             $propertyType = "apartment";
@@ -65,29 +61,6 @@ class PropertyController
             } else if ($this->rental->getOneRental($transactionId["id"])) {
                 $transactionType = "rental";
             }
-
-        }
-        // var_dump($transactionType);
-        return $transactionType;
-    }
-
-    public function getPropertyType()
-    {
-        $lastProperties = $this->property->getLastProperties();
-        echo "tata";
-        var_dump($lastProperties);
-        for ($i = 0; $i < count($lastProperties); $i++) {
-            echo ($lastProperties[$i]["id"]);
-            // Putting into an array ($propertyType) the id_property and type of property with string)
-            if ($this->apartment->getOneApartment($lastProperties[$i]["id"])) {
-                $propertyType[$lastProperties[$i]["id"]] = "apartment";
-            } elseif ($this->house->getOneHouse($lastProperties[$i]["id"])) {
-                $propertyType[$lastProperties[$i]["id"]] = "house";
-            }
-        }
-
-        return ($propertyType);
-
         } elseif ($this->house->getOneHouse($id_property)) {
             $propertyType = "house";
             $transactionId = $this->transaction->getOneTransaction($id_property)["id"];
@@ -99,25 +72,11 @@ class PropertyController
         }
         $result = ['id' => $id_property, 'type' => $propertyType, 'transaction' => $transactionType];
         return ($result);
-
     }
 
     public function displayLastProperties()
     {
         $lastProperties = $this->property->getLastProperties();
-
-        echo "toto";
-        var_dump($propertyType);
-        echo "toto";
-        // Creating a new array with 3 last type of property added (appt or house)
-        foreach ($propertyType as $key => $value) {
-            $property_type[] = $value;
-        }
-        // Creating a new array with 3 last type of transaction added (rental or sale)
-        foreach ($transactionType as $key => $value) {
-            $property_transaction[] =  $value;
-        }
-
         //Looping on 3 last properties : execute queries to select all datas we need to display 3 last properties
         for ($i = 0; $i < count($lastProperties); $i++) {
             $getTypes[$i] = $this->getTypesByPropertyId($lastProperties[$i]["id"]);
@@ -296,11 +255,9 @@ class PropertyController
         }
 
         $adminInfo = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
-        // $getTransaction = $this->getTransaction();
         $view = new View("Dashboard");
         $view->generer(array('allProperties' => $adminInfo));
     }
-
 
 
     public function validUpdateProperty()
@@ -311,5 +268,4 @@ class PropertyController
     {
         echo "coucou";
     }
-
 }
