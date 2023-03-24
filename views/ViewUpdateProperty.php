@@ -1,6 +1,6 @@
 <?php $titre = "Ajouter un bien"; ?>
 
-<link rel="stylesheet" href="./style/dashboardAddProperty.css">
+<link rel="stylesheet" href="./../style/dashboardAddProperty.css">
 </head>
 
 <body>

@@ -10,10 +10,10 @@ class House extends Property
     //     parent::__construct($attribute);
     //     $this->houseAttribute = $houseAttribute;
     // }
-    public function __construct()
-    {
-        $this->property = new Property;
-    }
+    // public function __construct()
+    // {
+    //     $this->property = new Property;
+    // }
 
     public function addHouse($id_property, $garden, $bonus)
     {
@@ -21,10 +21,10 @@ class House extends Property
         $this->executerRequete($sql, array($id_property, $garden, $bonus));
     }
 
-    public function getAllHouses($id)
+    public function getAllHouses()
     {
-        $sql = "SELECT house.id FROM house INNER JOIN property on property.id = house.id WHERE id_user = ?;";
-        $stmt = $this->executerRequete($sql, array($id));
+        $sql = "SELECT * FROM house";
+        $stmt = $this->executerRequete($sql);
         $properties = $stmt->fetchAll();
 
         return $properties;

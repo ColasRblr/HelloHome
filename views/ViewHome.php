@@ -1,21 +1,13 @@
-
-<?php $titre = "Accueil"; ?>
-<link rel="stylesheet" href="./style/homepage.css">
-</head>
-
-<body>
-    <!-- Landing page with picture in background and research form -->
-    <button>
-        <a href="?action=dashboardConnection">
-            Dashboard
-        </a>
-    </button>
-    <div id="landingPage">
-        <div id="researchForm">
-            <form action="/getProperties" method="post" id="researchFormContent">
-
 <?php $titre = "Accueil";
 
+
+// for ($i = 0; $i < count($displayLastProperties); $i++) {
+//     for ($j = 0; $j < count($displayLastProperties[$i]); $j++) {
+//         echo $displayLastProperties[$i][$j]["property_name"];
+//     }
+// }
+// // var_dump(count($displayLastProperties));
+// die;
 
 ?>
 
@@ -23,13 +15,22 @@
 </head>
 
 <body>
-
+<header>
+  <div id="logoAnnonce">
+    <img src="./images/HelloHome-logo.png" alt="">
+  </div>
+  <nav class="navbar">
+    <ul>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#">L'agence</a></li>
+    <li><a href="#">Recherche</a></li>
+    <li><a href="#">Nos biens à la une</a></li>
+      <li><a href="#">Accueil</a></li>
+    </ul>
+  </nav>
+</header>
     <!-- Landing page with picture in background and research form -->
-    <button>
-        <a href="?action=dashboardConnection">
-            Dashboard
-        </a>
-    </button>
+   
     <div id="landingPage">
         <div id="researchForm">
             <form action="/getProperties" method="post" id="researchFormContent">
@@ -159,19 +160,8 @@
     </div>
 
     <!-- Last/spotlight properties  -->
-
+    <div class="homePageTitles">Nos biens à la une</div>
     <div id="lastProperties">
-        <div class="homePageTitles">Nos biens à la une</div>
-        <div class="cardProperty">
-            <div id="bgPicture">
-                <div id="preview">
-                    <div id="type"></div>
-                    <div id="content"></div>
-                    <div id="price"></div>
-                    <button id="visit"></button>
-                </div>
-            </div>
-        </div>
         <?php for ($i = 0; $i < count($displayLastProperties); $i++) {
             for ($j = 0; $j < count($displayLastProperties[$i]); $j++) {
                 if (isset($displayLastProperties[$i][$j])) {
@@ -185,25 +175,24 @@
                 } else {
                     $transaction = "achat";
                     $transactionPrice = "selling_price";
-                }
-                echo '<div class="cardProperty">
-        <div id="bgPicture" >
-        <img src="./asset/img/' . $displayLastProperties[$i][$j]["picture_url"] . '" width="300px">
-            <div id="preview">
-                <div id="name">' . $displayLastProperties[$i][$j]["property_name"] . '</div>
-                <div id="type">' . $type . '</div>
-                <div id="location">' . $displayLastProperties[$i][$j]["property_location"] . '</div>
-                <div id="area">' . $displayLastProperties[$i][$j]["property_area"] . ' m2</div>
-                <div id="numberOfPiecces">' . $displayLastProperties[$i][$j]["property_numberOfPieces"] . ' pièces </div>
-                <div id="transaction">' . $transaction . '</div>
-                <div id="price">' . $displayLastProperties[$i][$j]["$transactionPrice"] . ' €</div>
-                <a href="?action=visitProperty&id=' . $displayLastProperties[$i][$j]["id_property"] . ' " <button id="visit"> Je visite </button></a>
+                } ?>
+                <div class="propertyCard">
+                    <div class="containerPic">
+                        <img class="propertyPic" src="./asset/img/<?=$displayLastProperties[$i][$j]["picture_url"]?>" alt="<?= $displayLastProperties[$i][$j]["picture_description"] ?>">
+            </div>
+            <div class="propertyPreview">
+                <div id="name"> <?= $displayLastProperties[$i][$j]["property_name"] ?> </div>
+                <div id="type"><?= $type ?></div>
+                <div id="location"><?= $displayLastProperties[$i][$j]["property_location"] ?></div>
+                <div id="area"><?= $displayLastProperties[$i][$j]["property_area"] ?> m2</div>
+                <div id="numberOfPiecces"><?= $displayLastProperties[$i][$j]["property_numberOfPieces"] ?> pièces </div>
+                <div id="transaction"><?= $transaction ?></div>
+                <div id="price"><?= $displayLastProperties[$i][$j]["$transactionPrice"] ?> €</div>
+                <a href="?action=visitProperty&id=<?= $displayLastProperties[$i][$j]["id_property"] ?>"> <button id="visit"> Je visite </button></a>
             </div>
         </div>
-    </div>';
-            }
+           <?php }
         } ?>
-
     </div>
 
     <!--  HELLOHOME presentation text-->
@@ -221,9 +210,7 @@
     </div>
 
     <!-- Contact form and informations -->
-
-    <div id="contactSection">
-        <div class="homePageTitles">Nous contacter</div>
+<div class="homePageTitles">Nous contacter</div>   
         <div id="contactContent">
             <div id="contactForm">
                 <h5>Formulaire de contact</h5>
@@ -244,7 +231,6 @@
                     </div>
                 </form>
             </div>
-
             <div id="contactDetails">
                 <div id="containerMap">
                     <h5>Nos coordonnées</h5>
@@ -261,5 +247,15 @@
                     <p>04-32-16-32-16</p>
                 </div>
             </div>
-        </div>
     </div>
+
+    <footer>
+    <button>
+        <a href="?action=dashboardConnection">
+            Dashboard
+        </a>
+    </button>
+    <h1 class="footer">
+      Mentions légales | 2023
+    </h1>
+  </footer>
