@@ -20,6 +20,7 @@ class Connection
         } else {
             $resultat = $this->getBdd()->prepare($sql);
             $resultat->execute($params);
+
         }
         return $resultat;
     }

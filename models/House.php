@@ -10,10 +10,10 @@ class House extends Property
     //     parent::__construct($attribute);
     //     $this->houseAttribute = $houseAttribute;
     // }
-    public function __construct()
-    {
-        $this->property = new Property;
-    }
+    // public function __construct()
+    // {
+    //     $this->property = new Property;
+    // }
 
     public function addHouse($id_property, $garden, $bonus)
     {

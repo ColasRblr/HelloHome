@@ -37,8 +37,11 @@ class PropertyController
     public function home()
     {
         // $displayLastProperties = $this->displayLastProperties();
+
+        $displayLastProperties = $this->displayLastProperties();
         $view = new View("Home");
-        $view->generer(array());
+        $view->generer(array('displayLastProperties'=> $displayLastProperties));
+
     }
 
     public function getOneProperty()
@@ -50,44 +53,19 @@ class PropertyController
     }
 
 
-    public function getTransaction()
+    // Gives an array with property_id, property_type(appt or house) and transaction_type(rental or sale)
+    public function getTypesByPropertyId($id_property)
+
     {
-        $allProperties = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
-
-
-        for ($i = 0; $i < count($allProperties); $i++) {
-            // Looping on lastproperties array to put into another array both property_id and transaction_id
-            $allTransactions[] = $this->transaction->getOneTransaction($allProperties[$i]["id"]);
-            // var_dump($allProperties);
-
-            if ($this->sale->getOneSale($allTransactions[$i]["id"])) {
-                // if transaction_id exists in sale table : we add previous ids plus sale datas into a new array
-                $transactionType[$allTransactions[$i]["id_property"]] = "sale";
-            } elseif ($this->rental->getOneRental($allTransactions[$i]["id"])) {
-                // same with rental table : we then have an array (transactionType) which contains our 3 last properties with transactions(rental/sale) datas
-                $transactionType[$allTransactions[$i]["id_property"]] = "rental";
-                var_dump($transactionType[$allTransactions[$i]["id_property"]]);
+        if ($this->apartment->getOneApartment($id_property)) {
+            $propertyType = "apartment";
+            $transactionId = $this->transaction->getOneTransaction($id_property);
+            if ($this->sale->getOneSale($transactionId["id"])) {
+                $transactionType = "sale";
+            } else if ($this->rental->getOneRental($transactionId["id"])) {
+                $transactionType = "rental";
             }
-        }
-        // var_dump($transactionType);
-        // return $transactionType;
-    }
 
-    public function getTransactionType()
-    {
-        // Looking for 3 last properties and transactions related to them
-        $lastProperties = $this->property->getLastProperties();
-        for ($i = 0; $i < count($lastProperties); $i++) {
-            // Looping on lastproperties array to put into another array both property_id and transaction_id
-            $lastTransactions[] = $this->transaction->getOneTransaction($lastProperties[$i]["id"]);
-
-            if ($this->sale->getOneSale($lastTransactions[$i]["id"])) {
-                // if transaction_id exists in sale table : we add previous ids plus sale datas into a new array
-                $transactionType[$lastTransactions[$i]["id_property"]] = "sale";
-            } elseif ($this->rental->getOneRental($lastTransactions[$i]["id"])) {
-                // same with rental table : we then have an array (transactionType) which contains our 3 last properties with transactions(rental/sale) datas
-                $transactionType[$lastTransactions[$i]["id_property"]] = "rental";
-            }
         }
         // var_dump($transactionType);
         return $transactionType;
@@ -109,14 +87,25 @@ class PropertyController
         }
 
         return ($propertyType);
+
+        } elseif ($this->house->getOneHouse($id_property)) {
+            $propertyType = "house";
+            $transactionId = $this->transaction->getOneTransaction($id_property)["id"];
+            if ($this->sale->getOneSale($transactionId["id"])) {
+                $transactionType = "sale";
+            } else if ($this->rental->getOneRental($transactionId["id"])) {
+                $transactionType = "rental";
+            }
+        }
+        $result = ['id' => $id_property, 'type' => $propertyType, 'transaction' => $transactionType];
+        return ($result);
+
     }
 
     public function displayLastProperties()
     {
-
-        $transactionType = $this->getTransactionType();
-        $propertyType = $this->getPropertyType();
         $lastProperties = $this->property->getLastProperties();
+
         echo "toto";
         var_dump($propertyType);
         echo "toto";
@@ -128,9 +117,11 @@ class PropertyController
         foreach ($transactionType as $key => $value) {
             $property_transaction[] =  $value;
         }
+
         //Looping on 3 last properties : execute queries to select all datas we need to display 3 last properties
         for ($i = 0; $i < count($lastProperties); $i++) {
-            $request[$i] = $this->property->getDetailsLastProperties($property_type[$i], $property_transaction[$i], $lastProperties[$i]["id"]);
+            $getTypes[$i] = $this->getTypesByPropertyId($lastProperties[$i]["id"]);
+            $request[$i] = $this->property->getDetailsLastProperties($getTypes[$i]['id'], $getTypes[$i]['type'], $getTypes[$i]['transaction']);
         }
         return $request;
     }
@@ -245,7 +236,7 @@ class PropertyController
         if (isset($_POST['swimmingpool']) && $_POST['swimmingpool'] != "") {
             $property_swimmingpool = true;
         } else {
-            $property_swimmingpool = false;
+            $property_swimmingpool = 0;
         }
         $propertyInfo['property_swimmingpool'] = $property_swimmingpool;
 
@@ -294,9 +285,31 @@ class PropertyController
         } else if ($statutProperty == "rent") {
             $this->transactionCtrl->addRental($id_transaction, $rent, $charges, $furnished);
         }
+
+        try {
+            $allProperties = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
+            // var_dump($allProperties);
+            $view = new View("Dashboard");
+            $view->generer(array('allProperties' => $allProperties));
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+
         $adminInfo = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
         // $getTransaction = $this->getTransaction();
         $view = new View("Dashboard");
         $view->generer(array('allProperties' => $adminInfo));
     }
+
+
+
+    public function validUpdateProperty()
+    {
+    }
+
+    public function visitProperty()
+    {
+        echo "coucou";
+    }
+
 }

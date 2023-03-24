@@ -40,11 +40,34 @@ class User extends Connection
         $this->executerRequete($sql, array($firstname, $lastname, $email, $pwd, $id));
     }
 
-    public function getClientInfo($id)
+    public function getAdminInfo($id)
     {
-        $sql = "SELECT * FROM clients 
+        $sql = "SELECT * FROM user 
         WHERE id=?";
-        $userInfo = $this->executerRequete($sql, array($id));
+
+        $stmt = $this->executerRequete($sql, array($id));
+        $userInfo = $stmt->fetch();
         return $userInfo;
+    }
+
+    public function updateAdminInfo($firstname, $lastname, $email, $id)
+    {
+        try {
+            $sql = "UPDATE user SET firstname=?, lastname=?, email=? WHERE id=?";
+            $this->executerRequete($sql, array($firstname, $lastname, $email, $id));
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function changePassword($newpassword, $idAdmin)
+    {
+        try {       
+            $hashed_password = password_hash($newpassword, PASSWORD_DEFAULT);
+            $sql = "UPDATE user SET pwd=? WHERE id=?";
+            $this->executerRequete($sql, array($hashed_password, $idAdmin));
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
     }
 }

@@ -15,6 +15,34 @@ h1 {
 h3 {
   font-size: 15px;
 }
+
+/* ...........................................Gestion des biens */
+#managementProperty {
+  margin-left: 2vw;
+  text-align: start;
+  height: 45vh;
+  width: 50vw;
+}
+
+#dashboardManagementFilters {
+  display: flex;
+  align-items: center;
+}
+
+#inputSearchDashboard {
+  border-radius: 20px;
+  height: 30px;
+  /* margin-right: 1vw; */
+  width: 12vw;
+}
+
+.btnFilterSelectDashboard {
+  margin-right: 1vw;
+  font-size: 15px;
+  height: 35px;
+  background-color: #155109;
+}
+
 p {
   color: white;
   font-size: 20px;
@@ -41,8 +69,12 @@ header {
 
 header img {
   overflow: hidden;
-  height: 85%;
+  height: 100%;
   margin-left: 15px;
+}
+
+header a {
+  height: 85%;
 }
 
 header i {
