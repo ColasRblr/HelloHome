@@ -1,4 +1,49 @@
-/* LANDING PAGE WITH BACKGROUNC PICTURE */
+/* HEADER */
+header {
+    position: relative;
+  }
+  
+  .navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+  
+  .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar li {
+    float: right;
+  }
+  
+  .navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .navbar li a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  #logoAnnonce {
+    position: absolute;
+    top: -47px;
+    left: 10px;
+  }
+  
+
+/* LANDING PAGE WITH BACKGROUND PICTURE */
 
 #landingPage {
     width: 100vw;
@@ -101,16 +146,17 @@ label, #location-select, #type-select, #roomsInput, #areaInput, #rentInput, #sea
 
 #lastProperties{
     display : flex;
-    height : 100vh;
+    height : 90vh;
     justify-content: space-around;
-    margin-bottom: 1em;
+    margin-bottom: 4em;
+
 }
 
 .propertyCard{
+    margin-top : 4em;
     width: 35%;
     display:flex;
     justify-content: center;
-    align-items: center;
     position:relative;
 }
 
@@ -118,8 +164,8 @@ label, #location-select, #type-select, #roomsInput, #areaInput, #rentInput, #sea
     width:90%;
     height: 60%;
     box-shadow:3px 3px 3px rgb(0, 0, 0);
-  
 }
+
 .propertyPic{
    width:100%;
    height: 100%;
@@ -132,7 +178,7 @@ label, #location-select, #type-select, #roomsInput, #areaInput, #rentInput, #sea
     text-align: center;
     position: absolute;
     background-color: #fff;
-    top : 60%;
+    top : 40%;
     box-shadow:3px 3px 3px rgb(0, 0, 0);
 }
 
@@ -153,16 +199,26 @@ h5{
 
 /* HELLO HOME DESCRIPTION */
 
+#contactContent{
+    height:40vh;
+}
+
 #helloHomeDescription, #contactContent {
     background-color: #C58B03 ;
     color:white;
+    display: flex;
+    align-items: center;
+}
+#helloHomeDescription {
+    flex-direction: column;
 }
 
 /* CONTACT SECTION */
 
+
 #contactContent{
-    display: flex;
     justify-content: space-between;
+    height : 45vh;
 }
 
 #contactDetails {
@@ -201,3 +257,13 @@ h5{
 #messageDiv{
     height:4em;
 }
+
+/* FOOTER */
+
+.footer{
+    text-align: center;
+    font-size: 15px;
+    padding: 10px;
+    opacity: 0.5;
+  }
+  
