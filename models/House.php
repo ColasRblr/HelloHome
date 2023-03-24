@@ -37,4 +37,13 @@ class House extends Property
         $house = $result->fetch();
         return $house;
     }
+
+    public function getAllHousesByUser($id_property)
+    {
+        $sql = "SELECT * FROM house 
+        WHERE house.id_property = ?;";
+        $stmt = $this->executerRequete($sql, array($id_property));
+        $properties = $stmt->fetchAll();
+        return $properties;
+    }
 }

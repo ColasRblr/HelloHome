@@ -3,7 +3,7 @@
 // var_dump($allProperties);
 // echo '</pre>';
 ?>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 <link rel="stylesheet" href="./style/dashboardHome.css">
 
 </head>
@@ -20,11 +20,10 @@
             <a href="?action=deconnection">
                 <i class="bi bi-x-circle-fill"></i>
             </a>
-            <a href="./views/ViewHome.php">
+            <a href="?">
                 <i class="bi bi-window-fullscreen"></i>
             </a>
-            <i class="bi bi-person-fill"></i>
-            <i class="bi bi-x-circle-fill"></i>
+
         </div>
     </header>
 
@@ -65,20 +64,26 @@
                 <table>
                     <tbody id="contenuOfTable">
                         <?php
-
                         for ($i = 0; $i < count($allProperties); $i++) {
-                            // foreach ($allProperties as $property) {
-                            // var_dump($allProperties);
                         ?>
                             <tr>
-                                <td class="listOfPropertyByUser"><a href="?action=updateProperty"><?= $allProperties[$i]['property_name'] ?></a> <?= $allProperties[$i]['property_location'] ?> <? $allProperties[$i]['homeType'] ?></td>
-                            </tr>
-                        <?php
-                        }
-                        ?>
-                        <td></td>
+                                <td class="listOfPropertyByUser">
+                                    <a href="?action=updateProperty&id=<?= $allProperties[$i]['id'] ?>">
+                                        <?= $allProperties[$i]['property_name'] ?> <?= $allProperties[$i]['property_location'] ?>
+                                        <span><?= $status[$i] ?></span>
+                                        <span><?= $type[$i] ?></span>
+                                    </a>
+                                </td>
 
-                        </tr>
+
+
+                            <?php
+                        }
+
+                            ?>
+
+
+                            </tr>
                     </tbody>
                 </table>
             </div>
@@ -96,9 +101,9 @@
             <div id="numberOfPropertiesToSale" class="numberStatistique">
                 <h3 class="statistiques">Nombre de biens à vendre</h3>
                 <p id="numberPropertySale">
-                    <?php
-                    echo count($allHouses);
-                    ?>
+                    <!-- <?php
+                            echo count($allSale);
+                            ?> -->
                 </p>
             </div>
 
@@ -110,10 +115,26 @@
                     ?>
                 </p>
             </div>
+            <div id="numberOfPropertiesAsHouses" class="numberStatistique">
+                <h3 class="statistiques">Nombre de maisons</h3>
+                <p id="numberHouses">
+                    <?php
+                    echo count($allHouses);
+                    ?>
+                </p>
+            </div>
+            <div id="numberOfPropertiesAsApartments" class="numberStatistique">
+                <h3 class="statistiques">Nombre d'appartements</h3>
+                <p id="numberApartments">
+                    <?php
+                    echo count($allApartments);
+                    ?>
+                </p>
+            </div>
         </div>
     </div>
 
-    <div id="parametersDashboard">
+    <!-- <div id="parametersDashboard">
         <h1 class="titlePageDashboard">Paramètres</h1>
         <div>
             <div id="titleParameters">
@@ -139,8 +160,8 @@
                 </div>
             </div>
         </div>
-    </div>
-    </div>
+    </div> -->
+
     <footer>
         <p>HelloHome © 2023</p>
     </footer>
