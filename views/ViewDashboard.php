@@ -23,8 +23,7 @@
             <a href="./views/ViewHome.php">
                 <i class="bi bi-window-fullscreen"></i>
             </a>
-            <i class="bi bi-person-fill"></i>
-            <i class="bi bi-x-circle-fill"></i>
+
         </div>
     </header>
 
@@ -65,20 +64,18 @@
                 <table>
                     <tbody id="contenuOfTable">
                         <?php
-
-                        for ($i = 0; $i < count($allProperties); $i++) {
-                            // foreach ($allProperties as $property) {
-                            // var_dump($allProperties);
+                        foreach ($allProperties as $property) {
                         ?>
                             <tr>
-                                <td class="listOfPropertyByUser"><a href="?action=updateProperty"><?= $allProperties[$i]['property_name'] ?></a> <?= $allProperties[$i]['property_location'] ?> <? $allProperties[$i]['homeType'] ?></td>
-                            </tr>
-                        <?php
-                        }
-                        ?>
-                        <td></td>
+                                <td class="listOfPropertyByUser"><a href="?action=updateProperty"><?= $property['property_name'] ?></a> <?= $property['property_location'] ?> </td>
 
-                        </tr>
+                            <?php
+                        }
+
+                            ?>
+
+
+                            </tr>
                     </tbody>
                 </table>
             </div>
@@ -97,7 +94,7 @@
                 <h3 class="statistiques">Nombre de biens à vendre</h3>
                 <p id="numberPropertySale">
                     <?php
-                    echo count($allHouses);
+                    echo count($allSale);
                     ?>
                 </p>
             </div>
@@ -110,10 +107,26 @@
                     ?>
                 </p>
             </div>
+            <div id="numberOfPropertiesAsHouses" class="numberStatistique">
+                <h3 class="statistiques">Nombre de maisons</h3>
+                <p id="numberHouses">
+                    <?php
+                    echo count($allHouses);
+                    ?>
+                </p>
+            </div>
+            <div id="numberOfPropertiesAsApartments" class="numberStatistique">
+                <h3 class="statistiques">Nombre d'appartements</h3>
+                <p id="numberApartments">
+                    <?php
+                    echo count($allApartments);
+                    ?>
+                </p>
+            </div>
         </div>
     </div>
 
-    <div id="parametersDashboard">
+    <!-- <div id="parametersDashboard">
         <h1 class="titlePageDashboard">Paramètres</h1>
         <div>
             <div id="titleParameters">
@@ -139,8 +152,8 @@
                 </div>
             </div>
         </div>
-    </div>
-    </div>
+    </div> -->
+
     <footer>
         <p>HelloHome © 2023</p>
     </footer>
