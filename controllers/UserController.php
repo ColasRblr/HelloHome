@@ -59,10 +59,10 @@ class UserController
                 $_SESSION['user_id'] = $result['id'];
                 $allProperties = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
 
-                for ($i = 0; $i < count($allProperties); $i++) {
-                    $allProperties[$i]["homeType"] = $this->property->getPropertyType($allProperties[$i]["id"]);
-                    // var_dump($allProperties[$i]);
-                }
+                // for ($i = 0; $i < count($allProperties); $i++) {
+                //     $allProperties[$i]["homeType"] = $this->property->getPropertyType($allProperties[$i]["id"]);
+                //     // var_dump($allProperties[$i]);
+                // }
 
                 $allHouses = $this->house->getOneHouse($_SESSION['user_id']);
                 $allRental = $this->rental->getAllPropertyToRent($_SESSION['user_id']);
