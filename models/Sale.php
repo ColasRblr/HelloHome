@@ -31,6 +31,7 @@ class Sale extends Transaction
         $sql = "SELECT sale.id FROM sale INNER JOIN property on property.id = sale.id INNER JOIN transaction_type on transaction_type.id = sale.id WHERE id_user = ?;";
         $stmt = $this->executerRequete($sql, array($id));
         $properties = $stmt->fetchAll();
+        var_dump($properties);
         return $properties;
     }
 }
