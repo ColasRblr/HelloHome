@@ -21,7 +21,7 @@ class Sale extends Transaction
     public function getOneSale($id_transaction)
     {
         $sql = "SELECT id_transaction, id FROM sale WHERE id_transaction = ? ";
-        $result = $this->executerRequete($sql, $id_transaction);
+        $result = $this->executerRequete($sql, array($id_transaction));
         $sale = $result->fetch();
         return $sale;
     }

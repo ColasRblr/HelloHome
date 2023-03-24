@@ -49,6 +49,30 @@ class PropertyController
         $view->generer(array('properties' => $properties));
     }
 
+
+    public function getTransaction()
+    {
+        $allProperties = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
+
+
+        for ($i = 0; $i < count($allProperties); $i++) {
+            // Looping on lastproperties array to put into another array both property_id and transaction_id
+            $allTransactions[] = $this->transaction->getOneTransaction($allProperties[$i]["id"]);
+            // var_dump($allProperties);
+
+            if ($this->sale->getOneSale($allTransactions[$i]["id"])) {
+                // if transaction_id exists in sale table : we add previous ids plus sale datas into a new array
+                $transactionType[$allTransactions[$i]["id_property"]] = "sale";
+            } elseif ($this->rental->getOneRental($allTransactions[$i]["id"])) {
+                // same with rental table : we then have an array (transactionType) which contains our 3 last properties with transactions(rental/sale) datas
+                $transactionType[$allTransactions[$i]["id_property"]] = "rental";
+                var_dump($transactionType[$allTransactions[$i]["id_property"]]);
+            }
+        }
+        // var_dump($transactionType);
+        // return $transactionType;
+    }
+
     public function getTransactionType()
     {
         // Looking for 3 last properties and transactions related to them
@@ -271,21 +295,8 @@ class PropertyController
             $this->transactionCtrl->addRental($id_transaction, $rent, $charges, $furnished);
         }
         $adminInfo = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
+        // $getTransaction = $this->getTransaction();
         $view = new View("Dashboard");
         $view->generer(array('allProperties' => $adminInfo));
-    }
-
-
-    public function validUpdateProperty()
-    {
-
-        if (!empty($_POST)) {
-
-
-
-            $properties = "hello";
-            $view = new View("UpdateProperty");
-            $view->generer(array('properties' => $properties));
-        }
     }
 }

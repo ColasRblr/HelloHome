@@ -181,4 +181,81 @@ INSERT INTO property (property_name, property_description, property_location, pr
 VALUES ("Shoreline Haven", "Appartement de 2 chambres dans une résidence de luxe en bord de mer avec accès direct à la plage. Les chambres sont spacieuses et lumineuses, offrant une vue magnifique sur l'océan. La terrasse privée est équipée d'un barbecue pour des soirées en plein air.", "Cagnes-sur-Mer", 210, 7, 100, false, true, 3);
 INSERT INTO apartment (id_property, parking, floor, elevator, caretaking, balcony) VALUES (LAST_INSERT_ID(), true, 9, true, true, true);
 
+-- TRANSACTION
+INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
+VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 16);
+INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
+VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 15);
+INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
+VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 14);
+INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
+VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 13);
+INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
+VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 12);
+INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
+VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 10);
+INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
+VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 9);
+INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
+VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 8);
+INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
+VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 7);
+INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
+VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 6);
+INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
+VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 5);
+INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
+VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 4);
+INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
+VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 3);
+INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
+VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 2);
+INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
+VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 1);
 
+
+
+-- RENTAL
+INSERT INTO rental (id, id_transaction, rent, charges, furnished)
+VALUES (LAST_INSERT_ID(), 1,  2000, 300, 1);
+INSERT INTO rental (id, id_transaction, rent, charges, furnished)
+VALUES (LAST_INSERT_ID(), 2,  1800, 400, 0);
+INSERT INTO rental (id, id_transaction, rent, charges, furnished)
+VALUES (LAST_INSERT_ID(), 3,  1700, 240, 0);
+INSERT INTO rental (id, id_transaction, rent, charges, furnished)
+VALUES (LAST_INSERT_ID(), 4, 1300, 150, 1);
+INSERT INTO rental (id, id_transaction, rent, charges, furnished)
+VALUES (LAST_INSERT_ID(), 5,  2300, 430, 1);
+INSERT INTO rental (id, id_transaction, rent, charges, furnished)
+VALUES (LAST_INSERT_ID(), 6,  2900, 260, 0);
+INSERT INTO rental (id, id_transaction, rent, charges, furnished)
+VALUES (LAST_INSERT_ID(), 7,  2400, 380, 1);
+INSERT INTO rental (id, id_transaction, rent, charges, furnished)
+VALUES (LAST_INSERT_ID(), 8,  3000, 220, 0);
+INSERT INTO rental (id, id_transaction, rent, charges, furnished)
+VALUES (LAST_INSERT_ID(), 9,  6300, 330, 0);
+INSERT INTO rental (id, id_transaction, rent, charges, furnished)
+VALUES (LAST_INSERT_ID(), 10,  1200, 50, 1);
+
+
+-- SALE
+INSERT INTO sale (id, id_transaction, selling_price)
+VALUES (LAST_INSERT_ID(), 11, 1200000);
+INSERT INTO sale (id, id_transaction, selling_price)
+VALUES (LAST_INSERT_ID(), 12, 650000);
+INSERT INTO sale (id, id_transaction, selling_price)
+VALUES (LAST_INSERT_ID(), 13, 3550000);
+INSERT INTO sale (id, id_transaction, selling_price)
+VALUES (LAST_INSERT_ID(), 14, 770000);
+INSERT INTO sale (id, id_transaction, selling_price)
+VALUES (LAST_INSERT_ID(), 15, 920000);
+INSERT INTO sale (id, id_transaction, selling_price)
+VALUES (LAST_INSERT_ID(), 16, 1400000);
+INSERT INTO sale (id, id_transaction, selling_price)
+VALUES (LAST_INSERT_ID(), 17, 865000);
+INSERT INTO sale (id, id_transaction, selling_price)
+VALUES (LAST_INSERT_ID(), 18, 654000);
+INSERT INTO sale (id, id_transaction, selling_price)
+VALUES (LAST_INSERT_ID(), 19, 1950000);
+INSERT INTO sale (id, id_transaction, selling_price)
+VALUES (LAST_INSERT_ID(), 20, 930000);

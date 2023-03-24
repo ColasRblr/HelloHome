@@ -21,10 +21,10 @@ class House extends Property
         $this->executerRequete($sql, array($id_property, $garden, $bonus));
     }
 
-    public function getAllHouses($id)
+    public function getAllHouses()
     {
-        $sql = "SELECT house.id FROM house INNER JOIN property on property.id = house.id WHERE id_user = ?;";
-        $stmt = $this->executerRequete($sql, array($id));
+        $sql = "SELECT * FROM house";
+        $stmt = $this->executerRequete($sql);
         $properties = $stmt->fetchAll();
 
         return $properties;

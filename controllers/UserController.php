@@ -11,6 +11,8 @@ class UserController
     private $ctrlAccueil;
     private $house;
     private $rental;
+    private $transaction;
+    private $propertyCtrl;
 
     public function __construct()
     {
@@ -19,6 +21,8 @@ class UserController
         $this->property = new Property();
         $this->house = new House();
         $this->rental = new Rental();
+        $this->transaction = new Transaction();
+        $this->propertyCtrl = new PropertyController();
     }
 
     public function connection()
@@ -44,10 +48,18 @@ class UserController
                 global $_SESSION;
                 $_SESSION['user_id'] = $result['id'];
                 $allProperties = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
-                $allHouses = $this->house->getAllHouses($_SESSION['user_id']);
+
+                for ($i = 0; $i < count($allProperties); $i++) {
+                    $allProperties[$i]["homeType"] = $this->property->getPropertyType($allProperties[$i]["id"]);
+                    // var_dump($allProperties[$i]);
+                }
+
+                $allHouses = $this->house->getOneHouse($_SESSION['user_id']);
                 $allRental = $this->rental->getAllPropertyToRent($_SESSION['user_id']);
+                $oneTransaction = $this->transaction->getOneTransaction($_SESSION['user_id']);
+                $getTransaction = $this->propertyCtrl->getTransaction();
                 $view = new View("Dashboard");
-                $view->generer(array('allProperties' => $allProperties, 'allHouses' => $allHouses, 'allRental' => $allRental));
+                $view->generer(array('allProperties' => $allProperties, 'allHouses' => $allHouses, 'allRental' => $allRental, 'oneTransaction' => $oneTransaction, 'getTransaction' => $getTransaction));
             } else {
                 echo "email ou mpd invalide";
             }

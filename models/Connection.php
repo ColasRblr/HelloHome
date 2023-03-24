@@ -13,13 +13,13 @@ class Connection
 {
     private $bdd;
 
-    public function executerRequete($sql, $params = null)
+    protected function executerRequete($sql, $params = null)
     {
         if ($params == null) {
             $resultat = $this->getBdd()->query($sql);
         } else {
             $resultat = $this->getBdd()->prepare($sql);
-            $resultat->execute(array($params));
+            $resultat->execute($params);
         }
         return $resultat;
     }

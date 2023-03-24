@@ -4,7 +4,8 @@ require_once 'models/Connection.php';
 
 class Property extends Connection
 {
-    private $attribute;
+    // private $attribute;
+    private $propertyType;
 
     public function __construct()
     {
@@ -55,5 +56,19 @@ class Property extends Connection
         $lastDetailsProperties = $results->fetchAll();
 
         return $lastDetailsProperties;
+    }
+
+    public function getPropertyType($id_property)
+    {
+        // echo "$id_property";
+        $sql = "SELECT COUNT(*) FROM house WHERE id_property = ?;";
+        $stmt = $this->executerRequete($sql, array($id_property));
+        $propertiesNumber = $stmt->fetchAll();
+
+        if ($propertiesNumber > 0) {
+
+            return "Maison";
+        }
+        return "Appartement";
     }
 }

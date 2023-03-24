@@ -6,9 +6,11 @@ class Transaction extends Property
 {
     // private $attribute;
 
-    // public function __construct($attribute)
+
+    // public function __construct()
     // {
-    //     $this->attribute = $attribute;
+    //     // $this->attribute = $attribute;
+    //    
     // }
 
     public function addNewTransaction($transaction_onlineDate, $transaction_status, $id_property)
@@ -30,7 +32,7 @@ class Transaction extends Property
     public function getOneTransaction($id_property)
     {
         $sql = "SELECT id, id_property FROM transaction_type WHERE id_property=? ";
-        $result = $this->executerRequete($sql, $id_property);
+        $result = $this->executerRequete($sql, array($id_property));
         $transaction = $result->fetch();
         return $transaction;
     }

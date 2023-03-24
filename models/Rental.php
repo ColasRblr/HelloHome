@@ -32,7 +32,7 @@ class Rental extends Transaction
     public function getOneRental($id_transaction)
     {
         $sql = "SELECT id_transaction, id FROM rental WHERE id_transaction = ?";
-        $result = $this->executerRequete($sql, $id_transaction);
+        $result = $this->executerRequete($sql, array($id_transaction));
         $rental = $result->fetch();
         return $rental;
     }
