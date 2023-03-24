@@ -22,6 +22,8 @@ class UserController
     private $rental;
     private $transaction;
     private $propertyCtrl;
+    private $sale;
+    private $apartment;
 
 
     public function __construct()
@@ -32,6 +34,8 @@ class UserController
         $this->rental = new Rental();
         $this->transaction = new Transaction();
         $this->propertyCtrl = new PropertyController();
+        $this->sale = new Sale();
+        $this->apartment = new Apartment();
     }
 
     public function connection()
@@ -58,18 +62,14 @@ class UserController
                 global $_SESSION;
                 $_SESSION['user_id'] = $result['id'];
                 $allProperties = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
-
-                // for ($i = 0; $i < count($allProperties); $i++) {
-                //     $allProperties[$i]["homeType"] = $this->property->getPropertyType($allProperties[$i]["id"]);
-                //     // var_dump($allProperties[$i]);
-                // }
-
-                $allHouses = $this->house->getOneHouse($_SESSION['user_id']);
+                $allHouses = $this->house->getAllHousesByUser($_SESSION['user_id']);
+                $allApartments = $this->apartment->getAllApartmentsByUser($_SESSION['user_id']);
                 $allRental = $this->rental->getAllPropertyToRent($_SESSION['user_id']);
+                $allSale = $this->sale->getAllPropertyToSale($_SESSION['user_id']);
                 $oneTransaction = $this->transaction->getOneTransaction($_SESSION['user_id']);
-                // $getTransaction = $this->propertyCtrl->getTransaction();
+
                 $view = new View("Dashboard");
-                $view->generer(array('allProperties' => $allProperties, 'allHouses' => $allHouses, 'allRental' => $allRental, 'oneTransaction' => $oneTransaction));
+                $view->generer(array('allProperties' => $allProperties, 'allHouses' => $allHouses, 'allApartments' => $allApartments, 'allRental' => $allRental, 'allSale' => $allSale, 'oneTransaction' => $oneTransaction));
             } else {
                 echo "email ou mpd invalide";
             }

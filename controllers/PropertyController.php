@@ -74,33 +74,6 @@ class PropertyController
         return ($result);
     }
 
-    public function getPropertyType()
-    {
-        // $lastProperties = $this->property->getLastProperties();
-        // echo "tata";
-        // var_dump($lastProperties);
-        // for ($i = 0; $i < count($lastProperties); $i++) {
-        //     echo ($lastProperties[$i]["id"]);
-        //     // Putting into an array ($propertyType) the id_property and type of property with string)
-        //     if ($this->apartment->getOneApartment($lastProperties[$i]["id"])) {
-        //         $propertyType[$lastProperties[$i]["id"]] = "apartment";
-        //     } elseif ($this->house->getOneHouse($lastProperties[$i]["id"])) {
-        //         $propertyType[$lastProperties[$i]["id"]] = "house";
-        //     }
-        // }
-        // return ($propertyType);
-        // } else if ($this->house->getOneHouse($id_property)) {
-        //     $propertyType = "house";
-        //     $transactionId = $this->transaction->getOneTransaction($id_property)["id"];
-        //     if ($this->sale->getOneSale($transactionId["id"])) {
-        //         $transactionType = "sale";
-        //     } else if ($this->rental->getOneRental($transactionId["id"])) {
-        //         $transactionType = "rental";
-        //     }
-        // }
-        // $result = ['id' => $id_property, 'type' => $propertyType, 'transaction' => $transactionType];
-        // return ($result);
-    }
 
     public function displayLastProperties()
     {

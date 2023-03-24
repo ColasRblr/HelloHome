@@ -128,27 +128,6 @@ VALUES ("Villa La Belle Vie", "Cette villa de style Art Déco est située dans u
 INSERT INTO house (id_property, garden, bonus) VALUES (LAST_INSERT_ID(), true, "Terrain de basket-ball, spa");
 
 
-INSERT INTO picture (id_property, picture_description, picture_url) VALUES (1, "Villa Perle de l'Océan", "house1.jpg"),
-(2, "Villa Bella Vista", "house2.jpg"),
-(3, "Villa Les Trois Palmiers", "house3.jpg"),
-(4, "Villa de la Mer", "house4.jpg"),
-(5, "Villa La Belle Epoque", "house5.jpg"),
-(6, "Villa La Dolce Vita", "house6.jpg"),
-(7, "Villa La Vie en Rose", "house7.jpg"),
-(8, "Villa La Casa Blanca", "house8.jpg"),
-(9, "Villa Le Refuge", "house9.jpg"),
-(10, "Villa La Belle Vie", "house10.jpg"),(11, 11, 'Azure Retreat', 'appartement1.jpg'),
-(12, 12, 'Oceanview Oasis', 'appartement2.jpg'),
-(13, 13, 'Coastal Elegance', 'appartement3.jpg'),
-(14, 14, 'Seaside Serenityr', 'appartement4.jpg'),
-(16, 15, 'Beachfront Bliss', 'appartement5.jpg'),
-(17, 16, 'Ocean Breeze', 'appartement6.jpg'),
-(19, 17, 'Waveside Wonder', 'appartement7.jpg'),
-(20, 18, 'Skyline Splendor', 'appartement8.jpg'),
-(21, 19, 'Seashell Suite', 'appartement9.jpg'),
-(22, 20, 'Shoreline Haven', 'appartement10.jpg');
-
-
 -- APPARTMENTS
 INSERT INTO property (property_name, property_description, property_location, property_area, property_numberOfPieces, property_distanceFromSea, property_swimmingpool, property_seaView, id_user) 
 VALUES ("Azure Retreat", "Appartement de 3 chambres avec vue panoramique sur la mer depuis toutes les pièces. Décoré avec des matériaux haut de gamme, l'appartement dispose également d'une grande terrasse pour profiter de la vue.", "Nice", 200, 6, 150, false, true, 2);
@@ -251,75 +230,30 @@ INSERT INTO transaction_type (transaction_onlineDate, transaction_status, id_pro
 VALUES ('23/03/2023', 'disponible', 19);
 INSERT INTO sale (id_transaction, selling_price) VALUES (LAST_INSERT_ID(), 1950000);
 INSERT INTO transaction_type (transaction_onlineDate, transaction_status, id_property) 
-VALUES ('23/03/2023', 'disponible', 19);
-INSERT INTO sale (id_transaction, selling_price) VALUES (LAST_INSERT_ID(), 930000);
-INSERT INTO transaction_type (transaction_onlineDate, transaction_status, id_property) 
 VALUES ('23/03/2023', 'disponible', 20);
 INSERT INTO sale (id_transaction, selling_price) VALUES (LAST_INSERT_ID(), 93000);
 
 
+INSERT INTO picture (id_property, picture_description, picture_url) VALUES
+(1, "Villa Perle de l'Océan", "house1.jpg"),
+(2, "Villa Bella Vista", "house2.jpg"),
+(3, "Villa Les Trois Palmiers", "house3.jpg"),
+(4, "Villa de la Mer", "house4.jpg"),
+(5, "Villa La Belle Epoque", "house5.jpg"),
+(6, "Villa La Dolce Vita", "house6.jpg"),
+(7, "Villa La Vie en Rose", "house7.jpg"),
+(8, "Villa La Casa Blanca", "house8.jpg"),
+(9, "Villa Le Refuge", "house9.jpg"),
+(10, "Villa La Belle Vie", "house10.jpg");
 
-
-
-INSERT INTO transaction_type (transaction_onlineDate, transaction_status, id_property)
-VALUES ('23/03/2023', 'disponible', 1);
-INSERT INTO rental ( id_transaction, rent, charges, furnished) VALUES (LAST_INSERT_ID(), 2000, 300, 1);
-INSERT INTO transaction_type (transaction_onlineDate, transaction_status, id_property)
-VALUES ('23/03/2023', 'disponible', 2);
-INSERT INTO rental (id_transaction, rent, charges, furnished) VALUES (LAST_INSERT_ID(), 1800, 400, 0);
-INSERT INTO transaction_type (transaction_onlineDate, transaction_status, id_property)
-VALUES ('23/03/2023', 'disponible', 3);
-INSERT INTO rental (id_transaction, rent, charges, furnished) VALUES (LAST_INSERT_ID(), 1700, 240, 0);
-INSERT INTO transaction_type (transaction_onlineDate, transaction_status, id_property) 
-VALUES ('23/03/2023', 'disponible', 4);
-INSERT INTO rental (id_transaction, rent, charges, furnished) VALUES (LAST_INSERT_ID(), 1300, 150, 1);
-INSERT INTO transaction_type (transaction_onlineDate, transaction_status, id_property) 
-VALUES ('23/03/2023', 'disponible', 5);
-INSERT INTO rental (id_transaction, rent, charges, furnished) VALUES (LAST_INSERT_ID(), 1300, 150, 1);
-INSERT INTO transaction_type (transaction_onlineDate, transaction_status, id_property) 
-VALUES ('23/03/2023', 'disponible', 6);
-INSERT INTO rental (id_transaction, rent, charges, furnished) VALUES (LAST_INSERT_ID(), 2300, 430, 1);
-INSERT INTO transaction_type (transaction_onlineDate, transaction_status, id_property) 
-VALUES ('23/03/2023', 'disponible', 7);
-INSERT INTO rental (id_transaction, rent, charges, furnished) VALUES (LAST_INSERT_ID(), 2900, 260, 0);
-INSERT INTO transaction_type (transaction_onlineDate, transaction_status, id_property) 
-VALUES ('23/03/2023', 'disponible', 8);
-INSERT INTO rental (id_transaction, rent, charges, furnished) VALUES (LAST_INSERT_ID(),2400, 380, 1);
-INSERT INTO transaction_type (transaction_onlineDate, transaction_status, id_property) 
-VALUES ('23/03/2023', 'disponible', 9);
-INSERT INTO rental (id_transaction, rent, charges, furnished) VALUES (LAST_INSERT_ID(), 3000, 220, 0);
-INSERT INTO transaction_type (transaction_onlineDate, transaction_status, id_property) 
-VALUES ('23/03/2023', 'disponible', 10);
-INSERT INTO rental (id_transaction, rent, charges, furnished) VALUES (LAST_INSERT_ID(),6300, 330, 0);
-
--- SALE
-INSERT INTO transaction_type (transaction_onlineDate, transaction_status, id_property) 
-VALUES ('23/03/2023', 'disponible', 11);
-INSERT INTO sale (id_transaction, selling_price) VALUES (LAST_INSERT_ID(),1200000);
-INSERT INTO transaction_type (transaction_onlineDate, transaction_status, id_property) 
-VALUES ('23/03/2023', 'disponible', 12);
-INSERT INTO sale (id_transaction, selling_price) VALUES (LAST_INSERT_ID(), 650000);
-INSERT INTO transaction_type (transaction_onlineDate, transaction_status, id_property) 
-VALUES ('23/03/2023', 'disponible', 13);
-INSERT INTO sale (id_transaction, selling_price) VALUES (LAST_INSERT_ID(), 3550000);
-INSERT INTO transaction_type (transaction_onlineDate, transaction_status, id_property) 
-VALUES ('23/03/2023', 'disponible', 14);
-INSERT INTO sale (id_transaction, selling_price) VALUES (LAST_INSERT_ID(), 770000);
-INSERT INTO transaction_type (transaction_onlineDate, transaction_status, id_property) 
-VALUES ('23/03/2023', 'disponible', 15);
-INSERT INTO sale (id_transaction, selling_price) VALUES (LAST_INSERT_ID(), 920000);
-INSERT INTO transaction_type (transaction_onlineDate, transaction_status, id_property) 
-VALUES ('23/03/2023', 'disponible', 16);
-INSERT INTO sale (id_transaction, selling_price) VALUES (LAST_INSERT_ID(), 1400000);
-INSERT INTO transaction_type (transaction_onlineDate, transaction_status, id_property) 
-VALUES ('23/03/2023', 'disponible', 17);
-INSERT INTO sale (id_transaction, selling_price) VALUES (LAST_INSERT_ID(),865000);
-INSERT INTO transaction_type (transaction_onlineDate, transaction_status, id_property) 
-VALUES ('23/03/2023', 'disponible', 18);
-INSERT INTO sale (id_transaction, selling_price) VALUES (LAST_INSERT_ID(), 654000);
-INSERT INTO transaction_type (transaction_onlineDate, transaction_status, id_property) 
-VALUES ('23/03/2023', 'disponible', 19);
-INSERT INTO sale (id_transaction, selling_price) VALUES (LAST_INSERT_ID(), 1950000);
-INSERT INTO transaction_type (transaction_onlineDate, transaction_status, id_property) 
-VALUES ('23/03/2023', 'disponible', 20);
-INSERT INTO sale (id_transaction, selling_price) VALUES (LAST_INSERT_ID(), 93000);
+INSERT INTO picture (id_property, picture_description, picture_url) VALUES
+(11, 'Azure Retreat', 'appartement1.jpg'),
+(12, 'Oceanview Oasis', 'appartement2.jpg'),
+(13, 'Coastal Elegance', 'appartement3.jpg'),
+(14, 'Seaside Serenityr', 'appartement4.jpg'),
+(15, 'Beachfront Bliss', 'appartement5.jpg'),
+(16, 'Ocean Breeze', 'appartement6.jpg'),
+(17, 'Waveside Wonder', 'appartement7.jpg'),
+(18, 'Skyline Splendor', 'appartement8.jpg'),
+(19, 'Seashell Suite', 'appartement9.jpg'),
+(20, 'Shoreline Haven', 'appartement10.jpg');

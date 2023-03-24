@@ -25,17 +25,25 @@ class Apartment extends Property
         $sql = "SELECT id, id_property FROM apartment WHERE id_property=? ";
         $result = $this->executerRequete($sql, array($id_property));
 
-        $apartment= $result->fetch();
+        $apartment = $result->fetch();
 
         return $apartment;
     }
 
+    public function getAllApartmentsByUser($id)
+    {
+        $sql = "SELECT apartment.id FROM apartment INNER JOIN property on property.id = apartment.id WHERE id_user = ?;";
+        $stmt = $this->executerRequete($sql, array($id));
+        $properties = $stmt->fetchAll();
+        return $properties;
+    }
+
     public function addApartment($id_property, $parking, $floor, $elevator, $caretaking, $balcony)
     {
-        try{
+        try {
             $sql = "INSERT INTO apartment (id_property, parking, floor, elevator, caretaking, balcony) VALUES (?, ?, ?, ?, ?, ?);";
             $this->executerRequete($sql, array($id_property, $parking, $floor, $elevator, $caretaking, $balcony));
-        }catch(Exception $e){
+        } catch (Exception $e) {
             echo $e->getMessage();
         }
         $sql = "INSERT INTO apartment (id_property, parking, floor, elevator, caretaking, balcony) VALUES (?, ?, ?, ?, ?, ?);";
