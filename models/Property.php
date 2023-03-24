@@ -4,7 +4,8 @@ require_once 'models/Connection.php';
 
 class Property extends Connection
 {
-    private $attribute;
+    // private $attribute;
+    private $propertyType;
 
     public function __construct()
     {
@@ -29,6 +30,7 @@ class Property extends Connection
         return $properties;
     }
 
+
     public function addProperty($property_name, $property_description, $property_location, $property_area, $property_numberOfPieces, $property_distanceFromSea, $property_swimmingpool, $property_seaView, $id_user)
     {
         try {
@@ -40,6 +42,7 @@ class Property extends Connection
         }
         return $this->getBdd()->lastInsertId();
     }
+
 
     public function getLastProperties()
     {
@@ -58,4 +61,19 @@ class Property extends Connection
 
         return $lastDetailsProperties;
     }
+
+    public function getPropertyType($id_property)
+    {
+        // echo "$id_property";
+        $sql = "SELECT COUNT(*) FROM house WHERE id_property = ?;";
+        $stmt = $this->executerRequete($sql, array($id_property));
+        $propertiesNumber = $stmt->fetchAll();
+
+        if ($propertiesNumber > 0) {
+
+            return "Maison";
+        }
+        return "Appartement";
+    }
+
 }
