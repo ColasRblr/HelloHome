@@ -30,10 +30,11 @@ class Apartment extends Property
         return $apartment;
     }
 
-    public function getAllApartmentsByUser($id)
+    public function getAllApartmentsByUser($id_property)
     {
-        $sql = "SELECT apartment.id FROM apartment INNER JOIN property on property.id = apartment.id WHERE id_user = ?;";
-        $stmt = $this->executerRequete($sql, array($id));
+        $sql = "SELECT * FROM apartment 
+        WHERE apartment.id_property = ?;";
+        $stmt = $this->executerRequete($sql, array($id_property));
         $properties = $stmt->fetchAll();
         return $properties;
     }

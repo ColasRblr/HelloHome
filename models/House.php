@@ -38,10 +38,11 @@ class House extends Property
         return $house;
     }
 
-    public function getAllHousesByUser($id)
+    public function getAllHousesByUser($id_property)
     {
-        $sql = "SELECT house.id FROM house INNER JOIN property on property.id = house.id WHERE id_user = ?;";
-        $stmt = $this->executerRequete($sql, array($id));
+        $sql = "SELECT * FROM house 
+        WHERE house.id_property = ?;";
+        $stmt = $this->executerRequete($sql, array($id_property));
         $properties = $stmt->fetchAll();
         return $properties;
     }

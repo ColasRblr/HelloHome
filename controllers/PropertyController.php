@@ -267,6 +267,9 @@ class PropertyController
 
     public function validUpdateProperty()
     {
+        $properties = "hello";
+        $view = new View("UpdateProperty");
+        $view->generer(array('properties' => $properties));
     }
 
     public function visitProperty()

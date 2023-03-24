@@ -1,11 +1,13 @@
 <?php $titre = "Ajouter un bien"; ?>
 
-<link rel="stylesheet" href="./../style/dashboardAddProperty.css">
+<link rel="stylesheet" href="./style/dashboardAddProperty.css">
 </head>
 
 <body>
     <header>
-        <img src="././asset/img/logo_white.png" alt="logo">
+        <a href="?action=displayDashboard">
+            <img src="././asset/img/logo_white.png" alt="logo">
+        </a>
         <div id="icon_container">
             <i class="bi bi-person-fill"></i>
             <i class="bi bi-x-circle-fill"></i>

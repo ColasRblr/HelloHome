@@ -26,10 +26,12 @@ class Sale extends Transaction
         return $sale;
     }
 
-    public function getAllPropertyToSale($id)
+    public function getAllPropertyToSale($id_property)
     {
-        $sql = "SELECT sale.id FROM sale INNER JOIN property on property.id = sale.id INNER JOIN transaction_type on transaction_type.id = sale.id WHERE id_user = ?;";
-        $stmt = $this->executerRequete($sql, array($id));
+        $sql = "SELECT * FROM sale 
+        INNER JOIN transaction_type on transaction_type.id = sale.id_transaction
+        WHERE transaction_type.id_property = ?;";
+        $stmt = $this->executerRequete($sql, array($id_property));
         $properties = $stmt->fetchAll();
         return $properties;
     }
