@@ -52,8 +52,8 @@ class Property extends Connection
 
     public function getDetailsLastProperties($id_property, $property_type, $property_transaction)
     {
-        $sql = "SELECT * FROM property JOIN $property_type ON property.id = $property_type.id_property JOIN transaction_type ON property.id = transaction_type.id_property JOIN $property_transaction ON transaction_type.id = $property_transaction.id_transaction JOIN picture ON property.id=picture.id_property WHERE property.id = $id_property";
-        $results = $this->executerRequete($sql, array($property_type, $property_transaction, $id_property));
+        $sql = "SELECT * FROM property JOIN $property_type ON property.id = $property_type.id_property JOIN transaction_type ON property.id = transaction_type.id_property JOIN $property_transaction ON transaction_type.id = $property_transaction.id_transaction JOIN picture ON property.id=picture.id_property WHERE property.id = ?";
+        $results = $this->executerRequete($sql, array($id_property));
         $lastDetailsProperties = $results->fetchAll();
 
         return $lastDetailsProperties;
