@@ -137,16 +137,17 @@ INSERT INTO picture (id_property, picture_description, picture_url) VALUES (1, "
 (7, "Villa La Vie en Rose", "house7.jpg"),
 (8, "Villa La Casa Blanca", "house8.jpg"),
 (9, "Villa Le Refuge", "house9.jpg"),
-(10, "Villa La Belle Vie", "house10.jpg"),(11, 11, 'Azure Retreat', 'appartement1.jpg'),
-(12, 12, 'Oceanview Oasis', 'appartement2.jpg'),
-(13, 13, 'Coastal Elegance', 'appartement3.jpg'),
-(14, 14, 'Seaside Serenityr', 'appartement4.jpg'),
-(16, 15, 'Beachfront Bliss', 'appartement5.jpg'),
-(17, 16, 'Ocean Breeze', 'appartement6.jpg'),
-(19, 17, 'Waveside Wonder', 'appartement7.jpg'),
-(20, 18, 'Skyline Splendor', 'appartement8.jpg'),
-(21, 19, 'Seashell Suite', 'appartement9.jpg'),
-(22, 20, 'Shoreline Haven', 'appartement10.jpg');
+(10, "Villa La Belle Vie", "house10.jpg"),
+(11, 'Azure Retreat', 'appartement1.jpg'),
+(12, 'Oceanview Oasis', 'appartement2.jpg'),
+(13, 'Coastal Elegance', 'appartement3.jpg'),
+(14, 'Seaside Serenityr', 'appartement4.jpg'),
+(15, 'Beachfront Bliss', 'appartement5.jpg'),
+(16, 'Ocean Breeze', 'appartement6.jpg'),
+(17, 'Waveside Wonder', 'appartement7.jpg'),
+(18, 'Skyline Splendor', 'appartement8.jpg'),
+(19, 'Seashell Suite', 'appartement9.jpg'),
+(20, 'Shoreline Haven', 'appartement10.jpg');
 
 
 -- APPARTMENTS
