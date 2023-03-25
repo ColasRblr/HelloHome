@@ -127,7 +127,6 @@ INSERT INTO property (property_name, property_description, property_location, pr
 VALUES ("Villa La Belle Vie", "Cette villa de style Art Déco est située dans un quartier exclusif, à quelques pas de la plage. La villa dispose de cinq chambres spacieuses, toutes avec leur propre salle de bain privée et un balcon privé offrant une vue sur la mer. Les intérieurs sont élégants et sophistiqués, avec des touches de décoration Art Déco. La terrasse extérieure dispose d'une grande piscine à débordement et d'un coin salon, parfait pour se détendre et profiter du soleil.", "Cagnes-sur-Mer", 130, 8, 950, true, false, 1);
 INSERT INTO house (id_property, garden, bonus) VALUES (LAST_INSERT_ID(), true, "Terrain de basket-ball, spa");
 
-
 -- APPARTMENTS
 INSERT INTO property (property_name, property_description, property_location, property_area, property_numberOfPieces, property_distanceFromSea, property_swimmingpool, property_seaView, id_user) 
 VALUES ("Azure Retreat", "Appartement de 3 chambres avec vue panoramique sur la mer depuis toutes les pièces. Décoré avec des matériaux haut de gamme, l'appartement dispose également d'une grande terrasse pour profiter de la vue.", "Nice", 200, 6, 150, false, true, 2);

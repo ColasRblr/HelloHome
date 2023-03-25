@@ -3,6 +3,8 @@
 require_once './views/View.php';
 require_once './models/User.php';
 require_once './models/Property.php';
+require_once './models/Sale.php';
+require_once './models/Rental.php';
 
 if (isset($_GET['action']) && $_GET['action'] == 'updateUser') {
     $userController = new UserController();
@@ -51,7 +53,6 @@ class UserController
             $email = $_POST['email'];
             $pwd = $_POST['password'];
 
-
             $result = $this->user->logIn($email, $pwd);
             if ($result) {
                 session_set_cookie_params([
@@ -61,15 +62,7 @@ class UserController
                 session_start();
                 global $_SESSION;
                 $_SESSION['user_id'] = $result['id'];
-                $allProperties = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
-                $allHouses = $this->house->getAllHousesByUser($_SESSION['user_id']);
-                $allApartments = $this->apartment->getAllApartmentsByUser($_SESSION['user_id']);
-                $allRental = $this->rental->getAllPropertyToRent($_SESSION['user_id']);
-                $allSale = $this->sale->getAllPropertyToSale($_SESSION['user_id']);
-                $oneTransaction = $this->transaction->getOneTransaction($_SESSION['user_id']);
-
-                $view = new View("Dashboard");
-                $view->generer(array('allProperties' => $allProperties, 'allHouses' => $allHouses, 'allApartments' => $allApartments, 'allRental' => $allRental, 'allSale' => $allSale, 'oneTransaction' => $oneTransaction));
+                $this->displayDashboard();
             } else {
                 echo "email ou mpd invalide";
             }
@@ -78,11 +71,26 @@ class UserController
 
     public function displayDashboard()
     {
-        session_start();
         try {
             $allProperties = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
+            $status = [];
+            $type = [];
+            for ($i = 0; $i < count($allProperties); $i++) {
+                if ($this->sale->getAllPropertyToSale($allProperties[$i]['id'])) {
+                    $status[$i] = "à vendre";
+                } else if ($this->rental->getAllPropertyToRent($allProperties[$i]['id'])) {
+                    $status[$i] = "à louer";
+                }
+            }
+            for ($i = 0; $i < count($allProperties); $i++) {
+                if ($this->house->getAllHousesByUser($allProperties[$i]['id'])) {
+                    $type[$i] = "maison";
+                } else if ($this->apartment->getAllApartmentsByUser($allProperties[$i]['id'])) {
+                    $type[$i] = "appartement";
+                }
+            }
             $view = new View("Dashboard");
-            $view->generer(array('allProperties' => $allProperties));
+            $view->generer(array('allProperties' => $allProperties, 'type' => $type, 'status' => $status));
         } catch (Exception $e) {
             echo $e->getMessage();
         }

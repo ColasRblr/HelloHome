@@ -1,6 +1,6 @@
 <?php $titre = "Tableau de bord";
 ?>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 <link rel="stylesheet" href="./style/dashboardHome.css">
 
 </head>
@@ -17,7 +17,7 @@
             <a href="?action=deconnection">
                 <i class="bi bi-x-circle-fill"></i>
             </a>
-            <a href="./views/ViewHome.php">
+            <a href="?">
                 <i class="bi bi-window-fullscreen"></i>
             </a>
 
@@ -61,10 +61,18 @@
                 <table>
                     <tbody id="contenuOfTable">
                         <?php
-                        foreach ($allProperties as $property) {
+                        for ($i = 0; $i < count($allProperties); $i++) {
                         ?>
                             <tr>
-                                <td class="listOfPropertyByUser"><a href="?action=updateProperty"><?= $property['property_name'] ?></a> <?= $property['property_location'] ?> </td>
+                                <td class="listOfPropertyByUser">
+                                    <a href="?action=updateProperty&id=<?= $allProperties[$i]['id'] ?>">
+                                        <?= $allProperties[$i]['property_name'] ?> <?= $allProperties[$i]['property_location'] ?>
+                                        <span><?= $status[$i] ?></span>
+                                        <span><?= $type[$i] ?></span>
+                                    </a>
+                                </td>
+
+
 
                             <?php
                         }
@@ -90,9 +98,9 @@
             <div id="numberOfPropertiesToSale" class="numberStatistique">
                 <h3 class="statistiques">Nombre de biens à vendre</h3>
                 <p id="numberPropertySale">
-                    <?php
-                    echo count($allSale);
-                    ?>
+                    <!-- <?php
+                            echo count($allSale);
+                            ?> -->
                 </p>
             </div>
 
