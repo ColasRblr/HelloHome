@@ -1,7 +1,4 @@
 <?php $titre = "Tableau de bord";
-// echo '<pre>';
-// var_dump($allProperties);
-// echo '</pre>';
 ?>
 
 <link rel="stylesheet" href="./style/dashboardHome.css">
