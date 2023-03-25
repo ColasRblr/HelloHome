@@ -83,4 +83,13 @@ class Property extends Connection
         }
         return "Appartement";
     }
+
+    public function getOneProperty($id_property)
+    {
+        $sql = "SELECT * FROM property WHERE id = ?;";
+        $stmt = $this->executerRequete($sql, array($id_property));
+        $property = $stmt->fetch();
+
+        return $property;
+    }
 }

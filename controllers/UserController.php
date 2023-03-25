@@ -72,6 +72,9 @@ class UserController
     public function displayDashboard()
     {
         try {
+            if (!isset($_SESSION)) {
+                session_start();
+            }
             $allProperties = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
             $status = [];
             $type = [];
