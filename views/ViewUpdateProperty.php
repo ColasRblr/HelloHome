@@ -1,6 +1,17 @@
 <?php $titre = "Ajouter un bien";
 // var_dump($properties);
 // print_r($type);
+// if (isset($house)) {
+//     var_dump($house);
+// } else if (isset($apartment)) {
+//     var_dump($apartment);
+// }
+// if (isset($sale)) {
+//     var_dump($sale);
+// } else if (isset($rental)) {
+//     var_dump($rental);
+// }
+echo $rental[0]['furnished'];
 ?>
 
 <link rel="stylesheet" href="./style/dashboardAddProperty.css">
@@ -68,8 +79,12 @@
                 <div class="specificationToRent">
                     <label for="furnishedProperty" class="formElement"></label>
                     <select name="furnishedProperty" id="furnished" class="btnSelectAddDetails">
-                        <option value="furnished">Meublé</option>
-                        <option value="noFurnished">Non meublé</option>
+                        <option value="furnished" <?php if (isset($rental) && $rental[0]['furnished'] == "1") {
+                                                        echo "selected='selected'";
+                                                    } ?>>Meublé</option>
+                        <option value="noFurnished" <?php if (isset($rental) && $rental[0]['furnished'] == "0") {
+                                                        echo "selected='selected'";
+                                                    } ?>>Non meublé</option>
                     </select>
                 </div>
                 <div id="price">
@@ -105,7 +120,9 @@
                                                                                                                                 echo "checked='checked'";
                                                                                                                             } ?>>
                 <label for="seaView" class="formElement">Vue sur mer</label>
-                <input type="checkbox" id="seaView" class="btnCheckboxBonus" name="seaView" value="seaView">
+                <input type="checkbox" id="seaView" class="btnCheckboxBonus" name="seaView" value="seaView" <?php if ($properties["property_seaView"] == "1") {
+                                                                                                                echo "checked='checked'";
+                                                                                                            } ?>>
                 <div id="houseProperty">
                     <label for="garden" class="formElement">Jardin</label>
                     <input type="checkbox" id="garden" class="btnCheckboxBonus" name="garden" value="garden">
