@@ -1,5 +1,7 @@
 <?php $titre = "Ajouter un bien";
+
 $id_property = $_GET['id'];
+
 // var_dump($properties);
 // print_r($type);
 // if (isset($house)) {
@@ -7,13 +9,17 @@ $id_property = $_GET['id'];
 // } else if (isset($apartment)) {
 //     var_dump($apartment);
 // }
+
 // echo ($picture[0]["picture_url"]);
+
 // if (isset($sale)) {
 //     var_dump($sale);
 // } else if (isset($rental)) {
 //     var_dump($rental);
 // }
+
 // echo $rental[0]['furnished'];
+
 ?>
 
 <link rel="stylesheet" href="./style/dashboardUpdateProperty.css">
@@ -34,7 +40,9 @@ $id_property = $_GET['id'];
             <h1 class="titlePageDashboard">Modifier le bien</h1>
         </div>
 
+
         <form autocomplete="off" id="addPropertyForm" method="post" action="?action=validUpdateProperty&id=<?= $id_property ?>" enctype="multipart/form-data">
+
             <div id="addPropertyDetails">
                 <div>
                     <label for="addTypeOfProperty" class="formElement"></label>
@@ -74,6 +82,7 @@ $id_property = $_GET['id'];
                                                             echo "selected='selected'";
                                                         } ?>>Cagnes-sur-Mer</option>
                     </select>
+
                     <select name="availablity" class="btnSelectAddDetails">
                         <option value="disponible">Disponible</option>
                         <option value="vendu">Vendu</option>
@@ -82,6 +91,7 @@ $id_property = $_GET['id'];
                 </div>
                 <div>
                     <input type="text" name="nameProperty" id="propertyName" placeholder="<?= $properties['property_name'] ?>" value="<?= $properties['property_name'] ?>">
+
                 </div>
                 <?php if (isset($rental)) {
                 ?>
@@ -118,6 +128,7 @@ $id_property = $_GET['id'];
                 <?php } ?>
                 <div>
                     <label for="area" class="formElement"></label>
+
                     <input type="number" name="area" value="<?= $properties["property_area"] ?>" class="formElement input" placeholder="<?= $properties["property_area"] ?> m²">
                 </div>
                 <div>
@@ -127,6 +138,7 @@ $id_property = $_GET['id'];
                 <div>
                     <label for="distanceFromTheSea" class="formElement"></label>
                     <input type="number" name="distanceFromTheSea" value="<?= $properties["property_distanceFromSea"] ?>" class="formElement input" placeholder="<?= $properties["property_distanceFromSea"] ?> mètres">
+
                 </div>
 
             </div>
@@ -173,6 +185,7 @@ $id_property = $_GET['id'];
                 <div id="textarea">
                     <label for="descriptionProperty" class="formElement"></label>
                     <textarea id="descritionOfTheProperty" name="descriptionProperty" value=""><?= $properties["property_description"] ?></textarea>
+
                 </div>
                 <label for="picture"><?php echo $picture[0]['picture_url']; ?></label>
                 <input type="file" name="picture" id="picture" value="<?php echo $picture[0]['picture_url']; ?>" />

@@ -98,6 +98,7 @@ class Property extends Connection
         $property = $stmt->fetch();
 
         return $property;
+
     }
 
     public function updateProperty($property_name, $property_description, $property_location, $property_area, $property_numberOfPieces, $property_distanceFromSea, $property_swimmingpool, $property_seaView, $property_id)
@@ -111,6 +112,7 @@ class Property extends Connection
         } catch (Exception $e) {
             echo $e->getMessage();
         }
+
 
     }
 }
