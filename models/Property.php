@@ -88,6 +88,15 @@ class Property extends Connection
     {
         $sql = "DELETE FROM property WHERE id =?;";
         $this->executerRequete($sql, array($id_property));
-        // $propertiesNumber = $result->fetchAll();
+    }
+
+    // $propertiesNumber = $result->fetchAll();
+    public function getOneProperty($id_property)
+    {
+        $sql = "SELECT * FROM property WHERE id = ?;";
+        $stmt = $this->executerRequete($sql, array($id_property));
+        $property = $stmt->fetch();
+
+        return $property;
     }
 }
