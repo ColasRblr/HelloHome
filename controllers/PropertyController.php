@@ -13,7 +13,6 @@ require_once './controllers/TransactionController.php';
 class PropertyController
 {
     private $property;
-    private $ctrlAccueil;
     private $transaction;
     private $rental;
     private $sale;
@@ -46,7 +45,7 @@ class PropertyController
 
     public function getOneProperty()
     {
-        // $idProperty = $_GET['id'];
+        // $id_property = $_GET['id'];
         $properties = "hello";
         $view = new View("Property");
         $view->generer(array('properties' => $properties));
@@ -269,9 +268,38 @@ class PropertyController
 
     public function validUpdateProperty()
     {
-        $properties = "hello";
+        $id_property = $_GET['id'];
+        $status = [];
+        $type = [];
+        $isSale = null;
+        $isRental = null;
+        $isHouse = null;
+        $isApartment = null;
+        $property = $this->property->getOneProperty($id_property);
+
+        if ($this->sale->getAllPropertyToSale($id_property)) {
+            $status[0] = "à vendre";
+            $isSale = $this->sale->getAllPropertyToSale($id_property);
+        } else if ($this->rental->getAllPropertyToRent($id_property)) {
+            $status[0] = "à louer";
+            $isRental = $this->rental->getAllPropertyToRent($id_property);
+        }
+
+        if ($this->house->getAllHousesByUser($id_property)) {
+            $type[0] = "maison";
+            $isHouse = $this->house->getAllHousesByUser($id_property);
+        } else if ($this->apartment->getAllApartmentsByUser($id_property)) {
+            $type[0] = "appartement";
+            $isApartment = $this->apartment->getAllApartmentsByUser($id_property);
+        }
         $view = new View("UpdateProperty");
-        $view->generer(array('properties' => $properties));
+        $view->generer(array(
+            'properties' => $property,
+            'type' => $type,
+            'status' => $status,
+            ($isSale ? 'sale' : 'rental') => ($isSale ? $isSale : $isRental),
+            ($isHouse ? 'house' : 'apartment') => ($isHouse ? $isHouse : $isApartment)
+        ));
     }
 
 

@@ -1,4 +1,18 @@
-<?php $titre = "Ajouter un bien"; ?>
+<?php $titre = "Ajouter un bien";
+// var_dump($properties);
+// print_r($type);
+// if (isset($house)) {
+//     var_dump($house);
+// } else if (isset($apartment)) {
+//     var_dump($apartment);
+// }
+// if (isset($sale)) {
+//     var_dump($sale);
+// } else if (isset($rental)) {
+//     var_dump($rental);
+// }
+echo $rental[0]['furnished'];
+?>
 
 <link rel="stylesheet" href="./style/dashboardAddProperty.css">
 </head>
@@ -18,46 +32,65 @@
             <h1 class="titlePageDashboard">Modifier le bien</h1>
         </div>
 
-        <form id="addPropertyForm" method="post" action="?action=validUpdateProperty" enctype="multipart/form-data">
+        <form autocomplete="off" id="addPropertyForm" method="post" action="?action=validUpdateProperty" enctype="multipart/form-data">
             <div id="addPropertyDetails">
                 <div>
                     <label for="addTypeOfProperty" class="formElement"></label>
                     <select name="addTypeOfProperty" id="addTypeProperty" class="btnSelectAddDetails">
                         <option value="">Type</option>
-                        <option value="house" id="btnSelectHouse">Maison</option>
-                        <option value="apartment">Appartement</option>
+                        <option value="house" id="btnSelectHouse" <?php if ($type[0] == "maison") {
+                                                                        echo "selected='selected'";
+                                                                    } ?>>Maison</option>
+                        <option value="apartment" <?php if ($type[0] == "appartement") {
+                                                        echo "selected='selected'";
+                                                    } ?>>Appartement</option>
                     </select>
                 </div>
                 <div>
                     <label for="addStatutProperty" class="formElement"></label>
                     <select name="addStatutProperty" id="addStatut" class="btnSelectAddDetails">
                         <option value="">Statut</option>
-                        <option value="sale">A vendre</option>
-                        <option value="rent" id="btnSelectRent">A louer</option>
+                        <option value="sale" <?php if ($status[0] == "à vendre") {
+                                                    echo "selected='selected'";
+                                                } ?>>A vendre</option>
+                        <option value="rent" id="btnSelectRent" <?php if ($status[0] == "à louer") {
+                                                                    echo "selected='selected'";
+                                                                } ?>>A louer</option>
                     </select>
                 </div>
                 <div>
                     <label for="locationOfProperty" class="formElement"></label>
                     <select name="locationOfProperty" id="locationProperty" class="btnSelectAddDetails">
                         <option value="">Ville</option>
-                        <option value="Nice">Nice</option>
-                        <option value="Saint-Jean-Cap-Ferrat">Saint-Jean-Cap-Ferrat</option>
-                        <option value="Cagnes-sur-Mer">Cagnes-sur-Mer</option>
+                        <option value="Nice" <?php if ($properties['property_location'] == "Nice") {
+                                                    echo "selected='selected'";
+                                                } ?>>Nice</option>
+                        <option value="Saint-Jean-Cap-Ferrat" <?php if ($properties['property_location'] == "Saint-Jean-Cap-Ferrat") {
+                                                                    echo "selected='selected'";
+                                                                } ?>>Saint-Jean-Cap-Ferrat</option>
+                        <option value="Cagnes-sur-Mer" <?php if ($properties['property_location'] == "Cagnes-sur-Mer") {
+                                                            echo "selected='selected'";
+                                                        } ?>>Cagnes-sur-Mer</option>
                     </select>
                 </div>
                 <div>
-                    <input type="text" name="nameProperty" id="propertyName" placeholder="Nom du bien*">
+                    <input type="text" name="nameProperty" id="propertyName" placeholder="<?= $properties['property_name'] ?>">
                 </div>
                 <div class="specificationToRent">
                     <label for="furnishedProperty" class="formElement"></label>
                     <select name="furnishedProperty" id="furnished" class="btnSelectAddDetails">
-                        <option value="furnished">Meublé</option>
-                        <option value="noFurnished">Non meublé</option>
+                        <option value="furnished" <?php if (isset($rental) && $rental[0]['furnished'] == "1") {
+                                                        echo "selected='selected'";
+                                                    } ?>>Meublé</option>
+                        <option value="noFurnished" <?php if (isset($rental) && $rental[0]['furnished'] == "0") {
+                                                        echo "selected='selected'";
+                                                    } ?>>Non meublé</option>
                     </select>
                 </div>
                 <div id="price">
                     <label for="addPriceProperty" class="formElement"></label>
-                    <input type="number" name="salePrice" value="" class="formElement input" placeholder="Prix de vente*">
+                    <input type="number" name="salePrice" value=<?php if ($status[0] == "à vendre") {
+                                                                } ?> class="formElement input" placeholder="Prix de vente*">
                 </div>
                 <div class="specificationToRent">
                     <label for="addPriceProperty" class="formElement"></label>
@@ -69,23 +102,27 @@
                 </div>
                 <div>
                     <label for="area" class="formElement"></label>
-                    <input type="number" name="area" value="" class="formElement input" placeholder="Surface en m2*">
+                    <input type="number" name="area" value="" class="formElement input" placeholder="<?= $properties["property_area"] ?>">
                 </div>
                 <div>
                     <label for="numberOfPieces" class="formElement"></label>
-                    <input type="number" name="numberOfPieces" value="" class="formElement input" placeholder="Nombre de pièce*">
+                    <input type="number" name="numberOfPieces" value="" class="formElement input" placeholder="<?= $properties["property_numberOfPieces"] ?>">
                 </div>
                 <div>
                     <label for="distanceFromTheSea" class="formElement"></label>
-                    <input type="number" name="distanceFromTheSea" value="" class="formElement input" placeholder="Distance de la mer en mètre*">
+                    <input type="number" name="distanceFromTheSea" value="" class="formElement input" placeholder="<?= $properties["property_distanceFromSea"] ?>">
                 </div>
 
             </div>
             <div id="btnCheckbox">
                 <label for="swimmingpool" class="formElement">Piscine</label>
-                <input type="checkbox" id="swimmingpool" class="btnCheckboxBonus" name="swimmingpool" value="swimmingpool">
+                <input type="checkbox" id="swimmingpool" class="btnCheckboxBonus" name="swimmingpool" value="swimmingpool" <?php if ($properties["property_swimmingpool"] == "1") {
+                                                                                                                                echo "checked='checked'";
+                                                                                                                            } ?>>
                 <label for="seaView" class="formElement">Vue sur mer</label>
-                <input type="checkbox" id="seaView" class="btnCheckboxBonus" name="seaView" value="seaView">
+                <input type="checkbox" id="seaView" class="btnCheckboxBonus" name="seaView" value="seaView" <?php if ($properties["property_seaView"] == "1") {
+                                                                                                                echo "checked='checked'";
+                                                                                                            } ?>>
                 <div id="houseProperty">
                     <label for="garden" class="formElement">Jardin</label>
                     <input type="checkbox" id="garden" class="btnCheckboxBonus" name="garden" value="garden">
@@ -106,7 +143,7 @@
 
                 <div id="textarea">
                     <label for="descriptionProperty" class="formElement"></label>
-                    <textarea id="descritionOfTheProperty" name="descriptionProperty" placeholder="Description*" value=""></textarea>
+                    <textarea id="descritionOfTheProperty" name="descriptionProperty" placeholder="<?= $properties["property_description"] ?>" value=""></textarea>
                 </div>
                 <label for="picture">Ajouter des images</label>
                 <input type="file" name="picture" id="picture">
