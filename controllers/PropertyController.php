@@ -20,7 +20,6 @@ class PropertyController
     private $apartment;
     private $transactionCtrl;
     private $picture;
-    private $userCtrl;
 
     public function __construct()
     {
@@ -32,7 +31,6 @@ class PropertyController
         $this->sale = new Sale();
         $this->transactionCtrl = new TransactionController();
         $this->picture = new Picture();
-        $this->userCtrl = new UserController();
     }
 
     public function home()
@@ -65,9 +63,9 @@ class PropertyController
         } elseif ($this->house->getOneHouse($id_property)) {
             $propertyType = "house";
             $transactionId = $this->transaction->getOneTransaction($id_property)["id"];
-            if ($this->sale->getOneSale($transactionId)) {
+            if ($this->sale->getOneSale($transactionId["id"])) {
                 $transactionType = "sale";
-            } else if ($this->rental->getOneRental($transactionId)) {
+            } else if ($this->rental->getOneRental($transactionId["id"])) {
                 $transactionType = "rental";
             }
         }
@@ -250,19 +248,19 @@ class PropertyController
         } else if ($statutProperty == "rent") {
             $this->transactionCtrl->addRental($id_transaction, $rent, $charges, $furnished);
         }
-        $this->userCtrl->displayDashboard();
-        // try {
-        //     $allProperties = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
-        //     // var_dump($allProperties);
-        //     $view = new View("Dashboard");
-        //     $view->generer(array('allProperties' => $allProperties));
-        // } catch (Exception $e) {
-        //     echo $e->getMessage();
-        // }
 
-        // $adminInfo = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
-        // $view = new View("Dashboard");
-        // $view->generer(array('allProperties' => $adminInfo));
+        try {
+            $allProperties = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
+            // var_dump($allProperties);
+            $view = new View("Dashboard");
+            $view->generer(array('allProperties' => $allProperties));
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+
+        $adminInfo = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
+        $view = new View("Dashboard");
+        $view->generer(array('allProperties' => $adminInfo));
     }
 
 
@@ -300,24 +298,6 @@ class PropertyController
             ($isSale ? 'sale' : 'rental') => ($isSale ? $isSale : $isRental),
             ($isHouse ? 'house' : 'apartment') => ($isHouse ? $isHouse : $isApartment)
         ));
-    }
-
-
-    public function validDeleteProperty($id_property)
-    {
-        session_start();
-        $transaction =  $this->transaction->getOneTransaction($id_property);
-        if ($transaction != false) {
-            $idTransaction = $transaction["id"];
-            $this->rental->deleteRental($idTransaction);
-            $this->sale->deleteSale($idTransaction);
-            $this->picture->deletePicture($id_property);
-            $this->house->deleteHouse($id_property);
-            $this->apartment->deleteApartment($id_property);
-            $this->transaction->deleteOneTransaction($id_property);
-            $this->property->deleteProperty($id_property);
-        }
-        $this->userCtrl->displayDashboard();
     }
 
     public function visitProperty()

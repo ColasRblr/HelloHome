@@ -2,7 +2,7 @@
 
 require_once 'models/Property.php';
 
-class Transaction extends Property
+class Transaction extends Connection
 {
     // private $attribute;
 
