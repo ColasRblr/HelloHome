@@ -38,9 +38,10 @@ class Routeur
                     $this->userCtrl->getProfilAdmin();
                 } else if ($_GET['action'] == 'displayDashboard') {
                     $this->userCtrl->displayDashboard();
-                } else if ($_GET['action'] == 'visitProperty') {
-                    $this->propertyCtrl->visitProperty();
+
                 } else if ($_GET['action'] == 'updateProperty') {
+                    $this->propertyCtrl->updateProperty();
+                } else if ($_GET['action'] == 'validUpdateProperty') {
                     $this->propertyCtrl->validUpdateProperty();
                 } else if ($_GET['action'] == 'removeProperty') {
                     $this->propertyCtrl->validDeleteProperty($_GET['propertyId']);
