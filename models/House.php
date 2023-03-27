@@ -47,6 +47,12 @@ class House extends Property
         return $properties;
     }
 
+
+    public function deleteHouse($id_property)
+    {
+        $sql = "DELETE FROM house WHERE id_property = ?";
+        $this->executerRequete($sql, array($id_property));
+
     public function updateHouse($garden, $bonus, $id_property)
     {
         $sql = "UPDATE house 
@@ -58,5 +64,6 @@ class House extends Property
         } catch (Exception $e) {
             echo $e->getMessage();
         }
+
     }
 }

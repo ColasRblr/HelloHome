@@ -51,6 +51,11 @@ class Apartment extends Property
         $this->executerRequete($sql, array($id_property, $parking, $floor, $elevator, $caretaking, $balcony));
     }
 
+    public function deleteApartment($id_property)
+    {
+        $sql = "DELETE FROM apartment WHERE id_property = ?;";
+        $this->executerRequete($sql, array($id_property));
+
     public function updateApartment($parking, $floor, $elevator, $caretaking, $balcony, $id_property)
     {
         $sql = "UPDATE apartment 
@@ -62,5 +67,6 @@ class Apartment extends Property
         } catch (Exception $e) {
             echo $e->getMessage();
         }
+
     }
 }

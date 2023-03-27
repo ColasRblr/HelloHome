@@ -23,6 +23,7 @@ class Rental extends Transaction
         $properties = $stmt->fetchAll();
         return $properties;
     }
+
     public function getAllRentals()
     {
         $sql = "SELECT * FROM rental ";
@@ -39,6 +40,12 @@ class Rental extends Transaction
         return $rental;
     }
 
+
+    public function deleteRental($id_transaction)
+    {
+        $sql = "DELETE FROM rental WHERE id_transaction = ?;";
+        $this->executerRequete($sql, array($id_transaction));
+
     public function updateRental($id_transaction, $rent, $charges, $furnished)
     {
         $sql = "UPDATE rental 
@@ -50,5 +57,6 @@ class Rental extends Transaction
         } catch (Exception $e) {
             echo $e->getMessage();
         }
+
     }
 }

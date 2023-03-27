@@ -1,35 +1,25 @@
-console.log("toto");
+// console.log("toto");
 
 $(document).ready(function () {
   // get list of properties thanks to filter
-  $("#locationProperty").change(function () {
-    var selectedValue = $(this).val();
 
-    if (selectedValue) {
-      var filteredElements = $("#contenuOfTable td.listOfPropertyByUser").filter(function () {
-        return $(this).text().indexOf(selectedValue) !== -1;
-      });
+  $(".btnFilterSelectDashboard").on("change", function () {
+    let selectedLocation = $("#locationProperty").val();
+    let selectedStatus = $("#dashboardPropertyStatus").val();
+    let selectedType = $("#dashaboardTypeProperty").val();
 
-      $("#contenuOfTable tr").hide();
-      filteredElements.closest("tr").show();
-    } else {
-      $("#contenuOfTable tr").show();
-    }
-  });
+    $(".propertyItem").each(function () {
+      // "find()" pour sélectionner les éléments enfants de chaque "propertyItem" ayant les classes CSS "propertyLocation", "propertyStatus" et "propertyType"."text()" permet d'extraire le texte de chaque élément sélectionné.
+      let location = $(this).find(".propertyLocation").text();
+      let status = $(this).find(".propertyStatus").text();
+      let type = $(this).find(".propertyType").text();
 
-  $("#dashaboardPropertyStatut").change(function () {
-    var selectedValue = $(this).val();
-
-    if (selectedValue) {
-      var filteredElements = $("#contenuOfTable td.listOfPropertyByUser").filter(function () {
-        return $(this).text().indexOf(selectedValue) !== -1;
-      });
-
-      $("#contenuOfTable tr").hide();
-      filteredElements.closest("tr").show();
-    } else {
-      $("#contenuOfTable tr").show();
-    }
+      if ((selectedLocation === "all" || location === selectedLocation) && (selectedStatus === "all" || status === selectedStatus) && (selectedType === "all" || type === selectedType)) {
+        $(this).show();
+      } else {
+        $(this).hide();
+      }
+    });
   });
 
   // add page dashboard

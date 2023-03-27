@@ -19,11 +19,8 @@ class UserController
 {
     private $property;
     private $user;
-    private $ctrlAccueil;
     private $house;
     private $rental;
-    private $transaction;
-    private $propertyCtrl;
     private $sale;
     private $apartment;
 
@@ -34,8 +31,6 @@ class UserController
         $this->property = new Property();
         $this->house = new House();
         $this->rental = new Rental();
-        $this->transaction = new Transaction();
-        $this->propertyCtrl = new PropertyController();
         $this->sale = new Sale();
         $this->apartment = new Apartment();
     }
@@ -80,20 +75,25 @@ class UserController
             $type = [];
             for ($i = 0; $i < count($allProperties); $i++) {
                 if ($this->sale->getAllPropertyToSale($allProperties[$i]['id'])) {
-                    $status[$i] = "à vendre";
+                    $status[$i] = "A vendre";
                 } else if ($this->rental->getAllPropertyToRent($allProperties[$i]['id'])) {
-                    $status[$i] = "à louer";
+                    $status[$i] = "A louer";
                 }
             }
             for ($i = 0; $i < count($allProperties); $i++) {
                 if ($this->house->getAllHousesByUser($allProperties[$i]['id'])) {
-                    $type[$i] = "maison";
+                    $type[$i] = "Maison";
                 } else if ($this->apartment->getAllApartmentsByUser($allProperties[$i]['id'])) {
-                    $type[$i] = "appartement";
+                    $type[$i] = "Appartement";
                 }
             }
+            $countToSell = array_count_values($status)['A vendre'];
+            $countToRent = array_count_values($status)['A louer'];
+            $countNumberOfHouses = array_count_values($type)["Maison"];
+            $countNumberOfApartments = array_count_values($type)["Appartement"];
+
             $view = new View("Dashboard");
-            $view->generer(array('allProperties' => $allProperties, 'type' => $type, 'status' => $status));
+            $view->generer(array('allProperties' => $allProperties, 'type' => $type, 'status' => $status, "countToSell" => $countToSell, "countToRent" => $countToRent, "countNumberOfHouses" => $countNumberOfHouses, "countNumberOfApartments" => $countNumberOfApartments));
         } catch (Exception $e) {
             echo $e->getMessage();
         }

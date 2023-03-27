@@ -13,44 +13,20 @@ h1 {
   font-size: 30px;
 }
 h3 {
-  font-size: 15px;
+  font-size: 12px;
+  font-weight: bold;
 }
-
-/* ...........................................Gestion des biens */
-#managementProperty {
-  margin-left: 2vw;
-  text-align: start;
-  height: 45vh;
-  width: 50vw;
-}
-
-#dashboardManagementFilters {
-  display: flex;
-  align-items: center;
-}
-
-#inputSearchDashboard {
-  border-radius: 20px;
-  height: 30px;
-  /* margin-right: 1vw; */
-  width: 12vw;
-}
-
-.btnFilterSelectDashboard {
-  margin-right: 1vw;
-  font-size: 15px;
-  height: 35px;
-  background-color: #155109;
-}
-
 p {
   color: white;
-  font-size: 20px;
+  font-size: 15px;
 }
 td {
-  border: solid 1px;
-  width: 100vw;
+  border: white;
+  table-layout: auto;
+  padding-right: 3vw;
+  border-bottom: solid 1px;
 }
+
 /* .......................................Header */
 header {
   height: 130px;
@@ -88,7 +64,7 @@ header i {
 #managementProperty {
   margin-left: 1vw;
   text-align: start;
-  width: 55vw;
+  width: 60vw;
 }
 #dashboardManagementFilters {
   display: flex;
@@ -102,7 +78,7 @@ header i {
   border: none;
   border-radius: 10px;
   padding: 4px;
-  width: 15vw;
+  width: 13vw;
   margin-right: 1vw;
 }
 
@@ -119,32 +95,36 @@ header i {
 
 #listOfProperties {
   overflow-y: auto;
-  height: 30vh;
+  height: 60vh;
   margin-top: 3vh;
+  width: auto;
+}
+
+#listOfPropertyByUser {
+  width: 200px;
 }
 
 /* .....................................Statistiques */
 #statistiquesDashboard {
   background-color: #094351;
-  padding: 1%;
-  margin-right: 5vw;
+  margin-right: 4vw;
   border-radius: 10px;
   width: 30vw;
+  font-size: 30px;
 }
 .numberStatistique {
   background-color: #c58b03;
   border-radius: 20px;
-  height: 10vh;
-  width: 22vw;
+  height: 8vh;
+  width: 20vw;
   margin-top: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   padding: 3px;
 }
 
 /* ..................................Parameters */
-#parametersDashboard {
+/* #parametersDashboard {
   margin-left: 1vw;
-  /* position: relative; */
 }
 
 #titleParameters {
@@ -168,7 +148,6 @@ header i {
 }
 #contactDetails {
   display: flex;
-  /* margin-left: 10vw; */
 }
 label {
   font-size: 15px;
@@ -179,7 +158,7 @@ label {
   margin-top: 1vh;
   border-radius: 10px;
   font-size: 15px;
-}
+} */
 
 footer {
   background-color: #094351;
