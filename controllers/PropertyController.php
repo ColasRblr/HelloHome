@@ -295,6 +295,7 @@ class PropertyController
         }
 
         $pictures = $this->picture->getPicturesOfOneProperty($id_property);
+
         $view = new View("UpdateProperty");
         $view->generer(array(
             'properties' => $property,
@@ -303,6 +304,7 @@ class PropertyController
             ($isSale ? 'sale' : 'rental') => ($isSale ? $isSale : $isRental),
             ($isHouse ? 'house' : 'apartment') => ($isHouse ? $isHouse : $isApartment),
             'picture' => $pictures
+
         ));
     }
 
