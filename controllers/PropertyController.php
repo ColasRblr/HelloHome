@@ -442,7 +442,7 @@ class PropertyController
                 echo $e->getMessage();
             }
         }
-        var_dump($propertyInfo);
+        // var_dump($propertyInfo);
 
         $this->property->updateProperty($property_name, $property_description, $property_location, $property_area, $property_numberOfPieces, $property_distanceFromSea, $property_swimmingpool, $property_seaView, $id_property);
         $id_transaction = $this->transaction->updateTransaction($_POST['availablity'], $id_property);
@@ -457,5 +457,22 @@ class PropertyController
         } else if ($statutProperty == "rent") {
             $this->rental->updateRental($id_transaction, $rent, $charges, $furnished);
         }
+    }
+
+    public function validDeleteProperty($id_property)
+    {
+        session_start();
+        $transaction =  $this->transaction->getOneTransaction($id_property);
+        if ($transaction != false) {
+            $idTransaction = $transaction["id"];
+            $this->rental->deleteRental($idTransaction);
+            $this->sale->deleteSale($idTransaction);
+            $this->picture->deletePicture($id_property);
+            $this->house->deleteHouse($id_property);
+            $this->apartment->deleteApartment($id_property);
+            $this->transaction->deleteOneTransaction($id_property);
+            $this->property->deleteProperty($id_property);
+        }
+        $this->userCtrl->displayDashboard();
     }
 }

@@ -42,7 +42,7 @@ class Transaction extends Connection
     {
         $sql = "DELETE FROM transaction_type WHERE id_property = ?;";
         $this->executerRequete($sql, array($id_property));
-
+    }
     public function updateTransaction($transaction_status, $property_id)
     {
         $sql = "UPDATE  transaction_type 
