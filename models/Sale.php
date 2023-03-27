@@ -42,7 +42,7 @@ class Sale extends Transaction
     {
         $sql = "DELETE FROM sale WHERE id_transaction = ?;";
         $this->executerRequete($sql, array($id_transaction));
-
+    }
     public function updateSale($id_transaction, $selling_price)
     {
         $sql = "UPDATE sale 
@@ -54,6 +54,5 @@ class Sale extends Transaction
         } catch (Exception $e) {
             echo $e->getMessage();
         }
-
     }
 }

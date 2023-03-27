@@ -54,6 +54,7 @@ class PropertyController
     // Gives an array with property_id, property_type(appt or house) and transaction_type(rental or sale)
     public function getTypesByPropertyId($id_property)
     {
+
         if ($this->apartment->getOneApartment($id_property)) {
             $propertyType = "apartment";
             $transactionId = $this->transaction->getOneTransaction($id_property);
@@ -63,11 +64,12 @@ class PropertyController
                 $transactionType = "rental";
             }
         } elseif ($this->house->getOneHouse($id_property)) {
+
             $propertyType = "house";
             $transactionId = $this->transaction->getOneTransaction($id_property)["id"];
-            if ($this->sale->getOneSale($transactionId)) {
+            if ($this->sale->getOneSale($transactionId["id"])) {
                 $transactionType = "sale";
-            } else if ($this->rental->getOneRental($transactionId)) {
+            } else if ($this->rental->getOneRental($transactionId["id"])) {
                 $transactionType = "rental";
             }
         }
@@ -249,19 +251,19 @@ class PropertyController
         } else if ($statutProperty == "rent") {
             $this->transactionCtrl->addRental($id_transaction, $rent, $charges, $furnished);
         }
-        $this->userCtrl->displayDashboard();
-        // try {
-        //     $allProperties = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
-        //     // var_dump($allProperties);
-        //     $view = new View("Dashboard");
-        //     $view->generer(array('allProperties' => $allProperties));
-        // } catch (Exception $e) {
-        //     echo $e->getMessage();
-        // }
 
-        // $adminInfo = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
-        // $view = new View("Dashboard");
-        // $view->generer(array('allProperties' => $adminInfo));
+        try {
+            $allProperties = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
+            // var_dump($allProperties);
+            $view = new View("Dashboard");
+            $view->generer(array('allProperties' => $allProperties));
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+
+        $adminInfo = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
+        $view = new View("Dashboard");
+        $view->generer(array('allProperties' => $adminInfo));
     }
 
 
@@ -306,24 +308,6 @@ class PropertyController
         ));
     }
 
-
-
-    public function validDeleteProperty($id_property)
-    {
-        session_start();
-        $transaction =  $this->transaction->getOneTransaction($id_property);
-        if ($transaction != false) {
-            $idTransaction = $transaction["id"];
-            $this->rental->deleteRental($idTransaction);
-            $this->sale->deleteSale($idTransaction);
-            $this->picture->deletePicture($id_property);
-            $this->house->deleteHouse($id_property);
-            $this->apartment->deleteApartment($id_property);
-            $this->transaction->deleteOneTransaction($id_property);
-            $this->property->deleteProperty($id_property);
-        }
-        $this->userCtrl->displayDashboard();
-    }
 
     public function validUpdateProperty()
 
@@ -460,7 +444,7 @@ class PropertyController
                 echo $e->getMessage();
             }
         }
-        var_dump($propertyInfo);
+        // var_dump($propertyInfo);
 
         $this->property->updateProperty($property_name, $property_description, $property_location, $property_area, $property_numberOfPieces, $property_distanceFromSea, $property_swimmingpool, $property_seaView, $id_property);
         $id_transaction = $this->transaction->updateTransaction($_POST['availablity'], $id_property);
@@ -475,5 +459,22 @@ class PropertyController
         } else if ($statutProperty == "rent") {
             $this->rental->updateRental($id_transaction, $rent, $charges, $furnished);
         }
+    }
+
+    public function validDeleteProperty($id_property)
+    {
+        session_start();
+        $transaction =  $this->transaction->getOneTransaction($id_property);
+        if ($transaction != false) {
+            $idTransaction = $transaction["id"];
+            $this->rental->deleteRental($idTransaction);
+            $this->sale->deleteSale($idTransaction);
+            $this->picture->deletePicture($id_property);
+            $this->house->deleteHouse($id_property);
+            $this->apartment->deleteApartment($id_property);
+            $this->transaction->deleteOneTransaction($id_property);
+            $this->property->deleteProperty($id_property);
+        }
+        $this->userCtrl->displayDashboard();
     }
 }

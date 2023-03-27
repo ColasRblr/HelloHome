@@ -16,6 +16,8 @@
     <?= $contenu ?>
 
 
+    <!-- <script src="js/home.js"></script> -->
+
     <script src="js/home.js"></script>
 
     <!-- <script src="js/dashboard.js"></script> -->

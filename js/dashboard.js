@@ -1,4 +1,4 @@
-// console.log("toto");
+console.log("toto");
 
 $(document).ready(function () {
   // get list of properties thanks to filter
@@ -28,15 +28,15 @@ $(document).ready(function () {
   $(".specificationToRent").hide();
 
   $("#addTypeProperty").change(function () {
-    if ($(this).val() == "house") {
+    if ($(this).val() == "Maison") {
       $("#houseProperty").show();
     } else {
       $("#houseProperty").hide();
     }
   });
 
-  $("#locationProperty").change(function () {
-    if ($(this).val() == "apartment") {
+  $("#addTypeProperty").change(function () {
+    if ($(this).val() == "Appartement") {
       $("#propertyApartment").show();
     } else {
       $("#propertyApartment").hide();
@@ -44,7 +44,7 @@ $(document).ready(function () {
   });
 
   $("#addStatut").change(function () {
-    if ($(this).val() == "rent") {
+    if ($(this).val() == "A louer") {
       $(".specificationToRent").show();
       $("#price").hide();
     } else {
