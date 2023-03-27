@@ -1,7 +1,7 @@
 <?php $titre = "Tableau de bord";
 ?>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-<link rel="stylesheet" href="./style/dashboardHome.css">
+<link rel="stylesheet" href="./style/dashboard.css">
 
 </head>
 
@@ -31,25 +31,25 @@
                 <form method="post" action="">
                     <div id="dashboardManagementFilters">
 
-                        <select name="filterTypeOfProperty" id="dashaboardTypeProperty" class="btnFilterSelectDashboard">
-                            <option value="">Choisi son type</option>
-                            <option value="house">Appartement</option>
-                            <option value="apartment">Maison</option>
-                        </select>
-
-                        <select name="filterPropertyStatut" id="dashaboardPropertyStatut" class="btnFilterSelectDashboard">
-                            <option value="">Choisi son statut</option>
-                            <option value="sale">A vendre</option>
-                            <option value="rent">A louer</option>
-                        </select>
-
-
                         <select name="locationOfProperty" id="locationProperty" class="btnFilterSelectDashboard">
-                            <option value="">Choisi une ville</option>
+                            <option value="all">Choisir une ville</option>
                             <option value="Nice">Nice</option>
                             <option value="Saint-Jean-Cap-Ferrat">Saint-Jean-Cap-Ferrat</option>
                             <option value="Cagnes-sur-Mer">Cagnes-sur-Mer</option>
                         </select>
+
+                        <select name="filterPropertyStatut" id="dashboardPropertyStatus" class="btnFilterSelectDashboard">
+                            <option value="all">Choisir un statut</option>
+                            <option value="A vendre">A vendre</option>
+                            <option value="A louer">A louer</option>
+                        </select>
+
+                        <select name="filterTypeOfProperty" id="dashaboardTypeProperty" class="btnFilterSelectDashboard">
+                            <option value="all">Choisir un type</option>
+                            <option value="Appartement">Appartement</option>
+                            <option value="Maison">Maison</option>
+                        </select>
+
 
                 </form>
                 <a href="?action=addProperty">
@@ -59,27 +59,38 @@
 
             <div id="listOfProperties">
                 <table>
+                    <thead>
+                        <tr style="border : solid 1px">
+                            <th>Nom</th>
+                            <th>Ville</th>
+                            <th>Statut</th>
+                            <th>Type</th>
+                            <th>Supprimer</th>
+                        </tr>
+                    </thead>
                     <tbody id="contenuOfTable">
                         <?php
                         for ($i = 0; $i < count($allProperties); $i++) {
                         ?>
-                            <tr>
+                            <tr class="propertyItem" style="border : solid 1px">
                                 <td class="listOfPropertyByUser">
                                     <a href="?action=updateProperty&id=<?= $allProperties[$i]['id'] ?>">
-                                        <?= $allProperties[$i]['property_name'] ?> <?= $allProperties[$i]['property_location'] ?>
-                                        <span><?= $status[$i] ?></span>
-                                        <span><?= $type[$i] ?></span>
+                                        <?= $allProperties[$i]['property_name'] ?>
                                     </a>
                                 </td>
+                                <td class="propertyLocation"><?= $allProperties[$i]['property_location'] ?></td>
+                                <td class="propertyStatus"><?= $status[$i] ?></td>
+                                <td class="propertyType"><?= $type[$i] ?></td>
 
-
-
+                                <td>
+                                    <a href="?action=removeProperty&propertyId=<?= $allProperties[$i]['id'] ?>">
+                                        <i class="bi bi-trash-fill"></i>
+                                </td>
+                                </a>
+                                </td>
                             <?php
                         }
-
                             ?>
-
-
                             </tr>
                     </tbody>
                 </table>
@@ -98,9 +109,9 @@
             <div id="numberOfPropertiesToSale" class="numberStatistique">
                 <h3 class="statistiques">Nombre de biens à vendre</h3>
                 <p id="numberPropertySale">
-                    <!-- <?php
-                            echo count($allSale);
-                            ?> -->
+                    <?php
+                    echo $countToSell;
+                    ?>
                 </p>
             </div>
 
@@ -108,7 +119,7 @@
                 <h3 class="statistiques">Nombre de biens à louer</h3>
                 <p id="numberPropertyRent">
                     <?php
-                    echo count($allRental);
+                    echo $countToRent;
                     ?>
                 </p>
             </div>
@@ -116,15 +127,17 @@
                 <h3 class="statistiques">Nombre de maisons</h3>
                 <p id="numberHouses">
                     <?php
-                    echo count($allHouses);
+                    echo $countNumberOfHouses;
                     ?>
                 </p>
             </div>
+
             <div id="numberOfPropertiesAsApartments" class="numberStatistique">
                 <h3 class="statistiques">Nombre d'appartements</h3>
                 <p id="numberApartments">
                     <?php
-                    echo count($allApartments);
+                    echo $countNumberOfApartments;
+                    // var_dump($countNumberOfApartments);
                     ?>
                 </p>
             </div>

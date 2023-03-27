@@ -50,4 +50,10 @@ class Apartment extends Property
         $sql = "INSERT INTO apartment (id_property, parking, floor, elevator, caretaking, balcony) VALUES (?, ?, ?, ?, ?, ?);";
         $this->executerRequete($sql, array($id_property, $parking, $floor, $elevator, $caretaking, $balcony));
     }
+
+    public function deleteApartment($id_property)
+    {
+        $sql = "DELETE FROM apartment WHERE id_property = ?;";
+        $this->executerRequete($sql, array($id_property));
+    }
 }

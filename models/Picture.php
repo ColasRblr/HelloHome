@@ -14,4 +14,9 @@ class Picture extends Connection
         $sql = "INSERT INTO picture (id_property, picture_description, picture_url) VALUES (?, ?, ?);";
         $this->executerRequete($sql, array($id_property, $picture_description, $picture_url));
     }
+    public function deletePicture($id_property)
+    {
+        $sql = "DELETE FROM picture WHERE id_property = ?;";
+        $this->executerRequete($sql, array($id_property));
+    }
 }

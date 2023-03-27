@@ -46,4 +46,10 @@ class House extends Property
         $properties = $stmt->fetchAll();
         return $properties;
     }
+
+    public function deleteHouse($id_property)
+    {
+        $sql = "DELETE FROM house WHERE id_property = ?";
+        $this->executerRequete($sql, array($id_property));
+    }
 }
