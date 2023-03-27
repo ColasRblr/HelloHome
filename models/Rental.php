@@ -40,9 +40,23 @@ class Rental extends Transaction
         return $rental;
     }
 
+
     public function deleteRental($id_transaction)
     {
         $sql = "DELETE FROM rental WHERE id_transaction = ?;";
         $this->executerRequete($sql, array($id_transaction));
+
+    public function updateRental($id_transaction, $rent, $charges, $furnished)
+    {
+        $sql = "UPDATE rental 
+        SET rent=?, charges=?, furnished=?
+        WHERE id_transaction=?";
+
+        try {
+            $this->executerRequete($sql, array($rent, $charges, $furnished, $id_transaction));
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+
     }
 }
