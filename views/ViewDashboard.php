@@ -173,4 +173,4 @@
             <p>HelloHome © 2023</p>
         </footer>
 
-        <script src="js/dashboardHome.js"></script>
+        <script src="js/dashboard.js"></script>

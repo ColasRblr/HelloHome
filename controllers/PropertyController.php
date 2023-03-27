@@ -52,6 +52,7 @@ class PropertyController
     // Gives an array with property_id, property_type(appt or house) and transaction_type(rental or sale)
     public function getTypesByPropertyId($id_property)
     {
+
         if ($this->apartment->getOneApartment($id_property)) {
             $propertyType = "apartment";
             $transactionId = $this->transaction->getOneTransaction($id_property);
@@ -61,6 +62,7 @@ class PropertyController
                 $transactionType = "rental";
             }
         } elseif ($this->house->getOneHouse($id_property)) {
+
             $propertyType = "house";
             $transactionId = $this->transaction->getOneTransaction($id_property)["id"];
             if ($this->sale->getOneSale($transactionId["id"])) {

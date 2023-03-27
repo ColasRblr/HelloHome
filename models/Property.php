@@ -72,7 +72,6 @@ class Property extends Connection
 
     public function getPropertyType($id_property)
     {
-        // echo "$id_property";
         $sql = "SELECT COUNT(*) FROM house WHERE id_property = ?;";
         $stmt = $this->executerRequete($sql, array($id_property));
         $propertiesNumber = $stmt->fetchAll();
