@@ -38,4 +38,17 @@ class Rental extends Transaction
         $rental = $result->fetch();
         return $rental;
     }
+
+    public function updateRental($id_transaction, $rent, $charges, $furnished)
+    {
+        $sql = "UPDATE rental 
+        SET rent=?, charges=?, furnished=?
+        WHERE id_transaction=?";
+
+        try {
+            $this->executerRequete($sql, array($rent, $charges, $furnished, $id_transaction));
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
 }
