@@ -54,8 +54,8 @@ class PropertyController
     // Gives an array with property_id, property_type(appt or house) and transaction_type(rental or sale)
     public function getTypesByPropertyId($id_property)
     {
-
         if ($this->apartment->getOneApartment($id_property)) {
+            // echo "toto";
             $propertyType = "apartment";
             $transactionId = $this->transaction->getOneTransaction($id_property);
             if ($this->sale->getOneSale($transactionId["id"])) {
@@ -74,6 +74,7 @@ class PropertyController
             }
         }
         $result = ['id' => $id_property, 'type' => $propertyType, 'transaction' => $transactionType];
+
         return ($result);
     }
 
@@ -251,19 +252,7 @@ class PropertyController
         } else if ($statutProperty == "rent") {
             $this->transactionCtrl->addRental($id_transaction, $rent, $charges, $furnished);
         }
-
-        try {
-            $allProperties = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
-            // var_dump($allProperties);
-            $view = new View("Dashboard");
-            $view->generer(array('allProperties' => $allProperties));
-        } catch (Exception $e) {
-            echo $e->getMessage();
-        }
-
-        $adminInfo = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
-        $view = new View("Dashboard");
-        $view->generer(array('allProperties' => $adminInfo));
+        $this->userCtrl->displayDashboard();
     }
 
 
