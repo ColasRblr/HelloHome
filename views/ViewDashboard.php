@@ -69,6 +69,7 @@
                         <tbody id="contenuOfTable">
                             <?php
                             for ($i = 0; $i < count($allProperties); $i++) {
+
                             ?>
                                 <tr class="propertyItem" style="border : solid 1px">
                                     <td class="listOfPropertyByUser">
@@ -173,4 +174,4 @@
             <p>HelloHome © 2023</p>
         </footer>
 
-        <script src="js/dashboard.js"></script>
+        <script src="js/dashboardHome.js"></script>
