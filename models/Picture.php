@@ -14,4 +14,13 @@ class Picture extends Connection
         $sql = "INSERT INTO picture (id_property, picture_description, picture_url) VALUES (?, ?, ?);";
         $this->executerRequete($sql, array($id_property, $picture_description, $picture_url));
     }
+
+    public function getPicturesOfOneProperty($id_property)
+    {
+        $sql = "SELECT * FROM picture WHERE id = ?;";
+        $stmt = $this->executerRequete($sql, array($id_property));
+        $pictures = $stmt->fetchAll();
+
+        return $pictures;
+    }
 }

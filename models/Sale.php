@@ -35,4 +35,17 @@ class Sale extends Transaction
         $properties = $stmt->fetchAll();
         return $properties;
     }
+
+    public function updateSale($id_transaction, $selling_price)
+    {
+        $sql = "UPDATE sale 
+        SET selling_price=?
+        WHERE id_transaction=?";
+
+        try {
+            $this->executerRequete($sql, array($selling_price, $id_transaction));
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
 }

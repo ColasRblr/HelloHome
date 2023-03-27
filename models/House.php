@@ -46,4 +46,17 @@ class House extends Property
         $properties = $stmt->fetchAll();
         return $properties;
     }
+
+    public function updateHouse($garden, $bonus, $id_property)
+    {
+        $sql = "UPDATE house 
+        SET garden=?, bonus=?
+        WHERE id_property=?";
+
+        try {
+            $this->executerRequete($sql, array($garden, $bonus, $id_property));
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
 }

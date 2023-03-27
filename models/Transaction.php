@@ -36,4 +36,21 @@ class Transaction extends Property
         $transaction = $result->fetch();
         return $transaction;
     }
+
+    public function updateTransaction($transaction_status, $property_id)
+    {
+        $sql = "UPDATE  transaction_type 
+        SET transaction_status=?
+        WHERE id_property=?";
+        $sql1 = "SELECT * FROM transaction_type WHERE id_property=?";
+        try {
+            $stmt = $this->executerRequete($sql1, array($property_id));
+            $transaction = $stmt->fetch();
+            $this->executerRequete($sql, array($transaction_status, $property_id));
+
+            return $transaction["id"];
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
 }
