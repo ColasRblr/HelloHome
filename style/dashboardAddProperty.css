@@ -183,3 +183,40 @@ footer p {
   font-size: 15px;
   margin-bottom: 30px;
 }
+
+@media only screen and (max-width: 768px) {
+  .btnSelectAddDetails {
+    font-size: 15px;
+    height: 35px;
+    width: 40vw;
+  }
+
+  input {
+    width: 38vw;
+    height: 35px;
+  }
+
+  textarea {
+    width: 75vw;
+    height: 15vh;
+    margin-bottom: 2px;
+  }
+  #btnCheckbox {
+    margin-top: 10px;
+    font-size: 15px;
+  }
+
+  .btnCheckboxBonus {
+    width: 15px;
+    height: 15px;
+    margin-right: 2vw;
+  }
+
+  .propertySubmitBtn {
+    font-size: 15px;
+    width: 20vw;
+  }
+  .bottomForm {
+    margin-bottom: 30px;
+  }
+}
