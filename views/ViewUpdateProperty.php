@@ -74,12 +74,12 @@ $id_property = $_GET['id'];
                                                             echo "selected='selected'";
                                                         } ?>>Cagnes-sur-Mer</option>
                     </select>
-                    <select name="availablity" class="btnSelectAddDetails">
-                        <option value="disponible">Disponible</option>
-                        <option value="vendu">Vendu</option>
-                        <option value="loué">Loué</option>
-                    </select>
                 </div>
+                <select name="availablity" class="btnSelectAddDetails">
+                    <option value="disponible">Disponible</option>
+                    <option value="vendu">Vendu</option>
+                    <option value="loué">Loué</option>
+                </select>
                 <div>
                     <input type="text" name="nameProperty" id="propertyName" placeholder="<?= $properties['property_name'] ?>" value="<?= $properties['property_name'] ?>">
                 </div>
@@ -109,11 +109,11 @@ $id_property = $_GET['id'];
                 ?>
                     <div class="specificationToRent">
                         <label for="addPriceProperty" class="formElement"></label>
-                        <input type="number" name="rent" value="" class="formElement input" placeholder="<?= $rental[0]["rent"] ?> €">
+                        <input type="number" name="rent" value="<?= $rental[0]["rent"] ?>" class="formElement input" placeholder="<?= $rental[0]["rent"] ?> €">
                     </div>
                     <div class="specificationToRent">
                         <label for="chargesForRent" class="formElement"></label>
-                        <input type="number" name="chargesForRent" value="" class="formElement input" placeholder="<?= $rental[0]["charges"] ?> €">
+                        <input type="number" name="chargesForRent" value="<?= $rental[0]["charges"] ?>" class="formElement input" placeholder="<?= $rental[0]["charges"] ?> €">
                     </div>
                 <?php } ?>
                 <div>
@@ -139,13 +139,13 @@ $id_property = $_GET['id'];
                 <input type="checkbox" id="seaView" class="btnCheckboxBonus" name="seaView" value="seaView" <?php if ($properties["property_seaView"] == "1") {
                                                                                                                 echo "checked='checked'";
                                                                                                             } ?>>
-                <?php if (isset($home)) { ?>
+                <?php if (isset($house)) { ?>
                     <div id="houseProperty">
                         <label for="garden" class="formElement">Jardin</label>
-                        <input type="checkbox" id="garden" class="btnCheckboxBonus" name="garden" value="garden" <?php if ($home[0]["garden"] == "1") {
+                        <input type="checkbox" id="garden" class="btnCheckboxBonus" name="garden" value="garden" <?php if ($house[0]["garden"] == "1") {
                                                                                                                         echo "checked='checked'";
                                                                                                                     } ?>>
-                        <input type="text" name="bonus" id="bonus" placeholder="<?= $home[0]["bonus"] ?>">
+                        <input type="text" name="bonus" id="bonus" placeholder="<?= $house[0]["bonus"] ?>" value="<?= $house[0]["bonus"] ?>">
                     </div>
                 <?php } ?>
                 <?php if (isset($apartment)) { ?>

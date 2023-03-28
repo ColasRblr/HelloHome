@@ -9,6 +9,7 @@ require_once './models/House.php';
 require_once './models/Apartment.php';
 require_once './models/Picture.php';
 require_once './controllers/TransactionController.php';
+require_once './controllers/UserController.php';
 
 class PropertyController
 {
@@ -19,6 +20,7 @@ class PropertyController
     private $house;
     private $apartment;
     private $transactionCtrl;
+    private $userCtrl;
     private $picture;
 
     public function __construct()
@@ -31,6 +33,7 @@ class PropertyController
         $this->sale = new Sale();
         $this->transactionCtrl = new TransactionController();
         $this->picture = new Picture();
+        // $this->userCtrl = new UserController();
     }
 
     public function home()
@@ -114,6 +117,8 @@ class PropertyController
                 if (isset($_POST['bonus']) && $_POST['bonus'] != "") {
                     $bonus = $_POST['bonus'];
                     $propertyInfo['bonus'] = $_POST['bonus'];
+                } else {
+                    $bonus = "";
                 }
             } else if ($typeOfProperty == "apartment") {
                 if (isset($_POST['parking']) && $_POST['parking'] != "") {
@@ -436,11 +441,10 @@ class PropertyController
                 echo $e->getMessage();
             }
         }
-        var_dump($propertyInfo);
 
         $this->property->updateProperty($property_name, $property_description, $property_location, $property_area, $property_numberOfPieces, $property_distanceFromSea, $property_swimmingpool, $property_seaView, $id_property);
         $id_transaction = $this->transaction->updateTransaction($_POST['availablity'], $id_property);
-
+        $this->picture->updatePicture($id_property, $picture_name);
         if ($typeOfProperty == "house") {
             $this->house->updateHouse($garden, $bonus, $id_property);
         } else if ($typeOfProperty == "apartment") {
@@ -450,6 +454,34 @@ class PropertyController
             $this->sale->updateSale($id_transaction, $selling_price);
         } else if ($statutProperty == "rent") {
             $this->rental->updateRental($id_transaction, $rent, $charges, $furnished);
+        }
+
+        try {
+            if (!isset($_SESSION)) {
+                session_start();
+            }
+            $allProperties = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
+            $status = [];
+            $type = [];
+
+            for ($i = 0; $i < count($allProperties); $i++) {
+                if ($this->sale->getAllPropertyToSale($allProperties[$i]['id'])) {
+                    $status[$i] = "à vendre";
+                } else if ($this->rental->getAllPropertyToRent($allProperties[$i]['id'])) {
+                    $status[$i] = "à louer";
+                }
+            }
+            for ($i = 0; $i < count($allProperties); $i++) {
+                if ($this->house->getAllHousesByUser($allProperties[$i]['id'])) {
+                    $type[$i] = "maison";
+                } else if ($this->apartment->getAllApartmentsByUser($allProperties[$i]['id'])) {
+                    $type[$i] = "appartement";
+                }
+            }
+            $view = new View("Dashboard");
+            $view->generer(array('allProperties' => $allProperties, 'type' => $type, 'status' => $status));
+        } catch (Exception $e) {
+            echo $e->getMessage();
         }
     }
 }
