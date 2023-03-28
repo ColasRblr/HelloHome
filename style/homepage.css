@@ -1,5 +1,6 @@
 /* HEADER */
 header {
+
     width : 100vw;
     display: flex;
     position: fixed;
@@ -41,9 +42,14 @@ header {
     background-position: cover;
     display: flex;
     justify-content: center;  
+
 }
 
-/* SEARCH FORM */
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
 
 #researchForm {
     background-color: white;
@@ -115,34 +121,53 @@ input[type="radio"].firstBtn {
   }
 
 
-#location, #property, #rooms, #area, #rent, #seaDistance, #price {
-    display: flex;
-    justify-content: space-between;
+/* SEARCH FORM */
+
+#researchForm {
+  background-color: white;
+  position: absolute;
+  top: 20vh;
+  padding-bottom: 2px;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 13px;
+  align-items: center;
 }
+#researchFormContent {
+  width: 100%;
+}
+
 
 label, #location-select, #type-select, #roomsInput, #areaInput, #rentInput, #seaDistanceInput, #priceInput {
     width:50%;
     padding:7px; 
     margin-bottom: 7px;
-
 }
 
-#price, #rent {
-    margin-bottom: 10px;
+#rentalBtn {
+  width: 50%;
+  background-color: #448a96;
+  color: white;
+  font-size: 1.3em;
+  border-style: none;
+  border-top-left-radius: 13px;
 }
+
 
 #filterBtn, #searchBtn {
     display: flex;
     justify-content: center;
+
 }
 
 #searchBtn {
-    position:relative;
+  position: relative;
 }
 
 #searchFormBtn {
-    position: absolute;
-    top:-15px;
+  position: absolute;
+  top: -15px;
 }
 
 #moreFiltersBtn, #searchFormBtn, #contactBtn, #visitBtn {
@@ -162,8 +187,8 @@ margin-bottom : 0.2em;
 #moreFiltersBtn:hover, #searchFormBtn:hover, #contactBtn:hover, #visitBtn:hover{
     background-color: #fff;
     color:#924F0B;;
-   
 }
+
 /* RESULTS */
 
 #researchedProperties{
@@ -234,6 +259,7 @@ padding-top : 7em;
 
 #resultsTitle {
    margin-bottom: -2em;
+
 }
 
 /* GENERAL */
@@ -323,10 +349,9 @@ margin-bottom : 1em;
 
 /* CONTACT SECTION */
 
-
-#contactContent{
-    justify-content: space-between;
-    height : 45vh;
+#contactContent {
+  justify-content: space-between;
+  height: 45vh;
 }
 
 #contactDetails {
@@ -360,15 +385,17 @@ margin-bottom : 1em;
     width: 94%;;
 }
 
-#nameDiv, #contactDiv, #messageDiv {
-    display: flex;
-    width:100%;
-    justify-content: space-around;
-    margin:0.5em;
+#nameDiv,
+#contactDiv,
+#messageDiv {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin: 0.5em;
 }
 
-#messageDiv{
-    height:4em;
+#messageDiv {
+  height: 4em;
 }
 
 #nameInput, #firstNameInput, #phoneInput, #emailInput {
@@ -383,4 +410,4 @@ margin-bottom : 1em;
     padding: 10px;
     opacity: 0.5;
   }
-  
+ 

@@ -1,0 +1,201 @@
+#positionElementsHomePageDashboard {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  text-align: -webkit-center;
+}
+.titlePageDashboard {
+  background-color: #094351;
+}
+h1 {
+  color: white;
+  font-size: 30px;
+}
+h3 {
+  font-size: 12px;
+  font-weight: bold;
+}
+p {
+  color: white;
+  font-size: 15px;
+}
+td {
+  border: white;
+  table-layout: auto;
+  padding-right: 3vw;
+  border-bottom: solid 1px;
+}
+th {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+a {
+  color: black;
+}
+/* .......................................Header */
+header {
+  height: 130px;
+  background-color: #094351;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3vh;
+}
+#icon_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30px;
+}
+
+header img {
+  overflow: hidden;
+  height: 100%;
+  margin-left: 15px;
+}
+
+header a {
+  height: 85%;
+}
+
+header i {
+  font-weight: bold;
+  font-size: 30px;
+  color: rgb(255, 255, 255);
+  margin: auto 15px;
+  cursor: pointer;
+}
+/* ...........................................Gestion des biens */
+#managementProperty {
+  margin-left: 1vw;
+  text-align: start;
+  width: 60vw;
+}
+#dashboardManagementFilters {
+  display: flex;
+}
+
+.btnFilterSelectDashboard {
+  font-size: 15px;
+  height: 35px;
+  background-color: #155109;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 4px;
+  margin-right: 1vw;
+}
+
+#btnAddProperty {
+  font-size: 15px;
+  width: 15vw;
+  height: 35px;
+  background-color: #c58b03;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+#listOfProperties {
+  overflow-y: auto;
+  height: 60vh;
+  margin-top: 3vh;
+  width: auto;
+}
+
+#listOfPropertyByUser {
+  width: 200px;
+}
+
+/* .....................................Statistiques */
+#statistiquesDashboard {
+  background-color: #094351;
+  margin-right: 4vw;
+  border-radius: 10px;
+  width: 30vw;
+  font-size: 30px;
+}
+.numberStatistique {
+  background-color: #c58b03;
+  border-radius: 20px;
+  height: 8vh;
+  width: 20vw;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  padding: 3px;
+}
+/* ...........................Footer */
+footer {
+  background-color: #094351;
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2vh;
+}
+
+footer p {
+  margin: 20px auto;
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    width: 100%;
+  }
+  h1 {
+    font-size: 20px;
+  }
+  header img {
+    height: 70%;
+    width: 70%;
+  }
+  td {
+    margin-right: 1px;
+  }
+  th {
+    margin-right: 1px;
+    padding: none;
+  }
+
+  #dashboardManagementFilters {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .btnFilterSelectDashboard {
+    width: 40vw;
+    font-size: 15px;
+    height: 35px;
+    margin-bottom: 2px;
+  }
+  #btnAddProperty {
+    font-size: 15px;
+    width: 40vw;
+    height: 35px;
+  }
+  #positionElementsHomePageDashboard {
+    flex-direction: column;
+  }
+  #managementProperty {
+    width: 100vw;
+    margin-bottom: 2vh;
+  }
+  #titlePageDashboard {
+    width: 100vw;
+  }
+  #listOfProperties {
+    font-size: 12px;
+    padding: 1px;
+    height: 50vh;
+    overflow-y: auto;
+  }
+  #statistiquesDashboard {
+    width: 80vw;
+    align-self: center;
+  }
+
+  .numberStatistique {
+    width: 50vw;
+  }
+}

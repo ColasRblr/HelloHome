@@ -6,7 +6,6 @@ $titre = "Accueil";
 </head>
 
 <body>
-
     <header>
         <div id="logo">
             <a href="?action=dashboardConnection">
@@ -22,6 +21,7 @@ $titre = "Accueil";
                 <li><a href="#contactSection">Contact</a></li>
             </ul>
         </div>
+
     </header>
     <!-- Landing page with picture in background and research form -->
 
@@ -183,7 +183,6 @@ $titre = "Accueil";
         </div>
         </div>
 
-
         <!-- Last/spotlight properties  -->
         <div class="homePageTitles" id="spotlightTitle">Nos biens à la une</div>
         <div id="lastProperties">
@@ -220,6 +219,7 @@ $titre = "Accueil";
             } ?>
         </div>
 
+
         <!--  HELLOHOME presentation text-->
 
         <div id="helloHomeAgency">
@@ -239,7 +239,6 @@ $titre = "Accueil";
 
             </div>
         </div>
-
         <!-- Contact form and informations -->
         <div class="homePageTitles" id="contactSection">Nous contacter</div>
         <div id="contactContent">
@@ -280,12 +279,13 @@ $titre = "Accueil";
                         <p>04-32-16-32-16</p>
                     </div>
                 </div>
-
             </div>
         </div>
-
-        <footer>
-            <h1 id="footer">
-                Mentions légales | 2023
-            </h1>
-        </footer>
+    <footer>
+        <h1 id="footer">
+            Mentions légales | 2023 |
+            <a href="?action=dashboardConnection">
+                Dashboard
+            </a>
+        </h1>
+    </footer>

@@ -1,7 +1,7 @@
 $(document).ready(function () {
   // Waits until the page is ready
   // Write your JS code here
-  console.log('coucou');
+  // console.log('coucou');
 
   // hide the different specific filters at the beginning
   $("#generalFilters").hide();
