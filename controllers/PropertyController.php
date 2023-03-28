@@ -22,7 +22,6 @@ class PropertyController
     private $transactionCtrl;
     private $userCtrl;
     private $picture;
-    private $userCtrl;
 
     public function __construct()
     {

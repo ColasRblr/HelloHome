@@ -83,12 +83,6 @@ $id_property = $_GET['id'];
                                                         } ?>>Cagnes-sur-Mer</option>
                     </select>
 
-                    <select name="availablity" class="btnSelectAddDetails">
-                        <option value="disponible">Disponible</option>
-                        <option value="vendu">Vendu</option>
-                        <option value="loué">Loué</option>
-                    </select>
-
                 </div>
                 <select name="availablity" class="btnSelectAddDetails">
                     <option value="disponible">Disponible</option>
