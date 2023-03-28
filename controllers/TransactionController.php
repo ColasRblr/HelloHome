@@ -22,7 +22,6 @@ class TransactionController
         $transaction_status = "available";
         $id_transaction = $this->transaction->addNewTransaction($transaction_onlineDate, $transaction_status, $id_property);
 
-        echo $id_transaction;
         return $id_transaction;
     }
 

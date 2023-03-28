@@ -29,4 +29,17 @@ class Picture extends Connection
 
         return $pictures;
     }
+
+    public function updatePicture($id_property, $picture_url)
+    {
+        $sql = "UPDATE picture 
+        SET picture_url=?
+        WHERE id_property=?";
+
+        try {
+            $this->executerRequete($sql, array($picture_url, $id_property));
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
 }
