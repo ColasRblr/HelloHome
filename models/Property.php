@@ -95,17 +95,8 @@ class Property extends Connection
 } */
 
 
-
-
-
-
-
-
-
-
     public function getPropertyType($id_property)
     {
-        // echo "$id_property";
         $sql = "SELECT COUNT(*) FROM house WHERE id_property = ?;";
         $stmt = $this->executerRequete($sql, array($id_property));
         $propertiesNumber = $stmt->fetchAll();
@@ -118,12 +109,6 @@ class Property extends Connection
     }
 
 
-
-
-
-
-
-
     public static function getHouses()
     {
         $pdo = new PDO('mysql:host=localhost;dbname=poo_immo', 'root', '');
@@ -132,5 +117,33 @@ class Property extends Connection
         $houses = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         return $houses;
+    public function deleteProperty($id_property)
+    {
+        $sql = "DELETE FROM property WHERE id =?;";
+        $this->executerRequete($sql, array($id_property));
+        // $propertiesNumber = $result->fetchAll();
+
+    }
+
+    public function getOneProperty($id_property)
+    {
+        $sql = "SELECT * FROM property WHERE id = ?;";
+        $stmt = $this->executerRequete($sql, array($id_property));
+        $property = $stmt->fetch();
+
+        return $property;
+    }
+
+    public function updateProperty($property_name, $property_description, $property_location, $property_area, $property_numberOfPieces, $property_distanceFromSea, $property_swimmingpool, $property_seaView, $property_id)
+    {
+        $sql = "UPDATE property 
+        SET property_name=?, property_description=?, property_location=?, property_area=?, property_numberOfPieces=?, property_distanceFromSea=?, property_swimmingpool=?, property_seaView=?
+        WHERE id=?";
+        try {
+            $this->executerRequete($sql, array($property_name, $property_description, $property_location, $property_area, $property_numberOfPieces, $property_distanceFromSea, $property_swimmingpool, $property_seaView, $property_id));
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+
     }
 }

@@ -127,28 +127,6 @@ INSERT INTO property (property_name, property_description, property_location, pr
 VALUES ("Villa La Belle Vie", "Cette villa de style Art Déco est située dans un quartier exclusif, à quelques pas de la plage. La villa dispose de cinq chambres spacieuses, toutes avec leur propre salle de bain privée et un balcon privé offrant une vue sur la mer. Les intérieurs sont élégants et sophistiqués, avec des touches de décoration Art Déco. La terrasse extérieure dispose d'une grande piscine à débordement et d'un coin salon, parfait pour se détendre et profiter du soleil.", "Cagnes-sur-Mer", 130, 8, 950, true, false, 1);
 INSERT INTO house (id_property, garden, bonus) VALUES (LAST_INSERT_ID(), true, "Terrain de basket-ball, spa");
 
-
-INSERT INTO picture (id_property, picture_description, picture_url) VALUES (1, "Villa Perle de l'Océan", "house1.jpg"),
-(2, "Villa Bella Vista", "house2.jpg"),
-(3, "Villa Les Trois Palmiers", "house3.jpg"),
-(4, "Villa de la Mer", "house4.jpg"),
-(5, "Villa La Belle Epoque", "house5.jpg"),
-(6, "Villa La Dolce Vita", "house6.jpg"),
-(7, "Villa La Vie en Rose", "house7.jpg"),
-(8, "Villa La Casa Blanca", "house8.jpg"),
-(9, "Villa Le Refuge", "house9.jpg"),
-(10, "Villa La Belle Vie", "house10.jpg"),(11, 11, 'Azure Retreat', 'appartement1.jpg'),
-(12, 12, 'Oceanview Oasis', 'appartement2.jpg'),
-(13, 13, 'Coastal Elegance', 'appartement3.jpg'),
-(14, 14, 'Seaside Serenityr', 'appartement4.jpg'),
-(16, 15, 'Beachfront Bliss', 'appartement5.jpg'),
-(17, 16, 'Ocean Breeze', 'appartement6.jpg'),
-(19, 17, 'Waveside Wonder', 'appartement7.jpg'),
-(20, 18, 'Skyline Splendor', 'appartement8.jpg'),
-(21, 19, 'Seashell Suite', 'appartement9.jpg'),
-(22, 20, 'Shoreline Haven', 'appartement10.jpg');
-
-
 -- APPARTMENTS
 INSERT INTO property (property_name, property_description, property_location, property_area, property_numberOfPieces, property_distanceFromSea, property_swimmingpool, property_seaView, id_user) 
 VALUES ("Azure Retreat", "Appartement de 3 chambres avec vue panoramique sur la mer depuis toutes les pièces. Décoré avec des matériaux haut de gamme, l'appartement dispose également d'une grande terrasse pour profiter de la vue.", "Nice", 200, 6, 150, false, true, 2);
@@ -190,39 +168,7 @@ INSERT INTO property (property_name, property_description, property_location, pr
 VALUES ("Shoreline Haven", "Appartement de 2 chambres dans une résidence de luxe en bord de mer avec accès direct à la plage. Les chambres sont spacieuses et lumineuses, offrant une vue magnifique sur l'océan. La terrasse privée est équipée d'un barbecue pour des soirées en plein air.", "Cagnes-sur-Mer", 210, 7, 100, false, true, 3);
 INSERT INTO apartment (id_property, parking, floor, elevator, caretaking, balcony) VALUES (LAST_INSERT_ID(), true, 9, true, true, true);
 
--- TRANSACTION
-INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
-VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 16);
-INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
-VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 15);
-INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
-VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 14);
-INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
-VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 13);
-INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
-VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 12);
-INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
-VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 10);
-INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
-VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 9);
-INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
-VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 8);
-INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
-VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 7);
-INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
-VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 6);
-INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
-VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 5);
-INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
-VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 4);
-INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
-VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 3);
-INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
-VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 2);
-INSERT INTO transaction_type (id, transaction_onlineDate, transaction_status, id_property)
-VALUES (LAST_INSERT_ID(), '23/03/2023', 'disponible', 1);
-
-
+-- -- RENTAL
 INSERT INTO transaction_type (transaction_onlineDate, transaction_status, id_property)
 VALUES ('23/03/2023', 'disponible', 1);
 INSERT INTO rental ( id_transaction, rent, charges, furnished) VALUES (LAST_INSERT_ID(), 2000, 300, 1);
@@ -285,3 +231,28 @@ INSERT INTO sale (id_transaction, selling_price) VALUES (LAST_INSERT_ID(), 19500
 INSERT INTO transaction_type (transaction_onlineDate, transaction_status, id_property) 
 VALUES ('23/03/2023', 'disponible', 20);
 INSERT INTO sale (id_transaction, selling_price) VALUES (LAST_INSERT_ID(), 93000);
+
+
+INSERT INTO picture (id_property, picture_description, picture_url) VALUES
+(1, "Villa Perle de l'Océan", "house1.jpg"),
+(2, "Villa Bella Vista", "house2.jpg"),
+(3, "Villa Les Trois Palmiers", "house3.jpg"),
+(4, "Villa de la Mer", "house4.jpg"),
+(5, "Villa La Belle Epoque", "house5.jpg"),
+(6, "Villa La Dolce Vita", "house6.jpg"),
+(7, "Villa La Vie en Rose", "house7.jpg"),
+(8, "Villa La Casa Blanca", "house8.jpg"),
+(9, "Villa Le Refuge", "house9.jpg"),
+(10, "Villa La Belle Vie", "house10.jpg");
+
+INSERT INTO picture (id_property, picture_description, picture_url) VALUES
+(11, 'Azure Retreat', 'appartement1.jpg'),
+(12, 'Oceanview Oasis', 'appartement2.jpg'),
+(13, 'Coastal Elegance', 'appartement3.jpg'),
+(14, 'Seaside Serenityr', 'appartement4.jpg'),
+(15, 'Beachfront Bliss', 'appartement5.jpg'),
+(16, 'Ocean Breeze', 'appartement6.jpg'),
+(17, 'Waveside Wonder', 'appartement7.jpg'),
+(18, 'Skyline Splendor', 'appartement8.jpg'),
+(19, 'Seashell Suite', 'appartement9.jpg'),
+(20, 'Shoreline Haven', 'appartement10.jpg');

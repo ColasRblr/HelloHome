@@ -3,6 +3,8 @@
 require_once './views/View.php';
 require_once './models/User.php';
 require_once './models/Property.php';
+require_once './models/Sale.php';
+require_once './models/Rental.php';
 
 if (isset($_GET['action']) && $_GET['action'] == 'updateUser') {
     $userController = new UserController();
@@ -17,11 +19,10 @@ class UserController
 {
     private $property;
     private $user;
-    private $ctrlAccueil;
     private $house;
     private $rental;
-    private $transaction;
-    private $propertyCtrl;
+    private $sale;
+    private $apartment;
 
 
     public function __construct()
@@ -30,8 +31,8 @@ class UserController
         $this->property = new Property();
         $this->house = new House();
         $this->rental = new Rental();
-        $this->transaction = new Transaction();
-        $this->propertyCtrl = new PropertyController();
+        $this->sale = new Sale();
+        $this->apartment = new Apartment();
     }
 
     public function connection()
@@ -47,7 +48,6 @@ class UserController
             $email = $_POST['email'];
             $pwd = $_POST['password'];
 
-
             $result = $this->user->logIn($email, $pwd);
             if ($result) {
                 session_set_cookie_params([
@@ -57,19 +57,7 @@ class UserController
                 session_start();
                 global $_SESSION;
                 $_SESSION['user_id'] = $result['id'];
-                $allProperties = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
-
-                // for ($i = 0; $i < count($allProperties); $i++) {
-                //     $allProperties[$i]["homeType"] = $this->property->getPropertyType($allProperties[$i]["id"]);
-                //     // var_dump($allProperties[$i]);
-                // }
-
-                $allHouses = $this->house->getOneHouse($_SESSION['user_id']);
-                $allRental = $this->rental->getAllPropertyToRent($_SESSION['user_id']);
-                $oneTransaction = $this->transaction->getOneTransaction($_SESSION['user_id']);
-                // $getTransaction = $this->propertyCtrl->getTransaction();
-                $view = new View("Dashboard");
-                $view->generer(array('allProperties' => $allProperties, 'allHouses' => $allHouses, 'allRental' => $allRental, 'oneTransaction' => $oneTransaction));
+                $this->displayDashboard();
             } else {
                 echo "email ou mpd invalide";
             }
@@ -78,11 +66,35 @@ class UserController
 
     public function displayDashboard()
     {
-        session_start();
         try {
+            if (!isset($_SESSION)) {
+                session_start();
+            }
             $allProperties = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
+            $status = [];
+            $type = [];
+
+            for ($i = 0; $i < count($allProperties); $i++) {
+                if ($this->sale->getAllPropertyToSale($allProperties[$i]['id'])) {
+                    $status[$i] = "A vendre";
+                } else if ($this->rental->getAllPropertyToRent($allProperties[$i]['id'])) {
+                    $status[$i] = "A louer";
+                }
+            }
+            for ($i = 0; $i < count($allProperties); $i++) {
+                if ($this->house->getAllHousesByUser($allProperties[$i]['id'])) {
+                    $type[$i] = "Maison";
+                } else if ($this->apartment->getAllApartmentsByUser($allProperties[$i]['id'])) {
+                    $type[$i] = "Appartement";
+                }
+            }
+            $countToSell = array_count_values($status)['A vendre'];
+            $countToRent = array_count_values($status)['A louer'];
+            $countNumberOfHouses = array_count_values($type)["Maison"];
+            $countNumberOfApartments = array_count_values($type)["Appartement"];
+
             $view = new View("Dashboard");
-            $view->generer(array('allProperties' => $allProperties));
+            $view->generer(array('allProperties' => $allProperties, 'type' => $type, 'status' => $status, "countToSell" => $countToSell, "countToRent" => $countToRent, "countNumberOfHouses" => $countNumberOfHouses, "countNumberOfApartments" => $countNumberOfApartments));
         } catch (Exception $e) {
             echo $e->getMessage();
         }
