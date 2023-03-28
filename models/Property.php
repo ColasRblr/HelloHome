@@ -12,6 +12,7 @@ class Property extends Connection
         // $this->attribute = $attribute;
     }
 
+
     public function getAllPropertyOfOneAdmin($id)
     {
         $sql = "SELECT * FROM property WHERE id_user = ?;";

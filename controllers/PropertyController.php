@@ -268,10 +268,7 @@ class PropertyController
                 echo $e->getMessage();
             }
         }
-        // var_dump($propertyInfo);
-        // foreach ($propertyInfo as $key => $value) {
-        //     echo $key . " : " . $value . "<br/>";
-        // }
+
         session_start();
         $id_property = $this->property->addProperty($property_name, $property_description, $property_location, $property_area, $property_numberOfPieces, $property_distanceFromSea, $property_swimmingpool, $property_seaView, $_SESSION['user_id']);
         $this->picture->addPicture($id_property, $property_name, $picture_name);
@@ -286,6 +283,7 @@ class PropertyController
         } else if ($statutProperty == "rent") {
             $this->transactionCtrl->addRental($id_transaction, $rent, $charges, $furnished);
         }
+
         $this->userCtrl->displayDashboard();
     }
 

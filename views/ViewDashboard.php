@@ -63,7 +63,6 @@
                                 <th>Ville</th>
                                 <th>Statut</th>
                                 <th>Type</th>
-                                <th>Supprimer</th>
                             </tr>
                         </thead>
                         <tbody id="contenuOfTable">
@@ -141,34 +140,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- <div id="parametersDashboard">
-        <h1 class="titlePageDashboard">Paramètres</h1>
-        <div>
-            <div id="titleParameters">
-                <h2 id="titleChangeContact">Changer les coordonnées</h2>
-                <button type="button" id="updateParameters" class="btnUpdateParameters">
-                    Modifier
-                </button>
-                <button type="submit" id="buttonValidateUpdateParameters" class="btnUpdateParameters">Valider</button>
-            </div>
-            <div id="contactDetails">
-                <div id="updateAdress">
-                    <label for="updateAddress">Adresse</label>
-                    <input type="text" name="adressDashboard" id="updateAddress" class="inputUpdateAgencyDetails">
-                </div>
-                <div id="updatePhoneNumber">
-                    <label for="updatePhoneNumber">Téléphone</label>
-                    <input type="text" name="phoneNumbersDashboard" id="inputUpdatePhoneNumber" class="inputUpdateAgencyDetails">
-                </div>
-
-                <div id="agencyDescription">
-                    <label for="updateAgencyPresentation">HelloHome</label>
-                    <input type="text" name="agencyDescriptionDashboard" id="updateAgencyPresentation" class="inputUpdateAgencyDetails">
-                </div>
-            </div>
-        </div>
-    </div> -->
 
         <footer>
             <p>HelloHome © 2023</p>
