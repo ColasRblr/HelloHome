@@ -1,4 +1,6 @@
 <?php
+    var_dump($_ENV);
+
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -23,12 +25,17 @@ class Connection
         } else {
             $resultat = $this->getBdd()->prepare($sql);
             $resultat->execute($params);
+
         }
         return $resultat;
     }
 
+   
+   
     public function getBdd()
     {
+        echo "Coucou";
+      
 
         if ($this->bdd == null) {
             $this->bdd = new PDO(
@@ -36,13 +43,13 @@ class Connection
                 // $_ENV['PASSWORD'],
                 // $_ENV['USER'],
 
-                'mysql:host=localhost;dbname=poo_immo;charset=utf8',
-                'root',
-                '',
+                 'mysql:host=localhost;dbname=poo_immo;charset=utf8',
+                 'root',
+                 '',
 
                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
             );
-            echo "connexion réusssi !";
+             echo "connexion réusssi !";
         }
 
         return $this->bdd;

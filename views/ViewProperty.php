@@ -1,11 +1,11 @@
-<?php
-include 'PropertyController.php';
-var_dump($displayProperty);
-?>
+ <?php
+include '/PropertyController.php';
+ print_r($displayProperty);
+?> 
+
 <link rel="stylesheet" href="style/pageAnnonce.css">
 <title>Page annonce</title>
 </head>
-
 <body>
   <header>
     <div id="imageBackground">
@@ -27,7 +27,7 @@ var_dump($displayProperty);
   <div id="annonceVente">
     <p class="vente">A vendre !</span></p>
     <p class="annonceTitle">Pont de Claix | A vendre</p>
-    <h2 class="houseName">Maison de luxe</h2>
+    <h2 class="houseName">Maison de luxe<?=$displayProperty[0]["property_name"]?></h2>
     <hr>
     <div class="divAnnonce">
       <div>
@@ -82,6 +82,15 @@ var_dump($displayProperty);
           <li>-Surface : 108 m²</li>
           </li>
           <li>-Parcelle : 240 m²</li>
+          <?php
+          if($displayProperty[0]['property_swimmingpool'] == 1){
+            
+         ?>
+          <li>-Piscine privée</li>
+
+          <?php
+           }
+          ?>
           <li>-Adresse : Rue des Alpes, Le Pont de Claix</li>
           <li>-Assainissement : tout à l’égout</li>
           <li>-Chauffage :chaudière individuelle gaz et électrique</li>

@@ -188,7 +188,7 @@
                         <div id="numberOfPiecces"><?= $displayLastProperties[$i][$j]["property_numberOfPieces"] ?> pièces </div>
                         <div id="transaction"><?= $transaction ?></div>
                         <div id="price"><?= $displayLastProperties[$i][$j]["$transactionPrice"] ?> €</div>
-                        <a href="?action=visitProperty&id=<?= $displayLastProperties[$i][$j]["id_property"] ?>"> <button id="visit"> Je visite </button></a>
+                        <a href="?action=visitProperty&id=<?= $displayLastProperties[$i][$j]["id_property"]?>&type=<?=$type?>&transaction=<?=$transaction?>"> <button id="visit"> Je visite </button></a>
                     </div>
                 </div>
         <?php }
