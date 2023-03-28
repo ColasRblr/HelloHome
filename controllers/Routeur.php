@@ -32,19 +32,17 @@ class Routeur
                     $this->propertyCtrl->addProperty();
                 } else if ($_GET['action'] == 'validAddProperty') {
                     $this->propertyCtrl->validAddProperty();
-
                 } else if ($_GET['action'] == 'deconnection') {
                     $this->userCtrl->deconnection();
                 } else if ($_GET['action'] == 'profil') {
                     $this->userCtrl->getProfilAdmin();
                 } else if ($_GET['action'] == 'displayDashboard') {
                     $this->userCtrl->displayDashboard();
-
-                }else if ($_GET['action'] == 'visitProperty') {
-                    $this->propertyCtrl->visitProperty();
                 } else if ($_GET['action'] == 'updateProperty') {
                     $this->propertyCtrl->validUpdateProperty();
                 }
+            } else if ($_GET['action'] == 'visitProperty' && 'id') {
+                $this->propertyCtrl->displayProperty();
             } else {
                 $this->propertyCtrl->home();  // action par défaut
             }
@@ -52,11 +50,4 @@ class Routeur
             // $this->erreur($e->getMessage());
         }
     }
-
-    // Affiche une erreur
-    // private function erreur($msgErreur)
-    // {
-    //     $view = new View("Erreur");
-    //     $view->generer(array('msgErreur' => $msgErreur));
-    // }
 }

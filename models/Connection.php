@@ -23,7 +23,6 @@ class Connection
         } else {
             $resultat = $this->getBdd()->prepare($sql);
             $resultat->execute($params);
-
         }
         return $resultat;
     }
@@ -33,17 +32,17 @@ class Connection
 
         if ($this->bdd == null) {
             $this->bdd = new PDO(
-                $_ENV['DATABASE_URL'] . '; dbname=' . $_ENV['DB_NAME'] . '; charset=utf8',
-                $_ENV['PASSWORD'],
-                $_ENV['USER'],
+                // $_ENV['DATABASE_URL'] . '; dbname=' . $_ENV['DB_NAME'] . '; charset=utf8',
+                // $_ENV['PASSWORD'],
+                // $_ENV['USER'],
 
-                // 'mysql:host=localhost;dbname=poo_immo;charset=utf8',
-                // 'root',
-                // 'root',
+                'mysql:host=localhost;dbname=poo_immo;charset=utf8',
+                'root',
+                '',
 
                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
             );
-             echo "connexion réusssi !";
+            echo "connexion réusssi !";
         }
 
         return $this->bdd;
