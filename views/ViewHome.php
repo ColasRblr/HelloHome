@@ -225,10 +225,12 @@
                 </div>
                 <div id="messageDiv">
                     <input type="textarea" value="Votre message" id="messageInput">
+
                 </div>
                 <div id="sendBtnDiv">
                     <button type="submit" id="contactBtn">Envoyer</button>
                 </div>
+
             </form>
         </div>
         <div id="contactDetails">
@@ -257,5 +259,4 @@
                 Dashboard
             </a>
         </h1>
-
     </footer>

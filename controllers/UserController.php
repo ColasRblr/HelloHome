@@ -73,6 +73,7 @@ class UserController
             $allProperties = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
             $status = [];
             $type = [];
+
             for ($i = 0; $i < count($allProperties); $i++) {
                 if ($this->sale->getAllPropertyToSale($allProperties[$i]['id'])) {
                     $status[$i] = "A vendre";

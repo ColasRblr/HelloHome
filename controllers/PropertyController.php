@@ -9,6 +9,19 @@ require_once './models/House.php';
 require_once './models/Apartment.php';
 require_once './models/Picture.php';
 require_once './controllers/TransactionController.php';
+//include './models/Connection.php';
+require_once 'models/Connection.php';
+
+require __DIR__ . '/../vendor/autoload.php';
+
+use Dotenv\Dotenv;
+
+$dotenv = Dotenv::createImmutable(dirname(dirname(__DIR__)) . '/POO_Immo');
+$dotenv->load();
+
+//use models\Connection\getBdd as bigData;
+
+require_once './controllers/UserController.php';
 
 class PropertyController
 {
@@ -19,8 +32,8 @@ class PropertyController
     private $house;
     private $apartment;
     private $transactionCtrl;
-    private $picture;
     private $userCtrl;
+    private $picture;
 
     public function __construct()
     {
@@ -32,8 +45,11 @@ class PropertyController
         $this->sale = new Sale();
         $this->transactionCtrl = new TransactionController();
         $this->picture = new Picture();
+        $this->property = new Property();
+        
         $this->userCtrl = new UserController();
     }
+
 
     public function home()
     {
@@ -78,6 +94,22 @@ class PropertyController
         return ($result);
     }
 
+    public function getPropertyType()
+    {
+        $lastProperties = $this->property->getLastProperties();
+        echo "tata";
+        var_dump($lastProperties);
+        for ($i = 0; $i < count($lastProperties); $i++) {
+            echo ($lastProperties[$i]["id"]);
+            // Putting into an array ($propertyType) the id_property and type of property with string)
+            if ($this->apartment->getOneApartment($lastProperties[$i]["id"])) {
+                $propertyType[$lastProperties[$i]["id"]] = "apartment";
+            } elseif ($this->house->getOneHouse($lastProperties[$i]["id"])) {
+                $propertyType[$lastProperties[$i]["id"]] = "house";
+            }
+        }
+        return ($propertyType);
+    }
 
     public function displayLastProperties()
     {
@@ -119,6 +151,8 @@ class PropertyController
                 if (isset($_POST['bonus']) && $_POST['bonus'] != "") {
                     $bonus = $_POST['bonus'];
                     $propertyInfo['bonus'] = $_POST['bonus'];
+                } else {
+                    $bonus = "";
                 }
             } else if ($typeOfProperty == "apartment") {
                 if (isset($_POST['parking']) && $_POST['parking'] != "") {
@@ -295,7 +329,6 @@ class PropertyController
         ));
     }
 
-
     public function validUpdateProperty()
 
     {
@@ -431,11 +464,11 @@ class PropertyController
                 echo $e->getMessage();
             }
         }
-        // var_dump($propertyInfo);
+
 
         $this->property->updateProperty($property_name, $property_description, $property_location, $property_area, $property_numberOfPieces, $property_distanceFromSea, $property_swimmingpool, $property_seaView, $id_property);
         $id_transaction = $this->transaction->updateTransaction($_POST['availablity'], $id_property);
-
+        $this->picture->updatePicture($id_property, $picture_name);
         if ($typeOfProperty == "house") {
             $this->house->updateHouse($garden, $bonus, $id_property);
         } else if ($typeOfProperty == "apartment") {
@@ -446,8 +479,65 @@ class PropertyController
         } else if ($statutProperty == "rent") {
             $this->rental->updateRental($id_transaction, $rent, $charges, $furnished);
         }
+
+        try {
+            if (!isset($_SESSION)) {
+                session_start();
+            }
+            $allProperties = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
+            $status = [];
+            $type = [];
+
+            for ($i = 0; $i < count($allProperties); $i++) {
+                if ($this->sale->getAllPropertyToSale($allProperties[$i]['id'])) {
+                    $status[$i] = "à vendre";
+                } else if ($this->rental->getAllPropertyToRent($allProperties[$i]['id'])) {
+                    $status[$i] = "à louer";
+                }
+            }
+            for ($i = 0; $i < count($allProperties); $i++) {
+                if ($this->house->getAllHousesByUser($allProperties[$i]['id'])) {
+                    $type[$i] = "maison";
+                } else if ($this->apartment->getAllApartmentsByUser($allProperties[$i]['id'])) {
+                    $type[$i] = "appartement";
+                }
+            }
+            $view = new View("Dashboard");
+            $view->generer(array('allProperties' => $allProperties, 'type' => $type, 'status' => $status));
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
     }
 
+    public function getIdFromUrl($url)
+    {
+        $parsedUrl = parse_url($url);
+        $query = $parsedUrl['query'];
+        parse_str($query, $queryParams);
+        return $queryParams['id'];
+    }
+
+    public function displayProperty()
+    {
+        $url = $_SERVER['REQUEST_URI'];
+        $id = $this->getIdFromUrl($url);
+        echo $id;
+        try {
+            $dbh = new PDO('mysql:host=localhost;dbname=poo_immo;charset=utf8', 'root', '',);
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage() . "<br/>";
+            die();
+        }
+        $sql = $dbh->prepare("SELECT * FROM property WHERE id = ?");
+        $sql->execute([$id]);
+        $displayProperty = $sql->fetch();
+        $propView = new View("Property");
+        $propView->generer($displayProperty);
+
+        //var_dump($displayProperty);
+
+
+        //return $displayProperty;
     public function validDeleteProperty($id_property)
     {
         session_start();
