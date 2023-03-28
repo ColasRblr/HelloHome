@@ -34,7 +34,6 @@ class PropertyController
         $this->transactionCtrl = new TransactionController();
         $this->picture = new Picture();
         $this->userCtrl = new UserController();
-
     }
 
     public function home()
