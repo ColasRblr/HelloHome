@@ -122,9 +122,9 @@
                 </div>
                 <label for="picture" id="add_picture">Ajouter une image</label>
                 <input type="file" name="picture" id="picture" class="inputfile">
-                <!-- <button type="button" id="addImage">Ajouter des images</button> -->
+
                 <div class="bottomForm">
-                    <button type="submit" class="propertySubmitBtn"> Valider </button>
+                    <button type="submit" class="propertySubmitBtn" id="validateFormAddProperty"> Valider </button>
                     <button type="reset" class="propertySubmitBtn"> Annuler </button>
                 </div>
             </div>

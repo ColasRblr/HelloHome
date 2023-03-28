@@ -15,22 +15,22 @@
 </head>
 
 <body>
-<header>
-  <div id="logoAnnonce">
-    <img src="./images/HelloHome-logo.png" alt="">
-  </div>
-  <nav class="navbar">
-    <ul>
-    <li><a href="#">Contact</a></li>
-    <li><a href="#">L'agence</a></li>
-    <li><a href="#">Recherche</a></li>
-    <li><a href="#">Nos biens à la une</a></li>
-      <li><a href="#">Accueil</a></li>
-    </ul>
-  </nav>
-</header>
+    <header>
+        <div id="logoAnnonce">
+            <img src="./images/HelloHome-logo.png" alt="">
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">L'agence</a></li>
+                <li><a href="#">Recherche</a></li>
+                <li><a href="#">Nos biens à la une</a></li>
+                <li><a href="#">Accueil</a></li>
+            </ul>
+        </nav>
+    </header>
     <!-- Landing page with picture in background and research form -->
-   
+
     <div id="landingPage">
         <div id="researchForm">
             <form action="/getProperties" method="post" id="researchFormContent">
@@ -178,20 +178,20 @@
                 } ?>
                 <div class="propertyCard">
                     <div class="containerPic">
-                        <img class="propertyPic" src="./asset/img/<?=$displayLastProperties[$i][$j]["picture_url"]?>" alt="<?= $displayLastProperties[$i][$j]["picture_description"] ?>">
-            </div>
-            <div class="propertyPreview">
-                <div id="name"> <?= $displayLastProperties[$i][$j]["property_name"] ?> </div>
-                <div id="type"><?= $type ?></div>
-                <div id="location"><?= $displayLastProperties[$i][$j]["property_location"] ?></div>
-                <div id="area"><?= $displayLastProperties[$i][$j]["property_area"] ?> m2</div>
-                <div id="numberOfPiecces"><?= $displayLastProperties[$i][$j]["property_numberOfPieces"] ?> pièces </div>
-                <div id="transaction"><?= $transaction ?></div>
-                <div id="price"><?= $displayLastProperties[$i][$j]["$transactionPrice"] ?> €</div>
-                <a href="?action=visitProperty&id=<?= $displayLastProperties[$i][$j]["id_property"] ?>"> <button id="visit"> Je visite </button></a>
-            </div>
-        </div>
-           <?php }
+                        <img class="propertyPic" src="./asset/img/<?= $displayLastProperties[$i][$j]["picture_url"] ?>" alt="<?= $displayLastProperties[$i][$j]["picture_description"] ?>">
+                    </div>
+                    <div class="propertyPreview">
+                        <div id="name"> <?= $displayLastProperties[$i][$j]["property_name"] ?> </div>
+                        <div id="type"><?= $type ?></div>
+                        <div id="location"><?= $displayLastProperties[$i][$j]["property_location"] ?></div>
+                        <div id="area"><?= $displayLastProperties[$i][$j]["property_area"] ?> m2</div>
+                        <div id="numberOfPiecces"><?= $displayLastProperties[$i][$j]["property_numberOfPieces"] ?> pièces </div>
+                        <div id="transaction"><?= $transaction ?></div>
+                        <div id="price"><?= $displayLastProperties[$i][$j]["$transactionPrice"] ?> €</div>
+                        <a href="?action=visitProperty&id=<?= $displayLastProperties[$i][$j]["id_property"] ?>"> <button id="visit"> Je visite </button></a>
+                    </div>
+                </div>
+        <?php }
         } ?>
     </div>
 
@@ -210,52 +210,52 @@
     </div>
 
     <!-- Contact form and informations -->
-<div class="homePageTitles">Nous contacter</div>   
-        <div id="contactContent">
-            <div id="contactForm">
-                <h5>Formulaire de contact</h5>
-                <form action="../index.php" method="post" id="contact">
-                    <div id="nameDiv">
-                        <input type="text" value="Nom" id="nameInput">
-                        <input type="text" value="Prénom" id="firstNameInput">
-                    </div>
-                    <div id="contactDiv">
-                        <input type="text" value="Téléphone" id="phoneInput">
-                        <input type="text" value="Email" id="emailInput">
-                    </div>
-                    <div id="messageDiv">
-                        <input type="textarea" value="Votre message" id="messageInput">
-                    </div>
-                    <div id="sendBtnDiv">
-                        <button type="submit" id="contactBtn">Envoyer</button>
-                    </div>
-                </form>
-            </div>
-            <div id="contactDetails">
-                <div id="containerMap">
-                    <h5>Nos coordonnées</h5>
-                    <div id="map"></div>
+    <div class="homePageTitles">Nous contacter</div>
+    <div id="contactContent">
+        <div id="contactForm">
+            <h5>Formulaire de contact</h5>
+            <form action="../index.php" method="post" id="contact">
+                <div id="nameDiv">
+                    <input type="text" value="Nom" id="nameInput">
+                    <input type="text" value="Prénom" id="firstNameInput">
                 </div>
-                <div id="containerAddress">
-                    <div id="address">
-                        <h6>Adresse</h6>
-                        <p>20 avenue Notre-Dame </br>
-                            06000 Nice</p>
-                    </div>
-                    <div id="phoneNumber"></div>
-                    <h6>Téléphone:</h6>
-                    <p>04-32-16-32-16</p>
+                <div id="contactDiv">
+                    <input type="text" value="Téléphone" id="phoneInput">
+                    <input type="text" value="Email" id="emailInput">
                 </div>
+                <div id="messageDiv">
+                    <input type="textarea" value="Votre message" id="messageInput">
+                </div>
+                <div id="sendBtnDiv">
+                    <button type="submit" id="contactBtn">Envoyer</button>
+                </div>
+            </form>
+        </div>
+        <div id="contactDetails">
+            <div id="containerMap">
+                <h5>Nos coordonnées</h5>
+                <div id="map"></div>
             </div>
+            <div id="containerAddress">
+                <div id="address">
+                    <h6>Adresse</h6>
+                    <p>20 avenue Notre-Dame </br>
+                        06000 Nice</p>
+                </div>
+                <div id="phoneNumber"></div>
+                <h6>Téléphone:</h6>
+                <p>04-32-16-32-16</p>
+            </div>
+        </div>
     </div>
 
     <footer>
-    <button>
-        <a href="?action=dashboardConnection">
-            Dashboard
-        </a>
-    </button>
-    <h1 class="footer">
-      Mentions légales | 2023
-    </h1>
-  </footer>
+
+        <h1 class="footer">
+            Mentions légales | 2023 |
+            <a href="?action=dashboardConnection">
+                Dashboard
+            </a>
+        </h1>
+
+    </footer>
