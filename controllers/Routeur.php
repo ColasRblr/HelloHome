@@ -44,8 +44,11 @@ class Routeur
                     $this->propertyCtrl->updateProperty();
                 } else if ($_GET['action'] == 'validUpdateProperty') {
                     $this->propertyCtrl->validUpdateProperty();
+                } else if ($_GET['action'] == 'getProperties') {
+                    $this->propertyCtrl->getProperties();
                 } else if ($_GET['action'] == 'removeProperty') {
                     $this->propertyCtrl->validDeleteProperty($_GET['propertyId']);
+
                 }
             } else if ($_GET['action'] == 'visitProperty' && 'id') {
                 $this->propertyCtrl->displayProperty();

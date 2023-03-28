@@ -167,8 +167,6 @@ INSERT INTO apartment (id_property, parking, floor, elevator, caretaking, balcon
 INSERT INTO property (property_name, property_description, property_location, property_area, property_numberOfPieces, property_distanceFromSea, property_swimmingpool, property_seaView, id_user) 
 VALUES ("Shoreline Haven", "Appartement de 2 chambres dans une résidence de luxe en bord de mer avec accès direct à la plage. Les chambres sont spacieuses et lumineuses, offrant une vue magnifique sur l'océan. La terrasse privée est équipée d'un barbecue pour des soirées en plein air.", "Cagnes-sur-Mer", 210, 7, 100, false, true, 3);
 INSERT INTO apartment (id_property, parking, floor, elevator, caretaking, balcony) VALUES (LAST_INSERT_ID(), true, 9, true, true, true);
-
--- -- RENTAL
 INSERT INTO transaction_type (transaction_onlineDate, transaction_status, id_property)
 VALUES ('23/03/2023', 'disponible', 1);
 INSERT INTO rental ( id_transaction, rent, charges, furnished) VALUES (LAST_INSERT_ID(), 2000, 300, 1);
