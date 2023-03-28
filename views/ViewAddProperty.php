@@ -124,8 +124,10 @@
                 <input type="file" name="picture" id="picture" class="inputfile">
 
                 <div class="bottomForm">
+
                     <button type="submit" class="propertySubmitBtn" id="validateFormAddProperty"> Valider </button>
                     <button type="reset" class="propertySubmitBtn"> Annuler </button>
+
                 </div>
             </div>
         </form>
