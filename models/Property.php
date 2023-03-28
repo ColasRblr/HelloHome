@@ -115,17 +115,16 @@ class Property extends Connection
         JOIN transaction_type ON property.id = transaction_type.id_property 
         JOIN $property_transaction ON transaction_type.id = $property_transaction.id_transaction 
         JOIN picture ON property.id=picture.id_property";
-        if($where == "WHERE"){
-        $fullSQL = $sql.$where;  
-    }else {
-        $fullSQL = $sql;
-    }
-        $results = $this->executerRequete($fullSQL, $params);          
+        if ($where == "WHERE") {
+            $fullSQL = $sql . $where;
+        } else {
+            $fullSQL = $sql;
+        }
+        $results = $this->executerRequete($fullSQL, $params);
         $researchedProperties = $results->fetchAll();
-       
+
         return $researchedProperties;
-
-
+    }
     public static function getHouses()
     {
         $pdo = new PDO('mysql:host=localhost;dbname=poo_immo', 'root', '');
@@ -134,6 +133,7 @@ class Property extends Connection
         $houses = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         return $houses;
+    }
     public function deleteProperty($id_property)
     {
         $sql = "DELETE FROM property WHERE id =?;";
@@ -161,6 +161,5 @@ class Property extends Connection
         } catch (Exception $e) {
             echo $e->getMessage();
         }
-
     }
 }
