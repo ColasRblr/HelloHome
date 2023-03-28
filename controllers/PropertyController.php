@@ -22,6 +22,7 @@ class PropertyController
     private $transactionCtrl;
     private $userCtrl;
     private $picture;
+    private $userCtrl;
 
     public function __construct()
     {
@@ -33,7 +34,8 @@ class PropertyController
         $this->sale = new Sale();
         $this->transactionCtrl = new TransactionController();
         $this->picture = new Picture();
-        // $this->userCtrl = new UserController();
+        $this->userCtrl = new UserController();
+
     }
 
     public function home()
@@ -56,6 +58,7 @@ class PropertyController
     public function getTypesByPropertyId($id_property)
     {
         if ($this->apartment->getOneApartment($id_property)) {
+            // echo "toto";
             $propertyType = "apartment";
             $transactionId = $this->transaction->getOneTransaction($id_property);
             if ($this->sale->getOneSale($transactionId["id"])) {
@@ -64,6 +67,7 @@ class PropertyController
                 $transactionType = "rental";
             }
         } elseif ($this->house->getOneHouse($id_property)) {
+
             $propertyType = "house";
             $transactionId = $this->transaction->getOneTransaction($id_property)["id"];
             if ($this->sale->getOneSale($transactionId["id"])) {
@@ -73,6 +77,7 @@ class PropertyController
             }
         }
         $result = ['id' => $id_property, 'type' => $propertyType, 'transaction' => $transactionType];
+
         return ($result);
     }
 
@@ -252,19 +257,7 @@ class PropertyController
         } else if ($statutProperty == "rent") {
             $this->transactionCtrl->addRental($id_transaction, $rent, $charges, $furnished);
         }
-
-        try {
-            $allProperties = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
-            // var_dump($allProperties);
-            $view = new View("Dashboard");
-            $view->generer(array('allProperties' => $allProperties));
-        } catch (Exception $e) {
-            echo $e->getMessage();
-        }
-
-        $adminInfo = $this->property->getAllPropertyOfOneAdmin($_SESSION['user_id']);
-        $view = new View("Dashboard");
-        $view->generer(array('allProperties' => $adminInfo));
+        $this->userCtrl->displayDashboard();
     }
 
 
@@ -296,6 +289,7 @@ class PropertyController
         }
 
         $pictures = $this->picture->getPicturesOfOneProperty($id_property);
+
         $view = new View("UpdateProperty");
         $view->generer(array(
             'properties' => $property,
@@ -304,10 +298,13 @@ class PropertyController
             ($isSale ? 'sale' : 'rental') => ($isSale ? $isSale : $isRental),
             ($isHouse ? 'house' : 'apartment') => ($isHouse ? $isHouse : $isApartment),
             'picture' => $pictures
+
         ));
     }
 
+
     public function validUpdateProperty()
+
     {
         $id_property = $_GET['id'];
         $propertyInfo = [];
@@ -442,6 +439,7 @@ class PropertyController
             }
         }
 
+
         $this->property->updateProperty($property_name, $property_description, $property_location, $property_area, $property_numberOfPieces, $property_distanceFromSea, $property_swimmingpool, $property_seaView, $id_property);
         $id_transaction = $this->transaction->updateTransaction($_POST['availablity'], $id_property);
         $this->picture->updatePicture($id_property, $picture_name);
@@ -483,5 +481,22 @@ class PropertyController
         } catch (Exception $e) {
             echo $e->getMessage();
         }
+    }
+
+    public function validDeleteProperty($id_property)
+    {
+        session_start();
+        $transaction =  $this->transaction->getOneTransaction($id_property);
+        if ($transaction != false) {
+            $idTransaction = $transaction["id"];
+            $this->rental->deleteRental($idTransaction);
+            $this->sale->deleteSale($idTransaction);
+            $this->picture->deletePicture($id_property);
+            $this->house->deleteHouse($id_property);
+            $this->apartment->deleteApartment($id_property);
+            $this->transaction->deleteOneTransaction($id_property);
+            $this->property->deleteProperty($id_property);
+        }
+        $this->userCtrl->displayDashboard();
     }
 }

@@ -33,9 +33,16 @@ class Sale extends Transaction
         WHERE transaction_type.id_property = ?;";
         $stmt = $this->executerRequete($sql, array($id_property));
         $properties = $stmt->fetchAll();
+        // var_dump($properties);
         return $properties;
     }
 
+
+    public function deleteSale($id_transaction)
+    {
+        $sql = "DELETE FROM sale WHERE id_transaction = ?;";
+        $this->executerRequete($sql, array($id_transaction));
+    }
     public function updateSale($id_transaction, $selling_price)
     {
         $sql = "UPDATE sale 
