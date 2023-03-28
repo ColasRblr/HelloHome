@@ -44,6 +44,8 @@ class Routeur
                     $this->propertyCtrl->visitProperty();
                 } else if ($_GET['action'] == 'updateProperty') {
                     $this->propertyCtrl->validUpdateProperty();
+                } else if ($_GET['action'] == 'getProperties') {
+                    $this->propertyCtrl->getProperties();
                 }
             } else {
                 $this->propertyCtrl->home();  // action par défaut

@@ -5,22 +5,22 @@ $(document).ready(function () {
 
   // hide the different specific filters at the beginning
   $("#generalFilters").hide();
-  $("#saleFilters").hide();
+  $("#rentalFilters").hide();
   $("#flatFilters").hide();
   $("#houseFilters").show();
 
   // Showing saleFilters on click
   $("#saleBtn").click(function () {
-    $("#saleBtn").css("box-shadow", "inset 2px 2px 10px #6a4c04");
-    $("#rentalBtn").css("box-shadow", "none");
+    $("#btns-sale-lbl").css("box-shadow", "inset 2px 2px 10px #6a4c04");
+    $("#btns-rental-lbl").css("box-shadow", "none");
     $("#rentalFilters").hide();
     $("#saleFilters").show();
   });
 
   // Showing rentalFilters on click
   $("#rentalBtn").click(function () {
-    $("#rentalBtn").css("box-shadow", "inset 2px 2px 10px #255057");
-    $("#saleBtn").css("box-shadow", "none");
+    $("#btns-rental").css("box-shadow", "inset 2px 2px 10px #255057");
+    $("#btns-sale").css("box-shadow", "none");
     $("#rentalFilters").show();
     $("#saleFilters").hide();
   });
