@@ -46,7 +46,7 @@ class PropertyController
         $this->transactionCtrl = new TransactionController();
         $this->picture = new Picture();
         $this->property = new Property();
-        
+
         $this->userCtrl = new UserController();
     }
 
@@ -58,6 +58,7 @@ class PropertyController
         $view = new View("Home");
         $view->generer(array('displayLastProperties' => $displayLastProperties));
     }
+
 
     public function getOneProperty()
     {
@@ -82,7 +83,7 @@ class PropertyController
         } elseif ($this->house->getOneHouse($id_property)) {
 
             $propertyType = "house";
-            $transactionId = $this->transaction->getOneTransaction($id_property)["id"];
+            $transactionId = $this->transaction->getOneTransaction($id_property);
             if ($this->sale->getOneSale($transactionId["id"])) {
                 $transactionType = "sale";
             } else if ($this->rental->getOneRental($transactionId["id"])) {
@@ -92,23 +93,6 @@ class PropertyController
         $result = ['id' => $id_property, 'type' => $propertyType, 'transaction' => $transactionType];
 
         return ($result);
-    }
-
-    public function getPropertyType()
-    {
-        $lastProperties = $this->property->getLastProperties();
-        echo "tata";
-        var_dump($lastProperties);
-        for ($i = 0; $i < count($lastProperties); $i++) {
-            echo ($lastProperties[$i]["id"]);
-            // Putting into an array ($propertyType) the id_property and type of property with string)
-            if ($this->apartment->getOneApartment($lastProperties[$i]["id"])) {
-                $propertyType[$lastProperties[$i]["id"]] = "apartment";
-            } elseif ($this->house->getOneHouse($lastProperties[$i]["id"])) {
-                $propertyType[$lastProperties[$i]["id"]] = "house";
-            }
-        }
-        return ($propertyType);
     }
 
     public function displayLastProperties()
@@ -135,6 +119,7 @@ class PropertyController
 
     public function validAddProperty()
     {
+
         $propertyInfo = [];
         if (isset($_POST['addTypeOfProperty']) && $_POST['addTypeOfProperty'] != "") {
             $typeOfProperty = $_POST['addTypeOfProperty'];
@@ -268,10 +253,7 @@ class PropertyController
                 echo $e->getMessage();
             }
         }
-        // var_dump($propertyInfo);
-        // foreach ($propertyInfo as $key => $value) {
-        //     echo $key . " : " . $value . "<br/>";
-        // }
+
         session_start();
         $id_property = $this->property->addProperty($property_name, $property_description, $property_location, $property_area, $property_numberOfPieces, $property_distanceFromSea, $property_swimmingpool, $property_seaView, $_SESSION['user_id']);
         $this->picture->addPicture($id_property, $property_name, $picture_name);
@@ -286,7 +268,9 @@ class PropertyController
         } else if ($statutProperty == "rent") {
             $this->transactionCtrl->addRental($id_transaction, $rent, $charges, $furnished);
         }
-        $this->userCtrl->displayDashboard();
+
+
+        header("LOCATION: http://localhost/POO_Immo/?action=displayDashboard");
     }
 
 
@@ -492,20 +476,19 @@ class PropertyController
 
             for ($i = 0; $i < count($allProperties); $i++) {
                 if ($this->sale->getAllPropertyToSale($allProperties[$i]['id'])) {
-                    $status[$i] = "à vendre";
+                    $status[$i] = "A vendre";
                 } else if ($this->rental->getAllPropertyToRent($allProperties[$i]['id'])) {
-                    $status[$i] = "à louer";
+                    $status[$i] = "A louer";
                 }
             }
             for ($i = 0; $i < count($allProperties); $i++) {
                 if ($this->house->getAllHousesByUser($allProperties[$i]['id'])) {
-                    $type[$i] = "maison";
+                    $type[$i] = "Maison";
                 } else if ($this->apartment->getAllApartmentsByUser($allProperties[$i]['id'])) {
-                    $type[$i] = "appartement";
+                    $type[$i] = "Appartement";
                 }
             }
-            $view = new View("Dashboard");
-            $view->generer(array('allProperties' => $allProperties, 'type' => $type, 'status' => $status));
+            header("LOCATION: http://localhost/POO_Immo/?action=displayDashboard");
         } catch (Exception $e) {
             echo $e->getMessage();
         }
@@ -576,9 +559,9 @@ class PropertyController
        
 
         //var_dump($displayProperty);
+    }
 
-
-        //return $displayProperty;
+    //return $displayProperty;
     public function validDeleteProperty($id_property)
     {
         session_start();
@@ -594,6 +577,115 @@ class PropertyController
             $this->property->deleteProperty($id_property);
         }
         $this->userCtrl->displayDashboard();
+    }
+
+    public function getProperties()
+    {
+        // FILTERS ARRAY
+        $researchProperties = [];
+
+        if (isset($_POST['transaction']) && $_POST['transaction'] != "") {
+            $transactionStatus = $_POST['transaction'];
+        }
+        if (isset($_POST['type']) && $_POST['type'] != "") {
+            $propertyType = $_POST['type'];
+        }
+        if (isset($_POST['location']) && $_POST['location'] != "all") {
+            $propertyLocation = $_POST['location'];
+            $researchProperties['property_location'] = $propertyLocation;
+        }
+        if (isset($_POST['rooms']) && $_POST['rooms'] != "") {
+            $numberOfPieces = $_POST['rooms'];
+            $researchProperties['property_numberOfPieces'] = $numberOfPieces;
+        }
+        if (isset($_POST['area']) && $_POST['area'] != "") {
+            $area = $_POST['area'];
+            $researchProperties['property_area'] = $area;
+        }
+        if (isset($_POST['seaDistance']) && $_POST['seaDistance'] != "") {
+            $distanceFromSea = $_POST['seaDistance'];
+            $researchProperties['property_distanceFromSea'] = $distanceFromSea;
+        }
+        if (isset($_POST['pool']) && $_POST['pool'] != "") {
+            $pool = $_POST['pool'];
+            $researchProperties['property_swimmingpool'] = $pool;
+        }
+        if (isset($_POST['seaView']) && $_POST['seaView'] != "") {
+            $seaView = $_POST['seaView'];
+            $researchProperties['property_seaView'] = $seaView;
+        }
+        if (isset($_POST['garden']) && $_POST['garden'] != "") {
+            $garden = $_POST['garden'];
+            $researchProperties['garden'] = $garden;
+        }
+        if (isset($_POST['parking']) && $_POST['parking'] != "") {
+            $parking = $_POST['parking'];
+            $researchProperties['parking'] = $parking;
+        }
+        if (isset($_POST['elevator']) && $_POST['elevator'] != "") {
+            $elevator = $_POST['elevator'];
+            $researchProperties['elevator'] = $elevator;
+        }
+        if (isset($_POST['caretaking']) && $_POST['caretaking'] != "") {
+            $caretaking = $_POST['caretaking'];
+            $researchProperties['caretaking'] = $caretaking;
+        }
+        if (isset($_POST['balcony']) && $_POST['balcony'] != "") {
+            $balcony = $_POST['balcony'];
+            $researchProperties['balcony'] = $balcony;
+        }
+        if (isset($_POST['furnished']) && $_POST['furnished'] != "") {
+            $furnished = $_POST['furnished'];
+            $researchProperties['furnished'] = $furnished;
+        }
+        if (isset($_POST['price']) && $_POST['price'] != "") {
+            $price = $_POST['price'];
+            $researchProperties['selling_price'] = $price;
+        }
+        if (isset($_POST['rent']) && $_POST['rent'] != "") {
+            $rent = $_POST['rent'];
+            $researchProperties['rent'] = $rent;
+        }
+        // print_r($researchProperties);
+
+        $where = " WHERE ";
+        $params = [];
+        $sqlParts = [];
+        $authorizedKeys = [
+            'property_location', 'property_area', 'property_numberOfPieces',
+            'property_distanceFromSea', 'property_swimmingpool',
+            'property_seaView', 'parking', 'elevator', 'caretaking',
+            'balcony', 'garden', 'rent', 'selling_price', 'furnished'
+        ]; // Ici les noms d'inputs acceptés pour la clause de condition
+        foreach ($researchProperties as $key => $value) {
+
+            if (in_array($key, $authorizedKeys)) {
+                if ($key == 'property_area' || $key == 'property_numberOfPieces') {
+                    $sqlParts[] = "$key >= ?";
+                } else if ($key == 'property_distanceFromSea' || $key == 'rent' || $key == 'selling_price') {
+                    $sqlParts[] = "$key <= ?";
+                } else if (
+                    $key == 'property_location' || $key == 'property_swimmingpool'
+                    || $key == 'parking' || $key == 'elevator' || $key == 'caretaking'
+                    || $key == 'balcony' || $key == 'furnished' || $key == 'garden'
+                ) {
+                    $sqlParts[] = "$key = ?";
+                }
+                $params[] = $value;
+            }
+        }
+        if (count($sqlParts) > 1) {
+            foreach ($sqlParts as $k => $v) {
+                $and = ($k < count($sqlParts) - 1) ? ' AND ' : null;
+                $where .= $v . $and;
+            }
+        }
+
+        $researchedProperties = $this->property->getProperties($propertyType, $transactionStatus, $where, $params);
+
+        $displayLastProperties = $this->displayLastProperties();
+        $view = new View("Home");
+        $view->generer(array('researchedProperties' => $researchedProperties, 'propertyType' => $propertyType, 'transactionStatus' => $transactionStatus, 'displayLastProperties' => $displayLastProperties));
     }
 
 }
