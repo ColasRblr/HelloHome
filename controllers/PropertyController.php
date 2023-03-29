@@ -496,6 +496,7 @@ class PropertyController
 
     public function displayProperty()
     {
+
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $type = $this->getTypesByPropertyId($id)["type"];
@@ -504,6 +505,7 @@ class PropertyController
             $propView = new View("Property");
             $propView->generer(array("displayProperty" => $displayProperty));
         }
+
     }
 
 

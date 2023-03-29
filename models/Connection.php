@@ -38,6 +38,7 @@ class Connection
 
         if ($this->bdd == null) {
             $this->bdd = new PDO(
+
                 $_ENV['DATABASE_URL'] . '; dbname=' . $_ENV['DB_NAME'] . '; charset=utf8',
                 $_ENV['PASSWORD'],
                 $_ENV['DB_USER'],
