@@ -177,126 +177,116 @@ $titre = "Accueil";
                             <a href="?action=visitProperty&id=<?= $researchedProperties[$i]["id_property"] ?>"> <button id="visitBtn"> Je visite </button></a>
                         </div>
                     </div>
-                    <div class="propertyPreview">
-                        <div id="name"> <?= $displayLastProperties[$i][$j]["property_name"] ?> </div>
-                        <div id="type"><?= $type ?></div>
-                        <div id="location"><?= $displayLastProperties[$i][$j]["property_location"] ?></div>
-                        <div id="area"><?= $displayLastProperties[$i][$j]["property_area"] ?> m2</div>
-                        <div id="numberOfPiecces"><?= $displayLastProperties[$i][$j]["property_numberOfPieces"] ?> pièces </div>
-                        <div id="transaction"><?= $transaction ?></div>
-                        <div id="price"><?= $displayLastProperties[$i][$j]["$transactionPrice"] ?> €</div>
-                        <a href="?action=visitProperty&id=<?= $displayLastProperties[$i][$j]["id_property"]?>&type=<?=$type?>&transaction=<?=$transaction?>"> <button id="visit"> Je visite </button></a>
-                    </div>
-                </div>
-        <?php }
+        </div>
+<?php }
             }
         } ?>
-        </div>
-        </div>
+</div>
+</div>
 
-        <!-- Last/spotlight properties  -->
-        <div class="homePageTitles" id="spotlightTitle">Nos biens à la une</div>
-        <div id="lastProperties">
-            <?php for ($i = 0; $i < count($displayLastProperties); $i++) {
-                for ($j = 0; $j < count($displayLastProperties[$i]); $j++) {
-                    if (isset($displayLastProperties[$i][$j])) {
-                        $type = "appartement";
-                    } else {
-                        $type = "maison";
-                    }
-                    if (isset($displayLastProperties[$i][$j]["rent"])) {
-                        $transaction = "la location";
-                        $transactionPrice = "rent";
-                    } else {
-                        $transaction = "l'achat";
-                        $transactionPrice = "selling_price";
-                    } ?>
-                    <div class="propertyCard">
-                        <div class="containerPicSpotlight">
-                            <img class="propertyPic" src="./asset/img/<?= $displayLastProperties[$i][$j]["picture_url"] ?>" alt="<?= $displayLastProperties[$i][$j]["picture_description"] ?>">
-                        </div>
-                        <div class="propertyPreview">
-                            <div id="nameCard"> <?= $displayLastProperties[$i][$j]["property_name"] ?> </div>
-                            <div id="typeCard">Type : <?= $type ?></div>
-                            <div id="locationCard">à <?= $displayLastProperties[$i][$j]["property_location"] ?></div>
-                            <div id="areaCard">Surface de <?= $displayLastProperties[$i][$j]["property_area"] ?> m2</div>
-                            <div id="numberOfPiecesCard"><?= $displayLastProperties[$i][$j]["property_numberOfPieces"] ?> pièces </div>
-                            <div id="transactionCard">Disponible à <?= $transaction ?></div>
-                            <div id="priceCard">Prix : <?= $displayLastProperties[$i][$j]["$transactionPrice"] ?> €</div>
-                            <a href="?action=visitProperty&id=<?= $displayLastProperties[$i][$j]["id_property"] ?>"> <button id="visitBtn"> Je visite </button></a>
-                        </div>
-                    </div>
-            <?php }
+<!-- Last/spotlight properties  -->
+<div class="homePageTitles" id="spotlightTitle">Nos biens à la une</div>
+<div id="lastProperties">
+    <?php for ($i = 0; $i < count($displayLastProperties); $i++) {
+        for ($j = 0; $j < count($displayLastProperties[$i]); $j++) {
+            if (isset($displayLastProperties[$i][$j])) {
+                $type = "appartement";
+            } else {
+                $type = "maison";
+            }
+            if (isset($displayLastProperties[$i][$j]["rent"])) {
+                $transaction = "la location";
+                $transactionPrice = "rent";
+            } else {
+                $transaction = "l'achat";
+                $transactionPrice = "selling_price";
             } ?>
-        </div>
-
-
-        <!--  HELLOHOME presentation text-->
-
-        <div id="helloHomeAgency">
-            <div class="homePageTitles" id="agencyTitle">Hello Home</div>
-            <div id="helloHomeDescription">
-                <div id="containerIllustrationAgency">
-                    <img src="asset/hellohome_1.png" alt="real estate agency illustration" id="agency-img">
+            <div class="propertyCard">
+                <div class="containerPicSpotlight">
+                    <img class="propertyPic" src="./asset/img/<?= $displayLastProperties[$i][$j]["picture_url"] ?>" alt="<?= $displayLastProperties[$i][$j]["picture_description"] ?>">
                 </div>
-                <h4>Votre agence immobilière de prestige à Nice</h4>
-                <p id="descriptionAgency">
-                    Hello Home est reconnue pour offrir une expérience de qualité supérieure, en proposant une large gamme
-                    d'appartements et de villas de prestige situés dans les quartiers les plus recherchés de Nice, Cagnes-sur-Mer
-                    et Saint-Jean-Cap-Ferrat. Les biens immobiliers que nous proposons se distinguent par leur raffinement,
-                    leur emplacement privilégié, ainsi que par les prestations haut de gamme qu'ils offrent.
-                    Notre équipe est composée de professionnels expérimentés et passionnés, qui mettent leur expertise
-                    à votre service pour offrir un service personnalisé et sur mesure.</p>
-
-            </div>
-        </div>
-        <!-- Contact form and informations -->
-        <div class="homePageTitles" id="contactSection">Nous contacter</div>
-        <div id="contactContent">
-            <div id="contactForm">
-                <h5>Formulaire de contact</h5>
-                <form action="../index.php" method="post" id="contact">
-                    <div id="nameDiv">
-                        <input type="text" value="Nom" id="nameInput">
-                        <input type="text" value="Prénom" id="firstNameInput">
-                    </div>
-                    <div id="contactDiv">
-                        <input type="text" value="Téléphone" id="phoneInput">
-                        <input type="text" value="Email" id="emailInput">
-                    </div>
-                    <div id="messageDiv">
-                        <input type="textarea" value="Votre message" id="messageInput">
-                    </div>
-                    <div id="sendBtnDiv">
-                        <button type="submit" id="contactBtn">Envoyer</button>
-                    </div>
-                </form>
-            </div>
-            <div id="contactDetails">
-                <h5>Nos coordonnées</h5>
-                <div id="containerMap">
-
-                    <div id="map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2884.3071215915875!2d7.265751115797838!3d43.70416617911946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12cddaa88a077eed%3A0x4218e3ddc48aeb4c!2s20%20Avenue%20Notre%20Dame%2C%2006000%20Nice!5e0!3m2!1sfr!2sfr!4v1679902199416!5m2!1sfr!2sfr" width="350" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                    <div id="containerAddress">
-                        <div id="address">
-                            <h6>Adresse</h6>
-                            <p>20 avenue Notre-Dame </br>
-                                06000 Nice</p>
-                        </div>
-                        <div id="phoneNumber"></div>
-                        <h6>Téléphone:</h6>
-                        <p>04-32-16-32-16</p>
-                    </div>
+                <div class="propertyPreview">
+                    <div id="nameCard"> <?= $displayLastProperties[$i][$j]["property_name"] ?> </div>
+                    <div id="typeCard">Type : <?= $type ?></div>
+                    <div id="locationCard">à <?= $displayLastProperties[$i][$j]["property_location"] ?></div>
+                    <div id="areaCard">Surface de <?= $displayLastProperties[$i][$j]["property_area"] ?> m2</div>
+                    <div id="numberOfPiecesCard"><?= $displayLastProperties[$i][$j]["property_numberOfPieces"] ?> pièces </div>
+                    <div id="transactionCard">Disponible à <?= $transaction ?></div>
+                    <div id="priceCard">Prix : <?= $displayLastProperties[$i][$j]["$transactionPrice"] ?> €</div>
+                    <a href="?action=visitProperty&id=<?= $displayLastProperties[$i][$j]["id_property"] ?>"> <button id="visitBtn"> Je visite </button></a>
                 </div>
             </div>
+    <?php }
+    } ?>
+</div>
+
+
+<!--  HELLOHOME presentation text-->
+
+<div id="helloHomeAgency">
+    <div class="homePageTitles" id="agencyTitle">Hello Home</div>
+    <div id="helloHomeDescription">
+        <div id="containerIllustrationAgency">
+            <img src="asset/hellohome_1.png" alt="real estate agency illustration" id="agency-img">
         </div>
-        <footer>
-            <h1 id="footer">
-                Mentions légales | 2023 |
-                <a href="?action=dashboardConnection">
-                    Dashboard
-                </a>
-            </h1>
-        </footer>
+        <h4>Votre agence immobilière de prestige à Nice</h4>
+        <p id="descriptionAgency">
+            Hello Home est reconnue pour offrir une expérience de qualité supérieure, en proposant une large gamme
+            d'appartements et de villas de prestige situés dans les quartiers les plus recherchés de Nice, Cagnes-sur-Mer
+            et Saint-Jean-Cap-Ferrat. Les biens immobiliers que nous proposons se distinguent par leur raffinement,
+            leur emplacement privilégié, ainsi que par les prestations haut de gamme qu'ils offrent.
+            Notre équipe est composée de professionnels expérimentés et passionnés, qui mettent leur expertise
+            à votre service pour offrir un service personnalisé et sur mesure.</p>
+
+    </div>
+</div>
+<!-- Contact form and informations -->
+<div class="homePageTitles" id="contactSection">Nous contacter</div>
+<div id="contactContent">
+    <div id="contactForm">
+        <h5>Formulaire de contact</h5>
+        <form action="../index.php" method="post" id="contact">
+            <div id="nameDiv">
+                <input type="text" value="Nom" id="nameInput">
+                <input type="text" value="Prénom" id="firstNameInput">
+            </div>
+            <div id="contactDiv">
+                <input type="text" value="Téléphone" id="phoneInput">
+                <input type="text" value="Email" id="emailInput">
+            </div>
+            <div id="messageDiv">
+                <input type="textarea" value="Votre message" id="messageInput">
+            </div>
+            <div id="sendBtnDiv">
+                <button type="submit" id="contactBtn">Envoyer</button>
+            </div>
+        </form>
+    </div>
+    <div id="contactDetails">
+        <h5>Nos coordonnées</h5>
+        <div id="containerMap">
+
+            <div id="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2884.3071215915875!2d7.265751115797838!3d43.70416617911946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12cddaa88a077eed%3A0x4218e3ddc48aeb4c!2s20%20Avenue%20Notre%20Dame%2C%2006000%20Nice!5e0!3m2!1sfr!2sfr!4v1679902199416!5m2!1sfr!2sfr" width="350" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div id="containerAddress">
+                <div id="address">
+                    <h6>Adresse</h6>
+                    <p>20 avenue Notre-Dame </br>
+                        06000 Nice</p>
+                </div>
+                <div id="phoneNumber"></div>
+                <h6>Téléphone:</h6>
+                <p>04-32-16-32-16</p>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <h1 id="footer">
+        Mentions légales | 2023 |
+        <a href="?action=dashboardConnection">
+            Dashboard
+        </a>
+    </h1>
+</footer>
