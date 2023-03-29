@@ -377,9 +377,10 @@ header {
   font-size: 30px;
 }
 
-.footer{
+.footer a{
   text-align: center;
   font-size: 15px;
   padding: 10px;
   opacity: 0.5;
 }
+

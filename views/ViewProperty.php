@@ -1,20 +1,15 @@
 
- </?php
+ <//?php
 // include '/PropertyController.php';
-  // print_r($displayProperty);
-?> 
+//     print_r($displayProperty);
+// ?> 
+
 
 <link rel="stylesheet" href="style/pageAnnonce.css">
-<link rel="stylesheet" href="/views/gabarit.php">
+
+
 <title>Page annonce</title>
-
-<?php $titre = "Page annonce";
-?>
-
-<link rel="stylesheet" href="style/annonce.css">
-
 </head>
-
 <body>
   <header>
     <div id="logo">
