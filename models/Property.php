@@ -103,13 +103,28 @@ class Property extends Connection
         $propertiesNumber = $stmt->fetchAll();
 
         if ($propertiesNumber > 0) {
-
             return "Maison";
         }
         return "Appartement";
     }
 
+    public function getProperties($property_type, $property_transaction, $where, $params)
+    {
+        $sql = "SELECT * FROM property 
+        JOIN $property_type ON property.id = $property_type.id_property 
+        JOIN transaction_type ON property.id = transaction_type.id_property 
+        JOIN $property_transaction ON transaction_type.id = $property_transaction.id_transaction 
+        JOIN picture ON property.id=picture.id_property";
+        if ($where == "WHERE") {
+            $fullSQL = $sql . $where;
+        } else {
+            $fullSQL = $sql;
+        }
+        $results = $this->executerRequete($fullSQL, $params);
+        $researchedProperties = $results->fetchAll();
 
+        return $researchedProperties;
+    }
     public static function getHouses()
     {
         $pdo = new PDO('mysql:host=localhost;dbname=poo_immo', 'root', '');
