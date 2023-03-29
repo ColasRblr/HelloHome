@@ -195,10 +195,13 @@ label,
   height: fit-content;
 }
 
-/* #researchedPropertyCard {
+#researchedPropertyCard {
   padding-top: 7em;
-} */
+}
 
+.containerPicResearched {
+  width: 90%;
+}
 #resultsPreview {
   top: 65%;
   margin-bottom: 2em;
@@ -218,21 +221,19 @@ label,
 .propertyCard {
   width: 32%;
   display: flex;
-  height: 90%;
   justify-content: center;
   position: relative;
 }
 
-.containerPic{
+.containerPicSpotlight {
   width: 90%;
   height: 50%;
-  /* overflow-y: hidden; */
 }
 
 .propertyPic {
   margin-top:2em;
   width: 100%;
-  height: 100%;
+  height: auto;
   object-position: center;
 }
 

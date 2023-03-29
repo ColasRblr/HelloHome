@@ -158,7 +158,7 @@ $titre = "Accueil";
                             <div id="nameCard"> <?= $researchedProperties[$i]["property_name"] ?> </div>
                             <div id="typeCard">Type : <?php if ($propertyType == "house") {
                                                             echo "maison";
-                                                        } else if ($propertyType == "sale") {
+                                                        } else if ($propertyType == "apartment") {
                                                             echo "appartement";
                                                         } ?></div>
                             <div id="locationCard">à <?= $researchedProperties[$i]["property_location"] ?></div>
