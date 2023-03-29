@@ -6,11 +6,11 @@
 }
 .titlePageDashboard {
   background-color: #094351;
-  width: 60vw;
 }
 h1 {
   color: white;
   font-size: 30px;
+  font-family: "Palanquin", sans-serif;
 }
 h3 {
   font-size: 12px;
@@ -19,6 +19,7 @@ h3 {
 p {
   color: white;
   font-size: 15px;
+  font-family: "Palanquin", sans-serif;
 }
 td {
   border: white;
@@ -26,7 +27,13 @@ td {
   padding-right: 3vw;
   border-bottom: solid 1px;
 }
-
+th {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+a {
+  color: black;
+}
 /* .......................................Header */
 header {
   height: 130px;
@@ -78,7 +85,6 @@ header i {
   border: none;
   border-radius: 10px;
   padding: 4px;
-  width: 13vw;
   margin-right: 1vw;
 }
 
@@ -91,6 +97,7 @@ header i {
   border: none;
   border-radius: 10px;
   padding: 4px;
+  cursor: pointer;
 }
 
 #listOfProperties {
@@ -121,45 +128,7 @@ header i {
   margin-bottom: 30px;
   padding: 3px;
 }
-
-/* ..................................Parameters */
-/* #parametersDashboard {
-  margin-left: 1vw;
-}
-
-#titleParameters {
-  display: flex;
-  align-items: center;
-}
-
-#titleChangeContact {
-  margin-right: 1vw;
-}
-.btnUpdateParameters {
-  margin-right: 1vw;
-  font-size: 15px;
-  height: 25px;
-  background-color: #094351;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  padding: 4px;
-  width: 8vw;
-}
-#contactDetails {
-  display: flex;
-}
-label {
-  font-size: 15px;
-}
-.inputUpdateAgencyDetails {
-  margin-right: 2vw;
-  margin-left: 1vw;
-  margin-top: 1vh;
-  border-radius: 10px;
-  font-size: 15px;
-} */
-
+/* ...........................Footer */
 footer {
   background-color: #094351;
   color: rgb(255, 255, 255);
@@ -171,4 +140,64 @@ footer {
 
 footer p {
   margin: 20px auto;
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    width: 100%;
+  }
+  h1 {
+    font-size: 20px;
+  }
+  header img {
+    height: 70%;
+    width: 70%;
+  }
+  td {
+    margin-right: 1px;
+  }
+  th {
+    margin-right: 1px;
+    padding: none;
+  }
+
+  #dashboardManagementFilters {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .btnFilterSelectDashboard {
+    width: 40vw;
+    font-size: 15px;
+    height: 35px;
+    margin-bottom: 2px;
+  }
+  #btnAddProperty {
+    font-size: 15px;
+    width: 40vw;
+    height: 35px;
+  }
+  #positionElementsHomePageDashboard {
+    flex-direction: column;
+  }
+  #managementProperty {
+    width: 100vw;
+    margin-bottom: 2vh;
+  }
+  #titlePageDashboard {
+    width: 100vw;
+  }
+  #listOfProperties {
+    font-size: 12px;
+    padding: 1px;
+    height: 50vh;
+    overflow-y: auto;
+  }
+  #statistiquesDashboard {
+    width: 80vw;
+    align-self: center;
+  }
+
+  .numberStatistique {
+    width: 50vw;
+  }
 }
