@@ -636,10 +636,8 @@ class PropertyController
             }
         }
 
-
-
         $researchedProperties = $this->property->getProperties($propertyType, $transactionStatus, $where, $params);
-        var_dump($params);
+
         $displayLastProperties = $this->displayLastProperties();
         $view = new View("Home");
         $view->generer(array('researchedProperties' => $researchedProperties, 'propertyType' => $propertyType, 'transactionStatus' => $transactionStatus, 'displayLastProperties' => $displayLastProperties));
