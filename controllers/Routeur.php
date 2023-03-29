@@ -22,9 +22,7 @@ class Routeur
     {
         try {
             if (isset($_GET['action'])) {
-                if ($_GET['action'] == 'getOneProperty') {
-                    $this->propertyCtrl->getOneProperty();
-                } else if ($_GET['action'] == 'dashboardConnection') {
+                if ($_GET['action'] == 'dashboardConnection') {
                     $this->userCtrl->connection();
                 } else if ($_GET['action'] == 'validConnection') {
                     $this->userCtrl->validConnection();

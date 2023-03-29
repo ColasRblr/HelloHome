@@ -50,7 +50,6 @@
       </div>
     </div>
   </div>
-  </header>
 
   <section class="decouverteHouse">
     <h1 class="decouverte">Découvrez <?= $displayProperty[0]["property_name"] ?> </h1>
@@ -128,7 +127,6 @@ Suite [26] => Seashell Suite [picture_url] => appartement9.jpg [27] => apparteme
           <?php
           }
           ?>
-
           <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Zone: <?= $displayProperty[0]['property_area'] ?></li>
           <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Informations complémentaires :un garage, une cave</li>
           <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Prix de vente frais agence inclus : <em><?= $displayProperty[0]['selling_price'] ?> </em></li>
@@ -145,19 +143,40 @@ Suite [26] => Seashell Suite [picture_url] => appartement9.jpg [27] => apparteme
         <?php
         if ($displayProperty[0]['property_seaView'] == 1) {
         ?>
-          <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Belle vue sur mer</li>
+          <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Parking</li>
         <?php
         }
         ?>
-        <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Distance à la mer: <?= $displayProperty[0]['property_distanceFromSea'] ?></li>
+
+        <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Zone: <?= $displayProperty[0]['property_area'] ?></li>
+        <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Informations complémentaires :un garage, une cave</li>
+        <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Prix de vente frais agence inclus : <em><?= $displayProperty[0]['selling_price'] ?> </em></li>
       </ul>
-      <hr>
-      <div id="agent">
-        <img src="./images/agent.jpg" alt="">
-        <div>
-          <p id="readAgent">Solenne vous accompagne<br>à la découverte de ce bien !</p>
-          <p id="sendMSG">Envoyer un message -></p>
-    </section>
+  </div>
+  </section>
+
+  <section id="infoDetailAgence">
+    <img src="./images/coeur.png" alt="">
+    <h1>Ce qui a séduit POO-Immo</h1>
+    <hr>
+    <ul>
+      <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Localisation: <?= $displayProperty[0]['property_location'] ?></li>
+      <?php
+      if ($displayProperty[0]['property_seaView'] == 1) {
+      ?>
+        <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Belle vue sur mer</li>
+      <?php
+      }
+      ?>
+      <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Distance à la mer: <?= $displayProperty[0]['property_distanceFromSea'] ?></li>
+    </ul>
+    <hr>
+    <div id="agent">
+      <img src="./images/agent.jpg" alt="">
+      <div>
+        <p id="readAgent">Solenne vous accompagne<br>à la découverte de ce bien !</p>
+        <p id="sendMSG">Envoyer un message -></p>
+  </section>
   </div>
   <div class="photoInfo">
     <img src="./images/lux.jpg" alt="une pièce lumineuse">
