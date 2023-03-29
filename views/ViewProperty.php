@@ -1,7 +1,7 @@
 <?php $titre = "Page annonce";
 ?>
 
-<link rel="stylesheet" href="style/annonce.css">
+<link rel="stylesheet" href="style/Pageannonce.css">
 
 
 </head>
@@ -9,11 +9,9 @@
 <body>
   <header>
     <div id="logo">
-      <a href="?action=dashboardConnection">
         <img src="asset/hellohome_1.png" width="150px" alt="hellohome logo">
       </a>
     </div>
-    <div class="navbar">
       <ul>
         <li><a href="#landingPage">Accueil</a></li>
         <li><a href="#spotlightTitle">Nos biens à la une</a></li>
@@ -78,8 +76,7 @@
       </div>
       <div id="infoDetailHouse">
         <ul>
-          <!--<li>-Taille :9 pièces: </li>-->
-          <!--<li>-Surface : 108 m²</li>-->
+    
           <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Numéro Bien : <?= $displayProperty[0]['id_property'] ?></li>
 
           <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Nombre de pièces: <?= $displayProperty[0]['property_numberOfPieces'] ?></li>
