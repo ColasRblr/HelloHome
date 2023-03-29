@@ -17,6 +17,13 @@
             </a>
         </div>
     </header>
+
+    <div id="returnDashboard">
+        <a href="?action=displayDashboard">
+            <i id="arrowReturn" class="bi bi-arrow-left-circle"></i>
+        </a>
+    </div>
+
     <div id="containerDashboardAddProperty">
         <div id="titleAddProperty">
             <h1 class="titlePageDashboard">Ajouter un bien</h1>
@@ -42,7 +49,7 @@
                 </div>
                 <div>
                     <label for="locationOfProperty" class="formElement"></label>
-                    <select name="locationOfProperty" id="locationProperty" class="btnSelectAddDetails">
+                    <select name="locationOfProperty" id="locationAddProperty" class="btnSelectAddDetails">
                         <option value="">Ville</option>
                         <option value="Nice">Nice</option>
                         <option value="Saint-Jean-Cap-Ferrat">Saint-Jean-Cap-Ferrat</option>
@@ -126,4 +133,4 @@
     <footer>
         <p>HelloHome © 2023</p>
     </footer>
-    <script src="./js/dashboard.js"></script>
+    <script src="js/dashboardHome.js"></script>

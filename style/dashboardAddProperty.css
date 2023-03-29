@@ -1,3 +1,12 @@
+#returnDashboard {
+  margin-left: 2vw;
+  margin-top: 1vh;
+  position: absolute;
+}
+#arrowReturn {
+  width: 15vw;
+  height: 10vh;
+}
 #containerDashboardAddProperty {
   text-align: center;
 }
@@ -152,13 +161,13 @@ footer p {
   z-index: -1;
 }
 
-.inputfile:focus+label {
+.inputfile:focus + label {
   /* keyboard navigation */
   outline: 1px dotted #000;
   outline: -webkit-focus-ring-color auto 5px;
 }
 
-.inputfile+label * {
+.inputfile + label * {
   pointer-events: none;
   background-color: #094351;
   color: rgb(255, 255, 255);
