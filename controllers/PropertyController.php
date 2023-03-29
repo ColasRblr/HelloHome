@@ -561,6 +561,7 @@ class PropertyController
         //var_dump($displayProperty);
     }
 
+
     //return $displayProperty;
     public function validDeleteProperty($id_property)
     {
@@ -578,6 +579,7 @@ class PropertyController
         }
         $this->userCtrl->displayDashboard();
     }
+
 
     public function getProperties()
     {
@@ -646,8 +648,10 @@ class PropertyController
             $rent = $_POST['rent'];
             $researchProperties['rent'] = $rent;
         }
+        
         // print_r($researchProperties);
-
+        
+    
         $where = " WHERE ";
         $params = [];
         $sqlParts = [];
@@ -673,6 +677,7 @@ class PropertyController
                 }
                 $params[] = $value;
             }
+        
         }
         if (count($sqlParts) > 1) {
             foreach ($sqlParts as $k => $v) {
@@ -688,4 +693,4 @@ class PropertyController
         $view->generer(array('researchedProperties' => $researchedProperties, 'propertyType' => $propertyType, 'transactionStatus' => $transactionStatus, 'displayLastProperties' => $displayLastProperties));
     }
 
-}
+

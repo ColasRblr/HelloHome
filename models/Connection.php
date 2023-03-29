@@ -56,9 +56,9 @@ class Connection
                 'mysql:host=localhost;dbname=poo_immo;charset=utf8',
                 'root',
                 '',
-                $_ENV['DATABASE_URL'] . '; dbname=' . $_ENV['DB_NAME'] . '; charset=utf8',
-                $_ENV['PASSWORD'],
-                $_ENV['DB_USER'],
+                // $_ENV['DATABASE_URL'] . '; dbname=' . $_ENV['DB_NAME'] . '; charset=utf8',
+                // $_ENV['PASSWORD'],
+                // $_ENV['DB_USER'],
                 // $_ENV['SERVER_URL'] = 'http://localhost/POO_Immo/'
 
 
