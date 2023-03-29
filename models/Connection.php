@@ -43,7 +43,6 @@ class Connection
 
                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
             );
-
             // echo "connexion réussie !";
 
         }
