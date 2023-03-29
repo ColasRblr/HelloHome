@@ -1,5 +1,5 @@
 <?php
-    var_dump($_ENV);
+    // var_dump($_ENV);
 
 
 require __DIR__ . '/../vendor/autoload.php';
@@ -34,7 +34,7 @@ class Connection
    
     public function getBdd()
     {
-        echo "Coucou";
+        // echo "Coucou";
       
 
         if ($this->bdd == null) {
@@ -49,7 +49,7 @@ class Connection
 
                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
             );
-             echo "connexion réusssi !";
+            //  echo "connexion réusssi !";
         }
 
         return $this->bdd;
