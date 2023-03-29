@@ -51,7 +51,7 @@ header {
 #researchForm {
   background-color: white;
   position: absolute;
-  top: 15vh;
+  top: 17vh;
   padding-bottom: 2px;
   width: 40%;
   display: flex;
@@ -122,6 +122,10 @@ input[type="radio"].firstBtn.sale:checked + label {
     justify-content: space-between;
 }
 
+#price {
+  margin-bottom: 1em;
+}
+
 label,
 #location-select,
 #type-select,
@@ -131,8 +135,8 @@ label,
 #seaDistanceInput,
 #priceInput {
   width: 50%;
-  padding: 7px;
-  margin-bottom: 7px;
+  padding: 4px;
+  margin-bottom:7px;
 }
 
 #rentalBtn {
