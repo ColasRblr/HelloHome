@@ -117,32 +117,9 @@ input[type="radio"].firstBtn.sale:checked + label {
   box-shadow: inset 2px 2px 10px #6a4c04;
 }
 
-/* SEARCH FORM */
-
-#researchForm {
-  background-color: white;
-  position: absolute;
-  top: 20vh;
-  padding-bottom: 2px;
-  width: 40%;
-  display: flex;
-  flex-direction: column;
-  border-radius: 13px;
-  align-items: center;
-}
-#researchFormContent {
-  width: 100%;
-}
-
-#location,
-#property,
-#rooms,
-#area,
-#rent,
-#seaDistance,
-#price {
-  display: flex;
-  justify-content: space-between;
+#location, #property, #rooms, #area, #rent, #seaDistance, #price {
+    display: flex;
+    justify-content: space-between;
 }
 
 label,
@@ -298,12 +275,12 @@ body {
   padding-bottom: 2em;
 }
 
-h4 {
-  color: #c58b03;
-  font-size: 30px;
-  margin-bottom: 2em;
-  font-family: "Palanquin", sans-serif;
-  text-transform: uppercase;
+h4{
+    color:#C58B03;
+    font-size: 30px;
+    margin-bottom: 0.5em;
+    font-family: 'Palanquin', sans-serif;
+    text-transform: uppercase ;
 }
 
 h5 {
@@ -349,9 +326,9 @@ h6 {
 }
 
 #helloHomeDescription {
-  flex-direction: column;
-  height: 90vh;
-  text-align: center;
+    flex-direction: column;
+    min-height:90vh;
+   text-align: center;
 }
 
 #descriptionAgency {
@@ -371,9 +348,10 @@ h6 {
 
 /* CONTACT SECTION */
 
-#contactContent {
-  justify-content: space-between;
-  height: 45vh;
+
+#contactContent{
+    justify-content: space-between;
+    min-height : 50vh;
 }
 
 #contactDetails {
@@ -399,10 +377,11 @@ h6 {
 }
 
 #contact {
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    width:80%;
+    display: flex;
+    flex-direction: column ;
+    align-items: center;
+    margin-bottom:0.3em;
 }
 #messageInput {
   width: 94%;
