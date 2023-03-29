@@ -1,25 +1,28 @@
 <?php $titre = "Page annonce";
 ?>
 
-<link rel="stylesheet" href="style/Pageannonce.css">
-
-
+<link rel="stylesheet" href="./style/Pageannonce.css">
 </head>
 
 <body>
   <header>
-    <div id="logo">
-    <a href="?action=backToHomePage">
-      <img src="asset/hellohome_1.png" width="150px" alt="hellohome logo">
-      </a>
+    <div id="imageBackground">
+      <img src="./asset/img/<?= $picture[0]["picture_url"] ?>" alt="Une villa splendide">
     </div>
     <div class="navbar">
-      <ul>
-        <li><a href="#" onclick="rtn()">Accueil</a></li>
-        <li><a href="#decouverteHouse">Le Bien</a></li>
-        <li><a href="#pics">Photos</a></li>
-        <li><a href="#infoTitleAnnonce">Informations essentielles</a></li>
-      </ul>
+      <div id="logo">
+        <a href="?action=backToHomePage">
+          <img src="asset/hellohome_1.png" width="150px" alt="hellohome logo">
+        </a>
+      </div>
+      <div id="links">
+        <ul>
+          <li><a href="#" onclick="rtn()">Accueil</a></li>
+          <li><a href="#decouverteHouse">Le Bien</a></li>
+          <li><a href="#pics">Photos</a></li>
+          <li><a href="#infoTitleAnnonce">Informations essentielles</a></li>
+        </ul>
+      </div>
     </div>
   </header>
 
@@ -99,6 +102,7 @@
 
 
           <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Date de transaction : <?= $displayProperty[0]['transaction_onlineDate'] ?></li>
+          >>>>>>> 586e5a5de3c9de98a9216329f123c78fecc0bd52
           <?php
           if ($displayProperty[0]['parking'] == 1) {
           ?>
@@ -122,6 +126,7 @@
         <?php
         if ($displayProperty[0]['property_seaView'] == 1) {
         ?>
+
           <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Belle vue sur mer</li>
         <?php
         }
