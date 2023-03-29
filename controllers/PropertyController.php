@@ -36,6 +36,7 @@ class PropertyController
         $this->sale = new Sale();
         $this->transactionCtrl = new TransactionController();
         $this->picture = new Picture();
+
         $this->userCtrl = new UserController();
     }
 
@@ -634,10 +635,11 @@ class PropertyController
                 $where .= $v . $and;
             }
         }
-        var_dump($where);
+
         $researchedProperties = $this->property->getProperties($propertyType, $transactionStatus, $where, $params);
 
         $displayLastProperties = $this->displayLastProperties();
+        // var_dump($displayLastProperties);
         $view = new View("Home");
         $view->generer(array('researchedProperties' => $researchedProperties, 'propertyType' => $propertyType, 'transactionStatus' => $transactionStatus, 'displayLastProperties' => $displayLastProperties));
     }
