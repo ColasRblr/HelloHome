@@ -42,9 +42,9 @@ $titre = "Accueil";
                     <label for="location">Ville:</label>
                     <select name="location" id="location-select">
                         <option value="all">Toutes localités</option>
-                        <option value="nice">Nice</option>
-                        <option value="saint-jean">Saint-Jean-Cap-Ferrat</option>
-                        <option value="cagnes">Cagnes-sur-Mer</option>
+                        <option value="Nice">Nice</option>
+                        <option value="Saint-Jean-Cap-Ferrat">Saint-Jean-Cap-Ferrat</option>
+                        <option value="Cagnes-sur-Mer">Cagnes-sur-Mer</option>
                     </select>
                 </div>
                 <div id="property">
