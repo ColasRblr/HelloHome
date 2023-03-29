@@ -177,6 +177,17 @@ $titre = "Accueil";
                             <a href="?action=visitProperty&id=<?= $researchedProperties[$i]["id_property"] ?>"> <button id="visitBtn"> Je visite </button></a>
                         </div>
                     </div>
+                    <div class="propertyPreview">
+                        <div id="name"> <?= $displayLastProperties[$i][$j]["property_name"] ?> </div>
+                        <div id="type"><?= $type ?></div>
+                        <div id="location"><?= $displayLastProperties[$i][$j]["property_location"] ?></div>
+                        <div id="area"><?= $displayLastProperties[$i][$j]["property_area"] ?> m2</div>
+                        <div id="numberOfPiecces"><?= $displayLastProperties[$i][$j]["property_numberOfPieces"] ?> pièces </div>
+                        <div id="transaction"><?= $transaction ?></div>
+                        <div id="price"><?= $displayLastProperties[$i][$j]["$transactionPrice"] ?> €</div>
+                        <a href="?action=visitProperty&id=<?= $displayLastProperties[$i][$j]["id_property"]?>&type=<?=$type?>&transaction=<?=$transaction?>"> <button id="visit"> Je visite </button></a>
+                    </div>
+                </div>
         <?php }
             }
         } ?>
