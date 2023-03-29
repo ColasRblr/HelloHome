@@ -34,7 +34,7 @@
       <div>
         <img src="./images/lit.png" alt="">
         <p>Pièces</p>
-        <p>9 pièces</p>
+        <p> 7 pièces</p>
       </div>
       <div>
         <img src="./images/sur.png" alt="">
