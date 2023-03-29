@@ -494,30 +494,18 @@ class PropertyController
         }
     }
 
-    public function getIdFromUrl($url)
-    {
-        $parsedUrl = parse_url($url);
-        $query = $parsedUrl['query'];
-        parse_str($query, $queryParams);
-        return $queryParams['id'];
-    }
-
     public function displayProperty()
     {
-        $url = $_SERVER['REQUEST_URI'];
-        $id = $this->getIdFromUrl($url);
-        // $type = $this->getTypeFromUrl($url);
-        // $transaction = $this->getTransactionFromUrl($url);
-        $type =  $this->getTypesByPropertyId($id)["type"];
 
-        $transaction =  $this->getTypesByPropertyId($id)["transaction"];
-        $displayProperty = $this->property->getDetailsLastProperties($id, $type, $transaction);
-        // var_dump($displayProperty);
-        // echo $id;
-        // echo $type;
-        // echo $transaction;
-        $propView = new View("Property");
-        $propView->generer(array("displayProperty" => $displayProperty));
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+            $type = $this->getTypesByPropertyId($id)["type"];
+            $transaction =  $this->getTypesByPropertyId($id)["transaction"];
+            $displayProperty = $this->property->getDetailsLastProperties($id, $type, $transaction);
+            $propView = new View("Property");
+            $propView->generer(array("displayProperty" => $displayProperty));
+        }
+
     }
 
 
@@ -536,7 +524,6 @@ class PropertyController
         parse_str($query, $queryParams);
         return $queryParams['transaction'];
     }
-
 
     //return $displayProperty;
     public function validDeleteProperty($id_property)
