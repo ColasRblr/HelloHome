@@ -37,6 +37,7 @@ img {
   }
   .houseName{
     margin: 30px 80px;
+    font-size: 5px;
     
   }
 .annonceTitle{
@@ -126,9 +127,9 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content:space-around;
-  padding: 55px;
+  padding: 30px;
   margin: 0 5px;
-}
+  }
 
   .divAnnonce p {
    margin: 2px 10px;
@@ -233,6 +234,7 @@ header {
   #infoDetailAgence li{ 
     text-align: start;
     margin: 10px 50px;
+    font-size: 15px;
 
   }
 
@@ -244,10 +246,12 @@ header {
   ul {
     list-style: none;
     padding-left: 0;
+    
   }
   
   ul li:before {
     content: "";
+   
   }
   
   #agent {

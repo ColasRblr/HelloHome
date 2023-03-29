@@ -1,3 +1,12 @@
+#returnDashboard {
+  margin-left: 2vw;
+  margin-top: 1vh;
+  position: absolute;
+}
+#arrowReturn {
+  width: 15vw;
+  height: 10vh;
+}
 #containerDashboardAddProperty {
   text-align: center;
 }
@@ -152,13 +161,13 @@ footer p {
   z-index: -1;
 }
 
-.inputfile:focus+label {
+.inputfile:focus + label {
   /* keyboard navigation */
   outline: 1px dotted #000;
   outline: -webkit-focus-ring-color auto 5px;
 }
 
-.inputfile+label * {
+.inputfile + label * {
   pointer-events: none;
   background-color: #094351;
   color: rgb(255, 255, 255);
@@ -173,4 +182,41 @@ footer p {
   border-radius: 15px;
   font-size: 15px;
   margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 768px) {
+  .btnSelectAddDetails {
+    font-size: 15px;
+    height: 35px;
+    width: 40vw;
+  }
+
+  input {
+    width: 38vw;
+    height: 35px;
+  }
+
+  textarea {
+    width: 75vw;
+    height: 15vh;
+    margin-bottom: 2px;
+  }
+  #btnCheckbox {
+    margin-top: 10px;
+    font-size: 15px;
+  }
+
+  .btnCheckboxBonus {
+    width: 15px;
+    height: 15px;
+    margin-right: 2vw;
+  }
+
+  .propertySubmitBtn {
+    font-size: 15px;
+    width: 20vw;
+  }
+  .bottomForm {
+    margin-bottom: 30px;
+  }
 }

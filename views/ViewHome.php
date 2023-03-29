@@ -6,7 +6,6 @@ $titre = "Accueil";
 </head>
 
 <body>
-
     <header>
         <div id="logo">
             <a href="?action=dashboardConnection">
@@ -22,6 +21,7 @@ $titre = "Accueil";
                 <li><a href="#contactSection">Contact</a></li>
             </ul>
         </div>
+
     </header>
     <!-- Landing page with picture in background and research form -->
 
@@ -177,12 +177,22 @@ $titre = "Accueil";
                             <a href="?action=visitProperty&id=<?= $researchedProperties[$i]["id_property"] ?>"> <button id="visitBtn"> Je visite </button></a>
                         </div>
                     </div>
+                    <div class="propertyPreview">
+                        <div id="name"> <?= $displayLastProperties[$i][$j]["property_name"] ?> </div>
+                        <div id="type"><?= $type ?></div>
+                        <div id="location"><?= $displayLastProperties[$i][$j]["property_location"] ?></div>
+                        <div id="area"><?= $displayLastProperties[$i][$j]["property_area"] ?> m2</div>
+                        <div id="numberOfPiecces"><?= $displayLastProperties[$i][$j]["property_numberOfPieces"] ?> pièces </div>
+                        <div id="transaction"><?= $transaction ?></div>
+                        <div id="price"><?= $displayLastProperties[$i][$j]["$transactionPrice"] ?> €</div>
+                        <a href="?action=visitProperty&id=<?= $displayLastProperties[$i][$j]["id_property"]?>&type=<?=$type?>&transaction=<?=$transaction?>"> <button id="visit"> Je visite </button></a>
+                    </div>
+                </div>
         <?php }
             }
         } ?>
         </div>
         </div>
-
 
         <!-- Last/spotlight properties  -->
         <div class="homePageTitles" id="spotlightTitle">Nos biens à la une</div>
@@ -220,6 +230,7 @@ $titre = "Accueil";
             } ?>
         </div>
 
+
         <!--  HELLOHOME presentation text-->
 
         <div id="helloHomeAgency">
@@ -239,7 +250,6 @@ $titre = "Accueil";
 
             </div>
         </div>
-
         <!-- Contact form and informations -->
         <div class="homePageTitles" id="contactSection">Nous contacter</div>
         <div id="contactContent">
@@ -280,12 +290,13 @@ $titre = "Accueil";
                         <p>04-32-16-32-16</p>
                     </div>
                 </div>
-
             </div>
         </div>
-
         <footer>
             <h1 id="footer">
-                Mentions légales | 2023
+                Mentions légales | 2023 |
+                <a href="?action=dashboardConnection">
+                    Dashboard
+                </a>
             </h1>
         </footer>

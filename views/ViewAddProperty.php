@@ -17,6 +17,13 @@
             </a>
         </div>
     </header>
+
+    <div id="returnDashboard">
+        <a href="?action=displayDashboard">
+            <i id="arrowReturn" class="bi bi-arrow-left-circle"></i>
+        </a>
+    </div>
+
     <div id="containerDashboardAddProperty">
         <div id="titleAddProperty">
             <h1 class="titlePageDashboard">Ajouter un bien</h1>
@@ -42,7 +49,7 @@
                 </div>
                 <div>
                     <label for="locationOfProperty" class="formElement"></label>
-                    <select name="locationOfProperty" id="locationProperty" class="btnSelectAddDetails">
+                    <select name="locationOfProperty" id="locationAddProperty" class="btnSelectAddDetails">
                         <option value="">Ville</option>
                         <option value="Nice">Nice</option>
                         <option value="Saint-Jean-Cap-Ferrat">Saint-Jean-Cap-Ferrat</option>
@@ -115,10 +122,12 @@
                 </div>
                 <label for="picture" id="add_picture">Ajouter une image</label>
                 <input type="file" name="picture" id="picture" class="inputfile">
-                <!-- <button type="button" id="addImage">Ajouter des images</button> -->
+
                 <div class="bottomForm">
-                    <button type="submit" class="propertySubmitBtn"> Valider </button>
+
+                    <button type="submit" class="propertySubmitBtn" id="validateFormAddProperty"> Valider </button>
                     <button type="reset" class="propertySubmitBtn"> Annuler </button>
+
                 </div>
             </div>
         </form>
@@ -126,4 +135,4 @@
     <footer>
         <p>HelloHome © 2023</p>
     </footer>
-    <script src="./js/dashboard.js"></script>
+    <script src="js/dashboardHome.js"></script>
