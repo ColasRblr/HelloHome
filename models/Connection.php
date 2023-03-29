@@ -33,9 +33,7 @@ class Connection
 
     public function getBdd()
     {
-        // echo "Coucou";
-
-
+        
         if ($this->bdd == null) {
             $this->bdd = new PDO(
 

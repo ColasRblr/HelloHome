@@ -1,6 +1,9 @@
  <?php
   // include '/PropertyController.php';
   // print_r($displayProperty);
+
+  // var_dump($picture);
+
   ?>
 
  <link rel="stylesheet" href="style/pageAnnonce.css">
@@ -9,6 +12,7 @@
 
  <body>
    <header>
+
      <div id="logo">
        <a href="?action=dashboardConnection">
          <img src="asset/hellohome_1.png" width="150px" alt="hellohome logo">
@@ -27,6 +31,7 @@
    <div id="annonceVente">
      <p class="vente">A vendre !</span></p>
      <p class="annonceTitle"><?= $displayProperty[0]["property_location"] ?>| A vendre</p>
+
      <h2 class="houseName" style="font-size: smaller"><?= $displayProperty[0]["property_name"] ?></h2>
 
      <hr>
@@ -172,10 +177,12 @@ Suite [26] => Seashell Suite [picture_url] => appartement9.jpg [27] => apparteme
      </div>
 
      <footer>
+
        <h1 id="footer">
          Mentions légales | 2023 |
          <a href="?action=dashboardConnection">
            Dashboard
          </a>
        </h1>
+
      </footer>
