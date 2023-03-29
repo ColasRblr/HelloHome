@@ -1,7 +1,9 @@
  <?php
   // include '/PropertyController.php';
   // print_r($displayProperty);
+
   // var_dump($picture);
+
   ?>
 
  <link rel="stylesheet" href="style/pageAnnonce.css">
@@ -10,25 +12,26 @@
 
  <body>
    <header>
-     <div id="imageBackground">
-       <img src="./asset/img/<?= $picture[0]["picture_url"] ?>" alt="Une villa splendide">
+
+     <div id="logo">
+       <a href="?action=dashboardConnection">
+         <img src="asset/hellohome_1.png" width="150px" alt="hellohome logo">
+       </a>
      </div>
-     <div id="logoAnnonce">
-       <img src="./images/HelloHome-logo.png" alt="">
-     </div>
-     <nav class="navbar">
+     <div class="navbar">
        <ul>
-         <li><a href="#">Contact</a></li>
-         <li><a href="#">L'agence</a></li>
-         <li><a href="#">Recherche</a></li>
-         <li><a href="#">Nos biens à la une</a></li>
-         <li><a href="#">Accueil</a></li>
+         <li><a href="#landingPage">Accueil</a></li>
+         <li><a href="#spotlightTitle">Nos biens à la une</a></li>
+         <li><a href="#landingPage">Recherche</a></li>
+         <li><a href="#helloHomeAgency">L'agence</a></li>
+         <li><a href="#contactSection">Contact</a></li>
        </ul>
-     </nav>
+     </div>
    </header>
    <div id="annonceVente">
      <p class="vente">A vendre !</span></p>
-     <p class="annonceTitle">Pont de Claix | A vendre</p>
+     <p class="annonceTitle"><?= $displayProperty[0]["property_location"] ?>| A vendre</p>
+
      <h2 class="houseName" style="font-size: smaller"><?= $displayProperty[0]["property_name"] ?></h2>
 
      <hr>
@@ -174,8 +177,12 @@ Suite [26] => Seashell Suite [picture_url] => appartement9.jpg [27] => apparteme
      </div>
 
      <footer>
-       <h1 class="footer">
-         Mentions légales | 2023
+
+       <h1 id="footer">
+         Mentions légales | 2023 |
+         <a href="?action=dashboardConnection">
+           Dashboard
+         </a>
        </h1>
-       <div></div>
+
      </footer>
