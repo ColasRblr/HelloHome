@@ -33,9 +33,7 @@ class Connection
 
     public function getBdd()
     {
-        // echo "Coucou";
-
-
+        
         if ($this->bdd == null) {
             $this->bdd = new PDO(
 
@@ -53,7 +51,6 @@ class Connection
 
                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
             );
-
             // echo "connexion réussie !";
 
         }

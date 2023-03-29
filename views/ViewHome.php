@@ -42,9 +42,9 @@ $titre = "Accueil";
                     <label for="location">Ville:</label>
                     <select name="location" id="location-select">
                         <option value="all">Toutes localités</option>
-                        <option value="nice">Nice</option>
-                        <option value="saint-jean">Saint-Jean-Cap-Ferrat</option>
-                        <option value="cagnes">Cagnes-sur-Mer</option>
+                        <option value="Nice">Nice</option>
+                        <option value="Saint-Jean-Cap-Ferrat">Saint-Jean-Cap-Ferrat</option>
+                        <option value="Cagnes-sur-Mer">Cagnes-sur-Mer</option>
                     </select>
                 </div>
                 <div id="property">
@@ -158,7 +158,7 @@ $titre = "Accueil";
                             <div id="nameCard"> <?= $researchedProperties[$i]["property_name"] ?> </div>
                             <div id="typeCard">Type : <?php if ($propertyType == "house") {
                                                             echo "maison";
-                                                        } else if ($propertyType == "sale") {
+                                                        } else if ($propertyType == "apartment") {
                                                             echo "appartement";
                                                         } ?></div>
                             <div id="locationCard">à <?= $researchedProperties[$i]["property_location"] ?></div>
@@ -177,21 +177,11 @@ $titre = "Accueil";
                             <a href="?action=visitProperty&id=<?= $researchedProperties[$i]["id_property"] ?>"> <button id="visitBtn"> Je visite </button></a>
                         </div>
                     </div>
-                    <div class="propertyPreview">
-                        <div id="name"> <?= $displayLastProperties[$i][$j]["property_name"] ?> </div>
-                        <div id="type"><?= $type ?></div>
-                        <div id="location"><?= $displayLastProperties[$i][$j]["property_location"] ?></div>
-                        <div id="area"><?= $displayLastProperties[$i][$j]["property_area"] ?> m2</div>
-                        <div id="numberOfPiecces"><?= $displayLastProperties[$i][$j]["property_numberOfPieces"] ?> pièces </div>
-                        <div id="transaction"><?= $transaction ?></div>
-                        <div id="price"><?= $displayLastProperties[$i][$j]["$transactionPrice"] ?> €</div>
-                        <a href="?action=visitProperty&id=<?= $displayLastProperties[$i][$j]["id_property"]?>&type=<?=$type?>&transaction=<?=$transaction?>"> <button id="visit"> Je visite </button></a>
-                    </div>
-                </div>
+
+
         <?php }
             }
         } ?>
-        </div>
         </div>
 
         <!-- Last/spotlight properties  -->
