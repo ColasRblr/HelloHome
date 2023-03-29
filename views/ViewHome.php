@@ -177,12 +177,12 @@ $titre = "Accueil";
                             <a href="?action=visitProperty&id=<?= $researchedProperties[$i]["id_property"] ?>"> <button id="visitBtn"> Je visite </button></a>
                         </div>
                     </div>
-        </div>
-<?php }
+
+
+        <?php }
             }
         } ?>
-</div>
-</div>
+        </div>
 
 <!-- Last/spotlight properties  -->
 <div class="homePageTitles" id="spotlightTitle">Nos biens à la une</div>

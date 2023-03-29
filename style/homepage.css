@@ -192,7 +192,7 @@ label,
   justify-content: space-around;
   margin-bottom: 4em;
   flex-wrap: wrap;
-  height: fit-content;
+  min-height: 80vh;
 }
 
 #researchedPropertyCard {
@@ -201,7 +201,9 @@ label,
 
 .containerPicResearched {
   width: 90%;
+  height: 50%;
 }
+
 #resultsPreview {
   top: 65%;
   margin-bottom: 2em;
