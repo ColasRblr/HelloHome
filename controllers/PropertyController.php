@@ -501,8 +501,9 @@ class PropertyController
             $type = $this->getTypesByPropertyId($id)["type"];
             $transaction =  $this->getTypesByPropertyId($id)["transaction"];
             $displayProperty = $this->property->getDetailsLastProperties($id, $type, $transaction);
+            $picture = $this->picture->getPicturesOfOneProperty($id);
             $propView = new View("Property");
-            $propView->generer(array("displayProperty" => $displayProperty));
+            $propView->generer(array("displayProperty" => $displayProperty, "picture" => $picture));
         }
     }
 
