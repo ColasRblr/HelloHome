@@ -9,7 +9,7 @@ $titre = "Accueil";
     <header>
         <div id="logo">
             <a href="?action=dashboardConnection">
-                <img src="asset/hellohome_1.png" width="150px" alt="hellohome logo"> 
+                <img src="asset/hellohome_1.png" width="150px" alt="hellohome logo">
             </a>
         </div>
         <div class="navbar">
@@ -281,11 +281,11 @@ $titre = "Accueil";
                 </div>
             </div>
         </div>
-    <footer>
-        <h1 id="footer">
-            Mentions légales | 2023 |
-            <a href="?action=dashboardConnection">
-                Dashboard
-            </a>
-        </h1>
-    </footer>
+        <footer>
+            <h1 id="footer">
+                Mentions légales | 2023 |
+                <a href="?action=dashboardConnection">
+                    Dashboard
+                </a>
+            </h1>
+        </footer>
