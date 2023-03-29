@@ -22,9 +22,7 @@ class Routeur
     {
         try {
             if (isset($_GET['action'])) {
-                if ($_GET['action'] == 'getOneProperty') {
-                    $this->propertyCtrl->getOneProperty();
-                } else if ($_GET['action'] == 'dashboardConnection') {
+                if ($_GET['action'] == 'dashboardConnection') {
                     $this->userCtrl->connection();
                 } else if ($_GET['action'] == 'validConnection') {
                     $this->userCtrl->validConnection();
@@ -48,6 +46,8 @@ class Routeur
                     $this->propertyCtrl->validDeleteProperty($_GET['propertyId']);
                 } else if ($_GET['action'] == 'visitProperty') {
                     $this->propertyCtrl->displayProperty();
+                } else if ($_GET['action'] == 'backToHomePage') {
+                    $this->propertyCtrl->home();
                 }
             } else {
                 $this->propertyCtrl->home();  // action par défaut
