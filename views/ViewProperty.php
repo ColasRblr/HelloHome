@@ -1,9 +1,10 @@
- <?php
+ </?php
 // include '/PropertyController.php';
   // print_r($displayProperty);
 ?> 
 
 <link rel="stylesheet" href="style/pageAnnonce.css">
+<link rel="stylesheet" href="/views/gabarit.php">
 <title>Page annonce</title>
 </head>
 <body>
@@ -100,31 +101,6 @@
 
 
 <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Date de transaction : <?=$displayProperty[0] ['transaction_onlineDate'] ?></li>
-
-
-
-<!--[picture_description] => Seashell 
-Suite [26] => Seashell Suite [picture_url] => appartement9.jpg [27] => appartement9.jpg ) )-->
-
-
-
-          </*?php
-          if($displayProperty[0]['floor']== 0){
-            ?>
-          <!--<li>- Sans Etage</li>-->
-          </*?php
-          }
-          ?>
-
-
-          
-          </*?php
-          if($displayProperty[0]['elevator']== 0){
-            ?>
-          <!--<li>-Sans Ascenseur</li>-->
-          </*?php
-          }
-          ?>
 
 
           <?php
