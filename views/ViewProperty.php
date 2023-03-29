@@ -2,6 +2,7 @@
 ?>
 
 <link rel="stylesheet" href="./style/Pageannonce.css">
+
 </head>
 
 <body>

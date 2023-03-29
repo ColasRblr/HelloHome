@@ -6,6 +6,7 @@
 }
 .titlePageDashboard {
   background-color: #094351;
+  font-family: "Palanquin", sans-serif;
 }
 h1 {
   color: white;
@@ -15,6 +16,7 @@ h1 {
 h3 {
   font-size: 12px;
   font-weight: bold;
+  font-family: "Palanquin", sans-serif;
 }
 p {
   color: white;
@@ -86,6 +88,7 @@ header i {
   border-radius: 10px;
   padding: 4px;
   margin-right: 1vw;
+  font-family: "Palanquin", sans-serif;
 }
 
 #btnAddProperty {
@@ -98,6 +101,7 @@ header i {
   border-radius: 10px;
   padding: 4px;
   cursor: pointer;
+  font-family: "Palanquin", sans-serif;
 }
 
 #listOfProperties {
@@ -105,6 +109,7 @@ header i {
   height: 60vh;
   margin-top: 3vh;
   width: auto;
+  font-family: "Palanquin", sans-serif;
 }
 
 #listOfPropertyByUser {
@@ -127,6 +132,7 @@ header i {
   margin-top: 40px;
   margin-bottom: 30px;
   padding: 3px;
+  align-items: center;
 }
 /* ...........................Footer */
 footer {
@@ -150,8 +156,11 @@ footer p {
     font-size: 20px;
   }
   header img {
-    height: 70%;
-    width: 70%;
+    width: 25vw;
+    height: 10vh;
+  }
+  header i {
+    font-size: 20px;
   }
   td {
     margin-right: 1px;

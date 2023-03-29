@@ -35,6 +35,11 @@ $id_property = $_GET['id'];
             <i class="bi bi-x-circle-fill"></i>
         </div>
     </header>
+    <div id="returnDashboard">
+        <a href="?action=displayDashboard">
+            <i id="arrowReturn" class="bi bi-arrow-left-circle"></i>
+        </a>
+    </div>
     <div id="containerDashboardAddProperty">
         <div id="titleAddProperty">
             <h1 class="titlePageDashboard">Modifier le bien</h1>
@@ -194,7 +199,7 @@ $id_property = $_GET['id'];
                 <!-- <button type="button" id="addImage">Ajouter des images</button> -->
                 <div class="bottomForm">
                     <button type="submit" class="propertySubmitBtn"> Valider </button>
-                    <button type="reset" class="propertySubmitBtn"> Annuler </button>
+                    <!-- <button type="reset" class="propertySubmitBtn"> Annuler </button> -->
                 </div>
             </div>
         </form>
