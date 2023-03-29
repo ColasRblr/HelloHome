@@ -4,6 +4,7 @@
 //     print_r($displayProperty);
 // ?> 
 
+<link rel="stylesheet" href="./style/Pageannonce.css">
 
 <link rel="stylesheet" href="style/pageAnnonce.css">
 
@@ -12,19 +13,23 @@
 </head>
 <body>
   <header>
-    <div id="logo">
-      <a href="?action=dashboardConnection">
-        <img src="asset/hellohome_1.png" width="150px" alt="hellohome logo">
-      </a>
+    <div id="imageBackground">
+      <img src="./asset/img/<?= $picture[0]["picture_url"] ?>" alt="Une villa splendide">
     </div>
     <div class="navbar">
-      <ul>
-        <li><a href="#landingPage">Accueil</a></li>
-        <li><a href="#spotlightTitle">Nos biens à la une</a></li>
-        <li><a href="#landingPage">Recherche</a></li>
-        <li><a href="#helloHomeAgency">L'agence</a></li>
-        <li><a href="#contactSection">Contact</a></li>
-      </ul>
+      <div id="logo">
+        <a href="?action=backToHomePage">
+          <img src="asset/hellohome_1.png" width="150px" alt="hellohome logo">
+        </a>
+      </div>
+      <div id="links">
+        <ul>
+          <li><a href="#" onclick="rtn()">Accueil</a></li>
+          <li><a href="#decouverteHouse">Le Bien</a></li>
+          <li><a href="#pics">Photos</a></li>
+          <li><a href="#infoTitleAnnonce">Informations essentielles</a></li>
+        </ul>
+      </div>
     </div>
   </header>
 
@@ -55,13 +60,13 @@
   </div>
 
 
-  <section class="decouverteHouse">
+  <section class="decouverteHouse" id="decouverteHouse">
     <h1 class="decouverte">Découvrez <?= $displayProperty[0]["property_name"] ?> </h1>
     <hr>
     <div>
       <p id="texteAnnonce"><?= $displayProperty[0]['property_description'] ?></p>
     </div>
-    <div class="appareilAnnonce">
+    <div class="appareilAnnonce" id="pics">
       <img src="./images/appareil.png" alt="">
       <h3>Les photos</h3>
       <hr>
@@ -82,6 +87,7 @@
       </div>
       <div id="infoDetailHouse">
         <ul>
+
           <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Numéro Bien : <?= $displayProperty[0]['id_property'] ?></li>
 
           <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Nombre de pièces: <?= $displayProperty[0]['property_numberOfPieces'] ?></li>
@@ -133,6 +139,7 @@
         <?php
         if ($displayProperty[0]['property_seaView'] == 1) {
         ?>
+
           <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Belle vue sur mer</li>
         <?php
         }

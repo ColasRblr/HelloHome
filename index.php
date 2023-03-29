@@ -6,5 +6,3 @@ require './controllers/Routeur.php';
 $routeur = new Routeur();
 $routeur->routerRequete();
 
-// $controller = new PropertyController();
-// $controller->displayProperty();

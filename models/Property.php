@@ -110,6 +110,8 @@ class Property extends Connection
 
     public function getProperties($property_type, $property_transaction, $where, $params)
     {
+        var_dump($where);
+        var_dump($params);
         $sql = "SELECT * FROM property 
         JOIN $property_type ON property.id = $property_type.id_property 
         JOIN transaction_type ON property.id = transaction_type.id_property 

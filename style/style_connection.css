@@ -48,3 +48,14 @@ input[type="submit"] {
   color: white;
   border-radius: 20px;
 }
+
+@media only screen and (max-width: 768px) {
+  #connection {
+    width: 80%;
+  }
+  input {
+    margin: 0px;
+    margin-bottom: 15px;
+    padding: 5px;
+  }
+}

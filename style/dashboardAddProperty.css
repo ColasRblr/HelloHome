@@ -4,9 +4,9 @@
   position: absolute;
 }
 #arrowReturn {
-  width: 15vw;
-  height: 10vh;
+  color: #094351;
 }
+
 #containerDashboardAddProperty {
   text-align: center;
 }
@@ -14,6 +14,7 @@
 h1 {
   color: #c58b03;
   margin: 35px auto;
+  font-family: "Palanquin", sans-serif;
 }
 
 #addPropertyDetails {
@@ -33,6 +34,7 @@ h1 {
   margin: 3%;
   font-size: 15px;
   padding-left: 10px;
+  font-family: "Palanquin", sans-serif;
 }
 
 input {
@@ -63,6 +65,7 @@ textarea {
   font-size: 20px;
   border-color: #094351;
   margin-top: 30px;
+  font-family: "Palanquin", sans-serif;
 }
 
 .btnCheckboxBonus {
@@ -185,6 +188,14 @@ footer p {
 }
 
 @media only screen and (max-width: 768px) {
+  header img {
+    width: 25vw;
+    height: 10vh;
+  }
+  header i {
+    font-size: 20px;
+  }
+
   .btnSelectAddDetails {
     font-size: 15px;
     height: 35px;
