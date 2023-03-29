@@ -9,6 +9,7 @@
 <body>
   <header>
     <div id="logo">
+    <a href="?action=backToHomePage">
       <img src="asset/hellohome_1.png" width="150px" alt="hellohome logo">
       </a>
     </div>

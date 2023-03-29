@@ -48,6 +48,8 @@ class Routeur
                     $this->propertyCtrl->validDeleteProperty($_GET['propertyId']);
                 } else if ($_GET['action'] == 'visitProperty') {
                     $this->propertyCtrl->displayProperty();
+                } else if ($_GET['action'] == 'backToHomePage') {
+                    $this->propertyCtrl->home();
                 }
             } else {
                 $this->propertyCtrl->home();  // action par défaut
