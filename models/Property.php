@@ -118,14 +118,15 @@ class Property extends Connection
 
         if ($where === " WHERE ") {
             $fullSQL = $sql;
-        } else{
+        } else {
             $fullSQL = $sql . $where;
         }
-        var_dump($fullSQL);
+
 
         $results = $this->executerRequete($fullSQL, $params);
         $researchedProperties = $results->fetchAll();
-
+        // echo "toto";
+        // var_dump($researchedProperties);
         return $researchedProperties;
     }
 
