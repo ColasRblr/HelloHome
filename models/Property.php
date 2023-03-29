@@ -116,11 +116,12 @@ class Property extends Connection
         JOIN $property_transaction ON transaction_type.id = $property_transaction.id_transaction 
         JOIN picture ON property.id=picture.id_property";
 
-        if ($where == "WHERE") {
+        if ($where === " WHERE ") {
             $fullSQL = $sql;
-        } else {
+        } else{
             $fullSQL = $sql . $where;
         }
+        var_dump($fullSQL);
 
         $results = $this->executerRequete($fullSQL, $params);
         $researchedProperties = $results->fetchAll();

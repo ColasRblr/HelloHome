@@ -37,7 +37,6 @@ class PropertyController
         $this->transactionCtrl = new TransactionController();
         $this->picture = new Picture();
 
-
         $this->userCtrl = new UserController();
     }
 
@@ -611,7 +610,8 @@ class PropertyController
             'property_distanceFromSea', 'property_swimmingpool',
             'property_seaView', 'parking', 'elevator', 'caretaking',
             'balcony', 'garden', 'rent', 'selling_price', 'furnished'
-        ]; // Ici les noms d'inputs acceptés pour la clause de condition
+        ];
+        // Ici les noms d'inputs acceptés pour la clause de condition
         foreach ($researchProperties as $key => $value) {
 
             if (in_array($key, $authorizedKeys)) {
@@ -635,7 +635,6 @@ class PropertyController
                 $where .= $v . $and;
             }
         }
-
 
         $researchedProperties = $this->property->getProperties($propertyType, $transactionStatus, $where, $params);
 
