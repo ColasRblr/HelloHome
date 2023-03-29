@@ -1,7 +1,7 @@
 <?php $titre = "Page annonce";
 ?>
 
-<link rel="stylesheet" href="style/annonce.css">
+<link rel="stylesheet" href="./style/Pageannonce.css">
 
 
 </head>
