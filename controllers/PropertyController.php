@@ -511,15 +511,13 @@ class PropertyController
         $type =  $this->getTypesByPropertyId($id)["type"];
 
         $transaction =  $this->getTypesByPropertyId($id)["transaction"];
-        $displayProperty =$this->property->getDetailsLastProperties($id, $type, $transaction);
+        $displayProperty = $this->property->getDetailsLastProperties($id, $type, $transaction);
         // var_dump($displayProperty);
         // echo $id;
         // echo $type;
         // echo $transaction;
         $propView = new View("Property");
-    $propView->generer
-    (array("displayProperty"=>$displayProperty));
-
+        $propView->generer(array("displayProperty" => $displayProperty));
     }
 
 
@@ -538,28 +536,7 @@ class PropertyController
         parse_str($query, $queryParams);
         return $queryParams['transaction'];
     }
-    
 
-
-
-
-
-
-        // try {
-        //     $dbh = new PDO('mysql:host=localhost;dbname=poo_immo;charset=utf8', 'root', '',);
-           
-            
-        // } catch (PDOException $e) {
-        //     print "Erreur !: " . $e->getMessage() . "<br/>";
-        //     die();
-        // }
-        // $sql ="SELECT * FROM property WHERE id = ?";
-        // $sql->([$id]);
-        // $displayProperty = $sql->fetch();
-       
-
-        //var_dump($displayProperty);
-    }
 
     //return $displayProperty;
     public function validDeleteProperty($id_property)
@@ -687,5 +664,4 @@ class PropertyController
         $view = new View("Home");
         $view->generer(array('researchedProperties' => $researchedProperties, 'propertyType' => $propertyType, 'transactionStatus' => $transactionStatus, 'displayLastProperties' => $displayLastProperties));
     }
-
 }
