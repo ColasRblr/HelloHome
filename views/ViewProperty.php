@@ -131,7 +131,6 @@ Suite [26] => Seashell Suite [picture_url] => appartement9.jpg [27] => apparteme
            <?php
             }
             ?>
-
            <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Zone: <?= $displayProperty[0]['property_area'] ?></li>
            <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Informations complémentaires :un garage, une cave</li>
            <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Prix de vente frais agence inclus : <em><?= $displayProperty[0]['selling_price'] ?> </em></li>
