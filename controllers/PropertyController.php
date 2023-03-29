@@ -46,7 +46,7 @@ class PropertyController
         $this->transactionCtrl = new TransactionController();
         $this->picture = new Picture();
         $this->property = new Property();
-        
+
         $this->userCtrl = new UserController();
     }
 
@@ -535,9 +535,9 @@ class PropertyController
         $propView->generer($displayProperty);
 
         //var_dump($displayProperty);
+    }
 
-
-        //return $displayProperty;
+    //return $displayProperty;
     public function validDeleteProperty($id_property)
     {
         session_start();

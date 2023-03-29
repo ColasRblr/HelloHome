@@ -118,6 +118,7 @@ class Property extends Connection
         $houses = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         return $houses;
+    }
     public function deleteProperty($id_property)
     {
         $sql = "DELETE FROM property WHERE id =?;";
@@ -145,6 +146,5 @@ class Property extends Connection
         } catch (Exception $e) {
             echo $e->getMessage();
         }
-
     }
 }
