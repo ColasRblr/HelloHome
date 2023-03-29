@@ -12,15 +12,6 @@ require_once './controllers/TransactionController.php';
 //include './models/Connection.php';
 require_once 'models/Connection.php';
 
-require __DIR__ . '/../vendor/autoload.php';
-
-use Dotenv\Dotenv;
-
-$dotenv = Dotenv::createImmutable(dirname(dirname(__DIR__)) . '/POO_Immo');
-$dotenv->load();
-
-//use models\Connection\getBdd as bigData;
-
 require_once './controllers/UserController.php';
 
 class PropertyController
@@ -45,8 +36,6 @@ class PropertyController
         $this->sale = new Sale();
         $this->transactionCtrl = new TransactionController();
         $this->picture = new Picture();
-        $this->property = new Property();
-
         $this->userCtrl = new UserController();
     }
 
@@ -506,7 +495,6 @@ class PropertyController
             $propView = new View("Property");
             $propView->generer(array("displayProperty" => $displayProperty, "picture" => $picture));
         }
-
     }
 
 
@@ -621,7 +609,8 @@ class PropertyController
             'property_distanceFromSea', 'property_swimmingpool',
             'property_seaView', 'parking', 'elevator', 'caretaking',
             'balcony', 'garden', 'rent', 'selling_price', 'furnished'
-        ]; // Ici les noms d'inputs acceptés pour la clause de condition
+        ];
+        // Ici les noms d'inputs acceptés pour la clause de condition
         foreach ($researchProperties as $key => $value) {
 
             if (in_array($key, $authorizedKeys)) {
@@ -639,13 +628,13 @@ class PropertyController
                 $params[] = $value;
             }
         }
-        if (count($sqlParts) > 1) {
+        if (count($sqlParts) >= 1) {
             foreach ($sqlParts as $k => $v) {
                 $and = ($k < count($sqlParts) - 1) ? ' AND ' : null;
                 $where .= $v . $and;
             }
         }
-
+        var_dump($where);
         $researchedProperties = $this->property->getProperties($propertyType, $transactionStatus, $where, $params);
 
         $displayLastProperties = $this->displayLastProperties();
