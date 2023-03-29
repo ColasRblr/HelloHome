@@ -1,5 +1,5 @@
 body {
-  background: url("maison.jpg");
+  background: url("./../asset/img/appartement-photo.jpg");
   font-family: Arial, sans-serif;
   background-size: cover;
   background-repeat: no-repeat;
@@ -345,7 +345,7 @@ ul li:before {
   font-size: 30px;
 }
 
-.footer {
+#footer {
   text-align: center;
   font-size: 15px;
   padding: 10px;
