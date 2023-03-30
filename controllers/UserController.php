@@ -106,8 +106,8 @@ class UserController
         $data = json_decode($json_data, true);
         session_start();
         if (isset($data['info'])) {
-            $firstname = $data['info'][0];
-            $lastname = $data['info'][1];
+            $firstname = $data['info'][1];
+            $lastname = $data['info'][0];
             $email = $data['info'][2];
             try {
                 $this->user->updateAdminInfo($firstname, $lastname, $email, $_SESSION['user_id']);

@@ -290,3 +290,5 @@ $titre = "Accueil";
                 </a>
             </h1>
         </footer>
+
+        <script src="./js/home.js"></script>

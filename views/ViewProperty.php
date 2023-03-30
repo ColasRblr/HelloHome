@@ -1,5 +1,8 @@
+
 <//?php 
 print_r($displayProperty); ?>
+<?php
+
 
 <link rel="stylesheet" href="./style/Pageannonce.css">
 
@@ -32,6 +35,7 @@ print_r($displayProperty); ?>
   </header>
 
   <div id="annonceVente">
+
     <p class="vente">
   <?php
   if (isset($displayProperty[0]['rent']) && !empty($displayProperty[0]['rent'])) {
@@ -43,16 +47,6 @@ print_r($displayProperty); ?>
   }
   ?>
 </p>
-
-    
-
-
-
-
-
-
-
-    
     
 <p class="annonceTitle"><?= $displayProperty[0]["property_location"] ?>|
   <?php
@@ -65,15 +59,8 @@ print_r($displayProperty); ?>
   }
   ?>
 </p>
-
-
-
-
-
-
-
-
-
+    <p class="vente">A vendre !</span></p>
+    <p class="annonceTitle"><?= $displayProperty[0]["property_location"] ?> | A vendre</p
 
     <h2 class="houseName" style="font-size: smaller"><?= $displayProperty[0]["property_name"] ?></h2>
 
@@ -108,6 +95,7 @@ print_r($displayProperty); ?>
       <hr>
 
       <div id="appareilPhotoAnnonce">
+
       <?php foreach ($displayProperty as $property) { ?>
     <img src="asset/img/<?= $property['picture_url'] ?>" alt="<?= $property['picture_description'] ?>" >
         
@@ -116,7 +104,14 @@ print_r($displayProperty); ?>
         <img src="asset/img/<?= $property['picture_url'] ?>" alt="<?= $property['picture_description'] ?>" >
       <?php } ?>
           </div>
-    </div>
+        <?php foreach ($displayProperty as $property) { ?>
+          <img src="asset/img/<?= $property['picture_url'] ?>" alt="<?= $property['picture_description'] ?>">
+        <?php } ?>
+        <?php foreach ($displayProperty as $property) { ?>
+          <img src="asset/img/<?= $property['picture_url'] ?>" alt="<?= $property['picture_description'] ?>">
+        <?php } ?>
+      </div>
+   </div>
 
   </section>
 
@@ -194,19 +189,6 @@ print_r($displayProperty); ?>
   ?>
 </ul>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php
     if (isset($displayProperty[0]['selling_price']) && $displayProperty[0]['selling_price'] == 1) {
     ?>
@@ -218,9 +200,6 @@ print_r($displayProperty); ?>
     <?php
     }
     ?>
-
-
-
           <?php
 if (!empty($displayProperty[0]['parking'])) {
 ?>
@@ -244,15 +223,6 @@ if (isset($displayProperty[0]['bonus']) && !empty($displayProperty[0]['bonus']))
 <?php
 }
 ?>
-
-
-
-
-
-
-
-
-
 
         </ul>
       </div>
@@ -285,22 +255,18 @@ if (isset($displayProperty[0]['bonus']) && !empty($displayProperty[0]['bonus']))
       </div>
     </section>
   </div>
-
-
-
-<div class="photoInfo">
-  <?php foreach ($displayProperty as $property) { ?>
-    <img src="asset/img/<?= $property['picture_url'] ?>" alt="<?= $property['picture_description'] ?>" >
-  <?php } ?>
-</div>
+  <div class="photoInfo">
+    <?php foreach ($displayProperty as $property) { ?>
+      <img src="asset/img/<?= $property['picture_url'] ?>" alt="<?= $property['picture_description'] ?>">
+    <?php } ?>
+  </div>
 
 
   <footer>
-      <h1 id="footer">
-        Mentions légales | 2023 |
-        <a href="?action=dashboardConnection">
-          Dashboard
-        </a>
-      </h1>
-    </footer>
-
+    <h1 id="footer">
+      Mentions légales | 2023 |
+      <a href="?action=dashboardConnection">
+        Dashboard
+      </a>
+    </h1>
+  </footer>
