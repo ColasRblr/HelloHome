@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  console.log("toto");
   // Waits until the page is ready
   // Write your JS code here
   // console.log('coucou');
@@ -18,7 +19,7 @@ $(document).ready(function () {
   });
 
   // Showing rentalFilters on click
-  $("#rentalBtn").click(function () {
+  $("#btns-rental-lbl").click(function () {
     $("#btns-rental").css("box-shadow", "inset 2px 2px 10px #255057");
     $("#btns-sale").css("box-shadow", "none");
     $("#rentalFilters").show();
@@ -27,6 +28,7 @@ $(document).ready(function () {
 
   // Showing more general filters on click
   $("#moreFiltersBtn").click(function () {
+    console.log("tata");
     $("#generalFilters").toggle();
   });
 

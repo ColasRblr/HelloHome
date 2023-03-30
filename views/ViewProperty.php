@@ -1,4 +1,5 @@
-</ /?php // include '/PropertyController.php' ; print_r($displayProperty); // ?>
+<?php
+print_r($displayProperty); ?>
 
 <link rel="stylesheet" href="./style/Pageannonce.css">
 
@@ -32,7 +33,7 @@
 
   <div id="annonceVente">
     <p class="vente">A vendre !</span></p>
-    <p class="annonceTitle"><?= $displayProperty[0]["property_location"] ?>| A vendre</p>
+    <p class="annonceTitle"><?= $displayProperty[0]["property_location"] ?> | A vendre</p>
 
     <h2 class="houseName" style="font-size: smaller"><?= $displayProperty[0]["property_name"] ?></h2>
 
@@ -68,12 +69,12 @@
       <h3>Les photos</h3>
       <hr>
       <div id="appareilPhotoAnnonce">
-      <?php foreach ($displayProperty as $property) { ?>
-    <img src="asset/img/<?= $property['picture_url'] ?>" alt="<?= $property['picture_description'] ?>" >
-  <?php } ?>
-  <?php foreach ($displayProperty as $property) { ?>
-    <img src="asset/img/<?= $property['picture_url'] ?>" alt="<?= $property['picture_description'] ?>" >
-  <?php } ?>
+        <?php foreach ($displayProperty as $property) { ?>
+          <img src="asset/img/<?= $property['picture_url'] ?>" alt="<?= $property['picture_description'] ?>">
+        <?php } ?>
+        <?php foreach ($displayProperty as $property) { ?>
+          <img src="asset/img/<?= $property['picture_url'] ?>" alt="<?= $property['picture_description'] ?>">
+        <?php } ?>
       </div>
     </div>
 
@@ -160,11 +161,11 @@
 
 
 
-<div class="photoInfo">
-  <?php foreach ($displayProperty as $property) { ?>
-    <img src="asset/img/<?= $property['picture_url'] ?>" alt="<?= $property['picture_description'] ?>" >
-  <?php } ?>
-</div>
+  <div class="photoInfo">
+    <?php foreach ($displayProperty as $property) { ?>
+      <img src="asset/img/<?= $property['picture_url'] ?>" alt="<?= $property['picture_description'] ?>">
+    <?php } ?>
+  </div>
 
 
   <div id="cadreInfo">
@@ -180,11 +181,10 @@
   </div>
   </div>
   <footer>
-      <h1 id="footer">
-        Mentions légales | 2023 |
-        <a href="?action=dashboardConnection">
-          Dashboard
-        </a>
-      </h1>
-    </footer>
-
+    <h1 id="footer">
+      Mentions légales | 2023 |
+      <a href="?action=dashboardConnection">
+        Dashboard
+      </a>
+    </h1>
+  </footer>
