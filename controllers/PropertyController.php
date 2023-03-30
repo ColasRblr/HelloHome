@@ -591,10 +591,11 @@ class PropertyController
             $rent = $_POST['rent'];
             $researchProperties['rent'] = $rent;
         }
-        
+
         //print_r($researchProperties);
 
         var_dump($researchProperties);
+
 
         $where = " WHERE ";
         $params = [];
