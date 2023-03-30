@@ -572,7 +572,7 @@ class PropertyController
             $researchProperties['rent'] = $rent;
         }
         // print_r($researchProperties);
-        var_dump($researchProperties);
+        // var_dump($researchProperties);
 
         $where = " WHERE ";
         $params = [];
