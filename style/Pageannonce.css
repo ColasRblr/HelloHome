@@ -44,15 +44,15 @@ img {
 }
 header {
   width: 100vw;
-  display: flex;
-  position: fixed;
-  justify-content: space-between;
-  background-color: rgba(0, 0, 0, 0.364);
-  z-index: 1;
+  height: fit-content;
 }
 
 .navbar {
-  height: 60px;
+  display: flex;
+  position: fixed;
+  width:100%;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.364);
   padding-right: 1em;
   z-index: 2;
 }

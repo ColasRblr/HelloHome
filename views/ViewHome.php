@@ -7,19 +7,21 @@ $titre = "Accueil";
 
 <body>
     <header>
-        <div id="logo">
-            <a href="?action=dashboardConnection">
-                <img src="asset/hellohome_1.png" width="150px" alt="hellohome logo">
-            </a>
-        </div>
         <div class="navbar">
-            <ul>
-                <li><a href="#landingPage">Accueil</a></li>
-                <li><a href="#spotlightTitle">Nos biens à la une</a></li>
-                <li><a href="#landingPage">Recherche</a></li>
-                <li><a href="#helloHomeAgency">L'agence</a></li>
-                <li><a href="#contactSection">Contact</a></li>
-            </ul>
+            <div id="logo">
+                <a href="?action=dashboardConnection">
+                    <img src="asset/hellohome_1.png" width="150px" alt="hellohome logo">
+                </a>
+            </div>
+            <div id="links">
+                <ul>
+                    <li><a href="#landingPage">Accueil</a></li>
+                    <li><a href="#spotlightTitle">Nos biens à la une</a></li>
+                    <li><a href="#landingPage">Recherche</a></li>
+                    <li><a href="#helloHomeAgency">L'agence</a></li>
+                    <li><a href="#contactSection">Contact</a></li>
+                </ul>
+            </div>
         </div>
 
     </header>

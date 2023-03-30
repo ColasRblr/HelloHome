@@ -8,18 +8,21 @@
 
 <body>
   <header>
-    <div id="logo">
-    <a href="?action=backToHomePage">
-      <img src="asset/hellohome_1.png" width="150px" alt="hellohome logo">
-      </a>
-    </div>
+
     <div class="navbar">
-      <ul>
-        <li><a href="#" onclick="rtn()">Accueil</a></li>
-        <li><a href="#decouverteHouse">Le Bien</a></li>
-        <li><a href="#pics">Photos</a></li>
-        <li><a href="#infoTitleAnnonce">Informations essentielles</a></li>
-      </ul>
+      <div id="logo">
+        <a href="?action=backToHomePage">
+          <img src="asset/hellohome_1.png" width="150px" alt="hellohome logo">
+        </a>
+      </div>
+      <div id="links">
+        <ul>
+          <li><a href="#" onclick="rtn()">Retour à ma recherche</a></li>
+          <li><a href="#decouverteHouse">Le Bien</a></li>
+          <li><a href="#pics">Photos</a></li>
+          <li><a href="#infoTitleAnnonce">Informations essentielles</a></li>
+        </ul>
+      </div>
     </div>
   </header>
 
