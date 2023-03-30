@@ -58,4 +58,7 @@ input[type="submit"] {
     margin-bottom: 15px;
     padding: 5px;
   }
+  h1 {
+    font-size: 14px;
+  }
 }
