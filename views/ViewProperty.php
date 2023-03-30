@@ -1,4 +1,5 @@
-</ /?php // include '/PropertyController.php' ; print_r($displayProperty); // ?>
+<//?php 
+print_r($displayProperty); ?>
 
 <link rel="stylesheet" href="./style/Pageannonce.css">
 
@@ -31,27 +32,65 @@
   </header>
 
   <div id="annonceVente">
-    <p class="vente">A vendre !</span></p>
-    <p class="annonceTitle"><?= $displayProperty[0]["property_location"] ?>| A vendre</p>
+    <p class="vente">
+  <?php
+  if (isset($displayProperty[0]['rent']) && !empty($displayProperty[0]['rent'])) {
+    echo "À LOUER";
+  } elseif (isset($displayProperty[0]['selling_price']) && !empty($displayProperty[0]['selling_price'])) {
+    echo "À vendre";
+  } else {
+    echo "Titre à définir";
+  }
+  ?>
+</p>
+
+    
+
+
+
+
+
+
+
+    
+    
+<p class="annonceTitle"><?= $displayProperty[0]["property_location"] ?>|
+  <?php
+  if (isset($displayProperty[0]['rent']) && !empty($displayProperty[0]['rent'])) {
+    echo "À louer";
+  } elseif (isset($displayProperty[0]['selling_price']) && !empty($displayProperty[0]['selling_price'])) {
+    echo "À vendre";
+  } else {
+    echo "";
+  }
+  ?>
+</p>
+
+
+
+
+
+
+
+
+
 
     <h2 class="houseName" style="font-size: smaller"><?= $displayProperty[0]["property_name"] ?></h2>
 
     <hr>
     <div class="divAnnonce">
-      <div>
-        <img src="./images/lit.png" alt="">
-        <p>Pièces</p>
-        <p> 7 pièces</p>
-      </div>
-      <div>
-        <img src="./images/sur.png" alt="">
-        <p>Surfaces</p>
-        <p>198m2</p>
-      </div>
-      <div>
-        <img src="./images/sapin.png" alt="">
-        <p>Terrain</p>
-        <p>1680m2</p>
+  <div>
+    <img src="./images/lit.png" alt="">
+    <p>Pièces</p>
+    <p><?= $displayProperty[0]['property_numberOfPieces'] ?> pièces</p>
+  </div>
+  <div>
+  <div>
+    <img src="./images/sur.png" alt="">
+    <p>Surfaces</p>
+    <p><?= $displayProperty[0]['property_area'] ?>m²</p>
+  </div>
+        
       </div>
     </div>
   </div>
@@ -67,14 +106,16 @@
       <img src="./images/appareil.png" alt="">
       <h3>Les photos</h3>
       <hr>
+
       <div id="appareilPhotoAnnonce">
       <?php foreach ($displayProperty as $property) { ?>
     <img src="asset/img/<?= $property['picture_url'] ?>" alt="<?= $property['picture_description'] ?>" >
-  <?php } ?>
-  <?php foreach ($displayProperty as $property) { ?>
-    <img src="asset/img/<?= $property['picture_url'] ?>" alt="<?= $property['picture_description'] ?>" >
-  <?php } ?>
-      </div>
+        
+      <?php } ?>
+      <?php foreach ($displayProperty as $property) { ?>
+        <img src="asset/img/<?= $property['picture_url'] ?>" alt="<?= $property['picture_description'] ?>" >
+      <?php } ?>
+          </div>
     </div>
 
   </section>
@@ -97,34 +138,120 @@
             <li style="margin-bottom: 1px; font-size: 13px; line-height: 8px">-Piscine privée</li>
           <?php } ?>
 
-          <?php if ($displayProperty[0]['balcony'] == 1) { ?>
-            <li style="margin-bottom: 1px; font-size: 13px; line-height: 8px">-Balcon</li>
-          <?php } ?>
-
-          <?php if ($displayProperty[0]['caretaking'] == 1) { ?>
-            <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Service de gardiennage</li>
-          <?php } ?>
-
-
-          <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Statut de la transaction : <?= $displayProperty[0]['transaction_status'] ?></li>
-
-
-          <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Date de transaction : <?= $displayProperty[0]['transaction_onlineDate'] ?></li>
+      <?php
+      if (isset($displayProperty[0]['balcony']) && $displayProperty[0]['balcony'] == 1) {
+      ?>
+        <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Balcon</li>
+      <?php
+      } else {
+      ?>
+        <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px"></li>
+      <?php
+      }
+      ?>
 
 
+    <?php
+    if (isset($displayProperty[0]['caretaking']) && $displayProperty[0]['caretaking'] == 1) {
+    ?>
+      <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Service de conciergerie</li>
+    <?php
+    } else {
+    ?>
+      <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px"></li>
+    <?php
+    }
+    ?>
 
-          <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Statut de la transaction : <?= $displayProperty[0]['transaction_status'] ?></li>
+
+<?php
+    if (isset($displayProperty[0]['garden']) && $displayProperty[0]['garden'] == 1) {
+    ?>
+      <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Jardin</li>
+    <?php
+    } else {
+    ?>
+      <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px"></li>
+    <?php
+    }
+    ?>
+
+<ul>
+  <?php
+  if (isset($displayProperty[0]['rent']) && !empty($displayProperty[0]['rent'])) {
+  ?>
+    <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-<?php echo $displayProperty[0]['rent']; ?> €/mois</li>
+  <?php
+  } elseif (isset($displayProperty[0]['selling_price']) && !empty($displayProperty[0]['selling_price'])) {
+  ?>
+    <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-<?php echo $displayProperty[0]['selling_price']; ?> €</li>
+  <?php
+  } else {
+  ?>
+    <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px"></li>
+  <?php
+  }
+  ?>
+</ul>
 
 
-          <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Date de transaction : <?= $displayProperty[0]['transaction_onlineDate'] ?></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+    if (isset($displayProperty[0]['selling_price']) && $displayProperty[0]['selling_price'] == 1) {
+    ?>
+      <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Prix</li>
+    <?php
+    } else {
+    ?>
+      <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px"></li>
+    <?php
+    }
+    ?>
+
+
+
           <?php
-          if ($displayProperty[0]['parking'] == 1) {
-          ?>
-            <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Parking</li>
-          <?php
-          }
-          ?>
-          <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Zone: <?= $displayProperty[0]['property_area'] ?></li>
+if (!empty($displayProperty[0]['parking'])) {
+?>
+  <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Parking</li>
+<?php
+} else {
+?>
+  <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px"></li>
+<?php
+}
+?>
+
+<?php
+if (isset($displayProperty[0]['bonus']) && !empty($displayProperty[0]['bonus'])) {
+?>
+  <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Bonus : <?php echo $displayProperty[0]['bonus']; ?></li>
+<?php
+} else {
+?>
+  <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px"></li>
+<?php
+}
+?>
+
+
+
+
+
+
+
+
 
 
         </ul>
@@ -145,11 +272,12 @@
         <?php
         }
         ?>
-        <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Distance à la mer: <?= $displayProperty[0]['property_distanceFromSea'] ?></li>
+        <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">- Distance à la mer: <?= $displayProperty[0]['property_distanceFromSea'] ?> m</li>
+
       </ul>
       <hr>
       <div id="agent">
-        <img src="./images/agent.jpg" alt="">
+        <img src="asset/img/agent.jpg" alt="">
         <div>
           <p id="readAgent">Solenne vous accompagne<br>à la découverte de ce bien !</p>
           <p id="sendMSG">Envoyer un message -></p>
@@ -167,18 +295,6 @@
 </div>
 
 
-  <div id="cadreInfo">
-    <p>Restez au courant des actualités de votre agence Poo-Immo</p>
-    <h3>Abonnez vous à la newsletter !</h3>
-    <hr>
-    <div class="infoH3">
-      <h4 class="p">Prénom</h4>
-      <h4 class="n">Nom</h4>
-      <h4 class="e">Email</h4>
-      <h4 class="s">S'abonner</h4>
-    </div>
-  </div>
-  </div>
   <footer>
       <h1 id="footer">
         Mentions légales | 2023 |
