@@ -11,7 +11,7 @@ $(document).ready(function () {
   $("#houseFilters").show();
 
   // Showing saleFilters on click
-  $("#saleBtn").click(function () {
+  $("#btns-sale-lbl").click(function () {
     $("#btns-sale-lbl").css("box-shadow", "inset 2px 2px 10px #6a4c04");
     $("#btns-rental-lbl").css("box-shadow", "none");
     $("#rentalFilters").hide();
@@ -20,8 +20,11 @@ $(document).ready(function () {
 
   // Showing rentalFilters on click
   $("#btns-rental-lbl").click(function () {
-    $("#btns-rental").css("box-shadow", "inset 2px 2px 10px #255057");
-    $("#btns-sale").css("box-shadow", "none");
+
+    console.log("toto")
+    $("#btns-rental-lbl").css("box-shadow", "inset 2px 2px 10px #255057");
+    $("#btns-sale-lbl").css("box-shadow", "none");
+
     $("#rentalFilters").show();
     $("#saleFilters").hide();
   });
