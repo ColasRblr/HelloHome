@@ -592,7 +592,7 @@ class PropertyController
             $researchProperties['rent'] = $rent;
         }
         
-        <!--print_r($researchProperties);
+        //print_r($researchProperties);
 
         var_dump($researchProperties);
 
