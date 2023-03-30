@@ -487,6 +487,25 @@ class PropertyController
         }
     }
 
+    public function getTypeFromUrl($url)
+    {
+        $parsedUrl = parse_url($url);
+        $query = $parsedUrl['query'];
+        parse_str($query, $queryParams);
+        return $queryParams['type'];
+    }
+
+    public function getTransactionFromUrl($url)
+    {
+        $parsedUrl = parse_url($url);
+        $query = $parsedUrl['query'];
+        parse_str($query, $queryParams);
+        return $queryParams['transaction'];
+    }
+
+
+    //return $displayProperty;
+
     public function validDeleteProperty($id_property)
     {
         session_start();
@@ -503,6 +522,7 @@ class PropertyController
         }
         $this->userCtrl->displayDashboard();
     }
+
 
     public function getProperties()
     {
@@ -571,7 +591,9 @@ class PropertyController
             $rent = $_POST['rent'];
             $researchProperties['rent'] = $rent;
         }
-        // print_r($researchProperties);
+        
+        //print_r($researchProperties);
+
         var_dump($researchProperties);
 
         $where = " WHERE ";
@@ -599,6 +621,7 @@ class PropertyController
                 }
                 $params[] = $value;
             }
+        
         }
 
         if (count($sqlParts) >= 1) {
@@ -613,4 +636,6 @@ class PropertyController
         $view = new View("Home");
         $view->generer(array('researchedProperties' => $researchedProperties, 'propertyType' => $propertyType, 'transactionStatus' => $transactionStatus, 'displayLastProperties' => $displayLastProperties));
     }
+
 }
+
