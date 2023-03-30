@@ -1,8 +1,11 @@
-<?php $titre = "Page annonce";
-?>
+</ /?php // include '/PropertyController.php' ; print_r($displayProperty); // ?>
 
 <link rel="stylesheet" href="./style/Pageannonce.css">
 
+<link rel="stylesheet" href="style/pageAnnonce.css">
+
+
+<title>Page annonce</title>
 </head>
 
 <body>
@@ -38,7 +41,7 @@
       <div>
         <img src="./images/lit.png" alt="">
         <p>Pièces</p>
-        <p>9 pièces</p>
+        <p> 7 pièces</p>
       </div>
       <div>
         <img src="./images/sur.png" alt="">
@@ -65,8 +68,12 @@
       <h3>Les photos</h3>
       <hr>
       <div id="appareilPhotoAnnonce">
-        <img src="./images/photo1.jpg" alt="">
-        <img src="./images/photo2.jpg" alt="">
+      <?php foreach ($displayProperty as $property) { ?>
+    <img src="asset/img/<?= $property['picture_url'] ?>" alt="<?= $property['picture_description'] ?>" >
+  <?php } ?>
+  <?php foreach ($displayProperty as $property) { ?>
+    <img src="asset/img/<?= $property['picture_url'] ?>" alt="<?= $property['picture_description'] ?>" >
+  <?php } ?>
       </div>
     </div>
 
@@ -103,7 +110,13 @@
 
 
           <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Date de transaction : <?= $displayProperty[0]['transaction_onlineDate'] ?></li>
-          >>>>>>> 586e5a5de3c9de98a9216329f123c78fecc0bd52
+
+
+
+          <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Statut de la transaction : <?= $displayProperty[0]['transaction_status'] ?></li>
+
+
+          <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Date de transaction : <?= $displayProperty[0]['transaction_onlineDate'] ?></li>
           <?php
           if ($displayProperty[0]['parking'] == 1) {
           ?>
@@ -112,8 +125,8 @@
           }
           ?>
           <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Zone: <?= $displayProperty[0]['property_area'] ?></li>
-          <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Informations complémentaires :un garage, une cave</li>
-          <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Prix de vente frais agence inclus : <em><?= $displayProperty[0]['selling_price'] ?> </em></li>
+
+
         </ul>
       </div>
     </section>
@@ -145,26 +158,33 @@
     </section>
   </div>
 
-  <div class="photoInfo">
-    <!-- <img src="./images/lux.jpg" alt="une pièce lumineuse"> -->
-    <div id="cadreInfo">
-      <p>Restez au courant des actualités de votre agence Poo-Immo</p>
-      <h3>Abonnez vous à la newsletter !</h3>
-      <hr>
-      <div class="infoH3">
-        <h4 class="p">Prénom</h4>
-        <h4 class="n">Nom</h4>
-        <h4 class="e">Email</h4>
-        <h4 class="s">S'abonner</h4>
-      </div>
+
+
+<div class="photoInfo">
+  <?php foreach ($displayProperty as $property) { ?>
+    <img src="asset/img/<?= $property['picture_url'] ?>" alt="<?= $property['picture_description'] ?>" >
+  <?php } ?>
+</div>
+
+
+  <div id="cadreInfo">
+    <p>Restez au courant des actualités de votre agence Poo-Immo</p>
+    <h3>Abonnez vous à la newsletter !</h3>
+    <hr>
+    <div class="infoH3">
+      <h4 class="p">Prénom</h4>
+      <h4 class="n">Nom</h4>
+      <h4 class="e">Email</h4>
+      <h4 class="s">S'abonner</h4>
     </div>
   </div>
-
+  </div>
   <footer>
-    <h1 id="footer">
-      Mentions légales | 2023 |
-      <a href="?action=dashboardConnection">
-        Dashboard
-      </a>
-    </h1>
-  </footer>
+      <h1 id="footer">
+        Mentions légales | 2023 |
+        <a href="?action=dashboardConnection">
+          Dashboard
+        </a>
+      </h1>
+    </footer>
+
