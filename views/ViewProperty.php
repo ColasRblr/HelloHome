@@ -93,9 +93,9 @@
       <div id="infoDetailHouse">
         <ul>
 
-          <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">- Numéro Bien : <?= $displayProperty[0]['id_property'] ?></li>
+          <!-- <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">- Numéro Bien : <?= $displayProperty[0]['id_property'] ?></li> -->
 
-          <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">- Nombre de pièces: <?= $displayProperty[0]['property_numberOfPieces'] ?></li>
+          <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">- Nombre de pièces: <?= $displayProperty[0]['property_numberOfPieces'] ?> m²</li>
 
           <?php if ($displayProperty[0]['property_swimmingpool'] == 1) { ?>
             <li style="margin-bottom: 1px; font-size: 13px; line-height: 8px">- Piscine privée</li>
@@ -147,7 +147,7 @@
             <?php
             } elseif (isset($displayProperty[0]['selling_price']) && !empty($displayProperty[0]['selling_price'])) {
             ?>
-              <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-<?php echo $displayProperty[0]['selling_price']; ?> €</li>
+              <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">- Prix : <?php echo $displayProperty[0]['selling_price']; ?> €</li>
             <?php
             } else {
             ?>
@@ -171,7 +171,7 @@
           <?php
           if (!empty($displayProperty[0]['parking'])) {
           ?>
-            <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">-Parking</li>
+            <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">- Parking</li>
           <?php
           } else {
           ?>
@@ -210,7 +210,7 @@
         <?php
         }
         ?>
-        <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">- Distance à la mer: <?= $displayProperty[0]['property_distanceFromSea'] ?> m</li>
+        <li style="margin-bottom: 5px; font-size: 13px; line-height: 8px">- Distance à la mer: <?= $displayProperty[0]['property_distanceFromSea'] ?>m</li>
 
       </ul>
       <hr>
