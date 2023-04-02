@@ -8,11 +8,7 @@ use Dotenv\Dotenv;
 
 $dotenv = Dotenv::createImmutable(dirname(dirname(__DIR__)) . '/POO_Immo');
 
-//$dotenv->load();
 $dotenv->load();
-// $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
-// $dotenv->load();
-
 
 class Connection
 {
@@ -33,13 +29,17 @@ class Connection
 
     public function getBdd()
     {
-        
+
         if ($this->bdd == null) {
             $this->bdd = new PDO(
 
                 $_ENV['DATABASE_URL'] . '; dbname=' . $_ENV['DB_NAME'] . '; charset=utf8',
                 $_ENV['PASSWORD'],
                 $_ENV['DB_USER'],
+
+                //  'mysql:host=localhost;dbname=poo_immo;charset=utf8',
+                //  'root',
+                //  '',
 
                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
             );

@@ -50,15 +50,6 @@ class PropertyController
         $view->generer(array('displayLastProperties' => $displayLastProperties));
     }
 
-
-    public function getOneProperty()
-    {
-        // $id_property = $_GET['id'];
-        $properties = "hello";
-        $view = new View("Property");
-        $view->generer(array('properties' => $properties));
-    }
-
     // Gives an array with property_id, property_type(appt or house) and transaction_type(rental or sale)
     public function getTypesByPropertyId($id_property)
     {
@@ -260,7 +251,6 @@ class PropertyController
             $this->transactionCtrl->addRental($id_transaction, $rent, $charges, $furnished);
         }
 
-
         header("LOCATION: http://localhost/POO_Immo/?action=displayDashboard");
     }
 
@@ -442,7 +432,6 @@ class PropertyController
             }
         }
 
-
         $this->property->updateProperty($property_name, $property_description, $property_location, $property_area, $property_numberOfPieces, $property_distanceFromSea, $property_swimmingpool, $property_seaView, $id_property);
         $id_transaction = $this->transaction->updateTransaction($_POST['availablity'], $id_property);
         $this->picture->updatePicture($id_property, $picture_name);
@@ -487,7 +476,6 @@ class PropertyController
 
     public function displayProperty()
     {
-
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $type = $this->getTypesByPropertyId($id)["type"];
@@ -498,7 +486,6 @@ class PropertyController
             $propView->generer(array("displayProperty" => $displayProperty, "picture" => $picture));
         }
     }
-
 
     public function getTypeFromUrl($url)
     {
@@ -516,7 +503,9 @@ class PropertyController
         return $queryParams['transaction'];
     }
 
+
     //return $displayProperty;
+
     public function validDeleteProperty($id_property)
     {
         session_start();
@@ -533,6 +522,7 @@ class PropertyController
         }
         $this->userCtrl->displayDashboard();
     }
+
 
     public function getProperties()
     {
@@ -601,7 +591,6 @@ class PropertyController
             $rent = $_POST['rent'];
             $researchProperties['rent'] = $rent;
         }
-        // print_r($researchProperties);
 
         $where = " WHERE ";
         $params = [];
@@ -629,6 +618,7 @@ class PropertyController
                 $params[] = $value;
             }
         }
+
         if (count($sqlParts) >= 1) {
             foreach ($sqlParts as $k => $v) {
                 $and = ($k < count($sqlParts) - 1) ? ' AND ' : null;
@@ -637,7 +627,6 @@ class PropertyController
         }
 
         $researchedProperties = $this->property->getProperties($propertyType, $transactionStatus, $where, $params);
-
         $displayLastProperties = $this->displayLastProperties();
         $view = new View("Home");
         $view->generer(array('researchedProperties' => $researchedProperties, 'propertyType' => $propertyType, 'transactionStatus' => $transactionStatus, 'displayLastProperties' => $displayLastProperties));

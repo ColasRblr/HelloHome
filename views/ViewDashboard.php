@@ -96,47 +96,49 @@
             </div>
             <div id="statistiquesDashboard">
                 <h1>Statistiques</h1>
-                <div id="numberOfPropertiesAvailable" class="numberStatistique">
-                    <h3 class="statistiques">Nombre de biens total</h3>
-                    <p id="numberPropertyAvailable">
-                        <?php
-                        echo count($allProperties);
-                        ?>
-                    </p>
-                </div>
-                <div id="numberOfPropertiesToSale" class="numberStatistique">
-                    <h3 class="statistiques">Nombre de biens à vendre</h3>
-                    <p id="numberPropertySale">
-                        <?php
-                        echo $countToSell;
-                        ?>
-                    </p>
-                </div>
+                <div id="statistic_container">
+                    <div id="numberOfPropertiesAvailable" class="numberStatistique">
+                        <h3 class="statistiques">Nombre de biens total</h3>
+                        <p id="numberPropertyAvailable">
+                            <?php
+                            echo count($allProperties);
+                            ?>
+                        </p>
+                    </div>
+                    <div id="numberOfPropertiesToSale" class="numberStatistique">
+                        <h3 class="statistiques">Nombre de biens à vendre</h3>
+                        <p id="numberPropertySale">
+                            <?php
+                            echo $countToSell;
+                            ?>
+                        </p>
+                    </div>
 
-                <div id="numberOfPropertiesToRent" class="numberStatistique">
-                    <h3 class="statistiques">Nombre de biens à louer</h3>
-                    <p id="numberPropertyRent">
-                        <?php
-                        echo $countToRent;
-                        ?>
-                    </p>
-                </div>
-                <div id="numberOfPropertiesAsHouses" class="numberStatistique">
-                    <h3 class="statistiques">Nombre de maisons</h3>
-                    <p id="numberHouses">
-                        <?php
-                        echo $countNumberOfHouses;
-                        ?>
-                    </p>
-                </div>
+                    <div id="numberOfPropertiesToRent" class="numberStatistique">
+                        <h3 class="statistiques">Nombre de biens à louer</h3>
+                        <p id="numberPropertyRent">
+                            <?php
+                            echo $countToRent;
+                            ?>
+                        </p>
+                    </div>
+                    <div id="numberOfPropertiesAsHouses" class="numberStatistique">
+                        <h3 class="statistiques">Nombre de maisons</h3>
+                        <p id="numberHouses">
+                            <?php
+                            echo $countNumberOfHouses;
+                            ?>
+                        </p>
+                    </div>
 
-                <div id="numberOfPropertiesAsApartments" class="numberStatistique">
-                    <h3 class="statistiques">Nombre d'appartements</h3>
-                    <p id="numberApartments">
-                        <?php
-                        echo $countNumberOfApartments;
-                        ?>
-                    </p>
+                    <div id="numberOfPropertiesAsApartments" class="numberStatistique">
+                        <h3 class="statistiques">Nombre d'appartements</h3>
+                        <p id="numberApartments">
+                            <?php
+                            echo $countNumberOfApartments;
+                            ?>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -144,5 +146,5 @@
         <footer>
             <p>HelloHome © 2023</p>
         </footer>
-
-        <script src="js/dashboardHome.js"></script>
+    </div>
+    <script src="js/dashboardHome.js"></script>
