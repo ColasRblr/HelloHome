@@ -73,7 +73,7 @@ $titre = "Accueil";
                 <!-- More detailed filters which will appear if user clicks on the upper button -->
                 <section id="generalFilters">
                     <div id="seaDistance">
-                        <label for="seaDistance">Distance de la mer maximum (m)</label>
+                        <label for="seaDistance">Distance de la mer (m)</label>
                         <input type="number" id="seaDistanceInput" name="seaDistance"></input>
                     </div>
                     <div id="pool">
@@ -245,7 +245,7 @@ $titre = "Accueil";
         <!-- Contact form and informations -->
         <div class="homePageTitles" id="contactSection">Nous contacter</div>
         <div id="contactContent">
-            <div id="contactForm">
+            <!-- <div id="contactForm">
                 <h5>Formulaire de contact</h5>
                 <form action="../index.php" method="post" id="contact">
                     <div id="nameDiv">
@@ -263,23 +263,22 @@ $titre = "Accueil";
                         <button type="submit" id="contactBtn">Envoyer</button>
                     </div>
                 </form>
-            </div>
+            </div> -->
             <div id="contactDetails">
                 <h5>Nos coordonnées</h5>
                 <div id="containerMap">
-
                     <div id="map">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2884.3071215915875!2d7.265751115797838!3d43.70416617911946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12cddaa88a077eed%3A0x4218e3ddc48aeb4c!2s20%20Avenue%20Notre%20Dame%2C%2006000%20Nice!5e0!3m2!1sfr!2sfr!4v1679902199416!5m2!1sfr!2sfr" width="350" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                     <div id="containerAddress">
-                        <div id="address">
-                            <h6>Adresse</h6>
-                            <p>20 avenue Notre-Dame </br>
-                                06000 Nice</p>
-                        </div>
-                        <div id="phoneNumber"></div>
-                        <h6>Téléphone:</h6>
-                        <p>04-32-16-32-16</p>
+                        <p> <span id="h6"> Adresse</span>
+                            <br>
+                            20 avenue Notre-Dame </br>
+                            06000 Nice <br>
+                            <span id="h6">Téléphone:</span>
+                                <br>
+                                04-32-16-32-16
+                        </p>
                     </div>
                 </div>
             </div>
@@ -292,3 +291,5 @@ $titre = "Accueil";
                 </a>
             </h1>
         </footer>
+
+        <script src="./js/home.js"></script>

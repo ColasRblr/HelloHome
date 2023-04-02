@@ -297,7 +297,7 @@ h5 {
   text-transform: uppercase;
 }
 
-h6 {
+#h6 {
   color: #c58b03;
   font-family: "Palanquin", sans-serif;
   text-transform: uppercase;
@@ -326,6 +326,7 @@ h6 {
   color: white;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 #agencyTitle {
@@ -356,17 +357,17 @@ h6 {
 /* CONTACT SECTION */
 
 #contactContent {
-  justify-content: space-between;
+  justify-content: center;
   min-height: 50vh;
   width:100%;
 }
 
-#contactDetails {
+/* #contactDetails {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   width:100%;
-}
+} */
 
 #containerMap {
   display: flex;
