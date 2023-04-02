@@ -4,6 +4,10 @@ header {
   height: fit-content;
 }
 
+#responsiveMenu{
+ display: none !important;
+}
+
 .navbar {
   display: flex;
   position: fixed;
@@ -35,17 +39,11 @@ header {
 /* LANDING PAGE WITH BACKGROUND PICTURE */
 
 #landingPage {
-  height: 120vh;
+  height: 100vh;
   background: url(../asset/nice.jpg) no-repeat center center;
   background-position: cover;
   display: flex;
   justify-content: center;
-}
-
-.navbar ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
 }
 
 #researchForm {
@@ -53,11 +51,15 @@ header {
   position: absolute;
   top: 17vh;
   padding-bottom: 2px;
-  width: 40%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   border-radius: 13px;
   align-items: center;
+}
+
+#insideForm{
+  display: flex;
 }
 
 #researchFormContent {
@@ -126,6 +128,7 @@ input[type="radio"].firstBtn.sale:checked + label {
 #price {
   display: flex;
   justify-content: space-between;
+  padding-right: 0.3em;
 }
 
 label,
@@ -177,6 +180,7 @@ label,
   box-shadow: #4c2702 2px 2px;
   padding: 0.2em;
   font-family: "Palanquin", sans-serif;
+  margin : 1em;
 }
 #visitBtn {
   margin-bottom: 0.2em;
@@ -213,6 +217,9 @@ label,
   margin-bottom: 2em;
   display: flex;
   flex-direction: column;
+}
+#resultsTitle {
+  margin-bottom: -7em;
 }
 
 /*  SPOTLIGHT 3 LAST PROPERTIES */
@@ -251,6 +258,7 @@ label,
   top: 35%;
   /* box-shadow:3px 3px 3px rgb(0, 0, 0); */
   box-shadow: rgba(19, 19, 20, 0.2) 0px 7px 29px 0px;
+  padding-bottom: 0.5em;
 }
 
 .propertyPreview > div {
@@ -258,9 +266,6 @@ label,
   font-family: "Palanquin", sans-serif;
 }
 
-#resultsTitle {
-  margin-bottom: -2em;
-}
 
 /* GENERAL */
 
@@ -284,7 +289,7 @@ body {
 
 h4 {
   color: #c58b03;
-  font-size: 30px;
+  font-size: 26px;
   margin-bottom: 0.5em;
   font-family: "Palanquin", sans-serif;
   text-transform: uppercase;
@@ -295,6 +300,7 @@ h5 {
   margin-top: 1em;
   font-family: "Palanquin", sans-serif;
   text-transform: uppercase;
+  font-size:26px;
 }
 
 #h6 {
@@ -327,6 +333,7 @@ h5 {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom : 1em;
 }
 
 #agencyTitle {
@@ -340,7 +347,7 @@ h5 {
 }
 
 #descriptionAgency {
-  font-size: 23px;
+  font-size: 20px;
   padding: 0.3em;
   font-family: "Palanquin", sans-serif;
 }
@@ -371,7 +378,7 @@ h5 {
 
 #containerMap {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 #containerAddress {
@@ -426,14 +433,114 @@ h5 {
 }
 
 /* MEDIA QUERIES */
-@media (max-width: 768px) {
 
-  #contactContent {
-  flex-direction: column;
+@media (max-width: 1084px) {
+  
+  #helloHomeLogo {
+width : 110px;
   }
 
-  #containerMap {
- justify-content: space-between;
+  #landingPage {
+    height: 140vh;
+   
+  }
+#researchForm {
+  width: 60%;
+}
+
+#insideForm{
+  flex-direction: column;
+}
+
+  #lastProperties {
+   flex-wrap: wrap;
+   height:fit-content;
+  }
+  
+  .propertyCard {
+    width: 45%;
+    margin-top: 10em;
+    margin-bottom : 8em;
+  }
+
+  #spotlightTitle{
+    margin-bottom : -6em;
+  }
+  #helloHomeDescription {
+    height: 45vh;
+  }
+
+   #containerMap {
+    flex-direction: column;
   }
 
 }
+@media (max-width: 768px) {
+
+  .homePageTitles {
+  font-size: 25px;
+  }
+
+
+  #descriptionAgency {
+    font-size: 16px;
+
+  }
+
+  #lastProperties {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #desktopMenu {
+    display: none;
+  }
+
+  #responsiveMenu {
+    display: block !important;
+   }
+  
+  #navBarResponsive{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .propertyCard {
+    margin-top: 6em;
+    width: 85%;
+  }
+  
+  .propertyPreview {
+    top: 55%;
+  }
+   
+}
+
+@media (max-width : 480px) {
+  
+#researchForm {
+
+  width: 85%;
+  
+}
+
+  label,
+input, select, button {
+  font-size: 16px;
+}
+
+.propertyPreview > div {
+  font-size: 16px;
+}
+
+h5{
+  font-size: 20px;
+}
+
+#map {
+  width: 250px;
+  margin-bottom : 1em;
+}
+
+  }
