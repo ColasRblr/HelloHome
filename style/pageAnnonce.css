@@ -47,6 +47,13 @@ img {
   margin: 30px 80px;
 }
 
+
+header {
+  width: 100vw;
+  height: fit-content;
+}
+
+
 .navbar {
   display: flex;
   position: fixed;
@@ -302,11 +309,13 @@ ul li:before {
   display: block;
 }
 
+
 .photoInfo img {
   display: block;
   max-width: 100%;
   height: auto;
 }
+
 
 #cadreInfo {
   position: absolute;
@@ -367,6 +376,7 @@ ul li:before {
 }
 
 
+
 footer {
   text-align: center;
   font-size: 15px;
@@ -381,4 +391,5 @@ footer h1 {
   font-size: 15px;
   color: black;
 }
+
 
