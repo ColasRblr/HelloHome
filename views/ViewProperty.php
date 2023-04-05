@@ -224,12 +224,3 @@
     </section>
   </div>
 
-
-  <footer>
-    <h1 id="footer">
-      Mentions légales | 2023 |
-      <a href="?action=dashboardConnection">
-        Dashboard
-      </a>
-    </h1>
-  </footer>

@@ -16,7 +16,6 @@ img {
   margin: 0 auto;
 }
 
-
 #logoAnnonce {
   position: absolute;
   bottom: 690px;
@@ -41,26 +40,24 @@ img {
 .houseName {
   margin: 30px 80px;
   font-size: 5px;
-
 }
 
 .annonceTitle {
   color: #c58b03;
   margin: 30px 80px;
-
-
 }
+
 
 header {
   width: 100vw;
   height: fit-content;
 }
 
+
 .navbar {
-  top: 0;
   display: flex;
   position: fixed;
-  width: 100%;
+  width:100%;
   justify-content: space-between;
   background-color: rgba(0, 0, 0, 0.364);
   z-index: 1;
@@ -78,7 +75,6 @@ header {
 
 .navbar li {
   float: right;
-
 }
 
 .navbar li a {
@@ -90,7 +86,6 @@ header {
 }
 
 .navbar li a:hover {
-
   background-color: #ddd;
   color: black;
 }
@@ -100,9 +95,6 @@ header {
   top: -47px;
   left: 10px;
 }
-
-
-
 
 #menuAnnonce ul {
   list-style: none;
@@ -134,7 +126,6 @@ header {
   opacity: 1;
 }
 
-
 .divAnnonce {
   display: flex;
   flex-direction: row;
@@ -152,7 +143,6 @@ header {
 }
 
 hr {
-
   height: 1px;
   border: none;
   width: 53px;
@@ -168,7 +158,6 @@ hr {
   margin-left: 30px;
   padding: 100px;
   background-color: rgb(250, 249, 249);
-
 }
 
 .decouverte {
@@ -180,7 +169,6 @@ hr {
 .decouverteHouse hr {
   margin-top: 40px;
   margin: 20px 0;
-
 }
 
 #texteAnnonce {
@@ -215,9 +203,7 @@ h3 {
   justify-content: space-between;
 }
 
-
-.main>div {
-
+.main > div {
   flex: 1;
   margin: -85px 10px;
   padding: 10px;
@@ -235,7 +221,6 @@ h3 {
   color: #c58b03;
   text-align: start;
   margin: 45px 50px;
-
 }
 
 .infoHouseAnnonce h1 {
@@ -324,10 +309,13 @@ ul li:before {
   display: block;
 }
 
-.photoInfo {
-  position: relative;
-  height: 400px;
+
+.photoInfo img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
+
 
 #cadreInfo {
   position: absolute;
@@ -351,7 +339,6 @@ ul li:before {
   padding: 10px;
 }
 
-
 .infoH3 .p {
   border: 1px solid orange;
   padding: 10px;
@@ -367,7 +354,6 @@ ul li:before {
   border-radius: 10px;
   opacity: 0.5;
 }
-
 
 .infoH3 .e {
   border: 1px solid orange;
@@ -389,10 +375,21 @@ ul li:before {
   font-size: 30px;
 }
 
-#footer {
+
+
+footer {
   text-align: center;
   font-size: 15px;
-  padding: 10px;
+  padding: 0;
   opacity: 0.5;
+  margin: 0;
+  overflow: hidden;
 }
+
+footer h1 {
+  text-align: center;
+  font-size: 15px;
+  color: black;
+}
+
 
