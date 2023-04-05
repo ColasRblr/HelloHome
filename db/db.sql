@@ -228,7 +228,8 @@ VALUES ('23/03/2023', 'disponible', 19);
 INSERT INTO sale (id_transaction, selling_price) VALUES (LAST_INSERT_ID(), 1950000);
 INSERT INTO transaction_type (transaction_onlineDate, transaction_status, id_property) 
 VALUES ('23/03/2023', 'disponible', 20);
-INSERT INTO sale (id_transaction, selling_price) VALUES (LAST_INSERT_ID(), 93000);
+INSERT INTO sale (id_transaction, selling_price) VALUES (LAST_INSERT_ID(), 930000);
+
 
 
 INSERT INTO picture (id_property, picture_description, picture_url) VALUES

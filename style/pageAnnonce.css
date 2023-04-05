@@ -46,11 +46,11 @@ img {
   color: #c58b03;
   margin: 30px 80px;
 }
+
 .navbar {
-  top: 0;
   display: flex;
   position: fixed;
-  width: 100%;
+  width:100%;
   justify-content: space-between;
   background-color: rgba(0, 0, 0, 0.364);
   z-index: 1;
@@ -301,6 +301,7 @@ ul li:before {
   color: #c58b03;
   display: block;
 }
+
 .photoInfo img {
   display: block;
   max-width: 100%;
@@ -309,7 +310,7 @@ ul li:before {
 
 #cadreInfo {
   position: absolute;
-  top: 3700px;
+  top: 150%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
@@ -365,6 +366,7 @@ ul li:before {
   font-size: 30px;
 }
 
+
 footer {
   text-align: center;
   font-size: 15px;
@@ -379,3 +381,4 @@ footer h1 {
   font-size: 15px;
   color: black;
 }
+
