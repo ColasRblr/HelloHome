@@ -4,8 +4,8 @@ header {
   height: fit-content;
 }
 
-#responsiveMenu{
- display: none !important;
+#responsiveMenu {
+  display: none !important;
 }
 
 .navbar {
@@ -58,7 +58,7 @@ header {
   align-items: center;
 }
 
-#insideForm{
+#insideForm {
   display: flex;
 }
 
@@ -180,7 +180,7 @@ label,
   box-shadow: #4c2702 2px 2px;
   padding: 0.2em;
   font-family: "Palanquin", sans-serif;
-  margin : 1em;
+  margin: 1em;
 }
 #visitBtn {
   margin-bottom: 0.2em;
@@ -266,7 +266,6 @@ label,
   font-family: "Palanquin", sans-serif;
 }
 
-
 /* GENERAL */
 
 body {
@@ -300,7 +299,7 @@ h5 {
   margin-top: 1em;
   font-family: "Palanquin", sans-serif;
   text-transform: uppercase;
-  font-size:26px;
+  font-size: 26px;
 }
 
 #h6 {
@@ -333,7 +332,7 @@ h5 {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom : 1em;
+  padding-bottom: 1em;
 }
 
 #agencyTitle {
@@ -366,7 +365,7 @@ h5 {
 #contactContent {
   justify-content: center;
   min-height: 50vh;
-  width:100%;
+  width: 100%;
 }
 
 /* #contactDetails {
@@ -435,56 +434,50 @@ h5 {
 /* MEDIA QUERIES */
 
 @media (max-width: 1084px) {
-  
   #helloHomeLogo {
-width : 110px;
+    width: 110px;
   }
 
   #landingPage {
     height: 140vh;
-   
   }
-#researchForm {
-  width: 60%;
-}
+  #researchForm {
+    width: 60%;
+  }
 
-#insideForm{
-  flex-direction: column;
-}
+  #insideForm {
+    flex-direction: column;
+  }
 
   #lastProperties {
-   flex-wrap: wrap;
-   height:fit-content;
+    flex-wrap: wrap;
+    height: fit-content;
   }
-  
+
   .propertyCard {
     width: 45%;
     margin-top: 10em;
-    margin-bottom : 8em;
+    margin-bottom: 8em;
   }
 
-  #spotlightTitle{
-    margin-bottom : -6em;
+  #spotlightTitle {
+    margin-bottom: -6em;
   }
   #helloHomeDescription {
     height: 45vh;
   }
 
-   #containerMap {
+  #containerMap {
     flex-direction: column;
   }
-
 }
 @media (max-width: 768px) {
-
   .homePageTitles {
-  font-size: 25px;
+    font-size: 25px;
   }
-
 
   #descriptionAgency {
     font-size: 16px;
-
   }
 
   #lastProperties {
@@ -492,16 +485,16 @@ width : 110px;
     flex-direction: column;
     align-items: center;
   }
-  
+
   #desktopMenu {
     display: none;
   }
 
   #responsiveMenu {
     display: block !important;
-   }
-  
-  #navBarResponsive{
+  }
+
+  #navBarResponsive {
     display: flex;
     flex-direction: column;
   }
@@ -510,37 +503,34 @@ width : 110px;
     margin-top: 6em;
     width: 85%;
   }
-  
+
   .propertyPreview {
     top: 55%;
   }
-   
 }
 
-@media (max-width : 480px) {
-  
-#researchForm {
-
-  width: 85%;
-  
-}
+@media (max-width: 480px) {
+  #researchForm {
+    width: 85%;
+  }
 
   label,
-input, select, button {
-  font-size: 16px;
-}
-
-.propertyPreview > div {
-  font-size: 16px;
-}
-
-h5{
-  font-size: 20px;
-}
-
-#map {
-  width: 250px;
-  margin-bottom : 1em;
-}
-
+  input,
+  select,
+  button {
+    font-size: 16px;
   }
+
+  .propertyPreview > div {
+    font-size: 16px;
+  }
+
+  h5 {
+    font-size: 20px;
+  }
+
+  #map {
+    width: 250px;
+    margin-bottom: 1em;
+  }
+}
