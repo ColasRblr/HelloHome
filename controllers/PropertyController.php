@@ -9,7 +9,6 @@ require_once './models/House.php';
 require_once './models/Apartment.php';
 require_once './models/Picture.php';
 require_once './controllers/TransactionController.php';
-//include './models/Connection.php';
 require_once 'models/Connection.php';
 
 require_once './controllers/UserController.php';
@@ -43,7 +42,6 @@ class PropertyController
     public function home()
     {
         $displayLastProperties = $this->displayLastProperties();
-        // $displayLastProperties = "hello";
         $view = new View("Home");
         $view->generer(array('displayLastProperties' => $displayLastProperties));
     }
@@ -52,7 +50,6 @@ class PropertyController
     public function getTypesByPropertyId($id_property)
     {
         if ($this->apartment->getOneApartment($id_property)) {
-            // echo "toto";
             $propertyType = "apartment";
             $transactionId = $this->transaction->getOneTransaction($id_property);
             if ($this->sale->getOneSale($transactionId["id"])) {
@@ -60,8 +57,7 @@ class PropertyController
             } else if ($this->rental->getOneRental($transactionId["id"])) {
                 $transactionType = "rental";
             }
-        } elseif ($this->house->getOneHouse($id_property)) {
-
+        } else if ($this->house->getOneHouse($id_property)) {
             $propertyType = "house";
             $transactionId = $this->transaction->getOneTransaction($id_property);
             if ($this->sale->getOneSale($transactionId["id"])) {
@@ -85,7 +81,8 @@ class PropertyController
         //Looping on 3 last properties : execute queries to select all datas we need to display 3 last properties
         for ($i = 0; $i < count($lastProperties); $i++) {
             $getTypes[$i] = $this->getTypesByPropertyId($lastProperties[$i]["id"]);
-            $request[$i] = $this->property->getDetailsLastProperties($getTypes[$i]['id'], $getTypes[$i]['type'], $getTypes[$i]['transaction']);
+            $request[$i] = $this->property->getDetailsLastProperties($getTypes[$i]['id'],
+            $getTypes[$i]['type'], $getTypes[$i]['transaction']);
         }
         return $request;
     }
@@ -623,6 +620,7 @@ class PropertyController
                 $where .= $v . $and;
             }
         }
+        // var_dump($propertyType, $transactionStatus, $where, $params);
         $researchedProperties = $this->property->getProperties($propertyType, $transactionStatus, $where, $params);
         $displayLastProperties = $this->displayLastProperties();
         $view = new View("Home");

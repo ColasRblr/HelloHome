@@ -80,22 +80,6 @@ class Property extends Connection
         return $detailAffichageProperty;
     }
 
-
-    /*     public function getAffichageProperty($id_property, $property_type, $property_transaction)
-{
-    $sql = "SELECT * FROM property 
-    JOIN $property_type ON property.id = $property_type.property_id 
-    JOIN transaction_type ON property.id = transaction_type.property_id 
-    JOIN $property_transaction ON transaction_type.transaction_id = $property_transaction.transaction_id 
-    JOIN picture ON property.id=picture.property_id 
-    WHERE property.id = ?";
-    $results = $this->executerRequete($sql, array($id_property));
-    $detailAffichageProperty = $results->fetchAll();
-
-    return $detailAffichageProperty;
-} */
-
-
     public function getPropertyType($id_property)
     {
         $sql = "SELECT COUNT(*) FROM house WHERE id_property = ?;";
@@ -129,21 +113,11 @@ class Property extends Connection
         return $researchedProperties;
     }
 
-    public static function getHouses()
-    {
-        $pdo = new PDO('mysql:host=localhost;dbname=poo_immo', 'root', '');
 
-        $stmt = $pdo->query("SELECT * FROM properties WHERE type = 'house'");
-        $houses = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        return $houses;
-    }
     public function deleteProperty($id_property)
     {
         $sql = "DELETE FROM property WHERE id =?;";
         $this->executerRequete($sql, array($id_property));
-        // $propertiesNumber = $result->fetchAll();
-
     }
 
     public function getOneProperty($id_property)

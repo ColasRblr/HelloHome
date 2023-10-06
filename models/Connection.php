@@ -1,12 +1,9 @@
 <?php
-// var_dump($_ENV);
-
-
 require __DIR__ . '/../vendor/autoload.php';
 
 use Dotenv\Dotenv;
 
-$dotenv = Dotenv::createImmutable(dirname(dirname(__DIR__)) . '/POO_Immo');
+$dotenv = Dotenv::createImmutable(dirname(dirname(__DIR__)) . '/hellohome');
 
 $dotenv->load();
 
@@ -25,8 +22,6 @@ class Connection
         return $resultat;
     }
 
-
-
     public function getBdd()
     {
 
@@ -37,14 +32,8 @@ class Connection
                 $_ENV['PASSWORD'],
                 $_ENV['DB_USER'],
 
-                //  'mysql:host=localhost;dbname=poo_immo;charset=utf8',
-                //  'root',
-                //  '',
-
                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
             );
-            // echo "connexion réussie !";
-
         }
 
         return $this->bdd;

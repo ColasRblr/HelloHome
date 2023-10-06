@@ -1,3 +1,42 @@
+
+header {
+  width: 100vw;
+  height: fit-content;
+}
+
+#responsiveMenu{
+ display: none !important;
+}
+
+.navbar {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.364);
+  padding-right: 1em;
+  z-index: 2;
+}
+
+.navbar ul {
+  list-style-type: none;
+  display: flex;
+  font-family: "Palanquin", sans-serif;
+}
+
+.navbar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar li a:hover {
+  color: black;
+}
+
+
 body {
   /* background: url("./../asset/img/appartement-photo.jpg"); */
   font-family: Arial, sans-serif;
@@ -51,56 +90,11 @@ img {
 
 }
 
-header {
-  width: 100vw;
-  height: fit-content;
-}
-
-.navbar {
-  display: flex;
-  position: fixed;
-  width:100%;
-  justify-content: space-between;
-  background-color: rgba(0, 0, 0, 0.364);
-  z-index: 1;
-
-  padding-right: 1em;
-  z-index: 2;
-}
-
-.navbar ul {
-  list-style-type: none;
-
-  margin: 0;
-  padding: 0;
-}
-
-.navbar li {
-  float: right;
-
-}
-
-.navbar li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-.navbar li a:hover {
-
-  background-color: #ddd;
-  color: black;
-}
-
 #logoAnnonce {
   position: absolute;
   top: -47px;
   left: 10px;
 }
-
-
 
 
 #menuAnnonce ul {
@@ -121,26 +115,25 @@ header {
   font-weight: bold;
 }
 
+.top {
+  display: flex;
+}
+
 #annonceVente {
-  position: absolute;
-  top: 250px;
-  left: 0;
   margin-left: 30px;
   background-color: rgba(255, 255, 255, 0.8);
+  margin-top : 100px;
   padding: 50px;
   width: 350px;
   height: 340px;
   opacity: 1;
 }
 
-
 .divAnnonce {
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: space-around;
   padding: 30px;
-  margin: 0 5px;
 }
 
 .divAnnonce p {
@@ -159,13 +152,9 @@ hr {
   margin: 20px 80px;
   border-top: 3px solid #c58b03;
 }
-.decouverteHouse {
-  /* margin: 50px; */
 
-  top: 250px;
-  left: 0;
-  margin-left: 30px;
-  padding: 100px;
+.decouverteHouse {
+  padding: 50px;
   background-color: rgb(250, 249, 249);
 
 }
@@ -205,8 +194,7 @@ h3 {
 }
 
 #appareilPhotoAnnonce img {
-  width: 620px;
-  height: 460px;
+  width: 420px;
 }
 
 .main {
@@ -216,7 +204,6 @@ h3 {
 
 
 .main>div {
-
   flex: 1;
   margin: -85px 10px;
   padding: 10px;
@@ -225,8 +212,7 @@ h3 {
 .infoHouseAnnonce,
 #infoDetailAgence {
   background-color: rgb(250, 249, 249);
-  height: 600px;
-  width: 600px;
+  height: 400px;
   margin: 100px auto;
 }
 
@@ -266,47 +252,6 @@ ul li:before {
   content: "";
 }
 
-#agent {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 10px;
-}
-
-#agent {
-  display: flex;
-  align-items: center;
-  padding: 20px;
-}
-
-#agent img {
-  width: 150px;
-  height: 150px;
-  margin: 10px 30px;
-  margin-top: -25px;
-}
-
-#sendMSG {
-  margin-top: 30px;
-  background-color: black;
-  color: white;
-  padding: 15px;
-  text-align: center;
-  width: 180px;
-}
-
-#agent div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 200px;
-  width: 300px;
-}
-
-#readAgent {
-  margin-top: -15px;
-}
 
 #infoDetailHouse li {
   text-align: start;
@@ -388,10 +333,11 @@ ul li:before {
   font-size: 30px;
 }
 
+/* FOOTER */
+
 #footer {
   text-align: center;
   font-size: 15px;
   padding: 10px;
   opacity: 0.5;
 }
-

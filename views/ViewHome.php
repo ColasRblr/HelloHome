@@ -203,7 +203,7 @@ $titre = "Accueil";
                         }
                 } ?>
                 </div>
-
+                
                 <!-- Last/spotlight properties  -->
                 <div class="homePageTitles" id="spotlightTitle">Nos biens à la une</div>
                 <div id="lastProperties">
@@ -243,7 +243,6 @@ $titre = "Accueil";
                 <!--  HELLOHOME presentation text-->
 
                 <div id="helloHomeAgency">
-                        <div class="homePageTitles" id="agencyTitle">Hello Home</div>
                         <div id="helloHomeDescription">
                                 <div id="containerIllustrationAgency">
                                         <img src="asset/hellohome_1.png" alt="real estate agency illustration" id="agency-img">
@@ -288,7 +287,7 @@ $titre = "Accueil";
                                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2884.3071215915875!2d7.265751115797838!3d43.70416617911946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12cddaa88a077eed%3A0x4218e3ddc48aeb4c!2s20%20Avenue%20Notre%20Dame%2C%2006000%20Nice!5e0!3m2!1sfr!2sfr!4v1679902199416!5m2!1sfr!2sfr" width="350" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="map"></iframe>
                                         </div>
                                         <div id="containerAddress">
-                                                <p> </br><span id="h6">Adresse</span>
+                                                </br><span id="h6">Adresse</span>
 
                                                         </br></br>
                                                         20 avenue Notre-Dame </br>
@@ -300,7 +299,6 @@ $titre = "Accueil";
                                                         <br>04-32-16-32-16
                                                         </br>
                                                         <br> Nous envoyer un <a href="mailto: hellohome.realestate@yahoo.fr">email </a>
-                                                </p>
                                         </div>
                                 </div>
                         </div>

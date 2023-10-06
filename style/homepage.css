@@ -1,4 +1,5 @@
 /* HEADER */
+
 header {
   width: 100vw;
   height: fit-content;
@@ -172,13 +173,14 @@ label,
 #searchFormBtn,
 #contactBtn,
 #visitBtn {
+  cursor: pointer;
   border-radius: 10px;
   background-color: #924f0b;
   color: #fff;
   font-size: 1.1em;
   border-style: none;
   box-shadow: #4c2702 2px 2px;
-  padding: 0.2em;
+  padding: 0.4em;
   font-family: "Palanquin", sans-serif;
   margin : 1em;
 }
@@ -200,7 +202,7 @@ label,
   display: flex;
   width: 100vw;
   justify-content: space-around;
-  margin-bottom: 4em;
+  margin-bottom: 9em;
   flex-wrap: wrap;
   height: fit-content;
 }
@@ -331,9 +333,12 @@ h5 {
   background-color: #094351;
   color: white;
   display: flex;
-  align-items: center;
-  justify-content: center;
   padding-bottom : 1em;
+}
+
+#helloHomeDescription {
+  justify-content: center;
+  align-items: center;
 }
 
 #agencyTitle {
@@ -369,16 +374,9 @@ h5 {
   width:100%;
 }
 
-/* #contactDetails {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width:100%;
-} */
-
 #containerMap {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 #containerAddress {
@@ -386,10 +384,14 @@ h5 {
   flex-direction: column;
 }
 
-#contactForm,
-#contactDetails {
-  width: 50%;
+#contactForm{
+  width: 40%;
   padding-left: 1em;
+}
+
+#contactDetails {
+  width: 60%;
+  padding-right: 1em;
 }
 
 #contact {
@@ -407,7 +409,7 @@ h5 {
 #contactDiv,
 #messageDiv {
   display: flex;
-  width: 100%;
+  width: 70%;
   justify-content: space-around;
   margin: 0.5em;
 }
@@ -420,7 +422,7 @@ h5 {
 #firstNameInput,
 #phoneInput,
 #emailInput {
-  width: 50%;
+  width: 45%;
 }
 
 /* FOOTER */

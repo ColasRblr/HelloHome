@@ -2,28 +2,34 @@
 
 </head>
 
-<body>
-  <header>
-    <div id="imageBackground">
-      <img src="./asset/img/<?= $picture[0]["picture_url"] ?>" alt="Une villa splendide">
-    </div>
-    <div class="navbar">
-      <div id="logo">
-        <a href="?action=backToHomePage">
-          <img src="asset/hellohome_1.png" width="150px" alt="hellohome logo">
-        </a>
-      </div>
-      <div id="links">
-        <ul>
-          <li><a href="#" onclick="rtn()">Accueil</a></li>
-          <li><a href="#decouverteHouse">Le Bien</a></li>
-          <li><a href="#pics">Photos</a></li>
-          <li><a href="#infoTitleAnnonce">Informations essentielles</a></li>
-        </ul>
-      </div>
-    </div>
-  </header>
 
+<body>
+
+<header>
+    <div class="navbar">
+            <div id="logo">
+                    <a href="?action=dashboardConnection">
+                            <img src="asset/hellohome_1.png" width="150px" alt="hellohome logo" id="helloHomeLogo">
+                    </a>
+            </div>
+            <ul id="desktopMenu">
+                    <li><a href="?action=backToHomePage">Retour à l'accueil</a></li>
+            </ul>
+            <!-- BOOTSTRAP MENU BURGER FOR RESPONSIVE DEVICES -->
+            <div id="responsiveMenu">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"><i class="bi bi-list text-light"></i></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul id="navBarResponsive">
+                            <li><a href="?action=backToHomePage">Retour à l'accueil</a></li>
+                    </div>
+            </div>
+    </div>
+
+        </header>
+  
+<div class="top">
   <div id="annonceVente">
 
     <p class="vente">
@@ -58,7 +64,10 @@
       </div>
     </div>
   </div>
-
+  <div id="imageBackground">
+      <img src="./asset/img/<?= $picture[0]["picture_url"] ?>" alt="Une villa splendide">
+  </div>
+</div>
 
   <section class="decouverteHouse" id="decouverteHouse">
     <h1 class="decouverte">Découvrez <?= $displayProperty[0]["property_name"] ?> </h1>
@@ -214,13 +223,13 @@
 
       </ul>
       <hr>
-      <div id="agent">
-        <img src="asset/img/agent.jpg" alt="">
-        <div>
-          <p id="readAgent">Solenne vous accompagne<br>à la découverte de ce bien !</p>
-          <p id="sendMSG">Envoyer un message -></p>
-        </div>
-      </div>
     </section>
   </div>
-
+  <footer>
+    <h1 id="footer">
+            Mentions légales | 2023 |
+            <a href="?action=dashboardConnection">
+                    Dashboard
+            </a>
+    </h1>
+  </footer>
